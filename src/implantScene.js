@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export function initScene() {
   const container = document.getElementById("canvas-container");
@@ -24,29 +25,50 @@ export function initScene() {
   container.appendChild(renderer.domElement);
 
   // --- Objects ---
+  let implant; // Will hold the loaded model
 
-  // 1. Abstract Implant (Cylinder with ridges)
-  const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    metalness: 0.9,
-    roughness: 0.2,
-    wireframe: false,
-  });
-  const implant = new THREE.Mesh(geometry, material);
+  const loader = new GLTFLoader();
+  loader.load(
+    "/assets/models/abutment.glb",
+    (gltf) => {
+      implant = gltf.scene;
 
-  // Add some "threads" using a texture or displacement (simplified here with wireframe overlay or just geometry segments)
-  // For a "wow" effect, let's add a glowing wireframe surrounding it
-  const wireframeGeo = new THREE.WireframeGeometry(geometry);
-  const wireframeMat = new THREE.LineBasicMaterial({
-    color: 0x00d4ff,
-    transparent: true,
-    opacity: 0.1,
-  });
-  const wireframe = new THREE.LineSegments(wireframeGeo, wireframeMat);
-  implant.add(wireframe);
+      // Center and scale the model
+      const box = new THREE.Box3().setFromObject(implant);
+      const center = box.getCenter(new THREE.Vector3());
+      const size = box.getSize(new THREE.Vector3());
 
-  scene.add(implant);
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const scale = 4 / maxDim; // Scale to fit nicely
+      implant.scale.setScalar(scale);
+
+      implant.position.sub(center.multiplyScalar(scale)); // Center it
+
+      // Material adjustments if needed (e.g. make it shiny)
+      implant.traverse((child) => {
+        if (child.isMesh) {
+          child.material.metalness = 0.8;
+          child.material.roughness = 0.2;
+          child.material.color.set(0xffffff); // Ensure it reflects light well
+        }
+      });
+
+      scene.add(implant);
+    },
+    undefined,
+    (error) => {
+      console.error("An error happened loading the model:", error);
+      // Fallback to cylinder if load fails
+      const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        metalness: 0.9,
+        roughness: 0.2,
+      });
+      implant = new THREE.Mesh(geometry, material);
+      scene.add(implant);
+    }
+  );
 
   // 2. Particles
   const particlesGeometry = new THREE.BufferGeometry();
@@ -110,31 +132,30 @@ export function initScene() {
     targetX = mouseX * 0.001;
     targetY = mouseY * 0.001;
 
-    // Rotate Implant
-    implant.rotation.y += 0.005;
-    implant.rotation.x += 0.002;
+    if (implant) {
+      // Rotate Implant
+      implant.rotation.y += 0.005;
+      // implant.rotation.x += 0.002; // Usually better to rotate mostly on Y for products
 
-    // Interactive Rotation
-    implant.rotation.y += 0.05 * (targetX - implant.rotation.y);
-    implant.rotation.x += 0.05 * (targetY - implant.rotation.x);
+      // Interactive Rotation
+      implant.rotation.y += 0.05 * (targetX - implant.rotation.y);
+      implant.rotation.x += 0.05 * (targetY - implant.rotation.x);
 
-    // Scroll Effect
-    // Move the implant to the side as we scroll down to make room for text
-    const scrollPercent =
-      scrollY / (document.body.scrollHeight - window.innerHeight);
+      // Scroll Effect
+      const scrollPercent =
+        scrollY / (document.body.scrollHeight - window.innerHeight);
 
-    // Smoothly interpolate position based on scroll
-    // Start center (0,0,0) -> Move right (2,0,0) as we scroll
-    implant.position.x = THREE.MathUtils.lerp(
-      implant.position.x,
-      scrollPercent * 3,
-      0.1
-    );
-    implant.position.z = THREE.MathUtils.lerp(
-      implant.position.z,
-      scrollPercent * -2,
-      0.1
-    ); // Move back slightly
+      implant.position.x = THREE.MathUtils.lerp(
+        implant.position.x,
+        scrollPercent * 3,
+        0.1
+      );
+      implant.position.z = THREE.MathUtils.lerp(
+        implant.position.z,
+        scrollPercent * -2,
+        0.1
+      );
+    }
 
     // Particles animation
     particlesMesh.rotation.y = -elapsedTime * 0.05;
