@@ -69,30 +69,46 @@ export const HomePage = () => {
     </div>
   `;
 
-  // 2. TRUST STRIP
+  // 2. INTRO & USPs
   const trustSection = createElement(
     "section",
-    "py-12 bg-white border-b border-gray-100"
+    "py-20 bg-white border-b border-gray-100"
   );
   trustSection.innerHTML = `
     <div class="max-w-screen-2xl mx-auto px-8">
-      <div class="flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-        <!-- Placeholders for Certifications/Logos -->
-        <div class="flex items-center gap-3">
-            <span class="text-4xl">🇩🇪</span>
-            <span class="font-bold text-xl text-gray-800">MADE IN GERMANY</span>
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-heading font-bold text-gray-900 mb-4">Redefining Implantology</h2>
+        <p class="text-gray-600 text-lg">
+            MGM Implant combines German engineering precision with biological excellence to create solutions that last a lifetime.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+        <div class="space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+            <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center text-3xl text-cyan-600">
+                🛡️
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">Uncompromised Quality</h3>
+            <p class="text-gray-600">
+                Made in Germany with premium-grade titanium and rigorous 100% quality control.
+            </p>
         </div>
-        <div class="flex items-center gap-3">
-            <span class="text-4xl">🛡️</span>
-            <span class="font-bold text-xl text-gray-800">ISO 13485 CERTIFIED</span>
+        <div class="space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+            <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center text-3xl text-cyan-600">
+                🔬
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">Advanced Technology</h3>
+            <p class="text-gray-600">
+                Featuring our proprietary M-Pure Surface for superior osseointegration and healing.
+            </p>
         </div>
-        <div class="flex items-center gap-3">
-            <span class="text-4xl">🇪🇺</span>
-            <span class="font-bold text-xl text-gray-800">CE APPROVED</span>
-        </div>
-        <div class="flex items-center gap-3">
-            <span class="text-4xl">🏥</span>
-            <span class="font-bold text-xl text-gray-800">CLINICALLY PROVEN</span>
+        <div class="space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+            <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center text-3xl text-cyan-600">
+                🤝
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">Lifetime Guarantee</h3>
+            <p class="text-gray-600">
+                We stand by our products with a 100% lifetime guarantee for your peace of mind.
+            </p>
         </div>
       </div>
     </div>
@@ -291,60 +307,112 @@ export const AboutPage = () => {
   section.style.backgroundColor = "rgba(10, 14, 23, 0.9)";
 
   section.innerHTML = `
-      <div class="max-w-6xl mx-auto space-y-16">
-        <div class="text-center space-y-4">
+      <div class="max-w-6xl mx-auto space-y-20">
+        <!-- Intro -->
+        <div class="text-center space-y-6">
           <h2 class="font-heading text-5xl md:text-6xl font-bold text-white">About MGM Implant</h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Since 2008, we have been dedicated to redefining dental implantology through innovation, quality, and continuous improvement.
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            MGM IMPLANT has specialized in implantology since 2008, adopting the highest quality standards under the ISO 13485 quality management system. Based in Hilden and Aachen, we maintain a strong sales and service network worldwide.
           </p>
         </div>
 
+        <!-- Vision & Mission -->
         <div class="grid md:grid-cols-2 gap-12">
-          <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-4">
+          <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-6">
             <div class="text-cyan-400 text-5xl mb-4">🎯</div>
-            <h3 class="font-heading text-2xl font-bold text-white">Our Mission</h3>
-            <p class="text-gray-300 leading-relaxed">
-              To provide world-class dental implant solutions that combine cutting-edge technology with biological excellence, ensuring the highest success rates for patients worldwide.
-            </p>
+            <h3 class="font-heading text-3xl font-bold text-white">Vision & Mission</h3>
+            <ul class="space-y-4 text-gray-300">
+                <li class="flex gap-3">
+                    <span class="text-cyan-400 font-bold">•</span>
+                    <span><strong>Goal:</strong> Building smart, easy, and safe implants to facilitate the lives of patients and doctors.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cyan-400 font-bold">•</span>
+                    <span><strong>History:</strong> Started in 2008 producing "smartest and easiest and best bone friendly implants".</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-cyan-400 font-bold">•</span>
+                    <span><strong>Future:</strong> Changing industry standards by using matchless German manufacturers and creating a revolution in implant dentistry that is easier, safer, faster, and more economical.</span>
+                </li>
+            </ul>
           </div>
 
-          <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-4">
-            <div class="text-cyan-400 text-5xl mb-4">💎</div>
-            <h3 class="font-heading text-2xl font-bold text-white">Our Values</h3>
-            <ul class="text-gray-300 space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">•</span>
-                <span>Quality First - 100% biocompatible materials</span>
+          <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-6">
+            <div class="text-cyan-400 text-5xl mb-4">💼</div>
+            <h3 class="font-heading text-3xl font-bold text-white">Our Portfolio</h3>
+            <p class="text-gray-300 leading-relaxed">
+                The portfolio offers solutions from single tooth to fully edentulous indications, including:
+            </p>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span>
+                <span>Dental implant systems (MGM, MGM PLUS, MGM ONE)</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">•</span>
-                <span>Innovation - Constantly upgrading technology</span>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span>
+                <span>High-precision individualized prosthetics</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">•</span>
-                <span>Sustainability - Eco-friendly practices</span>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span>
+                <span>Activator systems (MGM ACTIVE)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span>
+                <span>Digital solutions for treatment planning (MGM GUIDED)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-cyan-400">✓</span>
+                <span>Biomaterials</span>
               </li>
             </ul>
           </div>
         </div>
 
+        <!-- Core Programs -->
+        <div class="space-y-12">
+            <h3 class="font-heading text-4xl font-bold text-white text-center">The 4 Core Programs</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-cyan-500/20 p-6 rounded-xl hover:border-cyan-500/50 transition-all">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Innovate</h4>
+                    <p class="text-gray-400 text-sm">Providing customers with the latest technologies via the R&D department and scientific team.</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-cyan-500/20 p-6 rounded-xl hover:border-cyan-500/50 transition-all">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Learn</h4>
+                    <p class="text-gray-400 text-sm">Providing latest techniques and training support for better product usage.</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-cyan-500/20 p-6 rounded-xl hover:border-cyan-500/50 transition-all">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Explore</h4>
+                    <p class="text-gray-400 text-sm">Connecting with customers through exhibitions, scientific events, and congresses to understand their needs.</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-cyan-500/20 p-6 rounded-xl hover:border-cyan-500/50 transition-all">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Practice</h4>
+                    <p class="text-gray-400 text-sm">Allowing customers to share case challenges and clinical studies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose MGM Summary -->
         <div class="bg-gradient-to-r from-cyan-500/10 to-blue-600/10 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-12">
           <h3 class="font-heading text-3xl font-bold text-white mb-8 text-center">Why Choose MGM?</h3>
           <div class="grid md:grid-cols-3 gap-8">
             <div class="text-center space-y-3">
               <div class="text-4xl mb-3">🔬</div>
               <h4 class="font-heading text-xl font-bold text-white">Advanced Technology</h4>
-              <p class="text-gray-300">M-Pure Surface Technology for superior osseointegration</p>
+              <p class="text-gray-300">Precision manufacturing using advanced machines like TORNOS.</p>
             </div>
             <div class="text-center space-y-3">
               <div class="text-4xl mb-3">🌍</div>
               <h4 class="font-heading text-xl font-bold text-white">Global Reach</h4>
-              <p class="text-gray-300">Trusted by dental professionals worldwide</p>
+              <p class="text-gray-300">Trusted in multiple countries with a strong sales network.</p>
             </div>
             <div class="text-center space-y-3">
-              <div class="text-4xl mb-3">💰</div>
-              <h4 class="font-heading text-xl font-bold text-white">Best Value</h4>
-              <p class="text-gray-300">Premium quality at competitive pricing</p>
+              <div class="text-4xl mb-3">🛡️</div>
+              <h4 class="font-heading text-xl font-bold text-white">Lifetime Guarantee</h4>
+              <p class="text-gray-300">100% Lifetime Guarantee on our implants.</p>
             </div>
           </div>
         </div>
@@ -362,114 +430,140 @@ export const TechnologyPage = () => {
   );
 
   section.innerHTML = `
-      <div class="max-w-7xl mx-auto space-y-16">
-        <div class="text-center space-y-4">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-white">M-Pure Surface Technology</h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Our advanced surface treatment promotes faster bone healing and superior osseointegration. The micro-structured surface is designed for long-term stability and success.
+      <div class="max-w-7xl mx-auto space-y-20">
+        <!-- Intro -->
+        <div class="text-center space-y-6">
+          <h2 class="font-heading text-5xl md:text-6xl font-bold text-white">Manufacturing & Quality</h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            "Great manufacturing starts with great quality." Using advanced machines like TORNOS ensures unmatched precision, consistency, and reliability.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-500/40 transition-all transform hover:-translate-y-2">
-            <div class="text-cyan-400 text-5xl mb-6">🔬</div>
-            <h3 class="font-heading text-2xl font-bold text-cyan-400 mb-4">SLA Surface</h3>
-            <p class="text-gray-300 mb-4">Sandblasted, Large-grit, Acid-etched for optimal roughness</p>
-            <ul class="text-sm text-gray-400 space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">✓</span>
-                <span>Enhanced mechanical interlocking</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">✓</span>
-                <span>Increased surface area</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400">✓</span>
-                <span>Faster bone integration</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="bg-gradient-to-br from-purple-500/10 to-pink-600/10 backdrop-blur-md border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/40 transition-all transform hover:-translate-y-2">
-            <div class="text-purple-400 text-5xl mb-6">⚡</div>
-            <h3 class="font-heading text-2xl font-bold text-purple-400 mb-4">Nano-Porous</h3>
-            <p class="text-gray-300 mb-4">Enhanced cellular attachment at the microscopic level</p>
-            <ul class="text-sm text-gray-400 space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-purple-400">✓</span>
-                <span>Optimal protein absorption</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-purple-400">✓</span>
-                <span>Rapid bone formation</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-purple-400">✓</span>
-                <span>Enhanced stability</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="bg-gradient-to-br from-green-500/10 to-emerald-600/10 backdrop-blur-md border border-green-500/20 rounded-2xl p-8 hover:border-green-500/40 transition-all transform hover:-translate-y-2">
-            <div class="text-green-400 text-5xl mb-6">✨</div>
-            <h3 class="font-heading text-2xl font-bold text-green-400 mb-4">Cleanliness</h3>
-            <p class="text-gray-300 mb-4">Rigorous cleaning processes ensure contaminant-free surface</p>
-            <ul class="text-sm text-gray-400 space-y-2">
-              <li class="flex items-start gap-2">
-                <span class="text-green-400">✓</span>
-                <span>Zero biological residues</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-green-400">✓</span>
-                <span>Controlled micro-roughness</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-green-400">✓</span>
-                <span>Maximum biocompatibility</span>
-              </li>
-            </ul>
-          </div>
+        <!-- Raw Materials -->
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-10">
+            <h3 class="font-heading text-3xl font-bold text-white mb-6">Raw Materials</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+                MGM uses premium-grade titanium to ensure biocompatibility, corrosion resistance, and seamless bone integration. Only materials meeting international standards move to production.
+            </p>
         </div>
 
-        <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-12">
-          <h3 class="font-heading text-3xl font-bold text-white mb-8 text-center">Clinical Benefits</h3>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="space-y-4">
-              <h4 class="font-heading text-xl font-bold text-cyan-400">For Immediate Loading</h4>
-              <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Reduced risk of micro-movement</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Enhanced primary stability</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Faster osseointegration</span>
-                </li>
-              </ul>
+        <!-- Testing Table -->
+        <div class="space-y-6">
+            <h3 class="font-heading text-3xl font-bold text-white text-center">Rigorous Testing Standards</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/20 text-cyan-400 text-lg">
+                            <th class="p-4">Test Type</th>
+                            <th class="p-4">Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Material Composition</td>
+                            <td class="p-4">Ensure correct alloy/material</td>
+                        </tr>
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Mechanical Testing</td>
+                            <td class="p-4">Assess strength and fatigue</td>
+                        </tr>
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Dimensional Accuracy</td>
+                            <td class="p-4">Precision fit and tolerance</td>
+                        </tr>
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Surface Characterization</td>
+                            <td class="p-4">Promote osseointegration</td>
+                        </tr>
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Cleanliness & Sterility</td>
+                            <td class="p-4">Infection control and biological safety</td>
+                        </tr>
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-semibold text-white">Packaging Integrity</td>
+                            <td class="p-4">Maintain sterility during transport</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="space-y-4">
-              <h4 class="font-heading text-xl font-bold text-cyan-400">For Challenging Cases</h4>
-              <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Ideal for soft bone (Type III/IV)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Safe for proximity to nerve canals</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-cyan-400 mt-1">→</span>
-                  <span>Suitable for immediate placement</span>
-                </li>
-              </ul>
+        </div>
+
+        <!-- Quality Control -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h3 class="font-heading text-3xl font-bold text-white">100% Quality Control</h3>
+                <p class="text-gray-300 text-lg">
+                    Every product is checked by digital software, laser, and optical inspection systems, not just a percentage of the lot.
+                </p>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-start gap-3">
+                        <span class="text-cyan-400 mt-1">✓</span>
+                        <div><strong>Fracture Test:</strong> Evaluates stress, load, and tensile distributions.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cyan-400 mt-1">✓</span>
+                        <div><strong>Tolerance Test:</strong> Determines angulation and resistance limits.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cyan-400 mt-1">✓</span>
+                        <div><strong>Surface Test:</strong> Residue analysis and micro-roughness control.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cyan-400 mt-1">✓</span>
+                        <div><strong>Cleanliness/Sterility:</strong> Ensures implants are free from biological/chemical contaminants.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-cyan-400 mt-1">✓</span>
+                        <div><strong>Sealing Test:</strong> Automated shelf-life testing to ensure no bacterial growth.</div>
+                    </li>
+                </ul>
             </div>
-          </div>
+            <div class="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-8 flex items-center justify-center aspect-square">
+                <div class="text-9xl">🛡️</div>
+            </div>
+        </div>
+
+        <!-- Why Choose MGM -->
+        <div class="space-y-12">
+            <h3 class="font-heading text-4xl font-bold text-white text-center">Why Choose MGM?</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Uncompromised Quality</h4>
+                    <p class="text-gray-400 text-sm">Top-grade raw materials tested for purity.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Advanced Technology</h4>
+                    <p class="text-gray-400 text-sm">Precision manufacturing.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Rigorous Testing</h4>
+                    <p class="text-gray-400 text-sm">Every batch tested for zero defects.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">International Standards</h4>
+                    <p class="text-gray-400 text-sm">Certified ISO, CE, FDA.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Lifetime Guarantee</h4>
+                    <p class="text-gray-400 text-sm">100% Lifetime Guarantee.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Biocompatibility First</h4>
+                    <p class="text-gray-400 text-sm">100% safe for the human body.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Innovation Driven</h4>
+                    <p class="text-gray-400 text-sm">Continuous R&D.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Global Reach</h4>
+                    <p class="text-gray-400 text-sm">Trusted in multiple countries.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all">
+                    <h4 class="font-bold text-white mb-2">Competitive Advantage</h4>
+                    <p class="text-gray-400 text-sm">World-class quality at competitive prices.</p>
+                </div>
+            </div>
         </div>
       </div>
     `;
@@ -484,17 +578,26 @@ export const ContactPage = () => {
     "min-h-screen py-24 px-8 bg-gradient-to-b from-gray-900 to-black"
   );
   section.innerHTML = `
-      <div class="max-w-4xl mx-auto space-y-12">
+      <div class="max-w-6xl mx-auto space-y-20">
+        <!-- Intro -->
         <div class="text-center space-y-4">
           <h2 class="font-heading text-5xl md:text-6xl font-bold text-white">Get in Touch</h2>
           <p class="text-xl text-gray-300">Ready to elevate your practice? Contact us today.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="space-y-6">
-            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
-              <h3 class="font-heading text-xl font-bold text-white mb-4">Contact Information</h3>
-              <div class="space-y-4 text-gray-300">
+        <!-- Contact Grid -->
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-8">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+              <h3 class="font-heading text-2xl font-bold text-white mb-6">Contact Information</h3>
+              <div class="space-y-6 text-gray-300">
+                <div class="flex items-start gap-4">
+                  <span class="text-cyan-400 text-2xl">📍</span>
+                  <div>
+                    <p class="font-semibold text-white">Headquarters</p>
+                    <p>Hilden & Aachen, Germany</p>
+                  </div>
+                </div>
                 <div class="flex items-start gap-4">
                   <span class="text-cyan-400 text-2xl">📧</span>
                   <div>
@@ -519,16 +622,17 @@ export const ContactPage = () => {
               </div>
             </div>
 
-            <div class="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-6">
-              <h3 class="font-heading text-xl font-bold text-white mb-4">Become a Partner</h3>
-              <p class="text-gray-300 mb-4">Interested in distributing MGM Implant products?</p>
-              <a href="#/distributor" class="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-heading font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
+            <div class="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-8">
+              <h3 class="font-heading text-2xl font-bold text-white mb-4">Become a Partner</h3>
+              <p class="text-gray-300 mb-6">Interested in distributing MGM Implant products? Join our global network.</p>
+              <a href="#/distributor" class="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-heading font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
                 Partner With Us
               </a>
             </div>
           </div>
 
           <form class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-6">
+            <h3 class="font-heading text-2xl font-bold text-white mb-6">Send us a Message</h3>
             <div class="space-y-2">
               <label class="text-white font-semibold">Name</label>
               <input type="text" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all">
@@ -545,6 +649,49 @@ export const ContactPage = () => {
               Send Message
             </button>
           </form>
+        </div>
+
+        <!-- News & Media Section -->
+        <div class="space-y-8">
+            <div class="text-center">
+                <h3 class="font-heading text-4xl font-bold text-white mb-4">News & Media</h3>
+                <p class="text-gray-400">Latest updates, clinical cases, and events.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all group">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold">Clinical Case Study</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Immediate Loading with MGM Plus</h4>
+                        <p class="text-gray-400 text-sm mb-4">A comprehensive look at a full-arch rehabilitation using the MGM Plus system.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all group">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold">Event</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">IDS Cologne 2025</h4>
+                        <p class="text-gray-400 text-sm mb-4">Join us at the world's leading dental trade fair. Hall 10.2, Booth A-050.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all group">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold">Blog</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">The Science of M-Pure Surface</h4>
+                        <p class="text-gray-400 text-sm mb-4">Understanding the biological benefits of our acid-free surface treatment.</p>
+                        <a href="#" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300">Read More →</a>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     `;
@@ -762,8 +909,21 @@ export const ProductDetailPage = (productId) => {
                     </div>
                     
                     <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                        <h3 class="font-heading text-2xl font-bold text-white mb-4">Specifications</h3>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-4">Specifications & Features</h3>
                         <ul class="space-y-3">
+                            ${
+                              product.features
+                                ? product.features
+                                    .map(
+                                      (feature) => `
+                                <li class="flex items-start gap-3 text-gray-300">
+                                  <span class="text-cyan-400">✓</span>
+                                  <div>${feature}</div>
+                                </li>
+                                `
+                                    )
+                                    .join("")
+                                : `
                             <li class="flex items-start gap-3 text-gray-300">
                               <span class="text-cyan-400">✓</span>
                               <div>
@@ -788,6 +948,8 @@ export const ProductDetailPage = (productId) => {
                                 <span class="font-semibold text-white">Biocompatibility:</span> 100% Safe
                               </div>
                             </li>
+                            `
+                            }
                         </ul>
                     </div>
                     

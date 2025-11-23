@@ -1,138 +1,224 @@
 export const products = {
   implants: {
     title: "Implants",
+    description:
+      "Our implant systems feature the M-Pure Surface treatment, Smart Connection (11° Morse Taper), and a unique hybrid body design for optimal stability and osseointegration.",
     items: [
       {
         id: "mgm",
         name: "MGM ™",
-        description: "Standard implant solution",
+        description: "Standard implant solution with Smart Hybrid Body Design.",
+        features: [
+          "11° Morse Taper Connection for superior mechanical stability and bacterial seal.",
+          "M-Pure Surface: Sandblasted, acid-free surface with Ra 1.42-1.74 µm.",
+          "Smart Hybrid Body: Combines tapered core for stability and cylindrical form for surface area.",
+          "Smart Cervix: Thread-free cervical area for soft tissue integration.",
+          "Smart Paper Thread: Cuts bone without distraction, improving density.",
+          "Smart Apex: Pointed apex with rounded boundaries for safety.",
+        ],
         image: "placeholder",
       },
       {
         id: "mgm-plus",
         name: "MGM- plus ™",
-        description: "Enhanced stability",
+        description: "Enhanced stability for immediate loading protocols.",
+        features: [
+          "Aggressive thread design for high primary stability.",
+          "Ideal for soft bone and immediate placement.",
+          "All benefits of the standard MGM system.",
+        ],
         image: "placeholder",
       },
       {
         id: "mgm-compressive",
         name: "MGM - compressive ™",
-        description: "Compressive design",
+        description: "Compressive design for bone condensation and expansion.",
+        features: [
+          "Designed for soft bone types.",
+          "Maximizes bone-to-implant contact.",
+          "Self-tapping and bone-condensing properties.",
+        ],
         image: "placeholder",
       },
       {
         id: "mgm-s",
         name: "MGM- S ™",
-        description: "Short implant",
+        description: "Short implant for limited vertical bone height.",
+        features: [
+          "Avoids complex bone augmentation procedures.",
+          "Optimized thread profile for maximum stability in short lengths.",
+        ],
         image: "placeholder",
       },
     ],
   },
   prosthetics: {
     title: "Prosthetics",
+    description:
+      "Comprehensive prosthetic solutions including Stock, Multi-Unit, and Digital components.",
     subcategories: [
       {
-        title: "Stock Prosthetics",
+        title: "Stock Abutments",
         items: [
-          { id: "straight-abutment", name: "Straight abutment" },
-          { id: "angled-abutment", name: "Angled abutment" },
+          {
+            id: "straight-abutment",
+            name: "Straight Abutment",
+            description:
+              "Used when the implant is aligned ideally. No angulation.",
+          },
+          {
+            id: "angled-abutment",
+            name: "Angled Abutment",
+            description:
+              "Corrects misalignment (15°, 25°, 30°) for optimal prosthetic path.",
+          },
         ],
       },
       {
-        title: "Temporary Prosthetics",
+        title: "Temporary & Healing",
         items: [
-          { id: "healing-cap", name: "Healing Cap" },
-          { id: "temp-abutments", name: "Temporary abutments" },
+          {
+            id: "healing-cap",
+            name: "Healing Abutment (Cap)",
+            description:
+              "Shapes gum tissue and protects the connection during healing.",
+          },
+          {
+            id: "temp-abutments",
+            name: "Temporary Abutment",
+            description:
+              "Supports provisional restorations. Available in Titanium or PEEK.",
+          },
         ],
       },
       {
-        title: "MUA Prosthetics",
+        title: "Multi-Unit Abutments (MUA)",
         items: [
-          { id: "straight-mua", name: "Straight MUA" },
-          { id: "angled-mua", name: "Angled MUA" },
-          { id: "mua-healing-cap", name: "MUA healing Cap" },
-          { id: "mua-tbase", name: "MUA TBase" },
-          { id: "mua-clynders", name: "MUA Clynders" },
+          {
+            id: "straight-mua",
+            name: "Straight MUA",
+            description: "For screw-retained bridges and bars.",
+          },
+          {
+            id: "angled-mua",
+            name: "Angled MUA",
+            description:
+              "Corrects angulation (17°, 30°) for tilted implants (All-on-X).",
+          },
+          { id: "mua-healing-cap", name: "MUA Healing Cap" },
+          { id: "mua-tbase", name: "MUA Ti-Base" },
+          { id: "mua-clynders", name: "MUA Cylinders" },
         ],
       },
       {
-        title: "Special Prosthetics",
+        title: "Overdenture Systems",
         items: [
-          { id: "ball-socket", name: "Ball and socket abutments" },
-          { id: "locators", name: "Locators abutments" },
+          {
+            id: "ball-socket",
+            name: "Ball & Socket",
+            description:
+              "Simple, cost-effective snap attachment for removable dentures.",
+          },
+          {
+            id: "locators",
+            name: "Locator Abutments",
+            description:
+              "Low-profile, self-aligning system with excellent retention.",
+          },
         ],
       },
       {
-        title: "Digital Prosthetics",
+        title: "Digital Components",
         items: [
-          { id: "premilled", name: "Premilled abutments" },
-          { id: "t-base", name: "T-Base abutments" },
-          { id: "v-base", name: "V base abutments" },
-          { id: "non-hexed-t-base", name: "Non hexed T-Base abutments" },
+          {
+            id: "premilled",
+            name: "Pre-milled Abutments",
+            description: "Metal blanks for custom milling.",
+          },
+          {
+            id: "t-base",
+            name: "Ti-Base",
+            description:
+              "Hybrid component for ceramic/zirconia superstructures.",
+          },
+          { id: "v-base", name: "V-Base Abutment" },
+          { id: "non-hexed-t-base", name: "Non-Hexed Ti-Base" },
         ],
       },
     ],
   },
   lab: {
-    title: "Lab Work Flow",
+    title: "Lab Workflow",
+    description:
+      "Precision components for both traditional and digital lab workflows.",
     subcategories: [
       {
-        title: "Traditional",
+        title: "Traditional Impression",
         items: [
           {
             id: "trad-copping",
-            name: "Traditional Copping, Traditional analogue",
+            name: "Transfer Copings",
+            description: "Open-Tray (Pick-up) and Closed-Tray options.",
           },
-          { id: "mua-copping", name: "MUA (Copping - analogue)" },
+          {
+            id: "analogs",
+            name: "Lab Analogs",
+            description: "Replicas of implant/abutment for stone models.",
+          },
+          { id: "mua-copping", name: "MUA Transfer Coping" },
         ],
       },
       {
-        title: "Digital Lab Work",
+        title: "Digital Workflow",
         items: [
-          { id: "scan-body", name: "Scan body, Digital analogue" },
-          { id: "mua-scan-body", name: "MUA scan body, MUA digital analogue" },
-          { id: "implants-library", name: "Implants library" },
+          {
+            id: "scan-body",
+            name: "Scan Body",
+            description:
+              "PEEK or Titanium digital transfer for intraoral scanners.",
+          },
+          { id: "mua-scan-body", name: "MUA Scan Body" },
+          { id: "implants-library", name: "Digital Library" },
         ],
       },
     ],
   },
   surgical: {
-    title: "Surgical Kit",
+    title: "Surgical Kits",
+    description: "Ergonomic kits designed for precision and ease of use.",
     items: [
-      { id: "drills", name: "Drills, Pins" },
-      { id: "implant-drivers", name: "Implants drivers" },
-      { id: "screw-drivers", name: "Screw drivers" },
-      { id: "torque-wrench", name: "Torque wrench" },
-      { id: "extension-drill", name: "Extension drill" },
-      { id: "mua-adaptor", name: "MUA adaptor" },
-      { id: "drilling-protocol", name: "Drilling protocol" },
+      { id: "surgical-kit", name: "Standard Surgical Kit" },
+      { id: "guided-kit", name: "Guided Surgery Kit" },
+      { id: "sinus-kit", name: "All Sinus Lifting Kit" },
+      { id: "screw-remover", name: "Screw Remover Helping Kit" },
+      { id: "fixture-remover", name: "Fixture Remover Helping Kit" },
+      { id: "gbr-master", name: "GBR Master Kit" },
+      { id: "ridge-augmenting", name: "Ridge Augmenting Kit" },
+      { id: "prosthetic-kit", name: "Prosthetic Kit (Drivers, Keys)" },
     ],
   },
   advanced: {
-    title: "Advanced Kits",
+    title: "Advanced Solutions",
     items: [
-      { id: "gbr-master", name: "GBR Master kit" },
-      { id: "sinus-master", name: "Sinus master kit" },
-      { id: "screw-remover", name: "Screw and implants remover kit" },
-      { id: "guided-kit", name: "Guided kit" },
-      { id: "locators-guide", name: "Implants locators guide kits" },
-      { id: "bone-splitting", name: "Bone splitting kit" },
+      { id: "gbr-master", name: "GBR Master Kit" },
+      { id: "sinus-master", name: "Sinus Master Kit" },
+      { id: "bone-splitting", name: "Bone Splitting Kit" },
     ],
   },
   devices: {
     title: "Devices",
     items: [
-      { id: "motor", name: "MGM Implants motor and Surgical device" },
-      { id: "checker", name: "MGM checker device" },
-      { id: "plasma", name: "MGM plasma activator device" },
-      { id: "uv-ozone", name: "MGM UV and Ozone activator device" },
+      { id: "motor", name: "MGM Surgical Motor" },
+      { id: "checker", name: "ISQ Checker Device" },
+      { id: "plasma", name: "Plasma Activator" },
+      { id: "uv-ozone", name: "UV & Ozone Activator" },
     ],
   },
   biomaterials: {
     title: "Biomaterials",
     items: [
-      { id: "bone-graft", name: "Bone Graft" },
-      { id: "membrane", name: "Membrane" },
+      { id: "bone-graft", name: "Bone Graft Materials" },
+      { id: "membrane", name: "Barrier Membranes" },
     ],
   },
 };
