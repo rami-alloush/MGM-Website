@@ -31,58 +31,255 @@ export const Header = () => {
 };
 
 export const HomePage = () => {
-  const section = createElement(
+  const container = createElement("div", "w-full overflow-x-hidden");
+
+  // 1. HERO SECTION
+  const heroSection = createElement(
     "section",
-    "relative min-h-screen flex items-center justify-center px-8 py-24"
+    "relative min-h-screen flex items-center px-8 py-32 bg-gray-50"
   );
-  section.style.backgroundImage = "url('/assets/images/hero-bg.jpg')";
-  section.style.backgroundSize = "cover";
-  section.style.backgroundPosition = "center";
-  section.style.backgroundBlendMode = "overlay";
-  section.style.backgroundColor = "rgba(10, 14, 23, 0.7)";
-
-  section.innerHTML = `
-    <div class="max-w-4xl mx-auto text-center space-y-8" id="hero-content">
-      <h1 class="font-heading text-6xl md:text-7xl font-bold text-white leading-tight">
-        The Future of
-        <br>
-        <span class="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Dental Implantology</span>
-      </h1>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-        Precision engineering meets biological excellence. Experience the M-Pure Surface difference with MGM Implant - your trusted partner since 2008.
-      </p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-3xl mx-auto">
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all">
-          <div class="text-cyan-400 text-4xl mb-3">✓</div>
-          <h3 class="font-heading text-white font-bold mb-2">100% Biocompatible</h3>
-          <p class="text-gray-400 text-sm">Safe for the human body with natural integration</p>
+  // Use a high-quality medical/clean background image
+  heroSection.style.backgroundImage = "url('/assets/images/hero-bg.jpg')";
+  heroSection.style.backgroundSize = "cover";
+  heroSection.style.backgroundPosition = "center";
+  // Light overlay for text readability
+  heroSection.innerHTML = `
+    <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent z-0"></div>
+    <div class="max-w-screen-2xl mx-auto w-full relative z-10">
+      <div class="max-w-3xl space-y-8">
+        <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight tracking-tight">
+          Precision. <br>
+          Reliability. <br>
+          <span class="text-cyan-600">Made in Germany.</span>
+        </h1>
+        <p class="text-2xl text-gray-600 max-w-xl leading-relaxed font-light">
+          Redefining dental implantology with the M-Pure Surface technology. 
+          Experience the perfect fusion of biological excellence and engineering precision.
+        </p>
+        
+        <div class="flex flex-wrap gap-6 mt-12">
+          <a href="#/products" class="px-10 py-5 bg-cyan-600 text-white text-lg font-heading font-semibold rounded-full hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 transform hover:-translate-y-1 transition-all">
+            Explore Solutions
+          </a>
+          <a href="#/about" class="px-10 py-5 bg-white text-gray-800 text-lg font-heading font-semibold rounded-full border border-gray-200 hover:border-cyan-600 hover:text-cyan-600 shadow-lg shadow-gray-200/50 transition-all">
+            Our Philosophy
+          </a>
         </div>
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all">
-          <div class="text-cyan-400 text-4xl mb-3">⚡</div>
-          <h3 class="font-heading text-white font-bold mb-2">M-Pure Surface</h3>
-          <p class="text-gray-400 text-sm">Advanced surface for faster bone healing</p>
-        </div>
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all">
-          <div class="text-cyan-400 text-4xl mb-3">🏆</div>
-          <h3 class="font-heading text-white font-bold mb-2">Premium Quality</h3>
-          <p class="text-gray-400 text-sm">World-class quality at competitive prices</p>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap gap-4 justify-center mt-12">
-        <a href="#/products" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-heading font-semibold rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-1 transition-all">
-          Explore Products
-        </a>
-        <a href="#/about" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-heading font-semibold rounded-full hover:bg-white/20 transition-all">
-          Learn More
-        </a>
       </div>
     </div>
   `;
 
-  animateSection(section);
-  return section;
+  // 2. TRUST STRIP
+  const trustSection = createElement(
+    "section",
+    "py-12 bg-white border-b border-gray-100"
+  );
+  trustSection.innerHTML = `
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <!-- Placeholders for Certifications/Logos -->
+        <div class="flex items-center gap-3">
+            <span class="text-4xl">🇩🇪</span>
+            <span class="font-bold text-xl text-gray-800">MADE IN GERMANY</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="text-4xl">🛡️</span>
+            <span class="font-bold text-xl text-gray-800">ISO 13485 CERTIFIED</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="text-4xl">🇪🇺</span>
+            <span class="font-bold text-xl text-gray-800">CE APPROVED</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="text-4xl">🏥</span>
+            <span class="font-bold text-xl text-gray-800">CLINICALLY PROVEN</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 3. Z-PATTERN: ABOUT (Image Left, Text Right)
+  const aboutSection = createElement("section", "py-32 bg-white");
+  aboutSection.innerHTML = `
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="relative">
+            <div class="absolute -inset-4 bg-cyan-100/50 rounded-3xl transform -rotate-2"></div>
+            <img src="https://placehold.co/800x600/f3f4f6/cbd5e1?text=Precision+Manufacturing" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+        </div>
+        <div class="space-y-8">
+            <h2 class="font-heading text-5xl font-bold text-gray-900">Engineering Excellence Since 2008</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                At MGM Implant, we don't just manufacture implants; we craft solutions for life. 
+                Our state-of-the-art facility in Germany utilizes the most advanced CNC technology 
+                to ensure every component meets the strictest quality standards.
+            </p>
+            <ul class="space-y-4 text-lg text-gray-700">
+                <li class="flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">✓</span>
+                    Strict Quality Control
+                </li>
+                <li class="flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">✓</span>
+                    Innovative R&D Department
+                </li>
+                <li class="flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">✓</span>
+                    Global Distribution Network
+                </li>
+            </ul>
+            <a href="#/about" class="inline-block mt-4 text-cyan-600 font-semibold text-lg hover:text-cyan-700 transition-colors border-b-2 border-cyan-600 pb-1">
+                Read Our Story
+            </a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 4. STATS BLOCK
+  const statsSection = createElement(
+    "section",
+    "py-24 bg-gray-900 text-white relative overflow-hidden"
+  );
+  statsSection.innerHTML = `
+    <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
+    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
+        <div class="grid md:grid-cols-3 gap-12 text-center">
+            <div class="space-y-2">
+                <div class="text-7xl font-bold text-cyan-400 font-heading">98.8%</div>
+                <div class="text-xl text-gray-300 uppercase tracking-widest">Success Rate</div>
+            </div>
+            <div class="space-y-2">
+                <div class="text-7xl font-bold text-cyan-400 font-heading">15+</div>
+                <div class="text-xl text-gray-300 uppercase tracking-widest">Years of Innovation</div>
+            </div>
+            <div class="space-y-2">
+                <div class="text-7xl font-bold text-cyan-400 font-heading">40+</div>
+                <div class="text-xl text-gray-300 uppercase tracking-widest">Countries</div>
+            </div>
+        </div>
+    </div>
+  `;
+
+  // 5. Z-PATTERN: TECHNOLOGY (Text Left, Image Right)
+  const techSection = createElement("section", "py-32 bg-gray-50");
+  techSection.innerHTML = `
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="space-y-8 order-2 lg:order-1">
+            <h2 class="font-heading text-5xl font-bold text-gray-900">M-Pure Surface Technology</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Faster healing. Stronger integration. Our proprietary M-Pure surface treatment 
+                creates an optimal micro-structure for osseointegration, significantly reducing 
+                healing time and ensuring long-term stability.
+            </p>
+            <div class="grid grid-cols-2 gap-6 mt-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-gray-900 text-lg mb-2">Hydrophilic</h4>
+                    <p class="text-gray-500">Enhanced blood contact for rapid initial healing.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-gray-900 text-lg mb-2">Ultra-Clean</h4>
+                    <p class="text-gray-500">Free from manufacturing residues and contaminants.</p>
+                </div>
+            </div>
+            <a href="#/technology" class="inline-block mt-4 text-cyan-600 font-semibold text-lg hover:text-cyan-700 transition-colors border-b-2 border-cyan-600 pb-1">
+                Discover the Science
+            </a>
+        </div>
+        <div class="relative order-1 lg:order-2">
+            <div class="absolute -inset-4 bg-gray-200/50 rounded-3xl transform rotate-2"></div>
+            <img src="https://placehold.co/800x600/e2e8f0/64748b?text=Surface+Microscopy" alt="M-Pure Surface" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 6. PRODUCT CATEGORY GRID
+  const productSection = createElement("section", "py-32 bg-white");
+  productSection.innerHTML = `
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="font-heading text-5xl font-bold text-gray-900 mb-6">Comprehensive Solutions</h2>
+            <p class="text-xl text-gray-600">
+                From standard cases to complex rehabilitations, our product portfolio covers every clinical indication.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <a href="#/products/implants" class="group relative overflow-hidden rounded-2xl bg-gray-50 hover:bg-white border border-gray-100 hover:border-cyan-100 hover:shadow-2xl transition-all duration-300 p-10">
+                <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="text-9xl">🦷</span>
+                </div>
+                <div class="relative z-10 space-y-6">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center text-3xl text-cyan-600">
+                        🦷
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors">Implants</h3>
+                    <p class="text-gray-600 text-lg">
+                        Bone-level and tissue-level implants designed for primary stability and aesthetic results.
+                    </p>
+                    <div class="flex items-center text-cyan-600 font-semibold mt-4">
+                        <span>View Catalog</span>
+                        <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="#/products/prosthetics" class="group relative overflow-hidden rounded-2xl bg-gray-50 hover:bg-white border border-gray-100 hover:border-cyan-100 hover:shadow-2xl transition-all duration-300 p-10">
+                <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="text-9xl">⚙️</span>
+                </div>
+                <div class="relative z-10 space-y-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-3xl text-purple-600">
+                        ⚙️
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Prosthetics</h3>
+                    <p class="text-gray-600 text-lg">
+                        A wide range of abutments and prosthetic components for cement and screw-retained restorations.
+                    </p>
+                    <div class="flex items-center text-purple-600 font-semibold mt-4">
+                        <span>View Catalog</span>
+                        <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="#/products/surgical" class="group relative overflow-hidden rounded-2xl bg-gray-50 hover:bg-white border border-gray-100 hover:border-cyan-100 hover:shadow-2xl transition-all duration-300 p-10">
+                <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span class="text-9xl">🔧</span>
+                </div>
+                <div class="relative z-10 space-y-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl text-blue-600">
+                        🔧
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Surgical Kits</h3>
+                    <p class="text-gray-600 text-lg">
+                        Ergonomic and intuitive surgical kits designed to simplify your workflow and enhance precision.
+                    </p>
+                    <div class="flex items-center text-blue-600 font-semibold mt-4">
+                        <span>View Catalog</span>
+                        <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+  `;
+
+  // Append all sections
+  container.appendChild(heroSection);
+  container.appendChild(trustSection);
+  container.appendChild(aboutSection);
+  container.appendChild(statsSection);
+  container.appendChild(techSection);
+  container.appendChild(productSection);
+
+  animateSection(container);
+  return container;
 };
 
 export const AboutPage = () => {
