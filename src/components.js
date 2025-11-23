@@ -29,22 +29,17 @@ const animateSection = (section) => {
 export const Header = () => {
   return null;
 };
-
 export const HomePage = () => {
   const container = createElement("div", "w-full overflow-x-hidden");
 
   // 1. HERO SECTION
   const heroSection = createElement(
     "section",
-    "relative min-h-screen flex items-center px-8 py-32 bg-clinical-gray"
+    "relative min-h-screen flex items-center px-8 py-32"
   );
-  // Use a high-quality medical/clean background image
-  heroSection.style.backgroundImage = "url('/assets/images/hero-bg.jpg')";
-  heroSection.style.backgroundSize = "cover";
-  heroSection.style.backgroundPosition = "center";
-  // Light overlay for text readability
+  // Transparent background for 3D model visibility
   heroSection.innerHTML = `
-    <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent z-0 backdrop-blur-[2px]"></div>
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
       <div class="max-w-3xl space-y-8">
         <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-secondary leading-tight tracking-tight">
@@ -61,7 +56,7 @@ export const HomePage = () => {
           <a href="#/products" class="px-10 py-5 bg-primary text-white text-lg font-heading font-semibold rounded-full hover:bg-primary-hover shadow-xl shadow-primary/20 transform hover:-translate-y-1 transition-all">
             Explore Solutions
           </a>
-          <a href="#/about" class="px-10 py-5 bg-white text-charcoal text-lg font-heading font-semibold rounded-full border border-silver hover:border-primary hover:text-primary shadow-lg shadow-silver/50 transition-all">
+          <a href="#/about" class="px-10 py-5 bg-white/80 backdrop-blur-md text-charcoal text-lg font-heading font-semibold rounded-full border border-silver hover:border-primary hover:text-primary shadow-lg shadow-silver/50 transition-all">
             Our Philosophy
           </a>
         </div>
@@ -429,7 +424,7 @@ export const AboutPage = () => {
 export const TechnologyPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
 
   section.innerHTML = `
@@ -578,7 +573,7 @@ export const TechnologyPage = () => {
 export const ContactPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
   section.innerHTML = `
       <div class="max-w-6xl mx-auto space-y-20">
@@ -709,7 +704,7 @@ export const ContactPage = () => {
 export const ProductsLandingPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
   let categoriesHtml = "";
 
@@ -767,7 +762,7 @@ export const ProductListPage = (categoryKey) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
   let contentHtml = "";
 
@@ -884,7 +879,7 @@ export const ProductDetailPage = (productId) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
   section.innerHTML = `
         <div class="max-w-7xl mx-auto space-y-12">
@@ -1021,7 +1016,7 @@ export const ProductDetailPage = (productId) => {
 export const SurgicalKitsPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
 
   const kits = [
@@ -1100,7 +1095,7 @@ export const SurgicalKitsPage = () => {
 export const EducationPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-clinical-gray"
+    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
   );
 
   section.innerHTML = `

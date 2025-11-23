@@ -3,10 +3,12 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export function initScene() {
   const container = document.getElementById("canvas-container");
+  if (!container) return;
 
   // Scene Setup
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0a0e17, 0.002);
+  // Light fog for clinical aesthetic
+  scene.fog = new THREE.FogExp2(0xf4f6f8, 0.002);
 
   // Camera
   const camera = new THREE.PerspectiveCamera(
@@ -31,17 +33,17 @@ export function initScene() {
     const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
     const material = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      metalness: 0.9,
-      roughness: 0.2,
+      metalness: 0.8,
+      roughness: 0.15,
     });
     const mesh = new THREE.Mesh(geometry, material);
 
     // Add wireframe for visual interest
     const wireframeGeo = new THREE.WireframeGeometry(geometry);
     const wireframeMat = new THREE.LineBasicMaterial({
-      color: 0x00d4ff,
+      color: 0xcccccc, // Lighter wireframe
       transparent: true,
-      opacity: 0.1,
+      opacity: 0.3,
     });
     const wireframe = new THREE.LineSegments(wireframeGeo, wireframeMat);
     mesh.add(wireframe);
@@ -67,23 +69,23 @@ export function initScene() {
     new THREE.BufferAttribute(posArray, 3)
   );
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.02,
-    color: 0x00d4ff,
+    size: 0.03,
+    color: 0xd71a21, // MGM Red particles
     transparent: true,
-    opacity: 0.8,
+    opacity: 0.4,
   });
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
   // --- Lights ---
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Brighter ambient
   scene.add(ambientLight);
 
-  const pointLight1 = new THREE.PointLight(0x00d4ff, 2);
+  const pointLight1 = new THREE.PointLight(0xd71a21, 1.5); // Red tint
   pointLight1.position.set(2, 3, 4);
   scene.add(pointLight1);
 
-  const pointLight2 = new THREE.PointLight(0xff00ff, 2);
+  const pointLight2 = new THREE.PointLight(0xffcd00, 1.5); // Gold tint
   pointLight2.position.set(-3, -2, -3);
   scene.add(pointLight2);
 
@@ -125,8 +127,8 @@ export function initScene() {
       implant.rotation.x += 0.05 * (targetY - implant.rotation.x);
 
       // Scroll Effect
-      const scrollPercent =
-        scrollY / (document.body.scrollHeight - window.innerHeight);
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = maxScroll > 0 ? scrollY / maxScroll : 0;
 
       implant.position.x = THREE.MathUtils.lerp(
         implant.position.x,
