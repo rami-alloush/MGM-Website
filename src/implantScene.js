@@ -6,7 +6,6 @@ export function initScene() {
 
   // Scene Setup
   const scene = new THREE.Scene();
-  // Add a subtle fog for depth
   scene.fog = new THREE.FogExp2(0x0a0e17, 0.002);
 
   // Camera
@@ -27,48 +26,32 @@ export function initScene() {
   // --- Objects ---
   let implant; // Will hold the loaded model
 
-  const loader = new GLTFLoader();
-  loader.load(
-    "/assets/models/abutment.glb",
-    (gltf) => {
-      implant = gltf.scene;
+  // Create fallback cylinder
+  const createFallbackImplant = () => {
+    const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      metalness: 0.9,
+      roughness: 0.2,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
 
-      // Center and scale the model
-      const box = new THREE.Box3().setFromObject(implant);
-      const center = box.getCenter(new THREE.Vector3());
-      const size = box.getSize(new THREE.Vector3());
+    // Add wireframe for visual interest
+    const wireframeGeo = new THREE.WireframeGeometry(geometry);
+    const wireframeMat = new THREE.LineBasicMaterial({
+      color: 0x00d4ff,
+      transparent: true,
+      opacity: 0.1,
+    });
+    const wireframe = new THREE.LineSegments(wireframeGeo, wireframeMat);
+    mesh.add(wireframe);
 
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 4 / maxDim; // Scale to fit nicely
-      implant.scale.setScalar(scale);
+    return mesh;
+  };
 
-      implant.position.sub(center.multiplyScalar(scale)); // Center it
-
-      // Material adjustments if needed (e.g. make it shiny)
-      implant.traverse((child) => {
-        if (child.isMesh) {
-          child.material.metalness = 0.8;
-          child.material.roughness = 0.2;
-          child.material.color.set(0xffffff); // Ensure it reflects light well
-        }
-      });
-
-      scene.add(implant);
-    },
-    undefined,
-    (error) => {
-      console.error("An error happened loading the model:", error);
-      // Fallback to cylinder if load fails
-      const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
-      const material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        metalness: 0.9,
-        roughness: 0.2,
-      });
-      implant = new THREE.Mesh(geometry, material);
-      scene.add(implant);
-    }
-  );
+  // Use fallback cylinder (GLB has Draco compression issues)
+  implant = createFallbackImplant();
+  scene.add(implant);
 
   // 2. Particles
   const particlesGeometry = new THREE.BufferGeometry();
@@ -76,7 +59,7 @@ export function initScene() {
   const posArray = new Float32Array(particlesCount * 3);
 
   for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 20; // Spread out
+    posArray[i] = (Math.random() - 0.5) * 20;
   }
 
   particlesGeometry.setAttribute(
@@ -100,7 +83,7 @@ export function initScene() {
   pointLight1.position.set(2, 3, 4);
   scene.add(pointLight1);
 
-  const pointLight2 = new THREE.PointLight(0xff00ff, 2); // A bit of contrast
+  const pointLight2 = new THREE.PointLight(0xff00ff, 2);
   pointLight2.position.set(-3, -2, -3);
   scene.add(pointLight2);
 
@@ -135,7 +118,7 @@ export function initScene() {
     if (implant) {
       // Rotate Implant
       implant.rotation.y += 0.005;
-      // implant.rotation.x += 0.002; // Usually better to rotate mostly on Y for products
+      implant.rotation.x += 0.002;
 
       // Interactive Rotation
       implant.rotation.y += 0.05 * (targetX - implant.rotation.y);

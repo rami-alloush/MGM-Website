@@ -15,48 +15,70 @@
   </head>
   <body>
     <div id="canvas-container"></div>
-    <header id="main-header">
-      <nav>
-        <div class="logo">
-          <img src="/assets/logo.png"
-               alt="MGM IMPLANT"
-               style="height: 40px;
-                      vertical-align: middle">
+    <header id="main-header"
+            class="fixed top-0 w-full z-50 backdrop-blur-xl bg-gray-900/50 border-b border-white/10">
+      <nav class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="MGM IMPLANT" class="h-10">
         </div>
-        <ul class="nav-links">
+        <ul class="hidden md:flex items-center gap-8">
           <li>
-            <a href="#/">Home</a>
+            <a href="#/"
+               class="text-gray-300 hover:text-cyan-400 font-medium transition-colors">Home</a>
           </li>
           <li>
-            <a href="#/about">About Us</a>
+            <a href="#/about"
+               class="text-gray-300 hover:text-cyan-400 font-medium transition-colors">About Us</a>
           </li>
           <li>
-            <a href="#/technology">Technology</a>
+            <a href="#/technology"
+               class="text-gray-300 hover:text-cyan-400 font-medium transition-colors">Technology</a>
           </li>
-          <li class="dropdown">
-            <a href="#/products">Products</a>
-            <div class="dropdown-content">
-              <a href="#/products/implants">Implants</a>
-              <a href="#/products/prosthetics">Prosthetics</a>
-              <a href="#/products/lab">Lab Workflow</a>
-              <a href="#/products/surgical">Surgical Kits</a>
-              <a href="#/products/advanced">Advanced Kits</a>
-              <a href="#/products/devices">Devices</a>
-              <a href="#/products/biomaterials">Biomaterials</a>
+          <li class="relative group">
+            <a href="#/products"
+               class="text-gray-300 hover:text-cyan-400 font-medium transition-colors flex items-center gap-1">
+              Products
+              <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="absolute top-full left-0 mt-2 w-56 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="#/products/implants"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Implants</a>
+              <a href="#/products/prosthetics"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Prosthetics</a>
+              <a href="#/products/lab"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Lab Workflow</a>
+              <a href="#/products/surgical"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Surgical Kits</a>
+              <a href="#/products/advanced"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Advanced Kits</a>
+              <a href="#/products/devices"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 border-b border-white/5 transition-colors">Devices</a>
+              <a href="#/products/biomaterials"
+                 class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 rounded-b-xl transition-colors">Biomaterials</a>
             </div>
           </li>
           <li>
-            <a href="#/contact">Contact</a>
+            <a href="#/contact"
+               class="text-gray-300 hover:text-cyan-400 font-medium transition-colors">Contact</a>
           </li>
         </ul>
-        <button class="cta-button">E-Catalogue</button>
+        <button class="px-6 py-2 border border-cyan-500 text-cyan-400 font-heading font-semibold rounded-lg hover:bg-cyan-500 hover:text-white transition-all">
+          E-Catalogue
+        </button>
       </nav>
     </header>
-    <main id="app">
+    <main id="app" class="relative">
       <!-- Content injected by router -->
     </main>
-    <footer>
-      <p>&copy; 2025 MGM Implant. All rights reserved.</p>
+    <footer class="relative z-10 bg-gray-900 border-t border-white/10 py-8">
+      <div class="max-w-7xl mx-auto px-8 text-center">
+        <p class="text-gray-400">&copy; 2025 MGM Implant. All rights reserved.</p>
+      </div>
     </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
