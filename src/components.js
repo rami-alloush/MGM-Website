@@ -35,11 +35,11 @@ export const HomePage = () => {
   // 1. HERO SECTION
   const heroSection = createElement(
     "section",
-    "relative min-h-screen flex items-center px-8 py-32"
+    "relative min-h-screen flex items-center px-20 py-32"
   );
   // Transparent background for 3D model visibility
   heroSection.innerHTML = `
-    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent z-0 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent z-0"></div>
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
       <div class="max-w-3xl space-y-8">
         <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-secondary leading-tight tracking-tight">
@@ -70,7 +70,7 @@ export const HomePage = () => {
     "py-20 bg-white border-b border-silver"
   );
   trustSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-screen-2xl mx-auto px-20">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-3xl font-heading font-bold text-secondary mb-4">Redefining Implantology</h2>
         <p class="text-charcoal text-lg">
@@ -112,7 +112,7 @@ export const HomePage = () => {
   // 3. Z-PATTERN: ABOUT (Image Left, Text Right)
   const aboutSection = createElement("section", "py-32 bg-white");
   aboutSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-screen-2xl mx-auto px-20">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="relative">
             <div class="absolute -inset-4 bg-clinical-gray rounded-3xl transform -rotate-2"></div>
@@ -154,7 +154,7 @@ export const HomePage = () => {
   );
   statsSection.innerHTML = `
     <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
-    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
+    <div class="max-w-screen-2xl mx-auto px-20 relative z-10">
         <div class="grid md:grid-cols-3 gap-12 text-center">
             <div class="space-y-2">
                 <div class="text-7xl font-bold text-accent font-heading">98.8%</div>
@@ -175,7 +175,7 @@ export const HomePage = () => {
   // 5. Z-PATTERN: TECHNOLOGY (Text Left, Image Right)
   const techSection = createElement("section", "py-32 bg-clinical-gray");
   techSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-screen-2xl mx-auto px-20">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="space-y-8 order-2 lg:order-1">
             <h2 class="font-heading text-5xl font-bold text-secondary">M-Pure Surface Technology</h2>
@@ -209,7 +209,7 @@ export const HomePage = () => {
   // 6. PRODUCT CATEGORY GRID
   const productSection = createElement("section", "py-32 bg-white");
   productSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="max-w-screen-2xl mx-auto px-20">
         <div class="text-center max-w-3xl mx-auto mb-20">
             <h2 class="font-heading text-5xl font-bold text-secondary mb-6">Comprehensive Solutions</h2>
             <p class="text-xl text-charcoal">
@@ -294,7 +294,7 @@ export const HomePage = () => {
 };
 
 export const AboutPage = () => {
-  const section = createElement("section", "min-h-screen py-24 px-8");
+  const section = createElement("section", "min-h-screen py-24 px-20");
   section.style.backgroundImage = "url('/assets/images/about-bg.jpg')";
   section.style.backgroundSize = "cover";
   section.style.backgroundPosition = "center";
@@ -424,7 +424,7 @@ export const AboutPage = () => {
 export const TechnologyPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
   );
 
   section.innerHTML = `
@@ -573,7 +573,7 @@ export const TechnologyPage = () => {
 export const ContactPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
   );
   section.innerHTML = `
       <div class="max-w-6xl mx-auto space-y-20">
@@ -704,7 +704,7 @@ export const ContactPage = () => {
 export const ProductsLandingPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
   );
   let categoriesHtml = "";
 
@@ -762,7 +762,7 @@ export const ProductListPage = (categoryKey) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
   );
   let contentHtml = "";
 

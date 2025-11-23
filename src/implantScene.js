@@ -19,7 +19,7 @@ export function initScene() {
   );
   camera.position.z = 50;
 
-  // Renderer
+  // Renderer with enhanced settings
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -27,29 +27,6 @@ export function initScene() {
 
   // --- Objects ---
   let implant; // Will hold the loaded model
-
-  // Create fallback cylinder
-  const createFallbackImplant = () => {
-    const geometry = new THREE.CylinderGeometry(1, 0.8, 4, 64, 20);
-    const material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      metalness: 0.8,
-      roughness: 0.15,
-    });
-    const mesh = new THREE.Mesh(geometry, material);
-
-    // Add wireframe for visual interest
-    const wireframeGeo = new THREE.WireframeGeometry(geometry);
-    const wireframeMat = new THREE.LineBasicMaterial({
-      color: 0xcccccc, // Lighter wireframe
-      transparent: true,
-      opacity: 0.3,
-    });
-    const wireframe = new THREE.LineSegments(wireframeGeo, wireframeMat);
-    mesh.add(wireframe);
-
-    return mesh;
-  };
 
   // Setup DRACO Loader for compressed models
   const dracoLoader = new DRACOLoader();
@@ -62,25 +39,26 @@ export function initScene() {
   const loader = new GLTFLoader();
   loader.setDRACOLoader(dracoLoader);
   loader.load(
-    "/assets/models/implant-body.glb",
+    "/assets/models/body.glb",
     (gltf) => {
       // Successfully loaded the model
       implant = gltf.scene;
 
-      // Apply metallic material to all meshes
+      // Apply metallic material with enhanced properties
       implant.traverse((child) => {
         if (child.isMesh) {
           child.material = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            metalness: 0.9,
-            roughness: 0.1,
+            color: 0xe8e8e8, // Slightly off-white for better detail
+            metalness: 0.65,
+            roughness: 0.25, // Increased for visible surface details
+            envMapIntensity: 1.5,
           });
         }
       });
 
       // Scale and position the model appropriately
-      implant.scale.set(10, 10, 10);
-      implant.position.set(0, -50, 0); // Center at origin
+      implant.scale.set(15, 15, 15);
+      implant.position.set(0, 0, 0);
       scene.add(implant);
       console.log("Implant model loaded successfully");
     },
@@ -94,8 +72,6 @@ export function initScene() {
     (error) => {
       // If loading fails, use fallback
       console.error("Error loading model, using fallback:", error);
-      implant = createFallbackImplant();
-      scene.add(implant);
     }
   );
 
@@ -121,8 +97,9 @@ export function initScene() {
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
-  // --- Lights ---
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Brighter ambient
+  // --- Enhanced Lights ---
+  // Ambient light for base illumination
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(ambientLight);
 
   const pointLight1 = new THREE.PointLight(0xd71a21, 1.5); // Red tint
