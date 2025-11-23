@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 
 export function initScene() {
   const container = document.getElementById("canvas-container");
@@ -7,17 +8,16 @@ export function initScene() {
 
   // Scene Setup
   const scene = new THREE.Scene();
-  // Light fog for clinical aesthetic
-  scene.fog = new THREE.FogExp2(0xf4f6f8, 0.002);
+  // No fog for clearer view
 
   // Camera
   const camera = new THREE.PerspectiveCamera(
-    75,
+    50,
     window.innerWidth / window.innerHeight,
     0.1,
     1000
   );
-  camera.position.z = 5;
+  camera.position.z = 50;
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -51,9 +51,53 @@ export function initScene() {
     return mesh;
   };
 
-  // Use fallback cylinder (GLB has Draco compression issues)
-  implant = createFallbackImplant();
-  scene.add(implant);
+  // Setup DRACO Loader for compressed models
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath(
+    "https://www.gstatic.com/draco/versioned/decoders/1.5.6/"
+  );
+  dracoLoader.setDecoderConfig({ type: "js" });
+
+  // Load the implant-body.glb model
+  const loader = new GLTFLoader();
+  loader.setDRACOLoader(dracoLoader);
+  loader.load(
+    "/assets/models/implant-body.glb",
+    (gltf) => {
+      // Successfully loaded the model
+      implant = gltf.scene;
+
+      // Apply metallic material to all meshes
+      implant.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            metalness: 0.9,
+            roughness: 0.1,
+          });
+        }
+      });
+
+      // Scale and position the model appropriately
+      implant.scale.set(10, 10, 10);
+      implant.position.set(0, -50, 0); // Center at origin
+      scene.add(implant);
+      console.log("Implant model loaded successfully");
+    },
+    (progress) => {
+      // Loading progress
+      console.log(
+        "Loading model:",
+        (progress.loaded / progress.total) * 100 + "%"
+      );
+    },
+    (error) => {
+      // If loading fails, use fallback
+      console.error("Error loading model, using fallback:", error);
+      implant = createFallbackImplant();
+      scene.add(implant);
+    }
+  );
 
   // 2. Particles
   const particlesGeometry = new THREE.BufferGeometry();
