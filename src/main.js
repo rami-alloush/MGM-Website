@@ -9,6 +9,8 @@ import {
   ProductsLandingPage,
   ProductListPage,
   ProductDetailPage,
+  SurgicalKitsPage,
+  EducationPage,
 } from "./components.js";
 
 // Initialize the 3D Scene
@@ -23,6 +25,8 @@ const routes = {
   "/products": ProductsLandingPage,
   "/products/:category": ProductListPage,
   "/product/:id": ProductDetailPage,
+  "/surgical-kits": SurgicalKitsPage,
+  "/education": EducationPage,
 };
 
 // Initialize Router
