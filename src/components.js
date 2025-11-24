@@ -875,6 +875,67 @@ export const ProductListPage = (categoryKey) => {
   );
   let contentHtml = "";
 
+  // Special Smart Design Features section for implants
+  let smartDesignHtml = "";
+  if (categoryKey === "implants" && category.smartDesignFeatures) {
+    smartDesignHtml = `
+      <div class="mb-16">
+        <h3 class="font-heading text-3xl font-bold text-secondary mb-6 pb-4 border-b border-silver">Smart Design Technology</h3>
+        <p class="text-charcoal mb-8">Our implants feature 6 innovative Smart Design technologies for optimal clinical outcomes.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${category.smartDesignFeatures
+            .map(
+              (feature) => `
+            <div class="bg-white border border-silver rounded-xl p-5 hover:border-primary transition-all">
+              <h4 class="font-bold text-secondary mb-2">${feature.name}</h4>
+              <p class="text-charcoal text-sm">${
+                feature.description
+                  ? feature.description.substring(0, 150) + "..."
+                  : ""
+              }</p>
+              ${
+                feature.features
+                  ? `
+                <ul class="mt-3 text-xs text-charcoal space-y-1">
+                  ${feature.features
+                    .slice(0, 3)
+                    .map(
+                      (f) =>
+                        `<li class="flex items-start gap-1"><span class="text-primary">✓</span> ${
+                          f.split(" - ")[0]
+                        }</li>`
+                    )
+                    .join("")}
+                </ul>
+              `
+                  : ""
+              }
+              ${
+                feature.specifications
+                  ? `
+                <ul class="mt-3 text-xs text-charcoal space-y-1">
+                  ${feature.specifications
+                    .slice(0, 3)
+                    .map(
+                      (s) =>
+                        `<li class="flex items-start gap-1"><span class="text-primary">✓</span> ${
+                          s.split(" - ")[0]
+                        }</li>`
+                    )
+                    .join("")}
+                </ul>
+              `
+                  : ""
+              }
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
   if (category.subcategories) {
     category.subcategories.forEach((sub) => {
       contentHtml += `
@@ -886,11 +947,32 @@ export const ProductListPage = (categoryKey) => {
                         ${sub.items
                           .map(
                             (item) => `
-                            <a href="#/product/${item.id}" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
-                                <div class="aspect-square bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
+                            <a href="#/product/${
+                              item.id
+                            }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <div class="h-32 bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
                                   🦷
                                 </div>
-                                <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${item.name}</h4>
+                                <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${
+                                  item.name
+                                }</h4>
+                                <p class="text-charcoal text-sm mb-3 line-clamp-2">${
+                                  item.description
+                                    ? item.description.substring(0, 100) + "..."
+                                    : ""
+                                }</p>
+                                ${
+                                  item.variants
+                                    ? `<p class="text-xs text-charcoal mb-2"><strong>${item.variants.length}</strong> variants available</p>`
+                                    : ""
+                                }
+                                ${
+                                  item.materials
+                                    ? `<p class="text-xs text-charcoal mb-2">Materials: ${item.materials
+                                        .slice(0, 2)
+                                        .join(", ")}</p>`
+                                    : ""
+                                }
                                 <div class="flex items-center text-primary text-sm font-semibold mt-4">
                                   <span>View Details</span>
                                   <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
@@ -912,15 +994,37 @@ export const ProductListPage = (categoryKey) => {
                     <a href="#/product/${
                       item.id
                     }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
-                        <div class="aspect-square bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
+                        <div class="h-32 bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
                           🦷
                         </div>
                         <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${
                           item.name
                         }</h4>
-                        <p class="text-charcoal text-sm mb-4">${
+                        <p class="text-charcoal text-sm mb-3 line-clamp-2">${
                           item.description || ""
                         }</p>
+                        ${
+                          item.clinicalUses
+                            ? `<p class="text-xs text-charcoal mb-2">Clinical uses: ${item.clinicalUses.length} indications</p>`
+                            : ""
+                        }
+                        ${
+                          item.features
+                            ? `
+                          <ul class="text-xs text-charcoal space-y-1 mb-3">
+                            ${item.features
+                              .slice(0, 2)
+                              .map(
+                                (f) =>
+                                  `<li class="flex items-start gap-1"><span class="text-primary text-xs">✓</span> ${
+                                    f.split(":")[0]
+                                  }</li>`
+                              )
+                              .join("")}
+                          </ul>
+                        `
+                            : ""
+                        }
                         <div class="flex items-center text-primary text-sm font-semibold">
                           <span>View Details</span>
                           <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
@@ -939,10 +1043,16 @@ export const ProductListPage = (categoryKey) => {
               <div class="text-sm text-charcoal mb-4">
                   <a href="#/products" class="hover:text-primary transition-colors">Products</a> 
                   <span class="mx-2">></span> 
-                  <span class="text-secondary font-semibold">${category.title}</span>
+                  <span class="text-secondary font-semibold">${
+                    category.title
+                  }</span>
               </div>
-              <h2 class="font-heading text-5xl font-bold text-secondary mb-4">${category.title}</h2>
+              <h2 class="font-heading text-5xl font-bold text-secondary mb-4">${
+                category.title
+              }</h2>
+              <p class="text-charcoal text-lg">${category.description || ""}</p>
             </div>
+            ${smartDesignHtml}
             ${contentHtml}
         </div>
     `;
@@ -986,6 +1096,241 @@ export const ProductDetailPage = (productId) => {
     return errorDiv;
   }
 
+  // Helper to render list items
+  const renderList = (items, icon = "✓") =>
+    items
+      ? items
+          .map(
+            (item) => `
+    <li class="flex items-start gap-3 text-charcoal">
+      <span class="text-primary">${icon}</span>
+      <div>${item}</div>
+    </li>
+  `
+          )
+          .join("")
+      : "";
+
+  // Build variants section
+  let variantsHtml = "";
+  if (product.variants && product.variants.length > 0) {
+    variantsHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Available Variants & Part Numbers</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          ${product.variants
+            .map(
+              (v) => `
+            <div class="bg-clinical-gray rounded-xl p-4">
+              <h4 class="font-bold text-secondary mb-2">${v.name}</h4>
+              ${
+                v.partNumbers
+                  ? `<p class="text-sm text-charcoal mb-1"><strong>Part #:</strong> ${
+                      Array.isArray(v.partNumbers)
+                        ? v.partNumbers.join(", ")
+                        : v.partNumbers
+                    }</p>`
+                  : ""
+              }
+              ${
+                v.partNumber
+                  ? `<p class="text-sm text-charcoal mb-1"><strong>Part #:</strong> ${v.partNumber}</p>`
+                  : ""
+              }
+              ${
+                v.cuffHeights
+                  ? `<p class="text-sm text-charcoal mb-1"><strong>Cuff Heights:</strong> ${v.cuffHeights.join(
+                      ", "
+                    )}mm</p>`
+                  : ""
+              }
+              ${
+                v.compatibleWith
+                  ? `<p class="text-sm text-charcoal"><strong>Compatible:</strong> ${v.compatibleWith.join(
+                      ", "
+                    )}</p>`
+                  : ""
+              }
+              ${
+                v.specifications
+                  ? `<p class="text-sm text-charcoal"><strong>Specs:</strong> ${v.specifications.join(
+                      ", "
+                    )}</p>`
+                  : ""
+              }
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // Build materials section
+  let materialsHtml = "";
+  if (product.materials && product.materials.length > 0) {
+    materialsHtml = `
+      <div class="bg-clinical-gray rounded-xl p-4">
+        <h4 class="font-bold text-secondary mb-2">Materials</h4>
+        <p class="text-charcoal">${product.materials.join(", ")}</p>
+      </div>
+    `;
+  }
+
+  // Build advantages section
+  let advantagesHtml = "";
+  if (product.advantages && product.advantages.length > 0) {
+    advantagesHtml = `
+      <div class="space-y-3">
+        <h4 class="font-heading text-lg font-semibold text-primary">Advantages</h4>
+        <ul class="space-y-2">${renderList(product.advantages, "✓")}</ul>
+      </div>
+    `;
+  }
+
+  // Build limitations section
+  let limitationsHtml = "";
+  if (product.limitations && product.limitations.length > 0) {
+    limitationsHtml = `
+      <div class="space-y-3">
+        <h4 class="font-heading text-lg font-semibold text-red-500">Considerations</h4>
+        <ul class="space-y-2">${renderList(product.limitations, "⚠")}</ul>
+      </div>
+    `;
+  }
+
+  // Build when to use section
+  let whenToUseHtml = "";
+  if (product.whenToUse && product.whenToUse.length > 0) {
+    whenToUseHtml = `
+      <div class="space-y-3">
+        <h4 class="font-heading text-lg font-semibold text-primary">When to Use</h4>
+        <ul class="space-y-2">${renderList(product.whenToUse, "→")}</ul>
+      </div>
+    `;
+  }
+
+  // Build clinical uses section
+  let clinicalUsesHtml = "";
+  if (product.clinicalUses && product.clinicalUses.length > 0) {
+    clinicalUsesHtml = `
+      <div class="space-y-3">
+        <h4 class="font-heading text-lg font-semibold text-primary">Clinical Uses</h4>
+        <ul class="space-y-2">${renderList(product.clinicalUses, "→")}</ul>
+      </div>
+    `;
+  }
+
+  // Build types section
+  let typesHtml = "";
+  if (product.types && product.types.length > 0) {
+    typesHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Available Types</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          ${product.types
+            .map(
+              (t) => `
+            <div class="bg-clinical-gray rounded-xl p-4">
+              <h4 class="font-bold text-secondary mb-2">${t.name}</h4>
+              ${
+                t.description
+                  ? `<p class="text-sm text-charcoal mb-1">${t.description}</p>`
+                  : ""
+              }
+              ${
+                t.useCase
+                  ? `<p class="text-sm text-charcoal"><strong>Use Case:</strong> ${t.useCase}</p>`
+                  : ""
+              }
+              ${
+                t.features
+                  ? `<ul class="text-sm text-charcoal mt-2 space-y-1">${t.features
+                      .map((f) => `<li>• ${f}</li>`)
+                      .join("")}</ul>`
+                  : ""
+              }
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // Build peripherals/accessories section
+  let peripheralsHtml = "";
+  if (product.peripherals && product.peripherals.length > 0) {
+    peripheralsHtml = `
+      <div class="bg-clinical-gray rounded-xl p-6">
+        <h4 class="font-bold text-secondary mb-4">Peripherals & Accessories</h4>
+        <div class="grid md:grid-cols-2 gap-3">
+          ${product.peripherals
+            .map(
+              (p) => `
+            <div class="bg-white rounded-lg p-3">
+              <p class="font-semibold text-secondary">${p.name}</p>
+              <p class="text-sm text-charcoal">Part #: ${
+                p.partNumber ||
+                (p.partNumbers ? p.partNumbers.join(", ") : "N/A")
+              }</p>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+  if (product.accessories && product.accessories.length > 0) {
+    peripheralsHtml += `
+      <div class="bg-clinical-gray rounded-xl p-6 mt-4">
+        <h4 class="font-bold text-secondary mb-4">Accessories</h4>
+        <div class="grid md:grid-cols-2 gap-3">
+          ${product.accessories
+            .map(
+              (a) => `
+            <div class="bg-white rounded-lg p-3">
+              <p class="font-semibold text-secondary">${a.name}</p>
+              <p class="text-sm text-charcoal">Part #: ${
+                a.partNumber ||
+                (a.partNumbers ? a.partNumbers.join(", ") : "N/A")
+              }</p>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // Build how to use section
+  let howToUseHtml = "";
+  if (product.howToUse && product.howToUse.length > 0) {
+    howToUseHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">How to Use</h3>
+        <ol class="space-y-3">
+          ${product.howToUse
+            .map(
+              (step, i) => `
+            <li class="flex items-start gap-3 text-charcoal">
+              <span class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm flex-shrink-0">${
+                i + 1
+              }</span>
+              <div>${step.replace(/^\d+\.\s*/, "")}</div>
+            </li>
+          `
+            )
+            .join("")}
+        </ol>
+      </div>
+    `;
+  }
+
   const section = createElement(
     "section",
     "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
@@ -1020,50 +1365,20 @@ export const ProductDetailPage = (productId) => {
                       </p>
                     </div>
                     
+                    ${
+                      product.features && product.features.length > 0
+                        ? `
                     <div class="bg-white border border-silver rounded-xl p-6 shadow-sm">
-                        <h3 class="font-heading text-2xl font-bold text-secondary mb-4">Specifications & Features</h3>
-                        <ul class="space-y-3">
-                            ${
-                              product.features
-                                ? product.features
-                                    .map(
-                                      (feature) => `
-                                <li class="flex items-start gap-3 text-charcoal">
-                                  <span class="text-primary">✓</span>
-                                  <div>${feature}</div>
-                                </li>
-                                `
-                                    )
-                                    .join("")
-                                : `
-                            <li class="flex items-start gap-3 text-charcoal">
-                              <span class="text-primary">✓</span>
-                              <div>
-                                <span class="font-semibold text-secondary">Material:</span> Titanium Grade 5
-                              </div>
-                            </li>
-                            <li class="flex items-start gap-3 text-charcoal">
-                              <span class="text-primary">✓</span>
-                              <div>
-                                <span class="font-semibold text-secondary">Surface:</span> M-Pure Technology
-                              </div>
-                            </li>
-                            <li class="flex items-start gap-3 text-charcoal">
-                              <span class="text-primary">✓</span>
-                              <div>
-                                <span class="font-semibold text-secondary">Connection:</span> Internal Hexagonal/Morse Taper
-                              </div>
-                            </li>
-                            <li class="flex items-start gap-3 text-charcoal">
-                              <span class="text-primary">✓</span>
-                              <div>
-                                <span class="font-semibold text-secondary">Biocompatibility:</span> 100% Safe
-                              </div>
-                            </li>
-                            `
-                            }
-                        </ul>
+                        <h3 class="font-heading text-2xl font-bold text-secondary mb-4">Features</h3>
+                        <ul class="space-y-3">${renderList(
+                          product.features
+                        )}</ul>
                     </div>
+                    `
+                        : ""
+                    }
+
+                    ${materialsHtml}
                     
                     <div class="flex gap-4">
                       <button class="flex-1 px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
@@ -1076,45 +1391,54 @@ export const ProductDetailPage = (productId) => {
                 </div>
             </div>
 
+            ${variantsHtml}
+
+            ${typesHtml}
+
+            ${
+              advantagesHtml ||
+              limitationsHtml ||
+              whenToUseHtml ||
+              clinicalUsesHtml
+                ? `
+            <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+                <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Clinical Information</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  ${clinicalUsesHtml}
+                  ${whenToUseHtml}
+                  ${advantagesHtml}
+                  ${limitationsHtml}
+                </div>
+            </div>
+            `
+                : `
             <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
                 <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Clinical Applications</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                   <div class="space-y-3">
                     <h4 class="font-heading text-lg font-semibold text-primary">Ideal For:</h4>
                     <ul class="space-y-2 text-charcoal">
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Immediate implant placement</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Soft bone (Type III/IV)</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Narrow or underprepared osteotomies</span>
-                      </li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Immediate implant placement</span></li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Soft bone (Type III/IV)</span></li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Narrow or underprepared osteotomies</span></li>
                     </ul>
                   </div>
                   <div class="space-y-3">
                     <h4 class="font-heading text-lg font-semibold text-primary">Benefits:</h4>
                     <ul class="space-y-2 text-charcoal">
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Reduced surgical trauma</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Enhanced primary stability</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-primary">→</span>
-                        <span>Faster healing time</span>
-                      </li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Reduced surgical trauma</span></li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Enhanced primary stability</span></li>
+                      <li class="flex items-start gap-2"><span class="text-primary">→</span><span>Faster healing time</span></li>
                     </ul>
                   </div>
                 </div>
             </div>
+            `
+            }
+
+            ${howToUseHtml}
+
+            ${peripheralsHtml}
         </div>
     `;
 
