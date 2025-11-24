@@ -748,19 +748,19 @@ export const ContactPage = () => {
             </div>
           </div>
 
-          <form class="bg-white border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
+          <form id="contact-form" class="bg-white border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
             <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Send us a Message</h3>
             <div class="space-y-2">
-              <label class="text-secondary font-semibold">Name</label>
-              <input type="text" required class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all">
+              <label class="text-secondary font-semibold">Name *</label>
+              <input type="text" name="name" required placeholder="Your full name" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all">
             </div>
             <div class="space-y-2">
-              <label class="text-secondary font-semibold">Email</label>
-              <input type="email" required class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all">
+              <label class="text-secondary font-semibold">Email *</label>
+              <input type="email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all">
             </div>
             <div class="space-y-2">
-              <label class="text-secondary font-semibold">Message</label>
-              <textarea rows="4" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all"></textarea>
+              <label class="text-secondary font-semibold">Message *</label>
+              <textarea name="message" rows="4" required placeholder="How can we help you?" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all"></textarea>
             </div>
             <button type="submit" class="w-full px-6 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
               Send Message
@@ -814,6 +814,44 @@ export const ContactPage = () => {
     `;
 
   animateSection(section);
+
+  // Add form submission handler
+  setTimeout(() => {
+    const form = section.querySelector("#contact-form");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Build mailto link
+        const subject = encodeURIComponent("Website Contact: General Inquiry");
+        const body = encodeURIComponent(
+          `Contact Form Submission\n\n` +
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n\n` +
+            `Message:\n${data.message}`
+        );
+
+        window.location.href = `mailto:info@mgmimplant.com?subject=${subject}&body=${body}`;
+
+        // Show success feedback
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        button.textContent = "Email Client Opened!";
+        button.classList.add("bg-green-600");
+        button.classList.remove("bg-primary");
+
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove("bg-green-600");
+          button.classList.add("bg-primary");
+          form.reset();
+        }, 3000);
+      });
+    }
+  }, 0);
+
   return section;
 };
 
@@ -1443,7 +1481,12 @@ export const ProductDetailPage = (productId) => {
                     ${materialsHtml}
                     
                     <div class="flex gap-4">
-                      <button class="flex-1 px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+                      <button onclick="window.openQuoteModal('${product.name.replace(
+                        /'/g,
+                        "\\'"
+                      )}', '${
+    product.id
+  }')" class="flex-1 px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
                           Request Quote
                       </button>
                       <button class="px-8 py-4 bg-white border border-silver text-secondary font-heading font-semibold rounded-lg hover:bg-clinical-gray transition-all">
