@@ -39,7 +39,6 @@ export const HomePage = () => {
   );
   // Transparent background for 3D model visibility
   heroSection.innerHTML = `
-    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent z-0"></div>
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
       <div class="max-w-3xl space-y-8">
         <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-secondary leading-tight tracking-tight">

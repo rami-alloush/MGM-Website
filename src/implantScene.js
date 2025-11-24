@@ -8,7 +8,6 @@ export function initScene() {
 
   // Scene Setup
   const scene = new THREE.Scene();
-  // No fog for clearer view
 
   // Camera
   const camera = new THREE.PerspectiveCamera(
@@ -19,10 +18,20 @@ export function initScene() {
   );
   camera.position.z = 50;
 
+  const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
+  const cubeCamera = new THREE.CubeCamera(1, 1000, cubeRenderTarget);
+  scene.add(cubeCamera);
+
+  // Apply the environment map to your material
+  const envMap = cubeRenderTarget.texture;
+  const material = new THREE.MeshStandardMaterial({ envMap });
+
   // Renderer with enhanced settings
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1;
   container.appendChild(renderer.domElement);
 
   // --- Objects ---
@@ -48,11 +57,15 @@ export function initScene() {
       implant.traverse((child) => {
         if (child.isMesh) {
           child.material = new THREE.MeshStandardMaterial({
-            color: 0xe8e8e8, // Slightly off-white for better detail
-            metalness: 0.65,
-            roughness: 0.25, // Increased for visible surface details
-            envMapIntensity: 1.5,
+            color: 0xffffff, // White for maximum brightness
+            metalness: 0.6, // Reduced metalness to allow diffuse color to show
+            roughness: 0.4, // Increased roughness to catch more light
+            envMapIntensity: 2.0, // Increased environment intensity
+            flatShading: false,
           });
+          // Enable shadow receiving for depth perception
+          child.castShadow = true;
+          child.receiveShadow = true;
         }
       });
 
@@ -77,11 +90,11 @@ export function initScene() {
 
   // 2. Particles
   const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 700;
+  const particlesCount = 2000;
   const posArray = new Float32Array(particlesCount * 3);
 
   for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 20;
+    posArray[i] = (Math.random() - 0.5) * 100;
   }
 
   particlesGeometry.setAttribute(
@@ -89,26 +102,51 @@ export function initScene() {
     new THREE.BufferAttribute(posArray, 3)
   );
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.03,
-    color: 0xd71a21, // MGM Red particles
+    size: 0.3, // Significantly increased for visibility
+    color: 0xd71a21,
     transparent: true,
-    opacity: 0.4,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
   });
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
   // --- Enhanced Lights ---
-  // Ambient light for base illumination
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  // Ambient light for base illumination (reduced to allow more contrast)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
   scene.add(ambientLight);
 
-  const pointLight1 = new THREE.PointLight(0xd71a21, 1.5); // Red tint
-  pointLight1.position.set(2, 3, 4);
+  // Front Fill Light (Added to fix silhouette)
+  const frontFillLight = new THREE.DirectionalLight(0xffffff, 1.5);
+  frontFillLight.position.set(0, 0, 50); // Directly in front of camera
+  scene.add(frontFillLight);
+
+  // Main directional light from top-front for clear detail visibility
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
+  dirLight.position.set(10, 15, 10); // Positioned from top-right-front
+  dirLight.castShadow = true;
+  scene.add(dirLight);
+
+  // Secondary directional light from bottom for fill
+  const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
+  dirLight2.position.set(-8, -10, -8); // Positioned from bottom-left-back
+  scene.add(dirLight2);
+
+  const pointLight1 = new THREE.PointLight(0xd71a21, 3.0); // Red tint - bright for reflections
+  pointLight1.position.set(5, 5, 8); // Front-right position
   scene.add(pointLight1);
 
-  const pointLight2 = new THREE.PointLight(0xffcd00, 1.5); // Gold tint
-  pointLight2.position.set(-3, -2, -3);
+  const pointLight2 = new THREE.PointLight(0xffcd00, 3.0); // Gold tint - bright for reflections
+  pointLight2.position.set(-5, -3, -8); // Back-left position
   scene.add(pointLight2);
+
+  // Additional spotlight for highlighting details and creating specular highlights
+  const spotLight = new THREE.SpotLight(0xffffff, 3.0);
+  spotLight.position.set(0, 20, 15); // Positioned from above
+  spotLight.angle = Math.PI / 6;
+  spotLight.penumbra = 0.3;
+  scene.add(spotLight);
 
   // --- Animation Loop ---
   const clock = new THREE.Clock();
@@ -135,7 +173,8 @@ export function initScene() {
   const animate = () => {
     const elapsedTime = clock.getElapsedTime();
 
-    targetX = mouseX * 0.001;
+    // Increased mouse sensitivity for more responsive movement
+    targetX = mouseX * 0.003; // 3x more sensitive
     targetY = mouseY * 0.001;
 
     if (implant) {
@@ -143,19 +182,26 @@ export function initScene() {
       implant.rotation.y += 0.005;
       implant.rotation.x += 0.002;
 
-      // Interactive Rotation
-      implant.rotation.y += 0.05 * (targetX - implant.rotation.y);
-      implant.rotation.x += 0.05 * (targetY - implant.rotation.x);
+      // Interactive Rotation - increased responsiveness
+      implant.rotation.y += 0.12 * (targetX - implant.rotation.y); // More responsive
+      implant.rotation.x += 0.12 * (targetY - implant.rotation.x); // More responsive
 
       // Scroll Effect
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = maxScroll > 0 ? scrollY / maxScroll : 0;
 
+      // Calculate target positions combining scroll and mouse
+      const scrollTargetX = scrollPercent * 3;
+      // Add mouse parallax to X position (targetX is derived from mouseX)
+      // Multiplier controls how much it moves. targetX is roughly -3 to +3 range based on screen width
+      const mouseParallaxX = targetX * 2.0;
+
       implant.position.x = THREE.MathUtils.lerp(
         implant.position.x,
-        scrollPercent * 3,
+        scrollTargetX + mouseParallaxX,
         0.1
       );
+
       implant.position.z = THREE.MathUtils.lerp(
         implant.position.z,
         scrollPercent * -2,
