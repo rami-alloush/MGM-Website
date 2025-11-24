@@ -35,27 +35,27 @@ export const HomePage = () => {
   // 1. HERO SECTION
   const heroSection = createElement(
     "section",
-    "relative min-h-screen flex items-center px-20 py-32"
+    "relative h-[85vh] flex items-center px-20 md:px-12 lg:px-40 py-24"
   );
   // Transparent background for 3D model visibility
   heroSection.innerHTML = `
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
-      <div class="max-w-3xl space-y-8">
-        <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-secondary leading-tight tracking-tight">
+      <div class="max-w-3xl space-y-6">
+        <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-secondary leading-tight tracking-tight">
           Precision. <br>
           Reliability. <br>
           <span class="text-primary">Made in Germany.</span>
         </h1>
-        <p class="text-2xl text-charcoal max-w-xl leading-relaxed font-light">
+        <p class="text-xl text-charcoal max-w-xl leading-relaxed font-light">
           Redefining dental implantology with the M-Pure Surface technology. 
           Experience the perfect fusion of biological excellence and engineering precision.
         </p>
         
-        <div class="flex flex-wrap gap-6 mt-12">
-          <a href="#/products" class="px-10 py-5 bg-primary text-white text-lg font-heading font-semibold rounded-full hover:bg-primary-hover shadow-xl shadow-primary/20 transform hover:-translate-y-1 transition-all">
+        <div class="flex flex-wrap gap-4 mt-10">
+          <a href="#/products" class="px-8 py-4 bg-primary text-white text-lg font-heading font-semibold rounded-full hover:bg-primary-hover shadow-xl shadow-primary/20 transform hover:-translate-y-1 transition-all">
             Explore Solutions
           </a>
-          <a href="#/about" class="px-10 py-5 bg-white/80 backdrop-blur-md text-charcoal text-lg font-heading font-semibold rounded-full border border-silver hover:border-primary hover:text-primary shadow-lg shadow-silver/50 transition-all">
+          <a href="#/about" class="px-8 py-4 bg-white/80 backdrop-blur-md text-charcoal text-lg font-heading font-semibold rounded-full border border-silver hover:border-primary hover:text-primary shadow-lg shadow-silver/50 transition-all">
             Our Philosophy
           </a>
         </div>
