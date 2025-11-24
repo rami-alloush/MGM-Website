@@ -42,13 +42,13 @@ export const HomePage = () => {
   // 1. HERO SECTION
   const heroSection = createElement(
     "section",
-    "relative h-[85vh] flex items-center px-20 md:px-12 lg:px-40 py-24"
+    "relative h-[85vh] flex items-center px-6 md:px-12 lg:px-40 py-24"
   );
   // Transparent background for 3D model visibility
   heroSection.innerHTML = `
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
       <div class="max-w-3xl space-y-6">
-        <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-secondary leading-tight tracking-tight">
+        <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-secondary leading-tight tracking-tight">
           Precision. <br>
           Reliability. <br>
           <span class="text-primary">Made in Germany.</span>
@@ -76,7 +76,7 @@ export const HomePage = () => {
     "py-20 bg-white border-b border-silver"
   );
   trustSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-20">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-20">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-3xl font-heading font-bold text-secondary mb-4">Redefining Implantology</h2>
         <p class="text-charcoal text-lg">
@@ -118,14 +118,14 @@ export const HomePage = () => {
   // 3. Z-PATTERN: ABOUT (Image Left, Text Right)
   const aboutSection = createElement("section", "py-32 bg-white");
   aboutSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-20">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-20">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="relative">
             <div class="absolute -inset-4 bg-clinical-gray rounded-3xl transform -rotate-2"></div>
             <img src="https://placehold.co/800x600/f3f4f6/cbd5e1?text=Precision+Manufacturing" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
         </div>
         <div class="space-y-8">
-            <h2 class="font-heading text-5xl font-bold text-secondary">Engineering Excellence Since 2008</h2>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-secondary">Engineering Excellence Since 2008</h2>
             <p class="text-xl text-charcoal leading-relaxed">
                 At MGM Implant, we don't just manufacture implants; we craft solutions for life. 
                 Our state-of-the-art facility in Germany utilizes the most advanced CNC technology 
@@ -181,10 +181,10 @@ export const HomePage = () => {
   // 5. Z-PATTERN: TECHNOLOGY (Text Left, Image Right)
   const techSection = createElement("section", "py-32 bg-clinical-gray");
   techSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-20">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-20">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="space-y-8 order-2 lg:order-1">
-            <h2 class="font-heading text-5xl font-bold text-secondary">M-Pure Surface Technology</h2>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-secondary">M-Pure Surface Technology</h2>
             <p class="text-xl text-charcoal leading-relaxed">
                 Faster healing. Stronger integration. Our proprietary M-Pure surface treatment 
                 creates an optimal micro-structure for osseointegration, significantly reducing 
@@ -215,9 +215,9 @@ export const HomePage = () => {
   // 6. PRODUCT CATEGORY GRID
   const productSection = createElement("section", "py-32 bg-white");
   productSection.innerHTML = `
-    <div class="max-w-screen-2xl mx-auto px-20">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-20">
         <div class="text-center max-w-3xl mx-auto mb-20">
-            <h2 class="font-heading text-5xl font-bold text-secondary mb-6">Comprehensive Solutions</h2>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-secondary mb-6">Comprehensive Solutions</h2>
             <p class="text-xl text-charcoal">
                 From standard cases to complex rehabilitations, our product portfolio covers every clinical indication.
             </p>
@@ -300,7 +300,7 @@ export const HomePage = () => {
 };
 
 export const AboutPage = () => {
-  const section = createElement("section", "min-h-screen py-24 px-20");
+  const section = createElement("section", "min-h-screen py-24 px-6 md:px-20");
   section.style.backgroundImage = "url('/assets/images/about-bg.jpg')";
   section.style.backgroundSize = "cover";
   section.style.backgroundPosition = "center";
@@ -311,7 +311,7 @@ export const AboutPage = () => {
       <div class="max-w-6xl mx-auto space-y-20">
         <!-- Intro -->
         <div class="text-center space-y-6">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">About MGM Implant</h2>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">About MGM Implant</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto leading-relaxed">
             MGM IMPLANT has specialized in implantology since 2008, adopting the highest quality standards under the ISO 13485 quality management system. Based in Hilden and Aachen, we maintain a strong sales and service network worldwide.
           </p>
@@ -430,14 +430,14 @@ export const AboutPage = () => {
 export const TechnologyPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
 
   section.innerHTML = `
       <div class="max-w-7xl mx-auto space-y-20">
         <!-- Intro -->
         <div class="text-center space-y-6">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Smart Design Technology</h2>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Smart Design Technology</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto leading-relaxed">
             MGM Implants feature a revolutionary Smart Design combining six innovative technologies for optimal clinical outcomes.
           </p>
@@ -689,13 +689,13 @@ export const TechnologyPage = () => {
 export const ContactPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
   section.innerHTML = `
       <div class="max-w-6xl mx-auto space-y-20">
         <!-- Intro -->
         <div class="text-center space-y-4">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Get in Touch</h2>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Get in Touch</h2>
           <p class="text-xl text-charcoal">Ready to elevate your practice? Contact us today.</p>
         </div>
 
@@ -858,7 +858,7 @@ export const ContactPage = () => {
 export const ProductsLandingPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
   let categoriesHtml = "";
 
@@ -907,7 +907,7 @@ export const ProductsLandingPage = () => {
   section.innerHTML = `
         <div class="max-w-7xl mx-auto space-y-16">
             <div class="text-center space-y-4">
-              <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Our Products</h2>
+              <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Our Products</h2>
               <p class="text-xl text-charcoal max-w-3xl mx-auto">Comprehensive solutions for every clinical scenario. From implants to advanced surgical kits, we have everything you need.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-6">
@@ -933,7 +933,7 @@ export const ProductListPage = (categoryKey) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
   let contentHtml = "";
 
@@ -1135,7 +1135,7 @@ export const ProductListPage = (categoryKey) => {
                     category.title
                   }</span>
               </div>
-              <h2 class="font-heading text-5xl font-bold text-secondary mb-4">${
+              <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4">${
                 category.title
               }</h2>
               <p class="text-charcoal text-lg">${category.description || ""}</p>
@@ -1424,7 +1424,7 @@ export const ProductDetailPage = (productId) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
   );
   section.innerHTML = `
         <div class="max-w-7xl mx-auto space-y-12">
@@ -1554,7 +1554,7 @@ export const ProductDetailPage = (productId) => {
 export const SurgicalKitsPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
   );
 
   const kits = [
@@ -1604,7 +1604,7 @@ export const SurgicalKitsPage = () => {
   section.innerHTML = `
       <div class="max-w-7xl mx-auto space-y-12">
         <div class="text-center space-y-4">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Surgical Kits & Tools</h2>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Surgical Kits & Tools</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto">
             Precision-engineered instruments designed for safety, efficiency, and clinical success.
           </p>
@@ -1633,14 +1633,14 @@ export const SurgicalKitsPage = () => {
 export const EducationPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-24 px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
   );
 
   section.innerHTML = `
       <div class="max-w-7xl mx-auto space-y-20">
         <!-- Intro -->
         <div class="text-center space-y-6">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Clinical Support & Education</h2>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Clinical Support & Education</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto">
             Empowering clinicians with knowledge, training, and resources for excellence in implant dentistry.
           </p>

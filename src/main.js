@@ -222,3 +222,46 @@ window.closeQuoteModal = () => {
     }, 300);
   }
 };
+
+// Mobile Menu Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const closeMenuBtn = document.getElementById("close-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+  const productsToggle = document.getElementById("mobile-products-toggle");
+  const productsMenu = document.getElementById("mobile-products-menu");
+  const productsArrow = document.getElementById("mobile-products-arrow");
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("translate-x-full");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  if (closeMenuBtn && mobileMenu) {
+    closeMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("translate-x-full");
+      document.body.style.overflow = "";
+    });
+  }
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileMenu) {
+        mobileMenu.classList.add("translate-x-full");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+
+  if (productsToggle && productsMenu && productsArrow) {
+    productsToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      productsMenu.classList.toggle("hidden");
+      productsMenu.classList.toggle("flex");
+      productsArrow.classList.toggle("rotate-180");
+    });
+  }
+});
