@@ -14,6 +14,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap"
           rel="stylesheet">
+    <!-- Critical inline styles to prevent layout shift -->
+    <style>
+      svg { max-width: 100%; height: auto; }
+      #app { min-height: 100vh; }
+      footer { opacity: 0; transition: opacity 0.3s; }
+      footer.visible { opacity: 1; }
+    </style>
   </head>
   <body>
     <div id="canvas-container"></div>
@@ -45,6 +52,8 @@
                class="text-charcoal hover:text-primary font-medium text-lg transition-colors flex items-center gap-1">
               Products
               <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
+                   width="16"
+                   height="16"
                    fill="none"
                    stroke="currentColor"
                    viewBox="0 0 24 24">
@@ -83,7 +92,7 @@
 
         <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden text-charcoal hover:text-primary p-2" aria-label="Open Menu">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-8 h-8" width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
@@ -96,7 +105,7 @@
         <div class="flex justify-between items-center mb-8">
           <img src="/assets/logo.png" alt="MGM IMPLANT" class="h-10" width="125" height="40">
           <button id="close-menu-btn" class="text-gray-800 hover:text-red-600 p-2" aria-label="Close Menu">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8" width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
@@ -108,7 +117,7 @@
           <li class="relative">
             <button id="mobile-products-toggle" class="text-2xl font-medium text-gray-900 hover:text-red-600 flex items-center justify-center gap-2 w-full py-2">
               Products
-              <svg class="w-5 h-5 transition-transform duration-300" id="mobile-products-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 transition-transform duration-300" id="mobile-products-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
@@ -133,10 +142,10 @@
       </div>
     </div>
 
-    <main id="app" class="relative pt-20 z-10">
+    <main id="app" class="relative pt-20 z-10 min-h-screen">
       <!-- Content injected by router -->
     </main>
-    <footer class="relative z-10 bg-secondary text-white py-16">
+    <footer id="main-footer" class="relative z-10 bg-secondary text-white py-16">
       <div class="max-w-screen-2xl mx-auto px-20">
         <div class="grid md:grid-cols-4 gap-12 mb-12">
           <div>

@@ -58,6 +58,12 @@ export class Router {
     // Update active state in nav
     this.updateActiveNav();
 
+    // Show footer after content renders
+    const footer = document.getElementById("main-footer");
+    if (footer) {
+      footer.classList.add("visible");
+    }
+
     // Scroll to top
     window.scrollTo(0, 0);
   }
