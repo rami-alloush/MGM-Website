@@ -12,8 +12,16 @@ import {
   EducationPage,
 } from "./components.js";
 
-// Initialize the 3D Scene (lazy loaded)
-import("./implantScene.js").then(({ initScene }) => initScene());
+// Initialize the 3D Scene after page is interactive (non-blocking)
+if ("requestIdleCallback" in window) {
+  requestIdleCallback(() => {
+    import("./implantScene.js").then(({ initScene }) => initScene());
+  });
+} else {
+  setTimeout(() => {
+    import("./implantScene.js").then(({ initScene }) => initScene());
+  }, 1000);
+}
 
 // Define Routes
 const routes = {

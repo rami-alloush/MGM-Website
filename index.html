@@ -9,17 +9,22 @@
           content="MGM Implant offers state-of-the-art dental implants with M-Pure Surface technology for faster healing and superior stability.">
     <meta name="keywords"
           content="dental implants, implantology, MGM Implant, german dental implants, titanium implants, morse taper connection">
-    <!-- Google Fonts -->
+    <!-- Google Fonts - preconnect and async load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap"
-          rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap"
+          rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
     <!-- Critical inline styles to prevent layout shift -->
     <style>
       svg { max-width: 100%; height: auto; }
       #app { min-height: 100vh; }
       footer { opacity: 0; transition: opacity 0.3s; }
       footer.visible { opacity: 1; }
+      /* System font fallback while custom fonts load */
+      body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      h1, h2, h3, h4, h5, h6, .font-heading { font-family: Outfit, ui-sans-serif, system-ui, -apple-system, sans-serif; }
     </style>
   </head>
   <body>
@@ -27,13 +32,13 @@
     <header id="main-header"
             class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
       <nav class="max-w-screen-2xl mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-2">
+        <a href="#/" class="flex items-center gap-2">
           <img src="/assets/logo.png"
                alt="MGM IMPLANT"
                class="h-12"
                width="150"
                height="48">
-        </div>
+        </a>
         <ul class="hidden md:flex items-center gap-10">
           <li>
             <a href="#/"
@@ -78,17 +83,17 @@
             </div>
           </li>
           <li>
-            <a href="#/contact"
-               class="text-charcoal hover:text-primary font-medium text-lg transition-colors">Contact</a>
-          </li>
-          <li>
             <a href="#/education"
                class="text-charcoal hover:text-primary font-medium text-lg transition-colors">Education</a>
           </li>
+          <li>
+            <a href="#/contact"
+               class="text-charcoal hover:text-primary font-medium text-lg transition-colors">Contact</a>
+          </li>
         </ul>
-        <button class="hidden md:block px-8 py-3 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
-          E-Catalogue
-        </button>
+        <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer" class="hidden md:block px-8 py-3 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
+          Portal Login
+        </a>
 
         <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden text-charcoal hover:text-primary p-2" aria-label="Open Menu">
@@ -131,13 +136,13 @@
               <a href="#/products/biomaterials" class="mobile-link text-lg text-gray-800 hover:text-red-600 py-1 block">Biomaterials</a>
             </div>
           </li>
-          <li><a href="#/contact" class="mobile-link text-2xl font-medium text-gray-900 hover:text-red-600 block py-2">Contact</a></li>
           <li><a href="#/education" class="mobile-link text-2xl font-medium text-gray-900 hover:text-red-600 block py-2">Education</a></li>
+          <li><a href="#/contact" class="mobile-link text-2xl font-medium text-gray-900 hover:text-red-600 block py-2">Contact</a></li>
         </ul>
         <div class="mt-auto pt-6 text-center">
-          <button class="px-8 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 shadow-lg transition-all w-full">
-            E-Catalogue
-          </button>
+          <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 shadow-lg transition-all w-full block">
+            Portal Login
+          </a>
         </div>
       </div>
     </div>

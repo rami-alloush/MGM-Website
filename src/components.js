@@ -1716,9 +1716,9 @@ export const EducationPage = () => {
             <p class="text-silver">
               Exclusive access for our authorized partners. Download marketing materials, price lists, and place orders.
             </p>
-            <button class="px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+            <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
               Partner Login
-            </button>
+            </a>
           </div>
         </div>
       </div>
