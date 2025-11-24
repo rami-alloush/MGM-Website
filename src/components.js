@@ -1,4 +1,10 @@
 import { products } from "./data/products.js";
+import {
+  productImages,
+  categoryImages,
+  getProductImage,
+  getCategoryImage,
+} from "./data/productImages.js";
 
 // Helper to create elements
 const createElement = (tag, className, text) => {
@@ -829,14 +835,31 @@ export const ProductsLandingPage = () => {
 
   Object.entries(products).forEach(([key, category]) => {
     const icon = categoryIcons[key] || "📦";
+    const categoryImg = getCategoryImage(key);
     categoriesHtml += `
-            <a href="#/products/${key}" class="group bg-white border border-silver rounded-2xl p-8 hover:border-primary hover:shadow-xl transition-all transform hover:-translate-y-2">
-                <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform text-secondary group-hover:text-primary">${icon}</div>
-                <h3 class="font-heading text-2xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">${category.title}</h3>
-                <p class="text-charcoal mb-4">Explore our range of ${category.title}</p>
-                <div class="flex items-center text-primary font-semibold">
-                  <span>View Products</span>
-                  <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+            <a href="#/products/${key}" class="group bg-white border border-silver rounded-2xl overflow-hidden hover:border-primary hover:shadow-xl transition-all flex flex-col md:flex-row">
+                <div class="w-full md:w-64 h-64 md:h-auto bg-clinical-gray overflow-hidden flex-shrink-0 relative">
+                  <img src="${categoryImg}" alt="${
+      category.title
+    }" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-6xl text-primary\\'>${icon}</div>'" />
+                  <button class="absolute bottom-3 right-3 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${categoryImg}', '${
+      category.title
+    }')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                  </button>
+                </div>
+                <div class="p-6 flex flex-col justify-center flex-grow">
+                  <h3 class="font-heading text-2xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">${
+                    category.title
+                  }</h3>
+                  <p class="text-charcoal mb-4">${
+                    category.description ||
+                    "Explore our range of " + category.title
+                  }</p>
+                  <div class="flex items-center text-primary font-semibold">
+                    <span>View Products</span>
+                    <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                  </div>
                 </div>
             </a>
         `;
@@ -848,7 +871,7 @@ export const ProductsLandingPage = () => {
               <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Our Products</h2>
               <p class="text-xl text-charcoal max-w-3xl mx-auto">Comprehensive solutions for every clinical scenario. From implants to advanced surgical kits, we have everything you need.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid lg:grid-cols-2 gap-6">
                 ${categoriesHtml}
             </div>
         </div>
@@ -886,13 +909,24 @@ export const ProductListPage = (categoryKey) => {
           ${category.smartDesignFeatures
             .map(
               (feature) => `
-            <div class="bg-white border border-silver rounded-xl p-5 hover:border-primary transition-all">
-              <h4 class="font-bold text-secondary mb-2">${feature.name}</h4>
-              <p class="text-charcoal text-sm">${
-                feature.description
-                  ? feature.description.substring(0, 150) + "..."
-                  : ""
-              }</p>
+            <div class="bg-white border border-silver rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all group">
+              <div class="h-40 bg-clinical-gray overflow-hidden relative">
+                <img src="${getProductImage(feature.id)}" alt="${
+                feature.name
+              }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+                <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="window.openLightbox('${getProductImage(
+                  feature.id
+                )}', '${feature.name.replace(/'/g, "\\'")}')">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                </button>
+              </div>
+              <div class="p-5">
+                <h4 class="font-bold text-secondary mb-2">${feature.name}</h4>
+                <p class="text-charcoal text-sm">${
+                  feature.description
+                    ? feature.description.substring(0, 120) + "..."
+                    : ""
+                }</p>
               ${
                 feature.features
                   ? `
@@ -927,6 +961,7 @@ export const ProductListPage = (categoryKey) => {
               `
                   : ""
               }
+              </div>
             </div>
           `
             )
@@ -950,8 +985,15 @@ export const ProductListPage = (categoryKey) => {
                             <a href="#/product/${
                               item.id
                             }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
-                                <div class="h-32 bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
-                                  🦷
+                                <div class="h-40 bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
+                                  <img src="${getProductImage(item.id)}" alt="${
+                              item.name
+                            }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+                                  <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${getProductImage(
+                                    item.id
+                                  )}', '${item.name.replace(/'/g, "\\'")}')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                                  </button>
                                 </div>
                                 <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${
                                   item.name
@@ -994,8 +1036,15 @@ export const ProductListPage = (categoryKey) => {
                     <a href="#/product/${
                       item.id
                     }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
-                        <div class="h-32 bg-clinical-gray rounded-lg mb-4 flex items-center justify-center text-4xl text-primary">
-                          🦷
+                        <div class="h-40 bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
+                          <img src="${getProductImage(item.id)}" alt="${
+                      item.name
+                    }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+                          <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${getProductImage(
+                            item.id
+                          )}', '${item.name.replace(/'/g, "\\'")}')">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                          </button>
                         </div>
                         <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${
                           item.name
@@ -1064,6 +1113,7 @@ export const ProductListPage = (categoryKey) => {
 export const ProductDetailPage = (productId) => {
   let product = null;
   let categoryTitle = "";
+  let categoryKey = "";
 
   for (const [catKey, catVal] of Object.entries(products)) {
     if (catVal.items) {
@@ -1071,6 +1121,7 @@ export const ProductDetailPage = (productId) => {
       if (found) {
         product = found;
         categoryTitle = catVal.title;
+        categoryKey = catKey;
         break;
       }
     }
@@ -1080,6 +1131,7 @@ export const ProductDetailPage = (productId) => {
         if (found) {
           product = found;
           categoryTitle = catVal.title;
+          categoryKey = catKey;
           break;
         }
       }
@@ -1339,17 +1391,26 @@ export const ProductDetailPage = (productId) => {
         <div class="max-w-7xl mx-auto space-y-12">
             <div class="text-sm text-charcoal mb-4">
                 <a href="#/products" class="hover:text-primary transition-colors">Products</a> 
-                <span class="mx-2">></span> 
-                <span class="hover:text-primary transition-colors">${categoryTitle}</span>
-                <span class="mx-2">></span> 
+                <span class="mx-2">›</span> 
+                <a href="#/products/${categoryKey}" class="hover:text-primary transition-colors">${categoryTitle}</a>
+                <span class="mx-2">›</span> 
                 <span class="text-secondary font-semibold">${
                   product.name
                 }</span>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12">
-                <div class="bg-white border border-silver rounded-2xl p-8 flex items-center justify-center aspect-square shadow-lg">
-                    <div class="text-9xl text-primary">🦷</div>
+                <div class="bg-white border border-silver rounded-2xl p-4 flex items-center justify-center aspect-square shadow-lg overflow-hidden relative group cursor-pointer" onclick="window.openLightbox('${getProductImage(
+                  product.id
+                )}', '${product.name.replace(/'/g, "\\'")}')">
+                    <img src="${getProductImage(product.id)}" alt="${
+    product.name
+  }" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-9xl text-primary\'>🦷</div>'" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+                      <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                      </div>
+                    </div>
                 </div>
                 
                 <div class="space-y-8">
