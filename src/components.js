@@ -4,6 +4,7 @@ import {
   categoryImages,
   getProductImage,
   getCategoryImage,
+  DEFAULT_PRODUCT_IMAGE,
 } from "./data/productImages.js";
 
 // Helper to create elements
@@ -913,7 +914,7 @@ export const ProductListPage = (categoryKey) => {
               <div class="h-40 bg-clinical-gray overflow-hidden relative">
                 <img src="${getProductImage(feature.id)}" alt="${
                 feature.name
-              }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+              }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
                 <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="window.openLightbox('${getProductImage(
                   feature.id
                 )}', '${feature.name.replace(/'/g, "\\'")}')">
@@ -988,7 +989,7 @@ export const ProductListPage = (categoryKey) => {
                                 <div class="h-40 bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
                                   <img src="${getProductImage(item.id)}" alt="${
                               item.name
-                            }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+                            }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
                                   <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${getProductImage(
                                     item.id
                                   )}', '${item.name.replace(/'/g, "\\'")}')">
@@ -1039,7 +1040,7 @@ export const ProductListPage = (categoryKey) => {
                         <div class="h-40 bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
                           <img src="${getProductImage(item.id)}" alt="${
                       item.name
-                    }" class="w-full h-full object-contain p-2" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-4xl text-primary\\'>🦷</div>'" />
+                    }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
                           <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${getProductImage(
                             item.id
                           )}', '${item.name.replace(/'/g, "\\'")}')">
@@ -1405,7 +1406,7 @@ export const ProductDetailPage = (productId) => {
                 )}', '${product.name.replace(/'/g, "\\'")}')">
                     <img src="${getProductImage(product.id)}" alt="${
     product.name
-  }" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-9xl text-primary\'>🦷</div>'" />
+  }" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
                       <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>

@@ -76,11 +76,7 @@ export function initScene() {
       console.log("Implant model loaded successfully");
     },
     (progress) => {
-      // Loading progress
-      console.log(
-        "Loading model:",
-        (progress.loaded / progress.total) * 100 + "%"
-      );
+      // Loading progress - silenced to avoid console spam
     },
     (error) => {
       // If loading fails, use fallback

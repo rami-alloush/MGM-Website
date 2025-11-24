@@ -1,6 +1,9 @@
 // Product image mappings - maps product IDs to their catalog images
 // Images should be placed in /public/assets/images/products/
 
+// Default fallback image - change this to control the default image everywhere
+export const DEFAULT_PRODUCT_IMAGE = "/assets/logo.png";
+
 export const productImages = {
   // Smart Design Features (Implants)
   "smart-hyperid": "/assets/images/products/1-Hyperid Design.webp",
@@ -12,10 +15,10 @@ export const productImages = {
 
   // Implants category
   implants: "/assets/images/products/1-Hyperid Design.webp",
-  mgm: "/assets/images/products/1-Hyperid Design.webp",
-  "mgm-plus": "/assets/images/products/1-Hyperid Design.webp",
-  "mgm-compressive": "/assets/images/products/1-Hyperid Design.webp",
-  "mgm-s": "/assets/images/products/1-Hyperid Design.webp",
+  // mgm: "/assets/images/products/1-Hyperid Design.webp",
+  // "mgm-plus": "/assets/images/products/1-Hyperid Design.webp",
+  // "mgm-compressive": "/assets/images/products/1-Hyperid Design.webp",
+  // "mgm-s": "/assets/images/products/1-Hyperid Design.webp",
 
   // Prosthetics category
   prosthetics: "/assets/images/products/8-Prosthetics.webp",
@@ -109,15 +112,10 @@ export const categoryImages = {
 
 // Helper function to get product image with fallback
 export const getProductImage = (productId) => {
-  return (
-    productImages[productId] || "/assets/images/products/1-Hyperid Design.webp"
-  );
+  return productImages[productId] || DEFAULT_PRODUCT_IMAGE;
 };
 
 // Helper function to get category image
 export const getCategoryImage = (categoryKey) => {
-  return (
-    categoryImages[categoryKey] ||
-    "/assets/images/products/1-Hyperid Design.webp"
-  );
+  return categoryImages[categoryKey] || DEFAULT_PRODUCT_IMAGE;
 };
