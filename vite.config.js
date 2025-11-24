@@ -4,6 +4,13 @@ export default defineConfig({
   build: {
     outDir: "webapp",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three"],
+        },
+      },
+    },
   },
   server: {
     port: 5173,

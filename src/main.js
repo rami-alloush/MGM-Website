@@ -1,5 +1,4 @@
 import "./style.css";
-import { initScene } from "./implantScene.js";
 import { Router } from "./router.js";
 import {
   HomePage,
@@ -13,8 +12,8 @@ import {
   EducationPage,
 } from "./components.js";
 
-// Initialize the 3D Scene
-initScene();
+// Initialize the 3D Scene (lazy loaded)
+import("./implantScene.js").then(({ initScene }) => initScene());
 
 // Define Routes
 const routes = {

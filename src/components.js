@@ -159,7 +159,7 @@ export const HomePage = () => {
     "py-24 bg-secondary text-white relative overflow-hidden"
   );
   statsSection.innerHTML = `
-    <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
     <div class="max-w-screen-2xl mx-auto px-20 relative z-10">
         <div class="grid md:grid-cols-3 gap-12 text-center">
             <div class="space-y-2">
@@ -398,7 +398,7 @@ export const AboutPage = () => {
 
         <!-- Why Choose MGM Summary -->
         <div class="bg-secondary text-white rounded-2xl p-12 relative overflow-hidden">
-          <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
+          <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
           <div class="relative z-10">
             <h3 class="font-heading text-3xl font-bold text-white mb-8 text-center">Why Choose MGM?</h3>
             <div class="grid md:grid-cols-3 gap-8">
@@ -737,7 +737,7 @@ export const ContactPage = () => {
             </div>
 
             <div class="bg-secondary text-white border border-silver rounded-2xl p-8 relative overflow-hidden">
-              <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
+              <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
               <div class="relative z-10">
                 <h3 class="font-heading text-2xl font-bold text-white mb-4">Become a Partner</h3>
                 <p class="text-gray-300 mb-6">Interested in distributing MGM Implant products? Join our global network.</p>
@@ -1710,7 +1710,7 @@ export const EducationPage = () => {
 
         <!-- Distributor Zone -->
         <div class="bg-secondary text-white rounded-2xl p-12 relative overflow-hidden text-center">
-          <div class="absolute inset-0 bg-[url('/assets/images/pattern.png')] opacity-10"></div>
+          <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
           <div class="relative z-10 max-w-2xl mx-auto space-y-6">
             <h3 class="font-heading text-3xl font-bold text-white">Distributor Zone</h3>
             <p class="text-silver">
