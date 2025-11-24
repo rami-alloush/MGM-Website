@@ -3,50 +3,219 @@ export const products = {
     title: "Implants",
     description:
       "Our implant systems feature the M-Pure Surface treatment, Smart Connection (11° Morse Taper), and a unique hybrid body design for optimal stability and osseointegration.",
+    smartDesignFeatures: [
+      {
+        id: "smart-hyperid",
+        name: "Smart Hyperid Body Design",
+        description:
+          "MGM implant design has a unique smart design that gives our dentists the benefits for the tapered and cylindrical implants design.",
+        variants: [
+          {
+            name: "Smart Hyperid - Tapered Form",
+            description:
+              "MGM implant has a Tapered Core body design with conical shape to mimic the natural tooth root.",
+            features: [
+              "Better Primary Stability - Especially useful in soft bone or immediate placement",
+              "Ideal for Narrow Ridges - Requires less bone width, reducing the need for grafting",
+              "Less Pressure on Cortical Bone - Minimizes bone resorption",
+              "Easier Insertion Path - Guides itself during placement, helpful in angled or tight spaces",
+              "Faster Osseointegration - Because of improved stability and bone contact",
+            ],
+            clinicalUses: [
+              "Immediate loading cases",
+              "Soft bone density (Type III/IV)",
+              "Post-extraction sockets",
+              "Aesthetic cases (anterior)",
+            ],
+          },
+          {
+            name: "Smart Hyperid - Cylindrical Form",
+            description:
+              "MGM implant has Cylindrical (Parallel-Walled) through the outline of our implants threads to make: Straight body with uniform diameter.",
+            features: [
+              "Even Stress Distribution - Ideal for dense (Type I/II) bone",
+              "More Bone-to-Implant Contact Surface Area - Promotes long-term stability",
+              "Simpler Surgical Protocol - Predictable drilling and placement steps",
+              "Better for Bone Grafting Cases - Offers stable fit in augmented areas",
+              "Useful for Splinted prosthesis - Parallel design helps in multi-unit cases",
+            ],
+            clinicalUses: [
+              "Dense bone areas (posterior mandible)",
+              "Full arch or splinted cases",
+              "Cases with high precision surgical guides",
+              "Reconstructive surgeries with bone grafts",
+            ],
+          },
+        ],
+      },
+      {
+        id: "smart-cervix",
+        name: "Smart Cervix",
+        description:
+          "MGM implants Smart Cervix plays a critical role in soft tissue integration, hygiene, and crestal bone preservation. A thread-free cervical area.",
+        features: [
+          "Improved Soft Tissue Adaptation - A smooth surface promotes better attachment of soft tissue (gingiva). Creates a tight seal around the implant, acting as a barrier to bacteria",
+          "Reduced Bacterial Accumulation - No threads = fewer micro-irregularities for plaque to attach. Easier to clean and maintain over time. Reduces peri-implantitis risk",
+          "Minimizes Crestal Bone Loss - Threads near the crest may cause micro-movement or stress concentration on the marginal bone. A minimally machined neck reduces mechanical irritation to the crestal bone",
+          "Better Aesthetic Outcome - In esthetic areas, a smooth collar better supports soft tissue contour and volume. Helps avoid gray shadows or recession due to inflammation or bone loss",
+          "Ideal for Subcrestal or Equicrestal Placement - Smoothly treated cervical portion can be safely placed at or slightly below bone level without causing inflammatory response",
+        ],
+      },
+      {
+        id: "smart-paper-thread",
+        name: "Smart Paper Thread Design",
+        description:
+          "MGM implants have smart unique paper thread designs machined in a smart manner. A smart unique Bone Friendly thread design that cuts inside the bone without distraction which helps for faster healing processes.",
+        benefitsForBone: [
+          "Improvement of Bone Density and Quality through compression and osseodensification",
+          "Even Stress Distribution - Minimizes bone loss due damage and resorption",
+          "Crestal Bone Preservation - Shallower threads near the top reduce pressure on cortical bone",
+          "Self-Condensation in Soft Bone - Threads compress bone rather than cutting it, increasing density and stability",
+          "Improves Osseointegration - Maximizes bone-to-implant contact due to thread geometry",
+        ],
+        benefitsForDoctors: [
+          "Easy and Straightforward Insertion - Self-guiding shape allows precise and safe placement",
+          "Ideal for Immediate Placement & Loading - Excellent stability reduces micromovement risks",
+          "Versatile in All Bone Types - Performs well in both hard and soft bone—fewer implant types needed",
+          "Minimally Invasive Drilling Protocol - Smaller osteotomies required—preserves native bone",
+          "Reduces Surgical Time & Complexity - Simplifies clinical workflow, especially in narrow ridges or fresh sockets",
+        ],
+      },
+      {
+        id: "smart-apex",
+        name: "Smart Apex Design",
+        description:
+          "MGM implants has a Smart apical design with pointed apex and rounded boundaries that provides a lot of benefits for the bone and for dentists.",
+        benefitsForBone: [
+          "Atraumatic to Vital Structures - Reduces the risk of damaging anatomical areas like the sinus membrane, inferior alveolar nerve, or lingual plate",
+          "Less Bone Damage at Insertion - Gentle on trabecular bone, minimizing microfractures and heat buildup",
+          "Enhanced Safety in Immediate Placement - Especially in post-extraction sockets or thin bone walls—minimizes risk of perforation",
+          "Directs Bone Healing - Creates a favorable environment for early bone regeneration and vascularization around the apex",
+        ],
+        benefitsForDoctors: [
+          "Surgical Safety and Confidence - Allows clinician to place implants closer to critical anatomical landmarks with more confidence",
+          "Easier Directional Control - During insertion MGM implants smart tip reduces risk of off-axis or penetrating too deeply",
+          "Improved Handling in Soft Bone - Facilitates smoother, more controlled insertion without damaging bone",
+          "Less risk of sinus floor perforation in transcrestal sinus elevation procedure",
+        ],
+        clinicalSituations: [
+          "Immediate implant placement",
+          "Proximity to nerve canals or sinus cavities",
+          "Soft bone (Type III/IV)",
+          "Narrow or underprepared osteotomies",
+        ],
+      },
+      {
+        id: "smart-connection",
+        name: "Smart Connection - 11° Morse Taper",
+        description:
+          "The Morse taper connection with 11° angle in MGM Implants is a highly precise internal conical connection used in dental implants with clinical advantages in both mechanical stability and biological outcomes.",
+        features: [
+          "Cold Welding/Micromechanical Stability - The 11° angle provides a strong mechanical lock due to the friction fit between abutment and implant, minimizing micromovement. Prevention of screw loosening",
+          "Improved Sealing (Bacterial Seal) - The tight seal and mechanical stability lead to reduced inflammatory response and crestal bone loss over time. Better seal means less bacterial infiltration",
+          "Balanced Bone Preservation - The conical design distributes occlusal forces more evenly along the implant body. Helps reduce stress concentration at the crestal bone level",
+          "Better Force Distribution - The 11° angle allows stress to be distributed axially and laterally in a more balanced way. Decreases peak stress at the implant-bone interface",
+          "Esthetic and Prosthetic Advantages - Platform shifting effect naturally integrates into Morse taper systems, aiding in soft tissue preservation",
+          "Proven Long-Term Success - Clinical studies show that Morse taper implants have excellent survival and low complication rates over the long term",
+        ],
+      },
+      {
+        id: "m-pure-surface",
+        name: "M-Pure Surface Treatment",
+        description:
+          "The MGM Implants' M-Pure surface treatment is a moderately rough surface modification technology designed to enhance osseointegration while maintaining high biocompatibility.",
+        specifications: [
+          "Moderate Surface Roughness - Provides strong primary stability and bone-implant contact",
+          "High Purity / Clean Surface - Surface free of embedded particles, improves biocompatibility",
+          "Reduced Inflammatory Response - Minimizes risk of peri-implantitis due to lower bacterial adhesion",
+          "Faster Healing Than Machined Implants - More bone apposition than machined surfaces",
+          "Long-Term Stability - Adequate for conventional loading protocols",
+          "Biocompatible Material Use - Only titanium or titanium oxide used, no aluminum or acid residues",
+        ],
+        surfaceTreatment:
+          "M Pure Surface - proprietary surface treatment that involves: Sandblasting with biocompatible materials (e.g., titanium or oxide). No acid-etching or chemical surface modification (hence 'pure'). A focus on cleanliness, biological safety, and moderate roughness for good bone contact. Final surfaces that are free from chemical residues and contaminants.",
+        materials: ["Titanium", "Titanium oxide"],
+        surfaceMagnifications: ["100X", "5000X", "10000X"],
+      },
+    ],
     items: [
       {
         id: "mgm",
         name: "MGM ™",
-        description: "Standard implant solution with Smart Hybrid Body Design.",
+        description:
+          "Standard implant solution with Smart Hybrid Body Design combining the benefits of tapered and cylindrical forms.",
         features: [
-          "11° Morse Taper Connection for superior mechanical stability and bacterial seal.",
-          "M-Pure Surface: Sandblasted, acid-free surface with Ra 1.42-1.74 µm.",
-          "Smart Hybrid Body: Combines tapered core for stability and cylindrical form for surface area.",
-          "Smart Cervix: Thread-free cervical area for soft tissue integration.",
-          "Smart Paper Thread: Cuts bone without distraction, improving density.",
-          "Smart Apex: Pointed apex with rounded boundaries for safety.",
+          "11° Morse Taper Connection for superior mechanical stability and bacterial seal",
+          "M-Pure Surface: Sandblasted, acid-free surface with Ra 1.42-1.74 µm",
+          "Smart Hybrid Body: Combines tapered core for stability and cylindrical form for surface area",
+          "Smart Cervix: Thread-free cervical area for soft tissue integration and crestal bone preservation",
+          "Smart Paper Thread: Bone-friendly design that cuts bone without distraction, improving density",
+          "Smart Apex: Pointed apex with rounded boundaries for safety near vital structures",
+        ],
+        clinicalUses: [
+          "Immediate loading cases",
+          "Soft bone density (Type III/IV)",
+          "Post-extraction sockets",
+          "Aesthetic cases (anterior)",
+          "Dense bone areas (posterior mandible)",
+          "Full arch or splinted cases",
         ],
         image: "placeholder",
       },
       {
         id: "mgm-plus",
-        name: "MGM- plus ™",
-        description: "Enhanced stability for immediate loading protocols.",
+        name: "MGM Plus ™",
+        description:
+          "Enhanced stability for immediate loading protocols with aggressive thread design.",
         features: [
-          "Aggressive thread design for high primary stability.",
-          "Ideal for soft bone and immediate placement.",
-          "All benefits of the standard MGM system.",
+          "Aggressive thread design for high primary stability",
+          "Ideal for soft bone and immediate placement",
+          "Smart Hyperid body design with tapered core",
+          "M-Pure Surface for optimal osseointegration",
+          "All benefits of the standard MGM system",
+        ],
+        clinicalUses: [
+          "Immediate loading protocols",
+          "Soft bone (Type III/IV)",
+          "Post-extraction immediate placement",
+          "Cases requiring high primary stability",
         ],
         image: "placeholder",
       },
       {
         id: "mgm-compressive",
-        name: "MGM - compressive ™",
-        description: "Compressive design for bone condensation and expansion.",
+        name: "MGM Compressive ™",
+        description:
+          "Compressive design for bone condensation and expansion in soft bone types.",
         features: [
-          "Designed for soft bone types.",
-          "Maximizes bone-to-implant contact.",
-          "Self-tapping and bone-condensing properties.",
+          "Designed for soft bone types",
+          "Maximizes bone-to-implant contact",
+          "Self-tapping and bone-condensing properties",
+          "Osseodensification through compression",
+          "M-Pure Surface treatment",
+        ],
+        clinicalUses: [
+          "Soft bone (Type III/IV)",
+          "Bone condensation cases",
+          "Narrow ridges requiring expansion",
         ],
         image: "placeholder",
       },
       {
         id: "mgm-s",
-        name: "MGM- S ™",
-        description: "Short implant for limited vertical bone height.",
+        name: "MGM-S ™",
+        description:
+          "Short implant for limited vertical bone height, avoiding complex augmentation procedures.",
         features: [
-          "Avoids complex bone augmentation procedures.",
-          "Optimized thread profile for maximum stability in short lengths.",
+          "Avoids complex bone augmentation procedures",
+          "Optimized thread profile for maximum stability in short lengths",
+          "Smart design features in compact form",
+          "M-Pure Surface for reliable osseointegration",
+        ],
+        clinicalUses: [
+          "Limited vertical bone height",
+          "Proximity to anatomical structures",
+          "Alternative to sinus lift or nerve repositioning",
         ],
         image: "placeholder",
       },
@@ -55,7 +224,7 @@ export const products = {
   prosthetics: {
     title: "Prosthetics",
     description:
-      "Comprehensive prosthetic solutions including Stock, Multi-Unit, and Digital components.",
+      "Comprehensive prosthetic solutions including Stock, Multi-Unit, and Digital components for every clinical scenario.",
     subcategories: [
       {
         title: "Stock Abutments",
@@ -64,30 +233,201 @@ export const products = {
             id: "straight-abutment",
             name: "Straight Abutment",
             description:
-              "Used when the implant is aligned ideally. No angulation.",
+              "Two piece type abutment for ideally aligned implants. Connect using 1.2 hexa driver (25N-cm).",
+            features: [
+              "Diameter D-Ø4.5 for both fixture sizes",
+              "Available cuff heights: 1, 2, 3, 4mm",
+              "Two piece type design",
+            ],
+            variants: [
+              {
+                name: "Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MOSHY 4518",
+                  "MOSHY 4528",
+                  "MOSHY 4538",
+                  "MOSHY 4548",
+                ],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MOSHB 5518",
+                  "MOSHB 5528",
+                  "MOSHB 5538",
+                  "MOSHB 5548",
+                ],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
           },
           {
             id: "angled-abutment",
             name: "Angled Abutment",
             description:
-              "Corrects misalignment (15°, 25°, 30°) for optimal prosthetic path.",
+              "MGM angled abutment is used when the implant is not placed perfectly vertical and needs angulation correction to support a properly aligned crown, bridge, or denture.",
+            features: [
+              "Common in anterior maxilla, tilted implants (like in All-on-4 cases), or in full-arch prosthetics",
+              "Usually titanium Grade 5 or zirconia",
+              "Helps align the prosthesis with the rest of the teeth when implant is placed at an angle due to anatomical limitations",
+              "Available angles: 15° and 25° to correct for implant misalignment",
+            ],
+            materials: ["Titanium Grade 5", "Zirconia"],
+            builtInAngles: ["15°", "25°"],
+            whenToUse: [
+              "The implant is placed off-axis due to limited bone or anatomical structures",
+              "You need to improve the emergence profile or esthetics",
+              "You're working with multi-unit restorations and need to achieve a parallel path of insertion",
+            ],
+            variants: [
+              {
+                name: "15° Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MISAY 4511S",
+                  "MISAY 4521S",
+                  "MISAY 4531S",
+                  "MISAY 4041S",
+                ],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "25° Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MISAY 4512S",
+                  "MISAY 4522S",
+                  "MISAY 4832S",
+                  "MISAY 4542S",
+                ],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "15° Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MISAB 4511S",
+                  "MISAB 4521S",
+                  "MISAB 4531S",
+                  "MISAB 4541S",
+                ],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+              {
+                name: "25° Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MISAB 4512S",
+                  "MISAB 4522S",
+                  "MISAB 4532S",
+                  "MISAB 4542S",
+                ],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
+          },
+          {
+            id: "healing-abutment",
+            name: "Healing Abutment",
+            description:
+              "MGM Healing abutments (also known as healing cuffs or gingival formers) are temporary components used during the healing phase. Their primary role is to guide the healing of surrounding gum tissue and shape it for proper emergence profile.",
+            features: [
+              "Soft Tissue Shaping - Helps sculpt the gingiva around the implant site to create a natural-looking contour",
+              "Access for Prosthetic Phase - Keeps the implant accessible for the next stage of prosthetic treatment",
+              "Protection of the implant - Covers the implant platform, protecting it from debris, plaque, and trauma during healing",
+            ],
+            whenPlaced: [
+              "Two-stage surgery: Placed after the implant has osseointegrated (second surgery)",
+              "One-stage surgery: Placed simultaneously with the implant, avoiding a second surgery",
+              "Immediate Loading Protocols: Sometimes used in conjunction with immediate temporary restorations",
+            ],
+            clinicalConsiderations: [
+              "Correct height and diameter selection are crucial to avoid soft tissue impingement",
+              "Should be placed with proper torque values (usually 10–15 Ncm)",
+              "Healing time varies from 2 to 4 weeks depending on tissue response",
+            ],
+            variants: [
+              {
+                name: "Yellow D-Ø4.5 (Fixture Ø3.4)",
+                partNumbers: [
+                  "MHLY 4501",
+                  "MHLY 4502",
+                  "MHLY 4503",
+                  "MHLY 4504",
+                  "MHLY 4505",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Yellow D-Ø5.5 (Fixture Ø3.4)",
+                partNumbers: [
+                  "MHLY 5501",
+                  "MHLY 5502",
+                  "MHLY 5503",
+                  "MHLY 5504",
+                  "MHLY 5505",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Blue D-Ø4.5 (Fixture Ø4.3)",
+                partNumbers: [
+                  "MHLB 4501",
+                  "MHLB 4502",
+                  "MHLB 4503",
+                  "MHLB 4504",
+                  "MHLB 4505",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+              {
+                name: "Blue D-Ø5.5 (Fixture Ø4.3)",
+                partNumbers: [
+                  "MHLB 5501",
+                  "MHLB 5502",
+                  "MHLB 5503",
+                  "MHLB 5504",
+                  "MHLB 5505",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
           },
         ],
       },
       {
-        title: "Temporary & Healing",
+        title: "Temporary Abutments",
         items: [
           {
-            id: "healing-cap",
-            name: "Healing Abutment (Cap)",
-            description:
-              "Shapes gum tissue and protects the connection during healing.",
-          },
-          {
-            id: "temp-abutments",
+            id: "temp-abutment",
             name: "Temporary Abutment",
             description:
-              "Supports provisional restorations. Available in Titanium or PEEK.",
+              "MGM temporary abutment is a short-term component used to support a provisional (temporary) restoration during the healing or integration period before placing the final crown, bridge, or denture.",
+            features: [
+              "Purpose: Supports a temporary crown or bridge while the implant site heals and the soft tissue shapes around it",
+              "Materials: Made from titanium, PEEK (polyetheretherketone), or plastic – materials that are easy to adjust and biocompatible",
+              "Adjustable: Can be trimmed, shaped, or modified to fit the provisional restoration",
+              "Connection: Screwed into the implant like a regular abutment",
+              "Duration: Meant for short-term use – typically weeks to a few months",
+            ],
+            materials: ["Titanium", "PEEK (polyetheretherketone)", "Plastic"],
+            whenToUse: [
+              "Immediate loading cases (e.g., a same-day temporary crown)",
+              "To shape the soft tissue and emergence profile before placing the final prosthesis",
+              "While waiting for final prosthesis fabrication",
+              "In esthetic zones (like front teeth) where appearance is important during healing",
+            ],
+            types: [
+              {
+                name: "Titanium Type",
+                useCase: "More durable, used when function is needed",
+              },
+              {
+                name: "PEEK/Plastic Type",
+                useCase: "Easier to adjust, often used in esthetic zones",
+              },
+            ],
           },
         ],
       },
@@ -96,34 +436,208 @@ export const products = {
         items: [
           {
             id: "straight-mua",
-            name: "Straight MUA",
-            description: "For screw-retained bridges and bars.",
+            name: "Straight Multi-Unit Abutment",
+            description:
+              "Used in screw type prosthetics in multiple cases. Provides a platform for multi-unit restorations.",
+            variants: [
+              {
+                name: "Yellow (Fixture Ø3.4)",
+                partNumbers: ["MMUHY 4515", "MMUHY 4530", "MMUHY 4545"],
+                cuffHeights: ["1.5", "3", "4.5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Blue (Fixture Ø4.3)",
+                partNumbers: ["MMUHB 4515", "MMUHB 4530", "MMUHB 4545"],
+                cuffHeights: ["1.5", "3", "4.5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
           },
           {
             id: "angled-mua",
-            name: "Angled MUA",
+            name: "MU-Angled Abutment",
             description:
-              "Corrects angulation (17°, 30°) for tilted implants (All-on-X).",
+              "Used in screw type prosthetics in multiple cases to correct angulation. Available in 17° and 30° angles.",
+            variants: [
+              {
+                name: "17°/HEX Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MMUAYH 451517",
+                  "MMUABH 453017",
+                  "MMUABH 454517",
+                ],
+                cuffHeights: ["1.5", "3", "4.5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "30°/HEX Yellow (Fixture Ø3.4)",
+                partNumbers: ["MMUABH 453030", "MMUABH 454530"],
+                cuffHeights: ["3", "4.5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "17°/HEX Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MMUABH 451517",
+                  "MMUABH 453017",
+                  "MMUABH 454517",
+                ],
+                cuffHeights: ["1.5", "3", "4.5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+              {
+                name: "30°/HEX Blue (Fixture Ø4.3)",
+                partNumbers: ["MMUABH 453030", "MMUABH 454530"],
+                cuffHeights: ["3", "4.5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
           },
-          { id: "mua-healing-cap", name: "MUA Healing Cap" },
-          { id: "mua-tbase", name: "MUA Ti-Base" },
-          { id: "mua-clynders", name: "MUA Cylinders" },
+          {
+            id: "mua-cylinders",
+            name: "MUA Cylinders",
+            description:
+              "MUA cylinders connect directly to the MUA and serve as the interface between the MUA and the final prosthesis, providing the structure for the restoration.",
+            materials: [
+              "PEEK",
+              "Plastic (for provisional restorations or casting)",
+              "Titanium (for final prostheses)",
+            ],
+            types: [
+              {
+                name: "Temporary (PEEK/Plastic)",
+                useCase:
+                  "For provisional restorations or casting. Can be modified, cut, or cast over",
+              },
+              {
+                name: "Definitive (Titanium)",
+                useCase:
+                  "For final prostheses (zirconia, hybrid, metal frameworks). Can be laser welded, bonded, or screwed directly",
+              },
+            ],
+            commonClinicalUses: [
+              "All-on-4 / All-on-6 full-arch bridges",
+              "Screw-retained zirconia or hybrid prostheses",
+              "Verification jigs and passive fit frameworks",
+              "Provisional prostheses",
+            ],
+          },
         ],
       },
       {
         title: "Overdenture Systems",
         items: [
           {
-            id: "ball-socket",
-            name: "Ball & Socket",
+            id: "locator-abutment",
+            name: "Locator Abutment",
             description:
-              "Simple, cost-effective snap attachment for removable dentures.",
+              "MGM Locator abutments are one of the most popular attachment systems used for implant-retained overdentures. They provide a low-profile, locking, and highly retentive way to attach removable dentures to implants while allowing easy insertion and removal by the patient.",
+            features: [
+              "Self-Aligning - Easier for patients to seat the denture correctly, even with limited dexterity",
+              "Low Profile - Ideal for patients with limited interarch space",
+              "Dual Retention - Inner and outer retention surfaces enhance stability",
+              "Interchangeable inserts - Different colors = different retention strengths (blue = light, pink = regular, clear = extra strong)",
+              "Angulation correction - Specialized Locator Extended Range abutments can compensate for up to 40° of implant divergence",
+            ],
+            advantages: [
+              "Excellent retention and stability",
+              "Easy maintenance and part replacement",
+              "Widely used and well-documented system",
+              "Good for both parallel and non-parallel implants",
+            ],
+            limitations: [
+              "Requires regular maintenance by a dentist",
+              "Inserts wear out over time (usually every 6–12 months)",
+              "May loosen with heavy bite forces if improperly seated",
+            ],
+            variants: [
+              {
+                name: "Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MGMY-LA001",
+                  "MGMY-LA002",
+                  "MGMY-LA003",
+                  "MGMY-LA004",
+                  "MGMY-LA005",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MGMB-LA001",
+                  "MGMB-LA002",
+                  "MGMB-LA003",
+                  "MGMB-LA004",
+                  "MGMB-LA005",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
+            peripherals: [
+              { name: "M-L Abutment Plastic Cap", partNumber: "MGMLCP" },
+              { name: "M-L Abutment Steel Cap", partNumber: "MGMLC" },
+              { name: "M-L Abutment Analog", partNumber: "MGMLA" },
+              { name: "M-L Abut. Impression Coping", partNumber: "MGMLIC" },
+            ],
           },
           {
-            id: "locators",
-            name: "Locator Abutments",
+            id: "ball-socket-abutment",
+            name: "Ball-Socket Abutment",
             description:
-              "Low-profile, self-aligning system with excellent retention.",
+              "MGM Ball and socket abutments are primarily used to retain removable overdentures. They provide a press-fit attachment that allows the denture to 'snap' onto the implants securely while still being removable by the patient. Works like a snap button.",
+            features: [
+              "Use Case: For implant-retained overdentures (commonly lower jaw)",
+              "Removable: Designed for daily removal by the patient for cleaning and hygiene",
+              "Low Profile: Good option when vertical space is limited",
+              "Retention: O-rings provide varying levels of retention force, which can be changed as they wear out",
+              "Material: Typically titanium for the ball abutment; housings are metal with replaceable nylon O-rings",
+            ],
+            materials: [
+              "Titanium",
+              "Metal housings with replaceable nylon O-rings",
+            ],
+            limitations: [
+              "Less retention than some other systems",
+              "O-rings can wear out over time (typically every 6–12 months)",
+              "Not ideal for non-parallel implants—locator abutments work better in those cases",
+            ],
+            variants: [
+              {
+                name: "Yellow (Fixture Ø3.4)",
+                partNumbers: [
+                  "MGMY-BA001",
+                  "MGMY-BA002",
+                  "MGMY-BA003",
+                  "MGMY-BA004",
+                  "MGMY-BA005",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Blue (Fixture Ø4.3)",
+                partNumbers: [
+                  "MGMB-BA001",
+                  "MGMB-BA002",
+                  "MGMB-BA003",
+                  "MGMB-BA004",
+                  "MGMB-BA005",
+                ],
+                cuffHeights: ["1", "2", "3", "4", "5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
+            accessories: [
+              {
+                name: "Ball Abutment Plastic Cap",
+                partNumbers: ["MGMBAWP", "MGMBAPP"],
+              },
+              { name: "Ball Abutment Steel Cap", partNumber: "MGMBAH" },
+            ],
           },
         ],
       },
@@ -131,18 +645,132 @@ export const products = {
         title: "Digital Components",
         items: [
           {
-            id: "premilled",
-            name: "Pre-milled Abutments",
-            description: "Metal blanks for custom milling.",
+            id: "ti-base",
+            name: "Ti-Base Abutment",
+            description:
+              "MGM Ti-base (titanium base) is a hybrid implant abutment component used in CAD/CAM workflows to support custom zirconia or ceramic restorations. It combines the precision and strength of titanium at the implant connection with the esthetic and customizable nature of a digitally milled crown or abutment.",
+            features: [
+              "Versatility - Can be used for single units, bridges, and even full-arch cases",
+              "Implant Connection - Machined titanium for precise fit and mechanical strength",
+              "Customizable Coronal Part - The upper part is designed in CAD software and milled (usually zirconia)",
+              "Cemented Extraorally - The zirconia or ceramic part is bonded to the Ti-base outside the mouth, then screwed into the implant",
+            ],
+            materials: ["Titanium", "Zirconia", "Ceramic"],
+            advantages: [
+              "Screw-retained, so retrievable if needed",
+              "Strong implant connection thanks to titanium base",
+              "Ideal for digital dentistry and CAD/CAM workflows",
+              "Customizable esthetics using zirconia or other ceramics",
+              "Reduces risk of misfit or cement-related peri-implantitis since bonding is done outside the mouth",
+            ],
+            limitations: [
+              "Requires digital design and milling equipment",
+              "Extraoral bonding step must be precise to avoid debonding",
+              "Not ideal in situations with extreme angulation",
+            ],
+            variants: [
+              {
+                name: "Ti-Base HEX (Fixture Ø3.4 & Ø3.8)",
+                partNumber: "MGMTY",
+              },
+              {
+                name: "Ti-Base HEX (Fixture Ø4.3 & Ø4.8)",
+                partNumber: "MGMTB",
+              },
+              {
+                name: "Ti-Base NON-HEX (Fixture Ø3.4 & Ø3.8)",
+                partNumber: "MGMTNY",
+              },
+              {
+                name: "Ti-Base NON-HEX (Fixture Ø4.3 & Ø4.8)",
+                partNumber: "MGMTNB",
+              },
+            ],
           },
           {
-            id: "t-base",
-            name: "Ti-Base",
+            id: "regular-tbase",
+            name: "Regular T-Base",
             description:
-              "Hybrid component for ceramic/zirconia superstructures.",
+              "Titanium base used as a bonding interface between the implant and the final restoration.",
+            types: [
+              {
+                name: "Straight T-Base",
+                description:
+                  "Straight screw channel, vertical in line with implant axis",
+                features: [
+                  "Screw channel: Straight and vertical",
+                  "Connection: Hex/conical interface with the implant",
+                  "Use case: Ideal implant position — screw access hole emerges correctly",
+                  "Driver: Uses a straight screwdriver",
+                ],
+                advantages: [
+                  "Strong, simple, and reliable",
+                  "Lower cost and universally compatible",
+                  "Ideal for posterior or well-aligned anterior implants",
+                ],
+              },
+              {
+                name: "Angled T-Base",
+                description:
+                  "Modified T-base with screw channel angled 15°–30° relative to implant axis",
+                features: [
+                  "Screw channel: Angled, allowing redirection in X or Y planes",
+                  "Use case: Non-ideal implant positioning",
+                  "Useful in anterior regions and multi-unit cases",
+                ],
+                advantages: [
+                  "Corrects non-ideal implant angulation",
+                  "Improves esthetics",
+                  "Useful in anterior regions and multi-unit cases",
+                ],
+              },
+            ],
+            variants: [
+              {
+                name: "Hexed T-Base",
+                description:
+                  "Single implant use, Anti-rotation, Ensures crown stability",
+              },
+              {
+                name: "Non-hexed T-Base",
+                description:
+                  "Multi-unit use, Allows rotational freedom, Supports passive fit for bridges",
+              },
+              {
+                name: "MUA T-Base",
+                description:
+                  "Titanium bonding base used on top of Multi-Unit Abutment for CAD/CAM frameworks",
+              },
+            ],
           },
-          { id: "v-base", name: "V-Base Abutment" },
-          { id: "non-hexed-t-base", name: "Non-Hexed Ti-Base" },
+          {
+            id: "pri-milled",
+            name: "PRI-Milled Abutment",
+            description:
+              "MGM Pre-milled abutment (PRI-milled) is a partially manufactured abutment blank designed for customization using CAD/CAM milling systems. It allows creation of custom abutments with high precision while ensuring the critical implant connection remains accurate.",
+            features: [
+              "Screw-Retained - Typically used with a screw for fixation to the implant",
+              "Pre-manufactured connection - Ensures perfect fit with implant (manufacturer's specifications)",
+              "Customizable shape - The emergence profile, margin, and angle are designed specifically for the patient's case",
+              "CAD/CAM workflow - Requires digital design software (e.g., Exocad, 3Shape) and compatible milling unit",
+            ],
+            materials: ["Titanium", "Zirconia"],
+            considerations: [
+              "Requires CAD/CAM infrastructure and trained lab support",
+              "More time and cost-intensive than standard stock abutments",
+              "Must use manufacturer-approved blanks for warranty and compatibility",
+            ],
+            variants: [
+              {
+                name: "PRI-Milled (Fixture Ø3.4 & Ø3.8)",
+                partNumber: "MGMPMY",
+              },
+              {
+                name: "PRI-Milled (Fixture Ø4.3 & Ø4.8)",
+                partNumber: "MGMPMB",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -150,22 +778,145 @@ export const products = {
   lab: {
     title: "Lab Workflow",
     description:
-      "Precision components for both traditional and digital lab workflows.",
+      "Precision components for both traditional and digital lab workflows, ensuring accurate impression taking and restoration fabrication.",
     subcategories: [
       {
         title: "Traditional Impression",
         items: [
           {
-            id: "trad-copping",
-            name: "Transfer Copings",
-            description: "Open-Tray (Pick-up) and Closed-Tray options.",
+            id: "transfer-coping",
+            name: "Transfer Coping Abutment",
+            description:
+              "MGM transfer coping (transfer impression coping) is used during dental impressions to accurately transfer the position and orientation of an implant from the patient's mouth to a dental cast or digital model.",
+            features: [
+              "Captures the exact 3D location, depth, and angulation of the implant in the mouth",
+              "A temporary component attached to the implant or abutment during impression-taking",
+              "After impression is taken, allows the dental lab to replicate the implant position in the analog",
+            ],
+            types: [
+              {
+                name: "Open-Tray Impression Coping (Pickup Type)",
+                description:
+                  "Transfers a reusable impression coping that stays embedded in the impression material. Used with custom open-top tray. Higher level impression accuracy. Best for multiple implant cases.",
+              },
+              {
+                name: "Closed-Tray Impression Coping",
+                description:
+                  "Used with closed-tray. Coping stays behind. Less accurate than open tray, but more convenient.",
+              },
+              {
+                name: "MUA Impression Transfer Coping",
+                description: "Used with MUA (Multi-Unit Abutment system)",
+              },
+            ],
+            advantages: [
+              "Helps lab fabricate restorations that fit precisely",
+              "Ensures accurate model creation for final prosthesis",
+              "Comes in different platforms and sizes based on implant system",
+            ],
+            considerations: [
+              "Must match the specific implant system and platform",
+              "Improper seating or handling can lead to misfit restorations",
+              "Open-tray technique is more technique-sensitive but more accurate",
+            ],
+            variants: [
+              {
+                name: "Open Type Yellow (Fixture Ø3.4)",
+                partNumber: "MICYT45L",
+                specifications: ["Diameter D-Ø4.5", "Length: 14.9 (Long)"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Open Type Blue (Fixture Ø4.3)",
+                partNumber: "MICBT45L",
+                specifications: ["Diameter D-Ø4.5", "Length: 14.9 (Long)"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+            ],
           },
           {
-            id: "analogs",
-            name: "Lab Analogs",
-            description: "Replicas of implant/abutment for stone models.",
+            id: "lab-analog",
+            name: "Lab Analog / Implant Analog",
+            description:
+              "MGM lab analog or implant analog is a replica of a dental implant or abutment used in the dental laboratory to simulate the position and orientation of an implant within a working model (stone or 3D printed).",
+            features: [
+              "Replicates implant position on a dental cast or 3D printed model",
+              "Ensures the final restoration fits accurately and passively in the patient's mouth",
+              "Allows the lab to build and test-fit prosthetic components (e.g., abutments, crowns)",
+            ],
+            materials: ["Precision-milled metal or plastic"],
+            types: [
+              {
+                name: "Abutment Analog",
+                description: "Replicates an abutment (not the implant itself)",
+              },
+              {
+                name: "Digital Analog",
+                description:
+                  "For digital workflows (STL files for virtual models)",
+              },
+              { name: "MUA Analog", description: "For Multi-Unit Abutments" },
+            ],
+            howToUse: [
+              "1. A transfer coping is used to take an impression of the implant's position",
+              "2. The impression is sent to the lab with the implant analog",
+              "3. The analog is attached to the coping inside the impression (in an open-tray model)",
+              "4. A model is poured (or printed) around the analog, creating a physical replica",
+              "5. Lab uses the model with analog to fabricate and verify the final restoration",
+            ],
+            advantages: [
+              "Critical for accurate lab work",
+              "Maintains proper angulation and positioning",
+              "Compatible with both stone models and digital workflows",
+            ],
+            importantNotes: [
+              "Must match the brand, platform, and size of the actual implant used",
+              "If mismatched or incorrectly seated, it can lead to poor prosthetic fit",
+            ],
+            variants: [
+              {
+                name: "Analog Yellow (Fixture Ø3.4)",
+                partNumber: "MLAY 3401",
+                specifications: ["Diameter D-Ø4.5"],
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Analog Blue (Fixture Ø4.3)",
+                partNumber: "MLAB 4301",
+                specifications: ["Diameter D-Ø4.5"],
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+              {
+                name: "Multi Unit Lab Analog",
+                partNumber: "MULAN45",
+                specifications: ["Diameter D-Ø4.5"],
+              },
+              {
+                name: "Multi Unit Lab Analog (Hexed)",
+                partNumber: "MULAH45",
+                specifications: ["Diameter D-Ø4.5"],
+              },
+              {
+                name: "Multi Unit Digital Analog",
+                partNumber: "MGMMUDA",
+                specifications: ["Diameter D-Ø4.5"],
+              },
+            ],
           },
-          { id: "mua-copping", name: "MUA Transfer Coping" },
+          {
+            id: "mua-transfer-coping",
+            name: "MUA Transfer Coping",
+            description:
+              "Multi Unit Impression Coping for pick-up type impression-taking process using custom tray (Open tray).",
+            variants: [
+              {
+                name: "Multi Unit Impression Coping (Open Tray)",
+                partNumbers: ["MUICTN45", "MUICP45"],
+                specifications: ["Diameter D-Ø4.5"],
+                usage: "Use with Open-tray. Use with 1.2 Hexa Driver",
+              },
+            ],
+          },
         ],
       },
       {
@@ -173,12 +924,64 @@ export const products = {
         items: [
           {
             id: "scan-body",
-            name: "Scan Body",
+            name: "Scan Body Abutment",
             description:
-              "PEEK or Titanium digital transfer for intraoral scanners.",
+              "MGM scan body is a digital impression component used in implant dentistry to capture the exact position, angulation, and orientation of a dental implant or abutment during an intraoral scan. Essential in digital implant workflows for designing accurate, custom restorations using CAD/CAM technology.",
+            features: [
+              "Custom shape - Unique geometry (flats, grooves, notches) allows the software to identify it easily",
+              "Exact alignment - Translates the 3D position and rotation of the implant into the digital model",
+              "Attachable - Screws into the implant or abutment, like a healing abutment",
+              "Digital library match - Must match the implant brand and platform exactly for proper recognition in CAD software",
+            ],
+            materials: ["PEEK", "Titanium"],
+            howToUse: [
+              "1. The scan body is screwed onto the implant in the mouth (or onto a lab analog)",
+              "2. A 3D intraoral scanner (or lab scanner) captures images with the scan body in place",
+              "3. The scanner captures the geometry of the scan body",
+              "4. The CAD software uses the scan body data to precisely position the implant with precise orientation and depth",
+              "5. A custom abutment or crown is designed based on this data",
+            ],
+            advantages: [
+              "Speeds up the implant restoration process",
+              "Allows for fully digital workflows",
+              "Highly accurate for single implants",
+              "No need for messy impression materials",
+              "Ideal for CAD/CAM custom abutments and crowns",
+            ],
+            considerations: [
+              "Must match the implant system exactly (manufacturer, platform, diameter)",
+              "Proper seating is crucial—even small misfits cause prosthetic errors",
+              "May require scan spray if material is too reflective or transparent",
+            ],
+            variants: [
+              {
+                name: "Implants Scan Body (Fixture Ø3.4 & Ø3.8)",
+                partNumber: "MGMSY",
+                compatibleWith: ["Fixture Ø3.4", "Fixture Ø3.8"],
+              },
+              {
+                name: "Implants Scan Body (Fixture Ø4.3 & Ø4.8)",
+                partNumber: "MGMSB",
+                compatibleWith: ["Fixture Ø4.3", "Fixture Ø4.8"],
+              },
+              {
+                name: "MUA Scan Body",
+                partNumbers: ["MGMMUSY", "MGMMUSB"],
+                compatibleWith: ["Multi-Unit Abutments"],
+              },
+            ],
           },
-          { id: "mua-scan-body", name: "MUA Scan Body" },
-          { id: "implants-library", name: "Digital Library" },
+          {
+            id: "digital-library",
+            name: "Digital Library",
+            description:
+              "Digital files for CAD/CAM software integration (exocad, 3Shape, etc.) for accurate implant positioning in virtual models.",
+            features: [
+              "Compatible with major CAD/CAM platforms",
+              "Accurate implant positioning data",
+              "Regular updates for new components",
+            ],
+          },
         ],
       },
     ],

@@ -430,17 +430,127 @@ export const TechnologyPage = () => {
       <div class="max-w-7xl mx-auto space-y-20">
         <!-- Intro -->
         <div class="text-center space-y-6">
-          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Manufacturing & Quality</h2>
+          <h2 class="font-heading text-5xl md:text-6xl font-bold text-secondary">Smart Design Technology</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto leading-relaxed">
-            "Great manufacturing starts with great quality." Using advanced machines like TORNOS ensures unmatched precision, consistency, and reliability.
+            MGM Implants feature a revolutionary Smart Design combining six innovative technologies for optimal clinical outcomes.
           </p>
         </div>
 
-        <!-- Raw Materials -->
+        <!-- Smart Design Features -->
+        <div class="space-y-8">
+          <h3 class="font-heading text-3xl font-bold text-secondary text-center">The 6 Smart Design Features</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🔷</div>
+                <div>
+                  <h4 class="font-bold text-secondary text-lg mb-2">Smart Hyperid Body Design</h4>
+                  <p class="text-charcoal text-sm mb-2">Combines tapered core for primary stability with cylindrical form for bone contact.</p>
+                  <ul class="text-xs text-charcoal space-y-1">
+                    <li>• Better Primary Stability in soft bone</li>
+                    <li>• Even Stress Distribution</li>
+                    <li>• Ideal for all clinical situations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">⭕</div>
+                <div>
+                  <h4 class="font-bold text-secondary text-lg mb-2">Smart Cervix</h4>
+                  <p class="text-charcoal text-sm mb-2">Thread-free cervical area for soft tissue integration and hygiene.</p>
+                  <ul class="text-xs text-charcoal space-y-1">
+                    <li>• Improved Soft Tissue Adaptation</li>
+                    <li>• Reduced Bacterial Accumulation</li>
+                    <li>• Minimizes Crestal Bone Loss</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🔩</div>
+                <div>
+                  <h4 class="font-bold text-secondary text-lg mb-2">Smart Paper Thread</h4>
+                  <p class="text-charcoal text-sm mb-2">Bone-friendly thread design for faster healing processes.</p>
+                  <ul class="text-xs text-charcoal space-y-1">
+                    <li>• Improves Bone Density through compression</li>
+                    <li>• Even Stress Distribution</li>
+                    <li>• Self-Condensation in Soft Bone</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🔺</div>
+                <div>
+                  <h4 class="font-bold text-secondary text-lg mb-2">Smart Apex</h4>
+                  <p class="text-charcoal text-sm mb-2">Pointed apex with rounded boundaries for surgical safety.</p>
+                  <ul class="text-xs text-charcoal space-y-1">
+                    <li>• Atraumatic to Vital Structures</li>
+                    <li>• Enhanced Safety in Immediate Placement</li>
+                    <li>• Less risk of sinus perforation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🔗</div>
+                <div>
+                  <h4 class="font-bold text-secondary text-lg mb-2">Smart Connection - 11° Morse Taper</h4>
+                  <p class="text-charcoal text-sm mb-2">Precise internal conical connection for mechanical stability.</p>
+                  <ul class="text-xs text-charcoal space-y-1">
+                    <li>• Cold Welding Effect - prevents screw loosening</li>
+                    <li>• Superior Bacterial Seal</li>
+                    <li>• Balanced Force Distribution</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-xl p-6 hover:shadow-lg transition-all">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">✨</div>
+                <div>
+                  <h4 class="font-bold text-white text-lg mb-2">M-Pure Surface Treatment</h4>
+                  <p class="text-white/90 text-sm mb-2">Moderately rough surface for enhanced osseointegration.</p>
+                  <ul class="text-xs text-white/80 space-y-1">
+                    <li>• High Purity / Clean Surface</li>
+                    <li>• Reduced Inflammatory Response</li>
+                    <li>• Faster Healing Than Machined</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M-Pure Surface Detail -->
+        <div class="bg-clinical-gray rounded-2xl p-10">
+          <h3 class="font-heading text-3xl font-bold text-secondary mb-6">M-Pure Surface Technology</h3>
+          <p class="text-charcoal text-lg leading-relaxed mb-6">
+            The MGM M-Pure surface treatment is a proprietary surface modification that involves sandblasting with biocompatible materials (titanium or oxide), with no acid-etching or chemical modification. This creates a clean, biologically safe surface with moderate roughness for optimal bone contact.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">Moderate Roughness:</strong> <span class="text-charcoal text-sm">Strong primary stability and bone-implant contact</span></div>
+            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">High Purity:</strong> <span class="text-charcoal text-sm">Surface free of embedded particles</span></div>
+            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">Biocompatible:</strong> <span class="text-charcoal text-sm">Only titanium or titanium oxide used</span></div>
+          </div>
+        </div>
+
+        <!-- Manufacturing Section -->
         <div class="bg-white border border-silver rounded-2xl p-10 shadow-lg">
-            <h3 class="font-heading text-3xl font-bold text-secondary mb-6">Raw Materials</h3>
+            <h3 class="font-heading text-3xl font-bold text-secondary mb-6">Manufacturing & Raw Materials</h3>
             <p class="text-charcoal text-lg leading-relaxed">
-                MGM uses premium-grade titanium to ensure biocompatibility, corrosion resistance, and seamless bone integration. Only materials meeting international standards move to production.
+                "Great manufacturing starts with great quality." Using advanced machines like TORNOS ensures unmatched precision, consistency, and reliability. MGM uses premium-grade titanium to ensure biocompatibility, corrosion resistance, and seamless bone integration. Only materials meeting international standards move to production.
             </p>
         </div>
 
