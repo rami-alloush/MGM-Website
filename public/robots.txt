@@ -1,0 +1,15 @@
+# MGM Implant - Robots.txt
+# https://mgmimplant.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mgmimplant.com/sitemap.xml
+
+# Crawl-delay (optional, be gentle with the server)
+Crawl-delay: 1
+
+# Disallow admin/private areas if any
+Disallow: /api/
+Disallow: /*.json$

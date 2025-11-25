@@ -718,7 +718,7 @@ export const ContactPage = () => {
                   <span class="text-primary text-2xl">📧</span>
                   <div>
                     <p class="font-semibold text-secondary">Email</p>
-                    <p>info@mgmimplant.de</p>
+                    <p>info@mgmimplant.com</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
@@ -837,7 +837,7 @@ export const ContactPage = () => {
             `Message:\n${data.message}`
         );
 
-        window.location.href = `mailto:info@mgmimplant.de?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@mgmimplant.com?subject=${subject}&body=${body}`;
 
         // Show success feedback
         const button = form.querySelector('button[type="submit"]');
