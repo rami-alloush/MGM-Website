@@ -5,6 +5,7 @@ import {
   getProductImage,
   getCategoryImage,
   DEFAULT_PRODUCT_IMAGE,
+  get3DImages,
 } from "./data/productImages.js";
 
 // Helper to create elements
@@ -1422,6 +1423,28 @@ export const ProductDetailPage = (productId) => {
     `;
   }
 
+  // Build 3D parts gallery section
+  const parts3D = get3DImages(product.id);
+  let parts3DHtml = "";
+  if (parts3D && parts3D.length > 0) {
+    parts3DHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Component Variants</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          ${parts3D
+            .map(
+              (imgPath, i) => `
+            <div class="bg-clinical-gray rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-105 transition-all group" onclick="window.openLightbox('${imgPath}', '${product.name} - Variant ${i + 1}')">
+              <img src="${imgPath}" alt="${product.name} variant ${i + 1}" class="w-full h-full object-contain" loading="lazy" />
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
   const section = createElement(
     "section",
     "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
@@ -1497,6 +1520,8 @@ export const ProductDetailPage = (productId) => {
             </div>
 
             ${variantsHtml}
+
+            ${parts3DHtml}
 
             ${typesHtml}
 

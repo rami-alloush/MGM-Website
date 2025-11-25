@@ -1,8 +1,12 @@
 // Product image mappings - maps product IDs to their catalog images
 // Images should be placed in /public/assets/images/products/
+// 3D rendered parts are in /public/assets/images/3d-parts/
 
 // Default fallback image - change this to control the default image everywhere
 export const DEFAULT_PRODUCT_IMAGE = "/assets/logo.png";
+
+// 3D rendered part images base path
+const PARTS_PATH = "/assets/images/3d-parts";
 
 export const productImages = {
   // Smart Design Features (Implants)
@@ -15,10 +19,6 @@ export const productImages = {
 
   // Implants category
   implants: "/assets/images/products/1-Hyperid Design.webp",
-  // mgm: "/assets/images/products/1-Hyperid Design.webp",
-  // "mgm-plus": "/assets/images/products/1-Hyperid Design.webp",
-  // "mgm-compressive": "/assets/images/products/1-Hyperid Design.webp",
-  // "mgm-s": "/assets/images/products/1-Hyperid Design.webp",
 
   // Prosthetics category
   prosthetics: "/assets/images/products/8-Prosthetics.webp",
@@ -99,6 +99,103 @@ export const productSecondaryImages = {
   ],
 };
 
+// 3D rendered part images - organized by product
+export const product3DImages = {
+  "straight-abutment": [
+    PARTS_PATH + "/abutment-moshb4518_01.webp",
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-mavi.webp",
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-sari.webp",
+  ],
+  "angled-abutment": [
+    PARTS_PATH + "/abutment-misab45115_03.webp",
+    PARTS_PATH + "/abutment-misab45125_02.webp",
+  ],
+  "healing-abutment": [PARTS_PATH + "/healing-abutment-mhlb4504_01.webp"],
+  "ti-base": [
+    PARTS_PATH + "/ti-base.webp",
+    PARTS_PATH + "/mavi-ti-base-gh00.webp",
+    PARTS_PATH + "/mavi-ti-base-gh01.webp",
+    PARTS_PATH + "/mavi-ti-base-gh02.webp",
+    PARTS_PATH + "/sari-ti-base-gh00.webp",
+    PARTS_PATH + "/sari-ti-base-gh01.webp",
+    PARTS_PATH + "/sari-ti-base-gh02.webp",
+  ],
+  "regular-tbase": [
+    PARTS_PATH + "/mavi-connection.webp",
+    PARTS_PATH + "/sari-connection.webp",
+    PARTS_PATH + "/mavi-nolock-connection.webp",
+    PARTS_PATH + "/sari-nolock-connection.webp",
+  ],
+  "pri-milled": [
+    PARTS_PATH + "/premill-solid-abutment-mavi.webp",
+    PARTS_PATH + "/premill-solid-abutment-sari.webp",
+    PARTS_PATH + "/mavi-premill.webp",
+    PARTS_PATH + "/sari-premill.webp",
+  ],
+  "straight-mua": [
+    PARTS_PATH + "/mavi-multi-connection.webp",
+    PARTS_PATH + "/mavi-multi-octagon-connection.webp",
+    PARTS_PATH + "/sari-multi-octagon-connection.webp",
+  ],
+  "angled-mua": [
+    PARTS_PATH + "/mavi-multi-analog.webp",
+    PARTS_PATH + "/sari-multi-analog.webp",
+    PARTS_PATH + "/mavi-multi-octagon-analog.webp",
+  ],
+  "mua-cylinders": [
+    PARTS_PATH + "/mavi-multi-octagon-vida.webp",
+    PARTS_PATH + "/mavi-vida.webp",
+    PARTS_PATH + "/sari-abutment-vida.webp",
+  ],
+  "ball-socket-abutment": [
+    PARTS_PATH + "/vario-base-cap.webp",
+    PARTS_PATH + "/vario-base-gh1-5-mavi.webp",
+    PARTS_PATH + "/vario-base-gh1-5-sari.webp",
+    PARTS_PATH + "/vario-base-gh3-mavi.webp",
+    PARTS_PATH + "/vario-base-gh3-sari.webp",
+    PARTS_PATH + "/vario-base-gh4-5-mavi.webp",
+    PARTS_PATH + "/vario-base-gh4-5-sari.webp",
+  ],
+  "locator-abutment": [
+    PARTS_PATH + "/all-on-four-analog-vario-base.webp",
+    PARTS_PATH + "/all-on-for-bar-tepe-vida.webp",
+  ],
+  "lab-analog": [
+    PARTS_PATH + "/lab-analog-mlab4301_00.webp",
+    PARTS_PATH + "/analog-mavi.webp",
+    PARTS_PATH + "/analog-mavi-kabuk.webp",
+    PARTS_PATH + "/analog-sari-kabuk.webp",
+    PARTS_PATH + "/sari-analog.webp",
+    PARTS_PATH + "/standart-analog-mavi.webp",
+    PARTS_PATH + "/standart-analog-sari.webp",
+    PARTS_PATH + "/all-on-four-analog-mavi.webp",
+    PARTS_PATH + "/all-on-four-analog-sari.webp",
+    PARTS_PATH + "/dim-analog-mavi.webp",
+    PARTS_PATH + "/dim-analog-sarii.webp",
+    PARTS_PATH + "/bluetypedimanalog.webp",
+    PARTS_PATH + "/yellowtypedimanalog.webp",
+  ],
+  "transfer-coping": [PARTS_PATH + "/impression-coping-micbp45_00.webp"],
+  "scan-body": [
+    PARTS_PATH + "/mavi-scanbody.webp",
+    PARTS_PATH + "/sari-scanbody.webp",
+    PARTS_PATH + "/scanbody-blue.webp",
+    PARTS_PATH + "/scanbody-yellow.webp",
+    PARTS_PATH + "/mavi-multi-scanbody1.webp",
+    PARTS_PATH + "/sari-multi-scanbody1.webp",
+    PARTS_PATH + "/sari-multi-octagon-scanbody.webp",
+    PARTS_PATH + "/scan-body-all-on-four.webp",
+  ],
+  "mua-transfer-coping": [
+    PARTS_PATH + "/mavi-multi-connection.webp",
+    PARTS_PATH + "/sari-multi-octagon-connection.webp",
+  ],
+  "digital-library": [
+    PARTS_PATH + "/tarama-jig.webp",
+    PARTS_PATH + "/mgm-dijital-montaj-sari.webp",
+  ],
+};
+
 // Category cover images
 export const categoryImages = {
   implants: "/assets/images/products/1-Hyperid Design.webp",
@@ -118,4 +215,30 @@ export const getProductImage = (productId) => {
 // Helper function to get category image
 export const getCategoryImage = (categoryKey) => {
   return categoryImages[categoryKey] || DEFAULT_PRODUCT_IMAGE;
+};
+
+// Helper function to get all images for a product (primary + secondary + 3D)
+export const getAllProductImages = (productId) => {
+  const images = [];
+  if (productImages[productId]) {
+    images.push(productImages[productId]);
+  }
+  const secondary = productSecondaryImages[productId];
+  if (secondary) {
+    if (Array.isArray(secondary)) {
+      images.push(...secondary);
+    } else {
+      images.push(secondary);
+    }
+  }
+  const parts3D = product3DImages[productId];
+  if (parts3D) {
+    images.push(...parts3D);
+  }
+  return images;
+};
+
+// Helper function to get only 3D images for a product
+export const get3DImages = (productId) => {
+  return product3DImages[productId] || [];
 };
