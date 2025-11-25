@@ -336,4 +336,48 @@ document.addEventListener("DOMContentLoaded", () => {
       productsArrow.classList.toggle("rotate-180");
     });
   }
+
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIconSun = document.getElementById("theme-icon-sun");
+  const themeIconMoon = document.getElementById("theme-icon-moon");
+  const themeLabel = document.getElementById("theme-label");
+  const html = document.documentElement;
+
+  // Check for saved theme preference or default to dark
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    html.setAttribute("data-theme", "light");
+    updateThemeUI(true);
+  }
+
+  function updateThemeUI(isLight) {
+    if (themeIconSun && themeIconMoon && themeLabel) {
+      if (isLight) {
+        themeIconSun.classList.add("hidden");
+        themeIconMoon.classList.remove("hidden");
+        themeLabel.textContent = "Dark Mode";
+      } else {
+        themeIconSun.classList.remove("hidden");
+        themeIconMoon.classList.add("hidden");
+        themeLabel.textContent = "Light Mode";
+      }
+    }
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isLight = html.getAttribute("data-theme") === "light";
+
+      if (isLight) {
+        html.removeAttribute("data-theme");
+        localStorage.setItem("theme", "dark");
+        updateThemeUI(false);
+      } else {
+        html.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        updateThemeUI(true);
+      }
+    });
+  }
 });

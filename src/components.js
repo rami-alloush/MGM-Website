@@ -307,12 +307,10 @@ export const HomePage = () => {
 };
 
 export const AboutPage = () => {
-  const section = createElement("section", "min-h-screen py-24 px-6 md:px-20");
-  section.style.backgroundImage = "url('/assets/images/about-bg.jpg')";
-  section.style.backgroundSize = "cover";
-  section.style.backgroundPosition = "center";
-  section.style.backgroundBlendMode = "overlay";
-  section.style.backgroundColor = "rgba(255, 255, 255, 0.9)"; // Light overlay for clean look
+  const section = createElement(
+    "section",
+    "min-h-screen py-24 px-6 md:px-20 about-page-bg"
+  );
 
   section.innerHTML = `
       <div class="max-w-6xl mx-auto space-y-20">
