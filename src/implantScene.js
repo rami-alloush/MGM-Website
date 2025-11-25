@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { VertexNormalsHelper } from "three/addons/helpers/VertexNormalsHelper.js";
 
 export function initScene() {
   const container = document.getElementById("canvas-container");
@@ -18,24 +20,42 @@ export function initScene() {
   );
   camera.position.z = 50;
 
-  const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
-  const cubeCamera = new THREE.CubeCamera(1, 1000, cubeRenderTarget);
-  scene.add(cubeCamera);
-
-  // Apply the environment map to your material
-  const envMap = cubeRenderTarget.texture;
-  const material = new THREE.MeshStandardMaterial({ envMap });
-
   // Renderer with enhanced settings
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1;
+  renderer.toneMappingExposure = 1.2;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
   container.appendChild(renderer.domElement);
+
+  // Create studio environment for realistic reflections
+  const pmremGenerator = new THREE.PMREMGenerator(renderer);
+  pmremGenerator.compileEquirectangularShader();
+  const environment = new RoomEnvironment();
+  const envMap = pmremGenerator.fromScene(environment).texture;
+  scene.environment = envMap;
+  environment.dispose();
 
   // --- Objects ---
   let implant; // Will hold the loaded model
+
+  // DEBUG: Add test sphere to verify environment map is working
+  const testSphereGeometry = new THREE.SphereGeometry(5, 64, 64);
+  const testSphereMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xaaaaaa,
+    metalness: 1.0,
+    roughness: 0.1,
+    envMap: envMap,
+    envMapIntensity: 2.0,
+  });
+  const testSphere = new THREE.Mesh(testSphereGeometry, testSphereMaterial);
+  testSphere.position.set(-20, 0, 0); // Position to the left
+  testSphere.name = "DEBUG_TEST_SPHERE";
+  scene.add(testSphere);
+  console.log(
+    "🔍 DEBUG - Test sphere added at (-20, 0, 0) - if this looks metallic, env map works!"
+  );
 
   // Setup DRACO Loader for compressed models
   const dracoLoader = new DRACOLoader();
@@ -53,27 +73,96 @@ export function initScene() {
       // Successfully loaded the model
       implant = gltf.scene;
 
-      // Apply metallic material with enhanced properties
+      // DEBUG: Log scene environment
+      console.log("🔍 DEBUG - Scene environment:", scene.environment);
+      console.log("🔍 DEBUG - EnvMap texture:", envMap);
+
+      // Apply polished titanium material with debugging
       implant.traverse((child) => {
         if (child.isMesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: 0xffffff, // White for maximum brightness
-            metalness: 0.6, // Reduced metalness to allow diffuse color to show
-            roughness: 0.4, // Increased roughness to catch more light
-            envMapIntensity: 2.0, // Increased environment intensity
-            flatShading: false,
+          const geometry = child.geometry;
+
+          // DEBUG: Check geometry attributes
+          console.log("🔍 DEBUG - Mesh found:", child.name);
+          console.log(
+            "🔍 DEBUG - Has position:",
+            !!geometry.attributes.position
+          );
+          console.log("🔍 DEBUG - Has normal:", !!geometry.attributes.normal);
+          console.log(
+            "🔍 DEBUG - Vertex count:",
+            geometry.attributes.position?.count
+          );
+
+          // FIX: Compute normals if missing or corrupted
+          if (!geometry.attributes.normal) {
+            console.warn("⚠️ No normals found - computing...");
+            geometry.computeVertexNormals();
+          } else {
+            // Force recompute normals in case they're wrong
+            console.log("🔧 Recomputing vertex normals...");
+            geometry.computeVertexNormals();
+          }
+
+          // Check bounding box to ensure geometry is valid
+          geometry.computeBoundingBox();
+          console.log("🔍 DEBUG - Bounding box:", geometry.boundingBox);
+
+          // Use MeshPhysicalMaterial for better metallic rendering
+          const material = new THREE.MeshPhysicalMaterial({
+            color: 0xaaaaaa,
+            metalness: 1.0,
+            roughness: 0.2,
+            envMapIntensity: 2.0,
+            clearcoat: 0.1,
+            clearcoatRoughness: 0.2,
           });
-          // Enable shadow receiving for depth perception
+
+          // Explicitly set the environment map
+          material.envMap = envMap;
+          material.needsUpdate = true;
+
+          child.material = material;
           child.castShadow = true;
           child.receiveShadow = true;
+
+          // DEBUG: Log final material state
+          console.log("🔍 DEBUG - Material type:", material.type);
+          console.log("🔍 DEBUG - Material envMap:", material.envMap);
+          console.log("🔍 DEBUG - Material metalness:", material.metalness);
+
+          // DEBUG: Sample some normals to check their values
+          const normalAttr = geometry.attributes.normal;
+          if (normalAttr) {
+            console.log("🔍 DEBUG - Sample normals (first 5 vertices):");
+            for (let i = 0; i < Math.min(5, normalAttr.count); i++) {
+              const nx = normalAttr.getX(i);
+              const ny = normalAttr.getY(i);
+              const nz = normalAttr.getZ(i);
+              console.log(
+                `  Vertex ${i}: (${nx.toFixed(3)}, ${ny.toFixed(
+                  3
+                )}, ${nz.toFixed(3)})`
+              );
+            }
+          }
         }
       });
 
       // Scale and position the model appropriately
       implant.scale.set(15, 15, 15);
+
+      // DEBUG: Add normal helper to visualize normals (red lines)
+      implant.traverse((child) => {
+        if (child.isMesh) {
+          const normalsHelper = new VertexNormalsHelper(child, 0.5, 0xff0000);
+          scene.add(normalsHelper);
+          console.log("🔍 DEBUG - Added normals helper for:", child.name);
+        }
+      });
       implant.position.set(0, 0, 0);
       scene.add(implant);
-      console.log("Implant model loaded successfully");
+      console.log("✅ Implant model loaded successfully");
     },
     (progress) => {
       // Loading progress - silenced to avoid console spam
