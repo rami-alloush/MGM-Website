@@ -191,26 +191,25 @@ export function initScene() {
       implant.rotation.y += 0.12 * (targetX - implant.rotation.y); // More responsive
       implant.rotation.x += 0.12 * (targetY - implant.rotation.x); // More responsive
 
-      // Scroll Effect
+      // Scroll Effect - move model to the right as user scrolls
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = maxScroll > 0 ? scrollY / maxScroll : 0;
 
-      // Calculate target positions combining scroll and mouse
-      const scrollTargetX = scrollPercent * 3;
-      // Add mouse parallax to X position (targetX is derived from mouseX)
-      // Multiplier controls how much it moves. targetX is roughly -3 to +3 range based on screen width
+      // Move right on scroll (increased from 3 to 20 for more noticeable effect)
+      const scrollTargetX = scrollPercent * 20;
       const mouseParallaxX = targetX * 2.0;
 
       implant.position.x = THREE.MathUtils.lerp(
         implant.position.x,
         scrollTargetX + mouseParallaxX,
-        0.1
+        0.08
       );
 
+      // Move slightly back on scroll for depth effect
       implant.position.z = THREE.MathUtils.lerp(
         implant.position.z,
-        scrollPercent * -2,
-        0.1
+        scrollPercent * -5,
+        0.08
       );
     }
 
