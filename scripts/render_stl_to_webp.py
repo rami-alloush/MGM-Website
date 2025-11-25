@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 import pyvista as pv
 from PIL import Image
+import numpy as np
 import io
 
 # Configure PyVista for off-screen rendering
@@ -112,12 +113,57 @@ def render_stl_to_image(stl_path: Path, output_path: Path, size: int = 800):
             intensity=0.3
         ))
 
-        # Render to image with transparency
-        img = plotter.screenshot(transparent_background=True, return_img=True)
+        # Render to image with a unique background color for chroma keying
+        # Use magenta as it's unlikely to appear in gold metallic renders
+        plotter.set_background('#FF00FF')
+        img = plotter.screenshot(transparent_background=False, return_img=True)
         plotter.close()
 
-        # Convert to PIL Image (RGBA for transparency) and save as WebP
-        pil_image = Image.fromarray(img, 'RGBA')
+        # Convert to PIL Image
+        pil_image = Image.fromarray(img)
+
+        # Convert to RGBA and make magenta background transparent
+        pil_image = pil_image.convert('RGBA')
+        data = np.array(pil_image, dtype=np.float32)
+
+        # Calculate "magenta-ness" - how close each pixel is to pure magenta
+        # Pure magenta is (255, 0, 255), so we check high R, low G, high B
+        r, g, b = data[:, :, 0], data[:, :, 1], data[:, :, 2]
+
+        # Magenta has high red, low green, high blue
+        # Calculate a score: high when R and B are high, G is low
+        magenta_score = ((r / 255) * (1 - g / 255) * (b / 255))
+
+        # Threshold for what counts as "magenta enough" to be transparent
+        # Use a gradient for anti-aliased edges
+        threshold = 0.5
+
+        # Calculate alpha: fully transparent where magenta_score is high
+        # For edge pixels (anti-aliased), calculate partial transparency
+        alpha = np.where(
+            magenta_score > threshold,
+            0,  # Fully transparent for clear magenta
+            np.clip((1 - magenta_score / threshold) * 255, 0, 255)
+        )
+
+        # For pixels that are partially magenta (the fringe), also remove the magenta tint
+        # by shifting the color towards the object color
+        fringe_mask = (magenta_score > 0.1) & (magenta_score <= threshold)
+
+        # Calculate blend factor for entire image (same shape as fringe_mask)
+        blend_full = np.clip(magenta_score / threshold, 0, 1)
+
+        # Apply color correction only where fringe_mask is True
+        data[:, :, 0] = np.where(fringe_mask, r * (1 - blend_full * 0.5), r)
+        data[:, :, 2] = np.where(fringe_mask, b * (1 - blend_full * 0.5), b)
+
+        data[:, :, 3] = alpha
+
+        # Convert back to uint8
+        data = np.clip(data, 0, 255).astype(np.uint8)
+
+        # Create new image with transparency
+        pil_image = Image.fromarray(data, 'RGBA')
         pil_image.save(str(output_path), 'WEBP', quality=90, lossless=False)
 
         return True
