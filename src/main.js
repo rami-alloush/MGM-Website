@@ -40,6 +40,71 @@ const routes = {
 const appContainer = document.querySelector("#app");
 const router = new Router(routes, appContainer);
 
+// Counter Animation Function
+function animateCounter(element) {
+  const target = parseFloat(element.dataset.target);
+  const suffix = element.dataset.suffix || "";
+  const isDecimal = element.dataset.decimal === "true";
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const current = target * easeOut;
+
+    element.textContent =
+      (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// Stats Counter Observer - triggers animation when visible
+function initCounterAnimation() {
+  const statsContainer = document.getElementById("stats-container");
+  if (!statsContainer) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Fade in stat items
+          entry.target.querySelectorAll(".stat-item").forEach((item) => {
+            item.classList.remove("opacity-0", "translate-y-4");
+          });
+
+          // Animate counters
+          entry.target.querySelectorAll(".counter").forEach((counter) => {
+            if (!counter.dataset.animated) {
+              counter.dataset.animated = "true";
+              animateCounter(counter);
+            }
+          });
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(statsContainer);
+}
+
+// Initialize counter animation after router renders content
+window.addEventListener("load", () => setTimeout(initCounterAnimation, 100));
+window.addEventListener("hashchange", () =>
+  setTimeout(initCounterAnimation, 100)
+);
+
 // Lightbox functionality
 window.openLightbox = (imageSrc, imageAlt) => {
   // Create lightbox overlay

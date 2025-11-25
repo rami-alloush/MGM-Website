@@ -162,17 +162,23 @@ export const HomePage = () => {
   statsSection.innerHTML = `
     <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
     <div class="max-w-screen-2xl mx-auto px-20 relative z-10">
-        <div class="grid md:grid-cols-3 gap-12 text-center">
-            <div class="space-y-2">
-                <div class="text-7xl font-bold text-accent font-heading">98.8%</div>
+        <div class="grid md:grid-cols-3 gap-12 text-center" id="stats-container">
+            <div class="space-y-2 stat-item opacity-0 translate-y-4 transition-all duration-700" style="transition-delay: 0ms">
+                <div class="text-7xl font-bold text-accent font-heading">
+                    <span class="counter" data-target="98.8" data-suffix="%" data-decimal="true">0</span>
+                </div>
                 <div class="text-xl text-silver uppercase tracking-widest">Success Rate</div>
             </div>
-            <div class="space-y-2">
-                <div class="text-7xl font-bold text-accent font-heading">15+</div>
+            <div class="space-y-2 stat-item opacity-0 translate-y-4 transition-all duration-700" style="transition-delay: 150ms">
+                <div class="text-7xl font-bold text-accent font-heading">
+                    <span class="counter" data-target="15" data-suffix="+">0</span>
+                </div>
                 <div class="text-xl text-silver uppercase tracking-widest">Years of Innovation</div>
             </div>
-            <div class="space-y-2">
-                <div class="text-7xl font-bold text-accent font-heading">40+</div>
+            <div class="space-y-2 stat-item opacity-0 translate-y-4 transition-all duration-700" style="transition-delay: 300ms">
+                <div class="text-7xl font-bold text-accent font-heading">
+                    <span class="counter" data-target="40" data-suffix="+">0</span>
+                </div>
                 <div class="text-xl text-silver uppercase tracking-widest">Countries</div>
             </div>
         </div>
