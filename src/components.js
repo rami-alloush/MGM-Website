@@ -314,7 +314,7 @@ export const AboutPage = () => {
         <div class="text-center space-y-6">
           <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">About MGM Implant</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto leading-relaxed">
-            MGM IMPLANT has specialized in implantology since 2008, adopting the highest quality standards under the ISO 13485 quality management system. Based in Hilden and Aachen, we maintain a strong sales and service network worldwide.
+            MGM IMPLANT has specialized in implantology since 2008, adopting the highest quality standards under the ISO 13485 quality management system. Based in Baesweiler, Germany, we maintain a strong sales and service network worldwide.
           </p>
         </div>
 
@@ -709,29 +709,32 @@ export const ContactPage = () => {
                 <div class="flex items-start gap-4">
                   <span class="text-primary text-2xl">📍</span>
                   <div>
-                    <p class="font-semibold text-secondary">Headquarters</p>
-                    <p>Hilden & Aachen, Germany</p>
+                    <p class="font-semibold text-secondary">Address</p>
+                    <p>Werner-Heisenberg-Straße 14</p>
+                    <p>52499 Baesweiler, Germany</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
                   <span class="text-primary text-2xl">📧</span>
                   <div>
                     <p class="font-semibold text-secondary">Email</p>
-                    <p>info@mgmimplant.com</p>
+                    <p>info@mgmimplant.de</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">📱</span>
+                  <span class="text-primary text-2xl">�</span>
                   <div>
-                    <p class="font-semibold text-secondary">WhatsApp</p>
-                    <p>Direct support available</p>
+                    <p class="font-semibold text-secondary">Phone</p>
+                    <p>+49 2103 9049978</p>
+                    <p class="text-sm">+49 174 86 16844 (Mobile)</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">🌍</span>
+                  <span class="text-primary text-2xl">�</span>
                   <div>
-                    <p class="font-semibold text-secondary">Global Reach</p>
-                    <p>International agents worldwide</p>
+                    <p class="font-semibold text-secondary">Company</p>
+                    <p>AAD Dental GmbH</p>
+                    <p class="text-sm">HRB 87697 · Amtsgericht Düsseldorf</p>
                   </div>
                 </div>
               </div>
@@ -742,7 +745,7 @@ export const ContactPage = () => {
               <div class="relative z-10">
                 <h3 class="font-heading text-2xl font-bold text-white mb-4">Become a Partner</h3>
                 <p class="text-gray-300 mb-6">Interested in distributing MGM Implant products? Join our global network.</p>
-                <a href="#/distributor" class="inline-block px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+                <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
                   Partner With Us
                 </a>
               </div>
@@ -784,7 +787,7 @@ export const ContactPage = () => {
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Immediate Loading with MGM Plus</h4>
                         <p class="text-charcoal text-sm mb-4">A comprehensive look at a full-arch rehabilitation using the MGM Plus system.</p>
-                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover">Read More →</a>
+                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover pointer-events-none opacity-50 cursor-not-allowed">Read More →</a>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl overflow-hidden border border-silver hover:border-primary transition-all group shadow-sm hover:shadow-lg">
@@ -795,7 +798,7 @@ export const ContactPage = () => {
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">IDS Cologne 2025</h4>
                         <p class="text-charcoal text-sm mb-4">Join us at the world's leading dental trade fair. Hall 10.2, Booth A-050.</p>
-                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover">Read More →</a>
+                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover pointer-events-none opacity-50 cursor-not-allowed">Read More →</a>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl overflow-hidden border border-silver hover:border-primary transition-all group shadow-sm hover:shadow-lg">
@@ -806,7 +809,7 @@ export const ContactPage = () => {
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">The Science of M-Pure Surface</h4>
                         <p class="text-charcoal text-sm mb-4">Understanding the biological benefits of our acid-free surface treatment.</p>
-                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover">Read More →</a>
+                        <a href="#" class="text-primary text-sm font-semibold hover:text-primary-hover pointer-events-none opacity-50 cursor-not-allowed">Read More →</a>
                     </div>
                 </div>
             </div>
@@ -834,7 +837,7 @@ export const ContactPage = () => {
             `Message:\n${data.message}`
         );
 
-        window.location.href = `mailto:info@mgmimplant.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@mgmimplant.de?subject=${subject}&body=${body}`;
 
         // Show success feedback
         const button = form.querySelector('button[type="submit"]');
@@ -1434,8 +1437,12 @@ export const ProductDetailPage = (productId) => {
           ${parts3D
             .map(
               (imgPath, i) => `
-            <div class="bg-clinical-gray rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-105 transition-all group" onclick="window.openLightbox('${imgPath}', '${product.name} - Variant ${i + 1}')">
-              <img src="${imgPath}" alt="${product.name} variant ${i + 1}" class="w-full h-full object-contain" loading="lazy" />
+            <div class="bg-clinical-gray rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-105 transition-all group" onclick="window.openLightbox('${imgPath}', '${
+                product.name
+              } - Variant ${i + 1}')">
+              <img src="${imgPath}" alt="${product.name} variant ${
+                i + 1
+              }" class="w-full h-full object-contain" loading="lazy" />
             </div>
           `
             )
@@ -1509,10 +1516,10 @@ export const ProductDetailPage = (productId) => {
                         "\\'"
                       )}', '${
     product.id
-  }')" class="flex-1 px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+  }')" class="flex-1 px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all cursor-pointer">
                           Request Quote
                       </button>
-                      <button class="px-8 py-4 bg-white border border-silver text-secondary font-heading font-semibold rounded-lg hover:bg-clinical-gray transition-all">
+                      <button disabled class="px-8 py-4 bg-gray-300 border border-gray-400 text-gray-500 font-heading font-semibold rounded-lg cursor-not-allowed opacity-60">
                           Download PDF
                       </button>
                     </div>
@@ -1682,7 +1689,7 @@ export const EducationPage = () => {
                 <div>
                   <h4 class="font-bold text-secondary text-lg">Surgical & Prosthetic Protocols</h4>
                   <p class="text-charcoal text-sm mb-2">Detailed step-by-step guides and video tutorials.</p>
-                  <a href="#" class="text-primary text-sm font-semibold hover:underline">Download PDF →</a>
+                  <a href="#" class="text-primary text-sm font-semibold hover:underline pointer-events-none opacity-50 cursor-not-allowed">Download PDF →</a>
                 </div>
               </div>
               <div class="bg-white border border-silver rounded-xl p-6 flex items-start gap-4 hover:border-primary transition-all">
@@ -1690,7 +1697,7 @@ export const EducationPage = () => {
                 <div>
                   <h4 class="font-bold text-secondary text-lg">Digital Workflow Guides</h4>
                   <p class="text-charcoal text-sm mb-2">Integration with exocad, 3Shape, and other CAD software.</p>
-                  <a href="#" class="text-primary text-sm font-semibold hover:underline">View Guides →</a>
+                  <a href="#" class="text-primary text-sm font-semibold hover:underline pointer-events-none opacity-50 cursor-not-allowed">View Guides →</a>
                 </div>
               </div>
               <div class="bg-white border border-silver rounded-xl p-6 flex items-start gap-4 hover:border-primary transition-all">
@@ -1698,7 +1705,7 @@ export const EducationPage = () => {
                 <div>
                   <h4 class="font-bold text-secondary text-lg">Scientific Documentation</h4>
                   <p class="text-charcoal text-sm mb-2">Clinical studies, white papers, and research articles.</p>
-                  <a href="#" class="text-primary text-sm font-semibold hover:underline">Read Research →</a>
+                  <a href="#" class="text-primary text-sm font-semibold hover:underline pointer-events-none opacity-50 cursor-not-allowed">Read Research →</a>
                 </div>
               </div>
             </div>
@@ -1719,7 +1726,7 @@ export const EducationPage = () => {
                 <div class="text-3xl">🏙️</div>
                 <div>
                   <h4 class="font-bold text-secondary text-lg">On-site Courses</h4>
-                  <p class="text-charcoal text-sm">Hands-on workshops in Hilden, Aachen, and partner clinics.</p>
+                  <p class="text-charcoal text-sm">Hands-on workshops in Baesweiler, Germany and partner clinics.</p>
                 </div>
               </div>
               <div class="bg-white border border-silver rounded-xl p-6 flex items-start gap-4 hover:border-primary transition-all">

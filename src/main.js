@@ -197,7 +197,7 @@ window.openQuoteModal = (productName, productId) => {
     );
 
     // Open mailto link
-    window.location.href = `mailto:info@mgmimplant.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@mgmimplant.de?subject=${subject}&body=${body}`;
 
     // Show success message and close modal
     const modalContent = modal.querySelector(".bg-white");
