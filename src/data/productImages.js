@@ -102,97 +102,223 @@ export const productSecondaryImages = {
 // 3D rendered part images - organized by product
 export const product3DImages = {
   "straight-abutment": [
-    PARTS_PATH + "/abutment-moshb4518_01.webp",
-    PARTS_PATH + "/ø3-4-gh0-duz-abutment-mavi.webp",
-    PARTS_PATH + "/ø3-4-gh0-duz-abutment-sari.webp",
+    PARTS_PATH + "/abutment-moshb4518_01_gold.webp",
+    PARTS_PATH + "/abutment-moshb4518_01_blue.webp",
+
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-mavi_gold.webp",
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-mavi_blue.webp",
+
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-sari_gold.webp",
+    PARTS_PATH + "/ø3-4-gh0-duz-abutment-sari_blue.webp",
   ],
   "angled-abutment": [
-    PARTS_PATH + "/abutment-misab45115_03.webp",
-    PARTS_PATH + "/abutment-misab45125_02.webp",
+    PARTS_PATH + "/abutment-misab45115_03_gold.webp",
+    PARTS_PATH + "/abutment-misab45115_03_blue.webp",
+
+    PARTS_PATH + "/abutment-misab45125_02_gold.webp",
+    PARTS_PATH + "/abutment-misab45125_02_blue.webp",
   ],
-  "healing-abutment": [PARTS_PATH + "/healing-abutment-mhlb4504_01.webp"],
+  "healing-abutment": [
+    PARTS_PATH + "/healing-abutment-mhlb4504_01_gold.webp",
+    PARTS_PATH + "/healing-abutment-mhlb4504_01_blue.webp",
+  ],
   "ti-base": [
-    PARTS_PATH + "/ti-base.webp",
-    PARTS_PATH + "/mavi-ti-base-gh00.webp",
-    PARTS_PATH + "/mavi-ti-base-gh01.webp",
-    PARTS_PATH + "/mavi-ti-base-gh02.webp",
-    PARTS_PATH + "/sari-ti-base-gh00.webp",
-    PARTS_PATH + "/sari-ti-base-gh01.webp",
-    PARTS_PATH + "/sari-ti-base-gh02.webp",
+    PARTS_PATH + "/ti-base_gold.webp",
+    PARTS_PATH + "/ti-base_blue.webp",
+
+    PARTS_PATH + "/mavi-ti-base-gh00_gold.webp",
+    PARTS_PATH + "/mavi-ti-base-gh00_blue.webp",
+
+    PARTS_PATH + "/mavi-ti-base-gh01_gold.webp",
+    PARTS_PATH + "/mavi-ti-base-gh01_blue.webp",
+
+    PARTS_PATH + "/mavi-ti-base-gh02_gold.webp",
+    PARTS_PATH + "/mavi-ti-base-gh02_blue.webp",
+
+    PARTS_PATH + "/sari-ti-base-gh00_gold.webp",
+    PARTS_PATH + "/sari-ti-base-gh00_blue.webp",
+
+    PARTS_PATH + "/sari-ti-base-gh01_gold.webp",
+    PARTS_PATH + "/sari-ti-base-gh01_blue.webp",
+
+    PARTS_PATH + "/sari-ti-base-gh02_gold.webp",
+    PARTS_PATH + "/sari-ti-base-gh02_blue.webp",
   ],
   "regular-tbase": [
-    PARTS_PATH + "/mavi-connection.webp",
-    PARTS_PATH + "/sari-connection.webp",
-    PARTS_PATH + "/mavi-nolock-connection.webp",
-    PARTS_PATH + "/sari-nolock-connection.webp",
+    PARTS_PATH + "/mavi-connection_gold.webp",
+
+    PARTS_PATH + "/mavi-connection_blue.webp",
+    PARTS_PATH + "/sari-connection_gold.webp",
+
+    PARTS_PATH + "/sari-connection_blue.webp",
+    PARTS_PATH + "/mavi-nolock-connection_gold.webp",
+
+    PARTS_PATH + "/mavi-nolock-connection_blue.webp",
+    PARTS_PATH + "/sari-nolock-connection_gold.webp",
+
+    PARTS_PATH + "/sari-nolock-connection_blue.webp",
   ],
   "pri-milled": [
-    PARTS_PATH + "/premill-solid-abutment-mavi.webp",
-    PARTS_PATH + "/premill-solid-abutment-sari.webp",
-    PARTS_PATH + "/mavi-premill.webp",
-    PARTS_PATH + "/sari-premill.webp",
+    PARTS_PATH + "/premill-solid-abutment-mavi_gold.webp",
+
+    PARTS_PATH + "/premill-solid-abutment-mavi_blue.webp",
+    PARTS_PATH + "/premill-solid-abutment-sari_gold.webp",
+
+    PARTS_PATH + "/premill-solid-abutment-sari_blue.webp",
+    PARTS_PATH + "/mavi-premill_gold.webp",
+
+    PARTS_PATH + "/mavi-premill_blue.webp",
+    PARTS_PATH + "/sari-premill_gold.webp",
+
+    PARTS_PATH + "/sari-premill_blue.webp",
   ],
   "straight-mua": [
-    PARTS_PATH + "/mavi-multi-connection.webp",
-    PARTS_PATH + "/mavi-multi-octagon-connection.webp",
-    PARTS_PATH + "/sari-multi-octagon-connection.webp",
+    PARTS_PATH + "/mavi-multi-connection_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-connection_blue.webp",
+    PARTS_PATH + "/mavi-multi-octagon-connection_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-octagon-connection_blue.webp",
+    PARTS_PATH + "/sari-multi-octagon-connection_gold.webp",
+
+    PARTS_PATH + "/sari-multi-octagon-connection_blue.webp",
   ],
   "angled-mua": [
-    PARTS_PATH + "/mavi-multi-analog.webp",
-    PARTS_PATH + "/sari-multi-analog.webp",
-    PARTS_PATH + "/mavi-multi-octagon-analog.webp",
+    PARTS_PATH + "/mavi-multi-analog_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-analog_blue.webp",
+    PARTS_PATH + "/sari-multi-analog_gold.webp",
+
+    PARTS_PATH + "/sari-multi-analog_blue.webp",
+    PARTS_PATH + "/mavi-multi-octagon-analog_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-octagon-analog_blue.webp",
   ],
   "mua-cylinders": [
-    PARTS_PATH + "/mavi-multi-octagon-vida.webp",
-    PARTS_PATH + "/mavi-vida.webp",
-    PARTS_PATH + "/sari-abutment-vida.webp",
+    PARTS_PATH + "/mavi-multi-octagon-vida_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-octagon-vida_blue.webp",
+    PARTS_PATH + "/mavi-vida_gold.webp",
+
+    PARTS_PATH + "/mavi-vida_blue.webp",
+    PARTS_PATH + "/sari-abutment-vida_gold.webp",
+
+    PARTS_PATH + "/sari-abutment-vida_blue.webp",
   ],
   "ball-socket-abutment": [
-    PARTS_PATH + "/vario-base-cap.webp",
-    PARTS_PATH + "/vario-base-gh1-5-mavi.webp",
-    PARTS_PATH + "/vario-base-gh1-5-sari.webp",
-    PARTS_PATH + "/vario-base-gh3-mavi.webp",
-    PARTS_PATH + "/vario-base-gh3-sari.webp",
-    PARTS_PATH + "/vario-base-gh4-5-mavi.webp",
-    PARTS_PATH + "/vario-base-gh4-5-sari.webp",
+    PARTS_PATH + "/vario-base-cap_gold.webp",
+
+    PARTS_PATH + "/vario-base-cap_blue.webp",
+    PARTS_PATH + "/vario-base-gh1-5-mavi_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh1-5-mavi_blue.webp",
+    PARTS_PATH + "/vario-base-gh1-5-sari_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh1-5-sari_blue.webp",
+    PARTS_PATH + "/vario-base-gh3-mavi_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh3-mavi_blue.webp",
+    PARTS_PATH + "/vario-base-gh3-sari_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh3-sari_blue.webp",
+    PARTS_PATH + "/vario-base-gh4-5-mavi_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh4-5-mavi_blue.webp",
+    PARTS_PATH + "/vario-base-gh4-5-sari_gold.webp",
+
+    PARTS_PATH + "/vario-base-gh4-5-sari_blue.webp",
   ],
   "locator-abutment": [
-    PARTS_PATH + "/all-on-four-analog-vario-base.webp",
-    PARTS_PATH + "/all-on-for-bar-tepe-vida.webp",
+    PARTS_PATH + "/all-on-four-analog-vario-base_gold.webp",
+
+    PARTS_PATH + "/all-on-four-analog-vario-base_blue.webp",
+    PARTS_PATH + "/all-on-for-bar-tepe-vida_gold.webp",
+
+    PARTS_PATH + "/all-on-for-bar-tepe-vida_blue.webp",
   ],
   "lab-analog": [
-    PARTS_PATH + "/lab-analog-mlab4301_00.webp",
-    PARTS_PATH + "/analog-mavi.webp",
-    PARTS_PATH + "/analog-mavi-kabuk.webp",
-    PARTS_PATH + "/analog-sari-kabuk.webp",
-    PARTS_PATH + "/sari-analog.webp",
-    PARTS_PATH + "/standart-analog-mavi.webp",
-    PARTS_PATH + "/standart-analog-sari.webp",
-    PARTS_PATH + "/all-on-four-analog-mavi.webp",
-    PARTS_PATH + "/all-on-four-analog-sari.webp",
-    PARTS_PATH + "/dim-analog-mavi.webp",
-    PARTS_PATH + "/dim-analog-sarii.webp",
-    PARTS_PATH + "/bluetypedimanalog.webp",
-    PARTS_PATH + "/yellowtypedimanalog.webp",
+    PARTS_PATH + "/lab-analog-mlab4301_00_gold.webp",
+
+    PARTS_PATH + "/lab-analog-mlab4301_00_blue.webp",
+    PARTS_PATH + "/analog-mavi_gold.webp",
+
+    PARTS_PATH + "/analog-mavi_blue.webp",
+    PARTS_PATH + "/analog-mavi-kabuk_gold.webp",
+
+    PARTS_PATH + "/analog-mavi-kabuk_blue.webp",
+    PARTS_PATH + "/analog-sari-kabuk_gold.webp",
+
+    PARTS_PATH + "/analog-sari-kabuk_blue.webp",
+    PARTS_PATH + "/sari-analog_gold.webp",
+
+    PARTS_PATH + "/sari-analog_blue.webp",
+    PARTS_PATH + "/standart-analog-mavi_gold.webp",
+
+    PARTS_PATH + "/standart-analog-mavi_blue.webp",
+    PARTS_PATH + "/standart-analog-sari_gold.webp",
+
+    PARTS_PATH + "/standart-analog-sari_blue.webp",
+    PARTS_PATH + "/all-on-four-analog-mavi_gold.webp",
+
+    PARTS_PATH + "/all-on-four-analog-mavi_blue.webp",
+    PARTS_PATH + "/all-on-four-analog-sari_gold.webp",
+
+    PARTS_PATH + "/all-on-four-analog-sari_blue.webp",
+    PARTS_PATH + "/dim-analog-mavi_gold.webp",
+
+    PARTS_PATH + "/dim-analog-mavi_blue.webp",
+    PARTS_PATH + "/dim-analog-sarii_gold.webp",
+
+    PARTS_PATH + "/dim-analog-sarii_blue.webp",
+    PARTS_PATH + "/bluetypedimanalog_gold.webp",
+
+    PARTS_PATH + "/bluetypedimanalog_blue.webp",
+    PARTS_PATH + "/yellowtypedimanalog_gold.webp",
+
+    PARTS_PATH + "/yellowtypedimanalog_blue.webp",
   ],
-  "transfer-coping": [PARTS_PATH + "/impression-coping-micbp45_00.webp"],
+  "transfer-coping": [
+    PARTS_PATH + "/impression-coping-micbp45_00_gold.webp",
+    PARTS_PATH + "/impression-coping-micbp45_00_blue.webp",
+  ],
   "scan-body": [
-    PARTS_PATH + "/mavi-scanbody.webp",
-    PARTS_PATH + "/sari-scanbody.webp",
-    PARTS_PATH + "/scanbody-blue.webp",
-    PARTS_PATH + "/scanbody-yellow.webp",
-    PARTS_PATH + "/mavi-multi-scanbody1.webp",
-    PARTS_PATH + "/sari-multi-scanbody1.webp",
-    PARTS_PATH + "/sari-multi-octagon-scanbody.webp",
-    PARTS_PATH + "/scan-body-all-on-four.webp",
+    PARTS_PATH + "/mavi-scanbody_gold.webp",
+
+    PARTS_PATH + "/mavi-scanbody_blue.webp",
+    PARTS_PATH + "/sari-scanbody_gold.webp",
+
+    PARTS_PATH + "/sari-scanbody_blue.webp",
+    PARTS_PATH + "/scanbody-blue_gold.webp",
+
+    PARTS_PATH + "/scanbody-blue_blue.webp",
+    PARTS_PATH + "/scanbody-yellow_gold.webp",
+
+    PARTS_PATH + "/scanbody-yellow_blue.webp",
+    PARTS_PATH + "/mavi-multi-scanbody1_gold.webp",
+
+    PARTS_PATH + "/mavi-multi-scanbody1_blue.webp",
+    PARTS_PATH + "/sari-multi-scanbody1_gold.webp",
+
+    PARTS_PATH + "/sari-multi-scanbody1_blue.webp",
+    PARTS_PATH + "/sari-multi-octagon-scanbody_gold.webp",
+
+    PARTS_PATH + "/sari-multi-octagon-scanbody_blue.webp",
+    PARTS_PATH + "/scan-body-all-on-four_gold.webp",
+
+    PARTS_PATH + "/scan-body-all-on-four_blue.webp",
   ],
   "mua-transfer-coping": [
-    PARTS_PATH + "/mavi-multi-connection.webp",
-    PARTS_PATH + "/sari-multi-octagon-connection.webp",
-  ],
-  "digital-library": [
-    PARTS_PATH + "/tarama-jig.webp",
-    PARTS_PATH + "/mgm-dijital-montaj-sari.webp",
+    PARTS_PATH + "/mavi-multi-connection_gold.webp",
+    PARTS_PATH + "/mavi-multi-connection_blue.webp",
+
+    PARTS_PATH + "/sari-multi-octagon-connection_gold.webp",
+    PARTS_PATH + "/sari-multi-octagon-connection_blue.webp",
+
+    PARTS_PATH + "/tarama-jig_gold.webp",
+    PARTS_PATH + "/tarama-jig_blue.webp",
+
+    PARTS_PATH + "/mgm-dijital-montaj-sari_gold.webp",
+    PARTS_PATH + "/mgm-dijital-montaj-sari_blue.webp",
   ],
 };
 
