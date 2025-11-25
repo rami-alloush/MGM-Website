@@ -51,6 +51,27 @@ body {
   opacity: 0.5; /* Fade it out a bit for light theme */
 }
 
+/* Active Navigation State */
+.nav-links a.active {
+  @apply text-primary font-semibold;
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  @apply bg-primary;
+}
+
+/* Mobile menu active state */
+.mobile-link.active {
+  @apply text-primary font-semibold;
+}
+
 /* Custom Scrollbar */
 @layer utilities {
   .scrollbar-thin::-webkit-scrollbar {

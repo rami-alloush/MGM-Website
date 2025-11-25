@@ -123,7 +123,7 @@ export const HomePage = () => {
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="relative">
             <div class="absolute -inset-4 bg-clinical-gray rounded-3xl transform -rotate-2"></div>
-            <img src="https://placehold.co/800x600/f3f4f6/cbd5e1?text=Precision+Manufacturing" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+            <img src="/assets/images/fabrica.webp" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
         </div>
         <div class="space-y-8">
             <h2 class="font-heading text-3xl md:text-5xl font-bold text-secondary">Engineering Excellence Since 2008</h2>
@@ -207,7 +207,7 @@ export const HomePage = () => {
         </div>
         <div class="relative order-1 lg:order-2">
             <div class="absolute -inset-4 bg-white/50 rounded-3xl transform rotate-2"></div>
-            <img src="https://placehold.co/800x600/e2e8f0/64748b?text=Surface+Microscopy" alt="M-Pure Surface" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+            <img src="/assets/images/manufacturing.webp" alt="M-Pure Surface" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
         </div>
       </div>
     </div>

@@ -70,15 +70,46 @@ export class Router {
 
   updateActiveNav() {
     const hash = window.location.hash || "#/";
+    const path = hash.slice(1) || "/"; // Remove the # to get the path
+
+    // Update desktop nav
     document.querySelectorAll(".nav-links a").forEach((link) => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === hash) {
+      const href = link.getAttribute("href");
+      const linkPath = href ? href.slice(1) : ""; // Remove # from href
+
+      // Exact match
+      if (href === hash) {
         link.classList.add("active");
       }
-      // Handle dropdown parent active state
+      // Handle Products dropdown - parent should be active when viewing any product page
       if (
-        hash.includes("products") &&
-        link.getAttribute("href") === "#/products"
+        path.startsWith("/products") ||
+        path.startsWith("/product/") ||
+        path === "/surgical-kits"
+      ) {
+        if (linkPath === "/products") {
+          link.classList.add("active");
+        }
+      }
+      // Handle Education section
+      if (path.startsWith("/education") && linkPath === "/education") {
+        link.classList.add("active");
+      }
+    });
+
+    // Update mobile nav
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.classList.remove("active");
+      const href = link.getAttribute("href");
+
+      if (href === hash) {
+        link.classList.add("active");
+      }
+      // Products parent active state for mobile
+      if (
+        (path.startsWith("/products") || path.startsWith("/product/")) &&
+        href === "#/products"
       ) {
         link.classList.add("active");
       }
