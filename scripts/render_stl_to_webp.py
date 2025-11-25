@@ -1,0 +1,176 @@
+"""
+Render STL files to 800x800 WebP images using PyVista.
+"""
+
+import os
+import re
+from pathlib import Path
+import pyvista as pv
+from PIL import Image
+import io
+
+# Configure PyVista for off-screen rendering
+pv.OFF_SCREEN = True
+
+# Paths
+INPUT_DIR = Path(r"D:\Work\MGM-Website\MGM-Assets\3d Models Parts\Cleaned")
+OUTPUT_DIR = Path(r"D:\Work\MGM-Website\public\assets\images\3d-parts")
+
+# Ensure output directory exists
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+def sanitize_filename(name: str) -> str:
+    """Convert filename to a clean, web-friendly format."""
+    # Remove extension
+    name = Path(name).stem
+    # Replace Turkish characters
+    tr_map = {
+        'ı': 'i', 'İ': 'I', 'ğ': 'g', 'Ğ': 'G',
+        'ü': 'u', 'Ü': 'U', 'ş': 's', 'Ş': 'S',
+        'ö': 'o', 'Ö': 'O', 'ç': 'c', 'Ç': 'C'
+    }
+    for tr_char, en_char in tr_map.items():
+        name = name.replace(tr_char, en_char)
+    # Replace spaces and special chars with hyphens
+    name = re.sub(r'[^\w\-]', '-', name)
+    # Remove multiple consecutive hyphens
+    name = re.sub(r'-+', '-', name)
+    # Remove leading/trailing hyphens
+    name = name.strip('-')
+    # Convert to lowercase
+    return name.lower()
+
+def render_stl_to_image(stl_path: Path, output_path: Path, size: int = 800):
+    """Render an STL file to a WebP image with transparent background."""
+    try:
+        # Load the STL mesh
+        mesh = pv.read(str(stl_path))
+
+        # Create plotter with specific window size
+        plotter = pv.Plotter(off_screen=True, window_size=[size, size])
+
+        # Set transparent background
+        plotter.set_background('white', top='white')
+
+        # Metallic gold color - warm gold tone
+        gold_color = '#D4AF37'  # Classic gold
+
+        # Add mesh with metallic gold appearance
+        # Use split_sharp_edges to preserve sharp edges while smoothing faces
+        mesh_smooth = mesh.compute_normals(
+            cell_normals=True,
+            point_normals=True,
+            split_vertices=True,
+            flip_normals=False,
+            consistent_normals=True,
+            feature_angle=30.0,  # Preserve edges sharper than 30 degrees
+        )
+
+        plotter.add_mesh(
+            mesh_smooth,
+            color=gold_color,
+            specular=1.0,          # High specular for metallic shine
+            specular_power=80,     # Tight specular highlights
+            smooth_shading=True,   # Smooth shading on faces
+            ambient=0.15,          # Subtle ambient
+            diffuse=0.5,           # Moderate diffuse
+            metallic=True,         # Enable metallic rendering
+            roughness=0.2,         # Low roughness for polished look
+        )
+
+        # Set up camera - isometric-like view
+        plotter.camera_position = 'iso'
+        plotter.reset_camera()
+
+        # Zoom with padding (smaller zoom = more padding around object)
+        plotter.camera.zoom(1.0)
+
+        # Remove default lights and add custom lighting for gold
+        plotter.remove_all_lights()
+
+        # Key light - main illumination (warm white)
+        plotter.add_light(pv.Light(
+            position=(2, 2, 3),
+            focal_point=(0, 0, 0),
+            color='#FFFAF0',  # Warm white
+            intensity=1.0
+        ))
+
+        # Fill light - softer, from opposite side
+        plotter.add_light(pv.Light(
+            position=(-2, -1, 2),
+            focal_point=(0, 0, 0),
+            color='#FFF8DC',  # Cornsilk - warm fill
+            intensity=0.5
+        ))
+
+        # Rim light - edge highlighting
+        plotter.add_light(pv.Light(
+            position=(0, -3, 1),
+            focal_point=(0, 0, 0),
+            color='white',
+            intensity=0.3
+        ))
+
+        # Render to image with transparency
+        img = plotter.screenshot(transparent_background=True, return_img=True)
+        plotter.close()
+
+        # Convert to PIL Image (RGBA for transparency) and save as WebP
+        pil_image = Image.fromarray(img, 'RGBA')
+        pil_image.save(str(output_path), 'WEBP', quality=90, lossless=False)
+
+        return True
+    except Exception as e:
+        print(f"Error rendering {stl_path.name}: {e}")
+        return False
+
+def safe_print(msg: str):
+    """Print message, replacing non-ASCII chars for console compatibility."""
+    try:
+        print(msg)
+    except UnicodeEncodeError:
+        print(msg.encode('ascii', 'replace').decode('ascii'))
+
+def main():
+    # Get all STL files
+    stl_files = list(INPUT_DIR.glob("*.stl")) + list(INPUT_DIR.glob("*.STL"))
+
+    # Remove duplicates (case-insensitive)
+    seen = set()
+    unique_files = []
+    for f in stl_files:
+        lower_name = f.name.lower()
+        if lower_name not in seen:
+            seen.add(lower_name)
+            unique_files.append(f)
+
+    print(f"Found {len(unique_files)} unique STL files")
+
+    success_count = 0
+    failed_files = []
+
+    for i, stl_file in enumerate(unique_files, 1):
+        # Generate output filename
+        clean_name = sanitize_filename(stl_file.name)
+        output_path = OUTPUT_DIR / f"{clean_name}.webp"
+
+        safe_print(f"[{i}/{len(unique_files)}] Rendering: {clean_name}.webp")
+
+        if render_stl_to_image(stl_file, output_path):
+            success_count += 1
+        else:
+            failed_files.append(stl_file.name)
+
+    print(f"\n{'='*60}")
+    print(f"Completed: {success_count}/{len(unique_files)} files rendered successfully")
+
+    if failed_files:
+        print(f"\nFailed files:")
+        for f in failed_files:
+            print(f"  - {f}")
+
+    print(f"\nOutput directory: {OUTPUT_DIR}")
+
+if __name__ == "__main__":
+    main()
