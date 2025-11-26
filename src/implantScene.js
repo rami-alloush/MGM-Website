@@ -24,7 +24,7 @@ export function initScene() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.2;
+  renderer.toneMappingExposure = 1.0;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   container.appendChild(renderer.domElement);
 
@@ -46,6 +46,46 @@ export function initScene() {
   );
   dracoLoader.setDecoderConfig({ type: "js" });
 
+  // Helper to create brushed texture
+  const getBrushedTexture = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 512;
+    const context = canvas.getContext("2d");
+
+    // Fill background
+    context.fillStyle = "#808080";
+    context.fillRect(0, 0, 512, 512);
+
+    // Add noise streaks for brushed effect
+    for (let i = 0; i < 10000; i++) {
+      const x = Math.random() * 512;
+      const y = Math.random() * 512;
+      const length = 50 + Math.random() * 100;
+      const width = 1 + Math.random();
+      const opacity = 0.05 + Math.random() * 0.1; // Increased contrast for deeper brush marks
+
+      // Vertical streaks
+      context.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+      context.fillRect(x, y, width, length);
+
+      context.fillStyle = `rgba(0, 0, 0, ${opacity})`;
+      context.fillRect(x + 2, y, width, length);
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(4, 4);
+
+    // Enable anisotropic filtering for sharper texture details at angles
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
+    return texture;
+  };
+
+  const brushedTexture = getBrushedTexture();
+
   // Load the implant-body.glb model
   const loader = new GLTFLoader();
   loader.setDRACOLoader(dracoLoader);
@@ -64,17 +104,81 @@ export function initScene() {
             geometry.computeVertexNormals();
           }
 
-          // Use MeshPhysicalMaterial for realistic metallic rendering
+          // Ensure UVs exist for textures
+          // We generate Cylindrical UVs since this is a screw/implant
+          if (!geometry.attributes.uv) {
+            geometry.computeBoundingBox();
+            const max = geometry.boundingBox.max;
+            const min = geometry.boundingBox.min;
+            const height = max.y - min.y;
+            const rangeY = height || 1; // Avoid divide by zero
+
+            const count = geometry.attributes.position.count;
+            const uvs = new Float32Array(count * 2);
+            const pos = geometry.attributes.position;
+
+            for (let i = 0; i < count; i++) {
+              const x = pos.getX(i);
+              const y = pos.getY(i);
+              const z = pos.getZ(i);
+
+              // Cylindrical mapping
+              // u = angle around Y axis
+              const angle = Math.atan2(x, z);
+              const u = angle / (2 * Math.PI) + 0.5;
+
+              // v = normalized height
+              const v = (y - min.y) / rangeY;
+
+              uvs[i * 2] = u;
+              uvs[i * 2 + 1] = v;
+            }
+            geometry.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
+          }
+
+          // Compute tangents (Critical for Anisotropy)
+          if (!geometry.attributes.tangent) {
+            // computeTangents requires an index, if not present we can't easily compute them
+            // without a utility, but standard geometry usually works.
+            // However, let's try to compute them if possible.
+            // If it fails (e.g. no index), Three.js might warn or error.
+            // Safe approach: only if index exists or we create one?
+            // Actually, let's try to compute them.
+            try {
+              geometry.computeTangents();
+            } catch (e) {
+              console.warn("Could not compute tangents:", e);
+            }
+          }
+
+          // Brushed metal PBR material
           child.material = new THREE.MeshPhysicalMaterial({
-            color: 0xd4af37,
-            metalness: 1.0,
-            roughness: 0.08,
+            color: 0x9ea5ad, // Titanium gray
+            metalness: 0.8, // Less metallic as requested
+            roughness: 0.6, // More matte/brushed look
+            roughnessMap: brushedTexture,
+            bumpMap: brushedTexture,
+            bumpScale: 0.08, // Deeper bumps for pronounced brushed effect
             envMap: envMap,
-            envMapIntensity: 2.5,
-            clearcoat: 0.3,
-            clearcoatRoughness: 0.1,
-            reflectivity: 1.0,
+            envMapIntensity: 0.7, // Reduced reflections
+            clearcoat: 0.0,
+            clearcoatRoughness: 0.0,
+            anisotropy: 0.8, // Full anisotropic effect for brushed appearance
+            anisotropyRotation: Math.PI / 2, // Vertical brush direction
           });
+
+          // Use MeshPhysicalMaterial for Gold realistic metallic rendering
+          // child.material = new THREE.MeshPhysicalMaterial({
+          //   color: 0xd4af37,
+          //   metalness: 1.0,
+          //   roughness: 0.08,
+          //   envMap: envMap,
+          //   envMapIntensity: 2.5,
+          //   clearcoat: 0.3,
+          //   clearcoatRoughness: 0.1,
+          //   reflectivity: 1.0,
+          // });
+
           child.castShadow = true;
           child.receiveShadow = true;
         }
@@ -139,16 +243,16 @@ export function initScene() {
   dirLight2.position.set(-8, -10, -8); // Positioned from bottom-left-back
   scene.add(dirLight2);
 
-  const pointLight1 = new THREE.PointLight(0xd71a21, 3.0); // Red tint - bright for reflections
+  const pointLight1 = new THREE.PointLight(0xffffff, 1.5); // Neutral white for realistic titanium
   pointLight1.position.set(5, 5, 8); // Front-right position
   scene.add(pointLight1);
 
-  const pointLight2 = new THREE.PointLight(0xffcd00, 3.0); // Gold tint - bright for reflections
+  const pointLight2 = new THREE.PointLight(0xe8e8f0, 1.2); // Slight cool tint for metal highlights
   pointLight2.position.set(-5, -3, -8); // Back-left position
   scene.add(pointLight2);
 
   // Additional spotlight for highlighting details and creating specular highlights
-  const spotLight = new THREE.SpotLight(0xffffff, 3.0);
+  const spotLight = new THREE.SpotLight(0xffffff, 2.0);
   spotLight.position.set(0, 20, 15); // Positioned from above
   spotLight.angle = Math.PI / 6;
   spotLight.penumbra = 0.3;
