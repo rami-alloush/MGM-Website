@@ -10,7 +10,7 @@ import {
   ProductDetailPage,
   SurgicalKitsPage,
   EducationPage,
-} from "./components.js";
+} from "./components/index.js";
 
 // Initialize the 3D Scene after page is interactive (non-blocking)
 if ("requestIdleCallback" in window) {
