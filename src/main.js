@@ -9,7 +9,7 @@ import {
   ProductListPage,
   ProductDetailPage,
   SurgicalKitsPage,
-  EducationPage,
+  ResourcesPage,
 } from "./components/index.js";
 
 // Initialize the 3D Scene after page is interactive (non-blocking)
@@ -33,7 +33,7 @@ const routes = {
   "/products/:category": ProductListPage,
   "/product/:id": ProductDetailPage,
   "/surgical-kits": SurgicalKitsPage,
-  "/education": EducationPage,
+  "/resources": ResourcesPage,
 };
 
 // Initialize Router

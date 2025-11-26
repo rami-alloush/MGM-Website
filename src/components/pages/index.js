@@ -7,4 +7,4 @@ export { ProductsLandingPage } from "./ProductsLandingPage.js";
 export { ProductListPage } from "./ProductListPage.js";
 export { ProductDetailPage } from "./ProductDetailPage.js";
 export { SurgicalKitsPage } from "./SurgicalKitsPage.js";
-export { EducationPage } from "./EducationPage.js";
+export { ResourcesPage } from "./EducationPage.js";

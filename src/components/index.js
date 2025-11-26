@@ -17,7 +17,7 @@ export {
   ProductListPage,
   ProductDetailPage,
   SurgicalKitsPage,
-  EducationPage,
+  ResourcesPage,
 } from "./pages/index.js";
 
 // Header stub (for compatibility)
