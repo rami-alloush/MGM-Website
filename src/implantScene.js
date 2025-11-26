@@ -37,7 +37,8 @@ export function initScene() {
   environment.dispose();
 
   // --- Objects ---
-  let implant; // Will hold the loaded model
+  let implant1; // Will hold the sandblasted model
+  let implant2; // Will hold the gold model
 
   // Setup DRACO Loader for compressed models
   const dracoLoader = new DRACOLoader();
@@ -46,45 +47,46 @@ export function initScene() {
   );
   dracoLoader.setDecoderConfig({ type: "js" });
 
-  // Helper to create brushed texture
-  const getBrushedTexture = () => {
-    const canvas = document.createElement("canvas");
-    canvas.width = 512;
-    canvas.height = 512;
-    const context = canvas.getContext("2d");
+  // Load external PBR textures for sandblasted effect
+  const textureLoader = new THREE.TextureLoader();
 
-    // Fill background
-    context.fillStyle = "#808080";
-    context.fillRect(0, 0, 512, 512);
+  const roughnessTexture = textureLoader.load(
+    "/assets/images/materials/roughness.webp"
+  );
+  roughnessTexture.wrapS = THREE.RepeatWrapping;
+  roughnessTexture.wrapT = THREE.RepeatWrapping;
+  roughnessTexture.repeat.set(4, 4);
 
-    // Add noise streaks for brushed effect
-    for (let i = 0; i < 10000; i++) {
-      const x = Math.random() * 512;
-      const y = Math.random() * 512;
-      const length = 50 + Math.random() * 100;
-      const width = 1 + Math.random();
-      const opacity = 0.05 + Math.random() * 0.1; // Increased contrast for deeper brush marks
+  const normalTexture = textureLoader.load(
+    "/assets/images/materials/normal.webp"
+  );
+  normalTexture.wrapS = THREE.RepeatWrapping;
+  normalTexture.wrapT = THREE.RepeatWrapping;
+  normalTexture.repeat.set(4, 4);
 
-      // Vertical streaks
-      context.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-      context.fillRect(x, y, width, length);
+  // Define Sandblasted material
+  const sandblastedMaterial = new THREE.MeshStandardMaterial({
+    color: 0x666666, // Dark grey
+    metalness: 0.6, // Reduced metalness for matte look
+    roughness: 0.7, // High roughness for sandblasted surface
+    roughnessMap: roughnessTexture,
+    normalMap: normalTexture,
+    normalScale: new THREE.Vector2(3, 3),
+    envMap: envMap,
+    envMapIntensity: 0.1, // Soft reflections
+  });
 
-      context.fillStyle = `rgba(0, 0, 0, ${opacity})`;
-      context.fillRect(x + 2, y, width, length);
-    }
-
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4);
-
-    // Enable anisotropic filtering for sharper texture details at angles
-    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-
-    return texture;
-  };
-
-  const brushedTexture = getBrushedTexture();
+  // Define Gold material
+  const goldMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xd4af37,
+    metalness: 0.9,
+    roughness: 0.1,
+    envMap: envMap,
+    envMapIntensity: 2.5,
+    clearcoat: 0.3,
+    clearcoatRoughness: 0.1,
+    reflectivity: 0.5,
+  });
 
   // Load the implant-body.glb model
   const loader = new GLTFLoader();
@@ -92,102 +94,82 @@ export function initScene() {
   loader.load(
     "/assets/models/body.glb",
     (gltf) => {
-      implant = gltf.scene;
+      // Clone the loaded scene for each model
+      implant1 = gltf.scene.clone();
+      implant2 = gltf.scene.clone();
 
-      // Apply polished titanium material
-      implant.traverse((child) => {
+      // Apply sandblasted material to implant1
+      implant1.traverse((child) => {
         if (child.isMesh) {
           const geometry = child.geometry;
-
-          // Compute normals if missing (fixes flat shading)
-          if (!geometry.attributes.normal) {
-            geometry.computeVertexNormals();
-          }
-
-          // Ensure UVs exist for textures
-          // We generate Cylindrical UVs since this is a screw/implant
+          if (!geometry.attributes.normal) geometry.computeVertexNormals();
           if (!geometry.attributes.uv) {
             geometry.computeBoundingBox();
             const max = geometry.boundingBox.max;
             const min = geometry.boundingBox.min;
             const height = max.y - min.y;
-            const rangeY = height || 1; // Avoid divide by zero
-
+            const rangeY = height || 1;
             const count = geometry.attributes.position.count;
             const uvs = new Float32Array(count * 2);
             const pos = geometry.attributes.position;
-
             for (let i = 0; i < count; i++) {
               const x = pos.getX(i);
               const y = pos.getY(i);
               const z = pos.getZ(i);
-
-              // Cylindrical mapping
-              // u = angle around Y axis
               const angle = Math.atan2(x, z);
               const u = angle / (2 * Math.PI) + 0.5;
-
-              // v = normalized height
               const v = (y - min.y) / rangeY;
-
               uvs[i * 2] = u;
               uvs[i * 2 + 1] = v;
             }
             geometry.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
           }
-
-          // Compute tangents (Critical for Anisotropy)
-          if (!geometry.attributes.tangent) {
-            // computeTangents requires an index, if not present we can't easily compute them
-            // without a utility, but standard geometry usually works.
-            // However, let's try to compute them if possible.
-            // If it fails (e.g. no index), Three.js might warn or error.
-            // Safe approach: only if index exists or we create one?
-            // Actually, let's try to compute them.
-            try {
-              geometry.computeTangents();
-            } catch (e) {
-              console.warn("Could not compute tangents:", e);
-            }
-          }
-
-          // Brushed metal PBR material
-          child.material = new THREE.MeshPhysicalMaterial({
-            color: 0x9ea5ad, // Titanium gray
-            metalness: 0.8, // Less metallic as requested
-            roughness: 0.6, // More matte/brushed look
-            roughnessMap: brushedTexture,
-            bumpMap: brushedTexture,
-            bumpScale: 0.08, // Deeper bumps for pronounced brushed effect
-            envMap: envMap,
-            envMapIntensity: 0.7, // Reduced reflections
-            clearcoat: 0.0,
-            clearcoatRoughness: 0.0,
-            anisotropy: 0.8, // Full anisotropic effect for brushed appearance
-            anisotropyRotation: Math.PI / 2, // Vertical brush direction
-          });
-
-          // Use MeshPhysicalMaterial for Gold realistic metallic rendering
-          // child.material = new THREE.MeshPhysicalMaterial({
-          //   color: 0xd4af37,
-          //   metalness: 1.0,
-          //   roughness: 0.08,
-          //   envMap: envMap,
-          //   envMapIntensity: 2.5,
-          //   clearcoat: 0.3,
-          //   clearcoatRoughness: 0.1,
-          //   reflectivity: 1.0,
-          // });
-
+          child.material = sandblastedMaterial;
           child.castShadow = true;
           child.receiveShadow = true;
         }
       });
 
-      // Scale and position the model
-      implant.scale.set(15, 15, 15);
-      implant.position.set(0, 0, 0);
-      scene.add(implant);
+      // Apply gold material to implant2
+      implant2.traverse((child) => {
+        if (child.isMesh) {
+          const geometry = child.geometry;
+          if (!geometry.attributes.normal) geometry.computeVertexNormals();
+          if (!geometry.attributes.uv) {
+            geometry.computeBoundingBox();
+            const max = geometry.boundingBox.max;
+            const min = geometry.boundingBox.min;
+            const height = max.y - min.y;
+            const rangeY = height || 1;
+            const count = geometry.attributes.position.count;
+            const uvs = new Float32Array(count * 2);
+            const pos = geometry.attributes.position;
+            for (let i = 0; i < count; i++) {
+              const x = pos.getX(i);
+              const y = pos.getY(i);
+              const z = pos.getZ(i);
+              const angle = Math.atan2(x, z);
+              const u = angle / (2 * Math.PI) + 0.5;
+              const v = (y - min.y) / rangeY;
+              uvs[i * 2] = u;
+              uvs[i * 2 + 1] = v;
+            }
+            geometry.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
+          }
+          child.material = goldMaterial;
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      // Scale and position the models
+      implant1.scale.set(15, 15, 15);
+      implant1.position.set(0, 0, 0); // Position first implant to the left
+      scene.add(implant1);
+
+      implant2.scale.set(15, 15, 15);
+      implant2.position.set(0, 0, 0); // Position second implant to the right
+      scene.add(implant2);
     },
     (progress) => {
       // Loading progress - silenced to avoid console spam
@@ -287,15 +269,7 @@ export function initScene() {
     targetX = mouseX * 0.008;
     targetY = mouseY * 0.004;
 
-    if (implant) {
-      // Rotate Implant
-      implant.rotation.y += 0.005;
-      implant.rotation.x += 0.002;
-
-      // Interactive Rotation - increased responsiveness
-      implant.rotation.y += 0.18 * (targetX - implant.rotation.y);
-      implant.rotation.x += 0.18 * (targetY - implant.rotation.x);
-
+    if (implant1 && implant2) {
       // Scroll Effect - move model to the right as user scrolls
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = maxScroll > 0 ? scrollY / maxScroll : 0;
@@ -304,15 +278,42 @@ export function initScene() {
       const scrollTargetX = scrollPercent * 20;
       const mouseParallaxX = targetX * 2.0;
 
-      implant.position.x = THREE.MathUtils.lerp(
-        implant.position.x,
-        scrollTargetX + mouseParallaxX,
+      // --- Implant 1 (Sandblasted) ---
+      implant1.rotation.y += 0.005;
+      implant1.rotation.x += 0.002;
+
+      // Interactive Rotation
+      implant1.rotation.y += 0.18 * (targetX - implant1.rotation.y);
+      implant1.rotation.x += 0.18 * (targetY - implant1.rotation.x);
+
+      // Position with offset -15
+      implant1.position.x = THREE.MathUtils.lerp(
+        implant1.position.x,
+        -15 + scrollTargetX + mouseParallaxX,
+        0.08
+      );
+      implant1.position.z = THREE.MathUtils.lerp(
+        implant1.position.z,
+        scrollPercent * -5,
         0.08
       );
 
-      // Move slightly back on scroll for depth effect
-      implant.position.z = THREE.MathUtils.lerp(
-        implant.position.z,
+      // --- Implant 2 (Gold) ---
+      implant2.rotation.y += 0.005;
+      implant2.rotation.x += 0.002;
+
+      // Interactive Rotation
+      implant2.rotation.y += 0.18 * (targetX - implant2.rotation.y);
+      implant2.rotation.x += 0.18 * (targetY - implant2.rotation.x);
+
+      // Position with offset +15
+      implant2.position.x = THREE.MathUtils.lerp(
+        implant2.position.x,
+        15 + scrollTargetX + mouseParallaxX,
+        0.08
+      );
+      implant2.position.z = THREE.MathUtils.lerp(
+        implant2.position.z,
         scrollPercent * -5,
         0.08
       );
