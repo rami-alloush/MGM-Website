@@ -4,7 +4,9 @@
       "Bash(python:*)",
       "Bash(mkdir:*)",
       "Bash(cat:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(md5sum:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []

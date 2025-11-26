@@ -1430,6 +1430,75 @@ export const ProductDetailPage = (productId) => {
     `;
   }
 
+  // Build kit contents section (for surgical kits)
+  let contentsHtml = "";
+  if (product.contents && product.contents.length > 0) {
+    contentsHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Kit Contents</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          ${product.contents
+            .map(
+              (item) => `
+            <div class="bg-clinical-gray rounded-xl p-4">
+              <h4 class="font-bold text-secondary mb-1">${item.name}</h4>
+              ${
+                item.specs
+                  ? `<p class="text-sm text-primary mb-1">${item.specs}</p>`
+                  : ""
+              }
+              ${
+                item.description
+                  ? `<p class="text-sm text-charcoal">${item.description}</p>`
+                  : ""
+              }
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  // Build surgical protocol section (for surgical kits)
+  let surgicalProtocolHtml = "";
+  if (product.surgicalProtocol && product.surgicalProtocol.length > 0) {
+    surgicalProtocolHtml = `
+      <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
+        <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Surgical Protocol</h3>
+        <ol class="space-y-4">
+          ${product.surgicalProtocol
+            .map(
+              (step, i) => `
+            <li class="flex items-start gap-4 text-charcoal">
+              <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">${
+                i + 1
+              }</span>
+              <div>
+                <h4 class="font-bold text-secondary">${step.step}</h4>
+                <p class="text-sm text-charcoal">${step.description}</p>
+              </div>
+            </li>
+          `
+            )
+            .join("")}
+        </ol>
+      </div>
+    `;
+  }
+
+  // Build uses section (for surgical kits)
+  let usesHtml = "";
+  if (product.uses && product.uses.length > 0) {
+    usesHtml = `
+      <div class="space-y-3">
+        <h4 class="font-heading text-lg font-semibold text-primary">Uses</h4>
+        <ul class="space-y-2">${renderList(product.uses, "→")}</ul>
+      </div>
+    `;
+  }
+
   // Build 3D parts gallery section
   const parts3D = get3DImages(product.id);
   let parts3DHtml = "";
@@ -1534,19 +1603,25 @@ export const ProductDetailPage = (productId) => {
 
             ${parts3DHtml}
 
+            ${contentsHtml}
+
+            ${surgicalProtocolHtml}
+
             ${typesHtml}
 
             ${
               advantagesHtml ||
               limitationsHtml ||
               whenToUseHtml ||
-              clinicalUsesHtml
+              clinicalUsesHtml ||
+              usesHtml
                 ? `
             <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
                 <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Clinical Information</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                   ${clinicalUsesHtml}
                   ${whenToUseHtml}
+                  ${usesHtml}
                   ${advantagesHtml}
                   ${limitationsHtml}
                 </div>
@@ -1588,76 +1663,77 @@ export const ProductDetailPage = (productId) => {
 };
 
 export const SurgicalKitsPage = () => {
+  const category = products.surgical;
   const section = createElement(
     "section",
     "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
   );
 
-  const kits = [
-    {
-      name: "Surgical Kit",
-      icon: "🧰",
-      description:
-        "Complete set of instruments for standard implant placement.",
-    },
-    {
-      name: "Guided Kit",
-      icon: "🎯",
-      description: "Precision instruments for computer-guided surgery.",
-    },
-    {
-      name: "All Sinus Lifting Kit",
-      icon: "👃",
-      description: "Specialized tools for sinus augmentation procedures.",
-    },
-    {
-      name: "Screw Remover Helping Kit",
-      icon: "🔧",
-      description: "Essential tools for retrieving broken or stripped screws.",
-    },
-    {
-      name: "Fixture Remover Helping Kit",
-      icon: "🔩",
-      description: "Safe and efficient removal of failed implants.",
-    },
-    {
-      name: "GBR Master Kit",
-      icon: "🦴",
-      description: "Comprehensive kit for Guided Bone Regeneration.",
-    },
-    {
-      name: "Ridge Augmenting Kit",
-      icon: "📈",
-      description: "Tools for horizontal and vertical ridge augmentation.",
-    },
-    {
-      name: "Prosthetic Kit",
-      icon: "⚙️",
-      description: "Drivers and keys for all prosthetic components.",
-    },
-  ];
+  // Build items grid from actual product data
+  const itemsHtml = category.items
+    .map(
+      (item) => `
+        <a href="#/product/${
+          item.id
+        }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
+          <div class="h-40 bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
+            <img src="${getProductImage(item.id)}" alt="${
+        item.name
+      }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
+            <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${getProductImage(
+              item.id
+            )}', '${item.name.replace(/'/g, "\\'")}')">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+            </button>
+          </div>
+          <h4 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${
+            item.name
+          }</h4>
+          <p class="text-charcoal text-sm mb-3 line-clamp-2">${
+            item.description || ""
+          }</p>
+          ${
+            item.features
+              ? `
+            <ul class="text-xs text-charcoal space-y-1 mb-3">
+              ${item.features
+                .slice(0, 2)
+                .map(
+                  (f) =>
+                    `<li class="flex items-start gap-1"><span class="text-primary text-xs">✓</span> ${
+                      f.split(":")[0]
+                    }</li>`
+                )
+                .join("")}
+            </ul>
+          `
+              : ""
+          }
+          <div class="flex items-center text-primary text-sm font-semibold">
+            <span>View Details</span>
+            <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </a>
+      `
+    )
+    .join("");
 
   section.innerHTML = `
       <div class="max-w-7xl mx-auto space-y-12">
-        <div class="text-center space-y-4">
-          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Surgical Kits & Tools</h2>
-          <p class="text-xl text-charcoal max-w-3xl mx-auto">
-            Precision-engineered instruments designed for safety, efficiency, and clinical success.
+        <div>
+          <div class="text-sm text-charcoal mb-4">
+            <a href="#/products" class="hover:text-primary transition-colors">Products</a> 
+            <span class="mx-2">></span> 
+            <span class="text-secondary font-semibold">${category.title}</span>
+          </div>
+          <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4">${category.title}</h2>
+          <p class="text-xl text-charcoal max-w-3xl">
+            ${category.description}
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          ${kits
-            .map(
-              (kit) => `
-            <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all group">
-              <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">${kit.icon}</div>
-              <h3 class="font-heading text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${kit.name}</h3>
-              <p class="text-charcoal text-sm">${kit.description}</p>
-            </div>
-          `
-            )
-            .join("")}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${itemsHtml}
         </div>
       </div>
   `;

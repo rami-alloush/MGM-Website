@@ -59,9 +59,10 @@ export const productImages = {
 
   // Surgical Kits
   surgical: "/assets/images/products/22-special solutions.webp",
-  "surgical-kit": "/assets/images/products/22-special solutions.webp",
-  "guided-kit": "/assets/images/products/22-special solutions.webp",
+  "surgical-kit": "/assets/images/products/small kit.webp",
+  "guided-kit": "/assets/images/products/big surgical kit.webp",
   "sinus-kit": "/assets/images/products/22-special solutions.webp",
+  "bone-collector": "/assets/images/products/22-special solutions.webp",
   "screw-remover": "/assets/images/products/47--special lab parts.webp",
   "fixture-remover": "/assets/images/products/47--special lab parts.webp",
   "gbr-master": "/assets/images/products/22-special solutions.webp",
