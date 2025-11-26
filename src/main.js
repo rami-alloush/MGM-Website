@@ -177,9 +177,9 @@ window.openQuoteModal = (productName, productId) => {
         </button>
       </div>
       <form id="quote-form" class="p-6 space-y-4">
-        <div class="bg-clinical-gray border border-silver rounded-lg p-4">
-          <p class="text-sm text-charcoal">Requesting quote for:</p>
-          <p class="font-heading font-bold text-secondary">${productName}</p>
+        <div class="bg-gray-100 border border-silver rounded-lg p-4">
+          <p class="text-sm text-gray-600">Requesting quote for:</p>
+          <p class="font-heading font-bold text-gray-900">${productName}</p>
           <input type="hidden" name="product" value="${productName}" />
           <input type="hidden" name="productId" value="${productId}" />
         </div>

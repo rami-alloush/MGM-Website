@@ -1003,25 +1003,85 @@ export const products = {
           "Efficiency - no need to change or adjust depth-limiting sleeves",
         ],
         contents: [
-          { name: "Pilot Drill (Self-Stopper)", specs: "O 1.8-2.2 mm with integrated stopper", description: "Creates initial path into bone, setting direction and depth for implant." },
-          { name: "Twist Drills with Built-in Stoppers", specs: "Sequential diameters (O 2.0 to O 4.2 mm)", description: "Progressively widen osteotomy. Collars stop at fixed lengths (7, 9, 11, 13 mm)." },
-          { name: "Final Drill / Countersink Drill", description: "Creates stable entry zone, prevents excess cortical stress." },
-          { name: "Paralleling Pins", description: "Verify implant axis and depth visually or radiographically." },
-          { name: "Depth Gauges", description: "Confirm prepared site depth matches implant length." },
-          { name: "Implant Drivers (Manual and Contra-Angle)", description: "Controlled implant placement into prepared osteotomy." },
-          { name: "Torque Ratchet / Wrench", description: "Torque calibration for correct primary stability." },
-          { name: "Screwdrivers (Hex / Star / Slot)", description: "For cover screws, healing abutments, or prosthetic screws." },
-          { name: "Autoclavable Surgical Cassette", description: "Sterilization tray keeping all tools arranged by size and length." },
+          {
+            name: "Pilot Drill (Self-Stopper)",
+            specs: "O 1.8-2.2 mm with integrated stopper",
+            description:
+              "Creates initial path into bone, setting direction and depth for implant.",
+          },
+          {
+            name: "Twist Drills with Built-in Stoppers",
+            specs: "Sequential diameters (O 2.0 to O 4.2 mm)",
+            description:
+              "Progressively widen osteotomy. Collars stop at fixed lengths (7, 9, 11, 13 mm).",
+          },
+          {
+            name: "Final Drill / Countersink Drill",
+            description:
+              "Creates stable entry zone, prevents excess cortical stress.",
+          },
+          {
+            name: "Paralleling Pins",
+            description:
+              "Verify implant axis and depth visually or radiographically.",
+          },
+          {
+            name: "Depth Gauges",
+            description: "Confirm prepared site depth matches implant length.",
+          },
+          {
+            name: "Implant Drivers (Manual and Contra-Angle)",
+            description:
+              "Controlled implant placement into prepared osteotomy.",
+          },
+          {
+            name: "Torque Ratchet / Wrench",
+            description: "Torque calibration for correct primary stability.",
+          },
+          {
+            name: "Screwdrivers (Hex / Star / Slot)",
+            description:
+              "For cover screws, healing abutments, or prosthetic screws.",
+          },
+          {
+            name: "Autoclavable Surgical Cassette",
+            description:
+              "Sterilization tray keeping all tools arranged by size and length.",
+          },
         ],
         surgicalProtocol: [
-          { step: "Site Preparation", description: "Mark implant site with round bur. Use pilot drill to planned length." },
-          { step: "Depth Verification", description: "Place paralleling pin into osteotomy. Check angulation relative to adjacent teeth." },
-          { step: "Sequential Drilling", description: "Progress with increasing diameters. Maintain irrigation. Example: O 2.0 to O 2.8 to O 3.3 to O 4.2." },
-          { step: "Final Osteotomy Check", description: "Ensure correct depth and axis with depth gauge." },
-          { step: "Implant Placement", description: "Insert implant using driver until flush with crestal bone." },
-          { step: "Torque Control", description: "Secure cover screw or healing abutment with torque wrench." },
+          {
+            step: "Site Preparation",
+            description:
+              "Mark implant site with round bur. Use pilot drill to planned length.",
+          },
+          {
+            step: "Depth Verification",
+            description:
+              "Place paralleling pin into osteotomy. Check angulation relative to adjacent teeth.",
+          },
+          {
+            step: "Sequential Drilling",
+            description:
+              "Progress with increasing diameters. Maintain irrigation. Example: O 2.0 to O 2.8 to O 3.3 to O 4.2.",
+          },
+          {
+            step: "Final Osteotomy Check",
+            description: "Ensure correct depth and axis with depth gauge.",
+          },
+          {
+            step: "Implant Placement",
+            description:
+              "Insert implant using driver until flush with crestal bone.",
+          },
+          {
+            step: "Torque Control",
+            description:
+              "Secure cover screw or healing abutment with torque wrench.",
+          },
         ],
         image: "small kit.png",
+        pdfUrl: "/assets/pdfs/kits/Surgical Kit Catalog.pdf",
       },
       {
         id: "guided-kit",
@@ -1043,27 +1103,97 @@ export const products = {
           "Multiple implant accuracy - Ensures implants are parallel or correctly angled for restorations",
         ],
         contents: [
-          { name: "Pilot Drill (Guided, Self-stopper)", specs: "O 2.0 mm with integrated stopper collar", description: "Creates initial osteotomy according to planned trajectory." },
-          { name: "Sequential Guided Drills", specs: "O 2.5 to 3.0 to 3.5 to 4.2 to 5.0 mm with collars", description: "Gradually enlarge osteotomy while maintaining exact angulation and depth." },
-          { name: "Guided Countersink Drill", description: "Flares crestal bone to fit implant shoulder and reduce stress on cortical bone." },
-          { name: "Paralleling Pin / Depth Pin", description: "Confirms angulation and depth visually or radiographically before continuing." },
-          { name: "Guided Implant Driver (Manual / Contra-angle)", description: "Delivers implant into osteotomy at planned depth and axis." },
-          { name: "Torque Ratchet (Ncm calibrated)", description: "Ensures implant seating with correct torque (30-45 Ncm typically)." },
-          { name: "Screwdrivers (Hex, Star, Slot)", description: "For cover screws, healing abutments, or prosthetic screws." },
-          { name: "Autoclavable Surgical Cassette", description: "Organizes tools by size and length, maintains sterility." },
+          {
+            name: "Pilot Drill (Guided, Self-stopper)",
+            specs: "O 2.0 mm with integrated stopper collar",
+            description:
+              "Creates initial osteotomy according to planned trajectory.",
+          },
+          {
+            name: "Sequential Guided Drills",
+            specs: "O 2.5 to 3.0 to 3.5 to 4.2 to 5.0 mm with collars",
+            description:
+              "Gradually enlarge osteotomy while maintaining exact angulation and depth.",
+          },
+          {
+            name: "Guided Countersink Drill",
+            description:
+              "Flares crestal bone to fit implant shoulder and reduce stress on cortical bone.",
+          },
+          {
+            name: "Paralleling Pin / Depth Pin",
+            description:
+              "Confirms angulation and depth visually or radiographically before continuing.",
+          },
+          {
+            name: "Guided Implant Driver (Manual / Contra-angle)",
+            description:
+              "Delivers implant into osteotomy at planned depth and axis.",
+          },
+          {
+            name: "Torque Ratchet (Ncm calibrated)",
+            description:
+              "Ensures implant seating with correct torque (30-45 Ncm typically).",
+          },
+          {
+            name: "Screwdrivers (Hex, Star, Slot)",
+            description:
+              "For cover screws, healing abutments, or prosthetic screws.",
+          },
+          {
+            name: "Autoclavable Surgical Cassette",
+            description:
+              "Organizes tools by size and length, maintains sterility.",
+          },
         ],
         surgicalProtocol: [
-          { step: "Digital Planning", description: "Virtual design of implant position using CBCT and intraoral scans. Use planning software." },
-          { step: "Surgical Guide Verification", description: "Place printed guide into patient mouth. Confirm precise, stable fit." },
-          { step: "Initial Osteotomy (Pilot Drill)", description: "First hole drilled through guide. Establishes trajectory at planned depth." },
-          { step: "Depth and Angulation Verification", description: "Place paralleling pin. Visually check or take radiograph." },
-          { step: "Sequential Osteotomy Enlargement", description: "Gradual expansion using larger guided drills with irrigation." },
-          { step: "Countersink Preparation", description: "Preparation of crestal bone for implant shoulder." },
-          { step: "Implant Placement", description: "Insert implant through guide using guided implant driver." },
-          { step: "Final Torque and Prosthetic Stage", description: "Achieve primary stability (30-45 Ncm). Secure cover screw or healing abutment." },
-          { step: "Guide Removal and Verification", description: "Remove guide and verify implant position matches digital plan." },
+          {
+            step: "Digital Planning",
+            description:
+              "Virtual design of implant position using CBCT and intraoral scans. Use planning software.",
+          },
+          {
+            step: "Surgical Guide Verification",
+            description:
+              "Place printed guide into patient mouth. Confirm precise, stable fit.",
+          },
+          {
+            step: "Initial Osteotomy (Pilot Drill)",
+            description:
+              "First hole drilled through guide. Establishes trajectory at planned depth.",
+          },
+          {
+            step: "Depth and Angulation Verification",
+            description:
+              "Place paralleling pin. Visually check or take radiograph.",
+          },
+          {
+            step: "Sequential Osteotomy Enlargement",
+            description:
+              "Gradual expansion using larger guided drills with irrigation.",
+          },
+          {
+            step: "Countersink Preparation",
+            description: "Preparation of crestal bone for implant shoulder.",
+          },
+          {
+            step: "Implant Placement",
+            description:
+              "Insert implant through guide using guided implant driver.",
+          },
+          {
+            step: "Final Torque and Prosthetic Stage",
+            description:
+              "Achieve primary stability (30-45 Ncm). Secure cover screw or healing abutment.",
+          },
+          {
+            step: "Guide Removal and Verification",
+            description:
+              "Remove guide and verify implant position matches digital plan.",
+          },
         ],
         image: "big surgical kit.png",
+        pdfUrl: "/assets/pdfs/kits/Guided Kit Catalog.pdf",
       },
       {
         id: "bone-collector",
@@ -1080,12 +1210,40 @@ export const products = {
           "Versatility - Compatible with most implant systems",
         ],
         contents: [
-          { name: "Guide Pins (3 sizes)", specs: "Heights 2.8 mm; Diameters: 7.5, 9.0, 10.5 mm", description: "Maintain restorative space and proper spacing of implant osteotomies." },
-          { name: "Stoppers", specs: "Diameters: 7.5, 9.0, 10.5 mm; Depths: 6.0, 8.0, 10.0, 11.5, 13.0 mm", description: "Prevent over- or under-drilling and control distance between sites." },
-          { name: "Bone-Collecting Drills (5 sizes)", specs: "Diameters: 2.8, 3.3, 3.8, 4.3, 4.8 mm", description: "For osteotomy creation and bone harvesting. Selection depends on bone density." },
-          { name: "Decortication Drill", specs: "1.4 mm x 3.5 mm with built-in stopper", description: "Increases vascularity at the surgical site for improved healing." },
-          { name: "Pilot Drill", specs: "2 mm triangular", description: "Establishes initial osteotomy site." },
-          { name: "Titanium Bone Well", description: "For collecting and storing harvested bone chips." },
+          {
+            name: "Guide Pins (3 sizes)",
+            specs: "Heights 2.8 mm; Diameters: 7.5, 9.0, 10.5 mm",
+            description:
+              "Maintain restorative space and proper spacing of implant osteotomies.",
+          },
+          {
+            name: "Stoppers",
+            specs:
+              "Diameters: 7.5, 9.0, 10.5 mm; Depths: 6.0, 8.0, 10.0, 11.5, 13.0 mm",
+            description:
+              "Prevent over- or under-drilling and control distance between sites.",
+          },
+          {
+            name: "Bone-Collecting Drills (5 sizes)",
+            specs: "Diameters: 2.8, 3.3, 3.8, 4.3, 4.8 mm",
+            description:
+              "For osteotomy creation and bone harvesting. Selection depends on bone density.",
+          },
+          {
+            name: "Decortication Drill",
+            specs: "1.4 mm x 3.5 mm with built-in stopper",
+            description:
+              "Increases vascularity at the surgical site for improved healing.",
+          },
+          {
+            name: "Pilot Drill",
+            specs: "2 mm triangular",
+            description: "Establishes initial osteotomy site.",
+          },
+          {
+            name: "Titanium Bone Well",
+            description: "For collecting and storing harvested bone chips.",
+          },
           { name: "Implant Gauge", description: "For measurement accuracy." },
           { name: "Bone Carrier", description: "For handling graft material." },
         ],
@@ -1109,25 +1267,87 @@ export const products = {
           "Minimizes risk of damaging the sinus lining through controlled instruments and stop systems",
         ],
         contents: [
-          { name: "Crestal Drills", specs: "6 drills: O2.0, O2.5, O2.8, O3.3, O3.8, O4.2 mm", description: "For crestal approach sinus elevation." },
-          { name: "Aqua Tips", specs: "8 tips", description: "For irrigation during procedure." },
-          { name: "Drill Stops", specs: "8 stops (1-8 mm)", description: "Ensure precise depth control." },
-          { name: "Crestal Reamers", specs: "4 reamers", description: "For crestal sinus floor preparation." },
-          { name: "Hydraulic Crestal Reamers", specs: "4 reamers: O2.8, O3.3, O3.8, O4.2 mm", description: "Use hydraulic technology for gentler membrane elevation." },
-          { name: "Diamond-Tipped Crestal Reamers", specs: "4 reamers", description: "For precision crestal work." },
-          { name: "Lateral Trephined Drills", specs: "2 drills (1 mm, 2 mm)", description: "For creating lateral window access." },
-          { name: "Lateral Reamers", specs: "2 reamers (2 mm, 3 mm)", description: "For lateral approach preparation." },
-          { name: "Lateral Sinus Instruments", specs: "4-5 instruments", description: "Specialized instruments for lateral sinus membrane elevation." },
-          { name: "Dome-Shaped Burs", specs: "2 burs", description: "For lateral access bone window creation." },
-          { name: "Sinus Depth Gauge", description: "For measuring sinus depth and bone thickness." },
-          { name: "Irrigation Handle and Tips", specs: "1 handle + 9 tips", description: "For cooling and debris removal during drilling." },
+          {
+            name: "Crestal Drills",
+            specs: "6 drills: O2.0, O2.5, O2.8, O3.3, O3.8, O4.2 mm",
+            description: "For crestal approach sinus elevation.",
+          },
+          {
+            name: "Aqua Tips",
+            specs: "8 tips",
+            description: "For irrigation during procedure.",
+          },
+          {
+            name: "Drill Stops",
+            specs: "8 stops (1-8 mm)",
+            description: "Ensure precise depth control.",
+          },
+          {
+            name: "Crestal Reamers",
+            specs: "4 reamers",
+            description: "For crestal sinus floor preparation.",
+          },
+          {
+            name: "Hydraulic Crestal Reamers",
+            specs: "4 reamers: O2.8, O3.3, O3.8, O4.2 mm",
+            description:
+              "Use hydraulic technology for gentler membrane elevation.",
+          },
+          {
+            name: "Diamond-Tipped Crestal Reamers",
+            specs: "4 reamers",
+            description: "For precision crestal work.",
+          },
+          {
+            name: "Lateral Trephined Drills",
+            specs: "2 drills (1 mm, 2 mm)",
+            description: "For creating lateral window access.",
+          },
+          {
+            name: "Lateral Reamers",
+            specs: "2 reamers (2 mm, 3 mm)",
+            description: "For lateral approach preparation.",
+          },
+          {
+            name: "Lateral Sinus Instruments",
+            specs: "4-5 instruments",
+            description:
+              "Specialized instruments for lateral sinus membrane elevation.",
+          },
+          {
+            name: "Dome-Shaped Burs",
+            specs: "2 burs",
+            description: "For lateral access bone window creation.",
+          },
+          {
+            name: "Sinus Depth Gauge",
+            description: "For measuring sinus depth and bone thickness.",
+          },
+          {
+            name: "Irrigation Handle and Tips",
+            specs: "1 handle + 9 tips",
+            description: "For cooling and debris removal during drilling.",
+          },
           { name: "Bone Carrier", description: "For handling graft material." },
         ],
         image: "placeholder",
+        pdfUrl: "/assets/pdfs/kits/Master Sinus Kit Catalog.pdf",
       },
-      { id: "screw-remover", name: "Screw Remover Helping Kit", image: "placeholder" },
-      { id: "fixture-remover", name: "Fixture Remover Helping Kit", image: "placeholder" },
-      { id: "prosthetic-kit", name: "Prosthetic Kit (Drivers, Keys)", image: "placeholder" },
+      {
+        id: "screw-remover",
+        name: "Screw Remover Helping Kit",
+        image: "placeholder",
+      },
+      {
+        id: "fixture-remover",
+        name: "Fixture Remover Helping Kit",
+        image: "placeholder",
+      },
+      {
+        id: "prosthetic-kit",
+        name: "Prosthetic Kit (Drivers, Keys)",
+        image: "placeholder",
+      },
     ],
   },
   advanced: {
@@ -1146,18 +1366,55 @@ export const products = {
           "Organized Efficiency - Built-in measurement scale on organizer tray for quick screw length determination",
         ],
         contents: [
-          { name: "Bone Tacks", specs: "42 titanium tacks total (21 short x 3.5 mm + 21 long x 4.5 mm), 2.5 mm head diameter", description: "Color-coded for quick identification, optimized for use with automatic bone tack applicator." },
-          { name: "Bone Screws", specs: "126 total screws; 4 diameters (1.2, 1.4, 1.6, 1.8 mm) x 6 lengths (4, 6, 7, 8, 10, 12 mm)", description: "Color-coded for easy identification. Compatible only with MCT drivers." },
-          { name: "Tenting Screws", specs: "16 screws (1.6 mm diameter); 4 lengths (7, 8, 9, 10 mm), 4 each", description: "Color-coded and MCT-driver specific for membrane tenting." },
-          { name: "Automatic Bone Tack Gun", description: "Streamlines tack placement for efficient surgery." },
-          { name: "Bone Carrier", description: "Assists with graft/material handling." },
+          {
+            name: "Bone Tacks",
+            specs:
+              "42 titanium tacks total (21 short x 3.5 mm + 21 long x 4.5 mm), 2.5 mm head diameter",
+            description:
+              "Color-coded for quick identification, optimized for use with automatic bone tack applicator.",
+          },
+          {
+            name: "Bone Screws",
+            specs:
+              "126 total screws; 4 diameters (1.2, 1.4, 1.6, 1.8 mm) x 6 lengths (4, 6, 7, 8, 10, 12 mm)",
+            description:
+              "Color-coded for easy identification. Compatible only with MCT drivers.",
+          },
+          {
+            name: "Tenting Screws",
+            specs:
+              "16 screws (1.6 mm diameter); 4 lengths (7, 8, 9, 10 mm), 4 each",
+            description:
+              "Color-coded and MCT-driver specific for membrane tenting.",
+          },
+          {
+            name: "Automatic Bone Tack Gun",
+            description: "Streamlines tack placement for efficient surgery.",
+          },
+          {
+            name: "Bone Carrier",
+            description: "Assists with graft/material handling.",
+          },
           { name: "Mallet", description: "For gentle tamping or fixation." },
-          { name: "Handle and Screw Drivers", description: "Both handpiece and manual screw/drill drivers included." },
-          { name: "Bone Tack Holders", description: "Both standard and lingual holders to safely place tacks." },
-          { name: "Organizer Tray", description: "Includes measurement scale for quick screw length determination." },
+          {
+            name: "Handle and Screw Drivers",
+            description:
+              "Both handpiece and manual screw/drill drivers included.",
+          },
+          {
+            name: "Bone Tack Holders",
+            description:
+              "Both standard and lingual holders to safely place tacks.",
+          },
+          {
+            name: "Organizer Tray",
+            description:
+              "Includes measurement scale for quick screw length determination.",
+          },
         ],
         sterilization: {
-          notes: "The entire case (including plastic components) is autoclavable. However, fixation screws are single-use only. Instruments should be cleaned individually."
+          notes:
+            "The entire case (including plastic components) is autoclavable. However, fixation screws are single-use only. Instruments should be cleaned individually.",
         },
         image: "placeholder",
       },
@@ -1168,7 +1425,11 @@ export const products = {
           "Advanced kit for sinus elevation procedures. (See Surgical Kits for details)",
         image: "placeholder",
       },
-      { id: "bone-splitting", name: "Bone Splitting Kit", image: "placeholder" },
+      {
+        id: "bone-splitting",
+        name: "Bone Splitting Kit",
+        image: "placeholder",
+      },
     ],
   },
   devices: {
@@ -1190,12 +1451,24 @@ export const products = {
           "Non-Invasive and Safe - Cold plasma works at near-room temperature",
         ],
         uses: [
-          { name: "Implant Surface Activation", description: "Treats implants before insertion. Boosts early bone-to-implant contact." },
-          { name: "Peri-implantitis Management", description: "Destroys bacterial biofilms without damaging implant surface." },
-          { name: "Decontamination", description: "Cleans previously contaminated implants." },
+          {
+            name: "Implant Surface Activation",
+            description:
+              "Treats implants before insertion. Boosts early bone-to-implant contact.",
+          },
+          {
+            name: "Peri-implantitis Management",
+            description:
+              "Destroys bacterial biofilms without damaging implant surface.",
+          },
+          {
+            name: "Decontamination",
+            description: "Cleans previously contaminated implants.",
+          },
         ],
         howItWorks: {
-          physics: "Plasma (ionized gas) is generated by applying high voltage to gases, producing reactive oxygen/nitrogen species, ions, and UV photons.",
+          physics:
+            "Plasma (ionized gas) is generated by applying high voltage to gases, producing reactive oxygen/nitrogen species, ions, and UV photons.",
           onImplantSurfaces: [
             "Cleansing - Breaks down and removes hydrocarbons",
             "Activation - Inserts polar groups into titanium oxide layer",
