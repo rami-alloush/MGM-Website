@@ -26,7 +26,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  background: radial-gradient(circle at center, #0a0a0a 0%, #1a1a1a 100%);
+  background: radial-gradient(circle at center, #000000 0%, #0a0a0a 100%);
   height: 100%;
   color-scheme: dark;
 }
@@ -378,6 +378,17 @@ html[data-theme="light"] .shadow-2xl {
 /* Ensure footer stays dark in both modes */
 #main-footer {
   background-color: #000000 !important;
+}
+
+/* Logo white overlay in dark mode */
+#main-header img,
+#mobile-menu > div > div:first-child img {
+  filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"] #main-header img,
+html[data-theme="light"] #mobile-menu > div > div:first-child img {
+  filter: none;
 }
 
 

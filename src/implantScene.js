@@ -66,13 +66,14 @@ export function initScene() {
 
           // Use MeshPhysicalMaterial for realistic metallic rendering
           child.material = new THREE.MeshPhysicalMaterial({
-            color: 0xb8b8b8,
+            color: 0xd4af37,
             metalness: 1.0,
-            roughness: 0.15,
+            roughness: 0.08,
             envMap: envMap,
-            envMapIntensity: 1.5,
-            clearcoat: 0.1,
-            clearcoatRoughness: 0.2,
+            envMapIntensity: 2.5,
+            clearcoat: 0.3,
+            clearcoatRoughness: 0.1,
+            reflectivity: 1.0,
           });
           child.castShadow = true;
           child.receiveShadow = true;
@@ -179,8 +180,8 @@ export function initScene() {
     const elapsedTime = clock.getElapsedTime();
 
     // Increased mouse sensitivity for more responsive movement
-    targetX = mouseX * 0.003; // 3x more sensitive
-    targetY = mouseY * 0.001;
+    targetX = mouseX * 0.008;
+    targetY = mouseY * 0.004;
 
     if (implant) {
       // Rotate Implant
@@ -188,8 +189,8 @@ export function initScene() {
       implant.rotation.x += 0.002;
 
       // Interactive Rotation - increased responsiveness
-      implant.rotation.y += 0.12 * (targetX - implant.rotation.y); // More responsive
-      implant.rotation.x += 0.12 * (targetY - implant.rotation.x); // More responsive
+      implant.rotation.y += 0.18 * (targetX - implant.rotation.y);
+      implant.rotation.x += 0.18 * (targetY - implant.rotation.x);
 
       // Scroll Effect - move model to the right as user scrolls
       const maxScroll = document.body.scrollHeight - window.innerHeight;
