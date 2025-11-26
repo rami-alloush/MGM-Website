@@ -392,17 +392,34 @@ html[data-theme="light"] #mobile-menu > div > div:first-child img {
 }
 
 
-/* Header dropdown in light mode */
-html[data-theme="light"] .nav-links .group > div {
+/* Header dropdown - dark theme (default) */
+.nav-links .group > div > div {
+  background-color: #000000 !important;
+  border-color: #333333 !important;
+}
+
+.nav-links .group > div > div a {
+  color: #e5e5e5 !important;
+  border-color: #333333 !important;
+}
+
+.nav-links .group > div > div a:hover {
+  background-color: #1a1a1a !important;
+  color: var(--color-primary) !important;
+}
+
+/* Header dropdown - light mode */
+html[data-theme="light"] .nav-links .group > div > div {
   background-color: #ffffff !important;
   border-color: #e0e0e0 !important;
 }
 
-html[data-theme="light"] .nav-links .group > div a {
+html[data-theme="light"] .nav-links .group > div > div a {
   color: #333333 !important;
+  border-color: #e0e0e0 !important;
 }
 
-html[data-theme="light"] .nav-links .group > div a:hover {
+html[data-theme="light"] .nav-links .group > div > div a:hover {
   background-color: #f4f6f8 !important;
   color: var(--color-primary) !important;
 }
