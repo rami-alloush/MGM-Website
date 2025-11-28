@@ -15,7 +15,7 @@ export function initScene() {
     50,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    1000,
   );
   camera.position.z = 50;
 
@@ -43,37 +43,54 @@ export function initScene() {
   // Setup DRACO Loader for compressed models
   const dracoLoader = new DRACOLoader();
   dracoLoader.setDecoderPath(
-    "https://www.gstatic.com/draco/versioned/decoders/1.5.6/"
+    "https://www.gstatic.com/draco/versioned/decoders/1.5.6/",
   );
   dracoLoader.setDecoderConfig({ type: "js" });
 
-  // Load external PBR textures for sandblasted effect
+  // 1. Get the max anisotropy level your user's GPU supports
+  // (Make sure this variable is available, or access renderer directly)
+  const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+
   const textureLoader = new THREE.TextureLoader();
 
+  // --- Roughness Map ---
   const roughnessTexture = textureLoader.load(
-    "/assets/images/materials/roughness.webp"
+    "/assets/images/materials/roughness.webp",
   );
   roughnessTexture.wrapS = THREE.RepeatWrapping;
   roughnessTexture.wrapT = THREE.RepeatWrapping;
-  roughnessTexture.repeat.set(4, 4);
 
+  // FIX 1: Increase Repeat. Sandblasting is very fine grain.
+  // 4x4 might be too large (blocky). Try 8x8 or 16x16.
+  roughnessTexture.repeat.set(16, 16);
+
+  // FIX 2: Max out Anisotropy to stop blurring at angles
+  roughnessTexture.anisotropy = maxAnisotropy;
+
+  // --- Normal Map ---
   const normalTexture = textureLoader.load(
-    "/assets/images/materials/normal.webp"
+    "/assets/images/materials/normal.webp",
   );
   normalTexture.wrapS = THREE.RepeatWrapping;
   normalTexture.wrapT = THREE.RepeatWrapping;
-  normalTexture.repeat.set(4, 4);
+  normalTexture.repeat.set(16, 16); // Must match roughness repeat
+  normalTexture.anisotropy = maxAnisotropy; // Sharpens the texture
 
   // Define Sandblasted material
   const sandblastedMaterial = new THREE.MeshStandardMaterial({
-    color: 0x666666, // Dark grey
-    metalness: 0.6, // Reduced metalness for matte look
-    roughness: 0.7, // High roughness for sandblasted surface
+    color: 0x696969,
+    metalness: 0.4,
+    roughness: 0.8,
     roughnessMap: roughnessTexture,
+    roughness: 0.8,
+
     normalMap: normalTexture,
-    normalScale: new THREE.Vector2(3, 3),
+    // FIX 3: Control the "depth" of the bumps.
+    // If it looks like 'noise' or 'static', lower this vector (e.g., 0.5, 0.5)
+    normalScale: new THREE.Vector2(2, 2),
+
     envMap: envMap,
-    envMapIntensity: 0.1, // Soft reflections
+    envMapIntensity: 0.1,
   });
 
   // Define Gold material
@@ -88,6 +105,18 @@ export function initScene() {
     reflectivity: 0.5,
   });
 
+  // Define polished metallic material for inner parts (threading, cavity)
+  const metallicInnerMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xc0c0c0, // Silver/titanium color
+    metalness: 1.0,
+    roughness: 0.15, // Very smooth, polished
+    envMap: envMap,
+    envMapIntensity: 1.8,
+    clearcoat: 0.2,
+    clearcoatRoughness: 0.05,
+    reflectivity: 0.4,
+  });
+
   // Load the implant-body.glb model
   const loader = new GLTFLoader();
   loader.setDRACOLoader(dracoLoader);
@@ -98,7 +127,7 @@ export function initScene() {
       implant1 = gltf.scene.clone();
       implant2 = gltf.scene.clone();
 
-      // Apply sandblasted material to implant1
+      // Apply materials to implant1 - sandblasted outer, metallic inner
       implant1.traverse((child) => {
         if (child.isMesh) {
           const geometry = child.geometry;
@@ -124,13 +153,21 @@ export function initScene() {
             }
             geometry.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
           }
-          child.material = sandblastedMaterial;
+
+          // Check mesh name to determine material
+          // Inner parts typically named: inner, cavity, thread, hole, internal
+          const meshName = child.name.toLowerCase();
+          const isInnerPart = meshName.includes("thread");
+
+          child.material = isInnerPart
+            ? metallicInnerMaterial
+            : sandblastedMaterial;
           child.castShadow = true;
           child.receiveShadow = true;
         }
       });
 
-      // Apply gold material to implant2
+      // Apply same dual-material approach to implant2
       implant2.traverse((child) => {
         if (child.isMesh) {
           const geometry = child.geometry;
@@ -163,11 +200,11 @@ export function initScene() {
       });
 
       // Scale and position the models
-      implant1.scale.set(15, 15, 15);
+      implant1.scale.set(5, 5, 5);
       implant1.position.set(0, 0, 0); // Position first implant to the left
       scene.add(implant1);
 
-      implant2.scale.set(15, 15, 15);
+      implant2.scale.set(5, 5, 5);
       implant2.position.set(0, 0, 0); // Position second implant to the right
       scene.add(implant2);
     },
@@ -177,7 +214,7 @@ export function initScene() {
     (error) => {
       // If loading fails, use fallback
       console.error("Error loading model, using fallback:", error);
-    }
+    },
   );
 
   // 2. Particles
@@ -191,7 +228,7 @@ export function initScene() {
 
   particlesGeometry.setAttribute(
     "position",
-    new THREE.BufferAttribute(posArray, 3)
+    new THREE.BufferAttribute(posArray, 3),
   );
   const particlesMaterial = new THREE.PointsMaterial({
     size: 0.3, // Significantly increased for visibility
@@ -290,12 +327,12 @@ export function initScene() {
       implant1.position.x = THREE.MathUtils.lerp(
         implant1.position.x,
         -15 + scrollTargetX + mouseParallaxX,
-        0.08
+        0.08,
       );
       implant1.position.z = THREE.MathUtils.lerp(
         implant1.position.z,
         scrollPercent * -5,
-        0.08
+        0.08,
       );
 
       // --- Implant 2 (Gold) ---
@@ -310,12 +347,12 @@ export function initScene() {
       implant2.position.x = THREE.MathUtils.lerp(
         implant2.position.x,
         15 + scrollTargetX + mouseParallaxX,
-        0.08
+        0.08,
       );
       implant2.position.z = THREE.MathUtils.lerp(
         implant2.position.z,
         scrollPercent * -5,
-        0.08
+        0.08,
       );
     }
 
