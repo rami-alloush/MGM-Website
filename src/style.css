@@ -172,13 +172,16 @@ html[data-theme="light"] .theme-toggle {
 }
 
 /* Form inputs - Dark mode */
-input, textarea, select {
+input,
+textarea,
+select {
   background-color: #252525 !important;
   border-color: #3a3a3a !important;
   color: #e5e5e5 !important;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #888 !important;
 }
 
@@ -365,7 +368,9 @@ html[data-theme="light"] .bg-white\/50 {
 }
 
 /* Shadow adjustments for dark mode */
-.shadow-lg, .shadow-xl, .shadow-2xl {
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
   --tw-shadow-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -390,7 +395,6 @@ html[data-theme="light"] #main-header img,
 html[data-theme="light"] #mobile-menu > div > div:first-child img {
   filter: none;
 }
-
 
 /* Header dropdown - dark theme (default) */
 .nav-links .group > div > div {
@@ -426,7 +430,7 @@ html[data-theme="light"] .nav-links .group > div > div a:hover {
 
 /* About page background */
 .about-page-bg {
-  background-image: url('/assets/images/about-bg.jpg');
+  background-image: url("/assets/images/about-bg.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
@@ -437,7 +441,67 @@ html[data-theme="light"] .about-page-bg {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* About page dark mode specific overrides */
+.bg-gradient-to-br.from-gray-50 {
+  background: linear-gradient(to bottom right, #1f1f1f, #1a1a1a) !important;
+}
+
+html[data-theme="light"] .bg-gradient-to-br.from-gray-50 {
+  background: linear-gradient(to bottom right, #f9fafb, #ffffff) !important;
+}
+
+/* Text opacity variants for dark mode */
+.text-charcoal\/70 {
+  color: rgba(176, 176, 176, 0.85) !important;
+}
+
+.text-charcoal\/80 {
+  color: rgba(176, 176, 176, 0.9) !important;
+}
+
+html[data-theme="light"] .text-charcoal\/70 {
+  color: rgba(51, 51, 51, 0.7) !important;
+}
+
+html[data-theme="light"] .text-charcoal\/80 {
+  color: rgba(51, 51, 51, 0.8) !important;
+}
+
+/* Border opacity variants */
+.border-silver\/30 {
+  border-color: rgba(58, 58, 58, 0.5) !important;
+}
+
+.border-silver\/20 {
+  border-color: rgba(58, 58, 58, 0.4) !important;
+}
+
+html[data-theme="light"] .border-silver\/30 {
+  border-color: rgba(224, 224, 224, 0.3) !important;
+}
+
+html[data-theme="light"] .border-silver\/20 {
+  border-color: rgba(224, 224, 224, 0.2) !important;
+}
+
+/* Stats bar gradient - keep dark in both modes for contrast */
+.bg-gradient-to-r.from-secondary {
+  background: linear-gradient(to right, #000000, rgba(0, 0, 0, 0.9)) !important;
+}
+
+/* Manufacturing image overlay gradient */
+.bg-gradient-to-t.from-secondary\/90 {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    transparent
+  ) !important;
+}
+
 /* Smooth theme transition */
-*, *::before, *::after {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
