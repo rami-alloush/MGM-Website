@@ -166,9 +166,11 @@ export const HomePage = () => {
                 Discover the Science
             </a>
         </div>
-        <div class="relative order-1 lg:order-2">
-            <div class="absolute -inset-4 bg-white/50 rounded-3xl transform rotate-2"></div>
-            <img src="/assets/images/manufacturing.webp" alt="M-Pure Surface" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+        <div class="relative order-1 lg:order-2 flex justify-center">
+            <div class="relative max-w-md">
+                <div class="absolute -inset-4 bg-clinical-gray rounded-3xl transform rotate-2"></div>
+                <img src="/assets/images/surface-treatment.webp" alt="M-Pure Surface" class="relative rounded-2xl shadow-2xl w-full h-auto max-h-[600px] object-cover">
+            </div>
         </div>
       </div>
     </div>
