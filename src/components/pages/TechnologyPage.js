@@ -7,71 +7,166 @@ export const TechnologyPage = () => {
     "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
 
+  // Expanded Smart Design Features with comprehensive details
   const smartDesignFeatures = [
     {
       icon: "🔷",
       title: "Smart Hyperid Body Design",
       description:
-        "Combines tapered core for primary stability with cylindrical form for bone contact.",
+        "MGM's unique hybrid design combines the benefits of both tapered and cylindrical implant forms for optimal performance in all clinical situations.",
       bullets: [
-        "Better Primary Stability in soft bone",
-        "Even Stress Distribution",
-        "Ideal for all clinical situations",
+        "Better Primary Stability - Especially in soft bone or immediate placement",
+        "Even Stress Distribution - Ideal for dense (Type I/II) bone",
+        "More Bone-to-Implant Contact - Promotes long-term stability",
       ],
     },
     {
       icon: "⭕",
       title: "Smart Cervix",
       description:
-        "Thread-free cervical area for soft tissue integration and hygiene.",
+        "Thread-free cervical area designed for optimal soft tissue integration, hygiene, and crestal bone preservation.",
       bullets: [
-        "Improved Soft Tissue Adaptation",
-        "Reduced Bacterial Accumulation",
-        "Minimizes Crestal Bone Loss",
+        "Improved Soft Tissue Adaptation - Creates tight bacterial barrier",
+        "Reduced Bacterial Accumulation - Easier to clean and maintain",
+        "Minimizes Crestal Bone Loss - Reduces mechanical irritation",
       ],
     },
     {
       icon: "🔩",
-      title: "Smart Paper Thread",
-      description: "Bone-friendly thread design for faster healing processes.",
+      title: "Smart Paper Thread Design",
+      description:
+        "Unique bone-friendly thread design that cuts inside the bone without distraction, promoting faster healing and improved bone density.",
       bullets: [
-        "Improves Bone Density through compression",
-        "Even Stress Distribution",
-        "Self-Condensation in Soft Bone",
+        "Bone Density Improvement - Through compression and osseodensification",
+        "Even Stress Distribution - Minimizes bone loss and resorption",
+        "Self-Condensation in Soft Bone - Increases density and stability",
       ],
     },
     {
       icon: "🔺",
-      title: "Smart Apex",
-      description: "Pointed apex with rounded boundaries for surgical safety.",
+      title: "Smart Apex Design",
+      description:
+        "Pointed apex with rounded boundaries providing surgical safety and protection of vital anatomical structures.",
       bullets: [
-        "Atraumatic to Vital Structures",
-        "Enhanced Safety in Immediate Placement",
-        "Less risk of sinus perforation",
+        "Atraumatic to Vital Structures - Protects nerves and sinus membrane",
+        "Enhanced Safety in Immediate Placement - Minimizes perforation risk",
+        "Easier Directional Control - Smoother, more controlled insertion",
       ],
     },
     {
       icon: "🔗",
       title: "Smart Connection - 11° Morse Taper",
       description:
-        "Precise internal conical connection for mechanical stability.",
+        "Highly precise internal conical connection providing superior mechanical stability and biological outcomes.",
       bullets: [
-        "Cold Welding Effect - prevents screw loosening",
-        "Superior Bacterial Seal",
-        "Balanced Force Distribution",
+        "Cold Welding Effect - Prevents screw loosening through friction fit",
+        "Superior Bacterial Seal - Tight seal reduces infiltration",
+        "Balanced Force Distribution - Reduces stress at crestal bone level",
       ],
     },
     {
       icon: "✨",
       title: "M-Pure Surface Treatment",
-      description: "Moderately rough surface for enhanced osseointegration.",
+      description:
+        "Proprietary moderately rough surface modification for enhanced osseointegration while maintaining high biocompatibility.",
       bullets: [
-        "High Purity / Clean Surface",
-        "Reduced Inflammatory Response",
-        "Faster Healing Than Machined",
+        "High Purity / Clean Surface - Free of embedded particles",
+        "Reduced Inflammatory Response - Lower bacterial adhesion",
+        "Faster Healing Than Machined - More bone apposition",
       ],
       highlighted: true,
     },
+  ];
+
+  // Detailed feature data for expanded sections
+  const smartHyperidDetails = {
+    tapered: {
+      title: "Tapered Form Benefits",
+      features: [
+        "Better Primary Stability - Especially useful in soft bone or immediate placement",
+        "Ideal for Narrow Ridges - Requires less bone width, reducing the need for grafting",
+        "Less Pressure on Cortical Bone - Minimizes bone resorption",
+        "Easier Insertion Path - Guides itself during placement in angled or tight spaces",
+        "Faster Osseointegration - Improved stability and bone contact",
+      ],
+      clinicalUses: [
+        "Immediate loading cases",
+        "Soft bone density (Type III/IV)",
+        "Post-extraction sockets",
+        "Aesthetic cases (anterior)",
+      ],
+    },
+    cylindrical: {
+      title: "Cylindrical Form Benefits",
+      features: [
+        "Even Stress Distribution - Ideal for dense (Type I/II) bone",
+        "More Bone-to-Implant Contact Surface Area - Promotes long-term stability",
+        "Simpler Surgical Protocol - Predictable drilling and placement steps",
+        "Better for Bone Grafting Cases - Offers stable fit in augmented areas",
+        "Useful for Splinted Prosthesis - Parallel design helps in multi-unit cases",
+      ],
+      clinicalUses: [
+        "Dense bone areas (posterior mandible)",
+        "Full arch or splinted cases",
+        "Cases with high precision surgical guides",
+        "Reconstructive surgeries with bone grafts",
+      ],
+    },
+  };
+
+  const smartCervixDetails = [
+    "Improved Soft Tissue Adaptation - A smooth surface promotes better attachment of soft tissue (gingiva). Creates a tight seal around the implant, acting as a barrier to bacteria",
+    "Reduced Bacterial Accumulation - No threads = fewer micro-irregularities for plaque to attach. Easier to clean and maintain over time. Reduces peri-implantitis risk",
+    "Minimizes Crestal Bone Loss - Threads near the crest may cause micro-movement or stress concentration on the marginal bone. A minimally machined neck reduces mechanical irritation",
+    "Better Aesthetic Outcome - In esthetic areas, a smooth collar better supports soft tissue contour and volume. Helps avoid gray shadows or recession",
+    "Ideal for Subcrestal or Equicrestal Placement - Smoothly treated cervical portion can be safely placed at or slightly below bone level",
+  ];
+
+  const smartThreadDetails = {
+    bonebenefits: [
+      "Improvement of Bone Density and Quality through compression and osseodensification",
+      "Even Stress Distribution - Minimizes bone loss due to damage and resorption",
+      "Crestal Bone Preservation - Shallower threads near the top reduce pressure on cortical bone",
+      "Self-Condensation in Soft Bone - Threads compress bone rather than cutting it, increasing density and stability",
+      "Improves Osseointegration - Maximizes bone-to-implant contact due to thread geometry",
+    ],
+    doctorbenefits: [
+      "Easy and Straightforward Insertion - Self-guiding shape allows precise and safe placement",
+      "Ideal for Immediate Placement & Loading - Excellent stability reduces micromovement risks",
+      "Versatile in All Bone Types - Performs well in both hard and soft bone",
+      "Minimally Invasive Drilling Protocol - Smaller osteotomies required—preserves native bone",
+      "Reduces Surgical Time & Complexity - Simplifies clinical workflow",
+    ],
+  };
+
+  const smartApexDetails = {
+    bonebenefits: [
+      "Atraumatic to Vital Structures - Reduces risk of damaging sinus membrane, inferior alveolar nerve, or lingual plate",
+      "Less Bone Damage at Insertion - Gentle on trabecular bone, minimizing microfractures and heat buildup",
+      "Enhanced Safety in Immediate Placement - Minimizes risk of perforation in post-extraction sockets or thin bone walls",
+      "Directs Bone Healing - Creates favorable environment for early bone regeneration and vascularization",
+    ],
+    doctorbenefits: [
+      "Surgical Safety and Confidence - Place implants closer to critical anatomical landmarks with confidence",
+      "Easier Directional Control - Reduces risk of off-axis placement or penetrating too deeply",
+      "Improved Handling in Soft Bone - Facilitates smoother, more controlled insertion",
+      "Less risk of sinus floor perforation in transcrestal sinus elevation procedure",
+    ],
+    clinicalSituations: [
+      "Immediate implant placement",
+      "Proximity to nerve canals or sinus cavities",
+      "Soft bone (Type III/IV)",
+      "Narrow or underprepared osteotomies",
+    ],
+  };
+
+  const smartConnectionDetails = [
+    "Cold Welding/Micromechanical Stability - The 11° angle provides a strong mechanical lock due to friction fit, minimizing micromovement and preventing screw loosening",
+    "Improved Sealing (Bacterial Seal) - Tight seal and mechanical stability lead to reduced inflammatory response and crestal bone loss. Better seal means less bacterial infiltration",
+    "Balanced Bone Preservation - Conical design distributes occlusal forces more evenly along the implant body, reducing stress concentration at crestal bone level",
+    "Better Force Distribution - The 11° angle allows stress to be distributed axially and laterally in a balanced way, decreasing peak stress at the implant-bone interface",
+    "Esthetic and Prosthetic Advantages - Platform shifting effect naturally integrates into Morse taper systems, aiding in soft tissue preservation",
+    "Proven Long-Term Success - Clinical studies show excellent survival and low complication rates over the long term",
   ];
 
   const whyChooseItems = [
@@ -107,11 +202,11 @@ export const TechnologyPage = () => {
         <div class="text-center space-y-6">
           <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary">Smart Design Technology</h2>
           <p class="text-xl text-charcoal max-w-3xl mx-auto leading-relaxed">
-            MGM Implants feature a revolutionary Smart Design combining six innovative technologies for optimal clinical outcomes.
+            MGM Implants feature a revolutionary Smart Design combining six innovative technologies for optimal clinical outcomes. Each feature is engineered to provide benefits for both bone health and clinical workflow.
           </p>
         </div>
 
-        <!-- Smart Design Features -->
+        <!-- Smart Design Features Overview -->
         <div class="space-y-8">
           <h3 class="font-heading text-3xl font-bold text-secondary text-center">The 6 Smart Design Features</h3>
           
@@ -122,16 +217,214 @@ export const TechnologyPage = () => {
           </div>
         </div>
 
-        <!-- M-Pure Surface Detail -->
-        <div class="bg-clinical-gray rounded-2xl p-10">
-          <h3 class="font-heading text-3xl font-bold text-secondary mb-6">M-Pure Surface Technology</h3>
+        <!-- Smart Hyperid Body Design - Expanded -->
+        <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔷</div>
+            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Hyperid Body Design - In Depth</h3>
+          </div>
+          <p class="text-charcoal text-lg leading-relaxed mb-8">
+            MGM's unique smart design gives dentists the benefits of both tapered and cylindrical implant designs in one system. This hybrid approach ensures optimal performance across all clinical situations.
+          </p>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl p-6 border border-silver">
+              <h4 class="font-bold text-secondary text-xl mb-4">${
+                smartHyperidDetails.tapered.title
+              }</h4>
+              <ul class="space-y-2 text-charcoal text-sm mb-4">
+                ${smartHyperidDetails.tapered.features
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+              <div class="mt-4 pt-4 border-t border-silver">
+                <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
+                <div class="flex flex-wrap gap-2">
+                  ${smartHyperidDetails.tapered.clinicalUses
+                    .map(
+                      (u) =>
+                        `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`
+                    )
+                    .join("")}
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-silver">
+              <h4 class="font-bold text-secondary text-xl mb-4">${
+                smartHyperidDetails.cylindrical.title
+              }</h4>
+              <ul class="space-y-2 text-charcoal text-sm mb-4">
+                ${smartHyperidDetails.cylindrical.features
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+              <div class="mt-4 pt-4 border-t border-silver">
+                <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
+                <div class="flex flex-wrap gap-2">
+                  ${smartHyperidDetails.cylindrical.clinicalUses
+                    .map(
+                      (u) =>
+                        `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`
+                    )
+                    .join("")}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Cervix - Expanded -->
+        <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">⭕</div>
+            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Cervix - In Depth</h3>
+          </div>
           <p class="text-charcoal text-lg leading-relaxed mb-6">
+            The Smart Cervix plays a critical role in soft tissue integration, hygiene, and crestal bone preservation. A thread-free cervical area provides multiple clinical advantages.
+          </p>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${smartCervixDetails
+              .map((detail) => {
+                const [title, ...desc] = detail.split(" - ");
+                return `<div class="bg-clinical-gray p-4 rounded-xl"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(
+                  " - "
+                )}</span></div>`;
+              })
+              .join("")}
+          </div>
+        </div>
+
+        <!-- Smart Paper Thread - Expanded -->
+        <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔩</div>
+            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Paper Thread Design - In Depth</h3>
+          </div>
+          <p class="text-charcoal text-lg leading-relaxed mb-8">
+            MGM implants have a unique paper thread design machined in a smart manner. This bone-friendly thread cuts inside the bone without distraction, promoting faster healing processes.
+          </p>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl p-6 border border-silver">
+              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
+              <ul class="space-y-2 text-charcoal text-sm">
+                ${smartThreadDetails.bonebenefits
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-silver">
+              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
+              <ul class="space-y-2 text-charcoal text-sm">
+                ${smartThreadDetails.doctorbenefits
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Apex - Expanded -->
+        <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔺</div>
+            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Apex Design - In Depth</h3>
+          </div>
+          <p class="text-charcoal text-lg leading-relaxed mb-8">
+            MGM implants feature a smart apical design with pointed apex and rounded boundaries that provides significant benefits for both bone preservation and surgical safety.
+          </p>
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-clinical-gray rounded-xl p-6">
+              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
+              <ul class="space-y-2 text-charcoal text-sm">
+                ${smartApexDetails.bonebenefits
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+            <div class="bg-clinical-gray rounded-xl p-6">
+              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
+              <ul class="space-y-2 text-charcoal text-sm">
+                ${smartApexDetails.doctorbenefits
+                  .map(
+                    (f) =>
+                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+          </div>
+          <div class="bg-primary/5 rounded-xl p-6">
+            <p class="text-sm font-semibold text-secondary mb-3">Ideal Clinical Situations:</p>
+            <div class="flex flex-wrap gap-2">
+              ${smartApexDetails.clinicalSituations
+                .map(
+                  (s) =>
+                    `<span class="bg-white text-primary px-3 py-1 rounded-full text-sm border border-primary/20">${s}</span>`
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Connection - Expanded -->
+        <div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-10 border border-silver">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔗</div>
+            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Connection - 11° Morse Taper - In Depth</h3>
+          </div>
+          <p class="text-charcoal text-lg leading-relaxed mb-8">
+            The Morse taper connection with 11° angle is a highly precise internal conical connection providing clinical advantages in both mechanical stability and biological outcomes.
+          </p>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${smartConnectionDetails
+              .map((detail) => {
+                const [title, ...desc] = detail.split(" - ");
+                return `<div class="bg-white p-4 rounded-xl border border-silver hover:border-primary transition-colors"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(
+                  " - "
+                )}</span></div>`;
+              })
+              .join("")}
+          </div>
+        </div>
+
+        <!-- M-Pure Surface Detail - Expanded -->
+        <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-10 text-white">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-3xl">✨</div>
+            <h3 class="font-heading text-3xl font-bold">M-Pure Surface Technology - In Depth</h3>
+          </div>
+          <p class="text-white/90 text-lg leading-relaxed mb-8">
             The MGM M-Pure surface treatment is a proprietary surface modification that involves sandblasting with biocompatible materials (titanium or oxide), with no acid-etching or chemical modification. This creates a clean, biologically safe surface with moderate roughness for optimal bone contact.
           </p>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">Moderate Roughness:</strong> <span class="text-charcoal text-sm">Strong primary stability and bone-implant contact</span></div>
-            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">High Purity:</strong> <span class="text-charcoal text-sm">Surface free of embedded particles</span></div>
-            <div class="bg-white p-4 rounded-xl"><strong class="text-secondary">Biocompatible:</strong> <span class="text-charcoal text-sm">Only titanium or titanium oxide used</span></div>
+          <div class="grid md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Moderate Roughness</strong><span class="text-white/80 text-sm">Strong primary stability and bone-implant contact (Ra 1.42-1.74 µm)</span></div>
+            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">High Purity</strong><span class="text-white/80 text-sm">Surface free of embedded particles, improves biocompatibility</span></div>
+            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Biocompatible</strong><span class="text-white/80 text-sm">Only titanium or titanium oxide used, no aluminum or acid residues</span></div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+            <h4 class="font-bold text-white mb-4">Surface Treatment Process</h4>
+            <ul class="grid md:grid-cols-2 gap-3 text-white/90 text-sm">
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> Sandblasting with biocompatible materials (titanium or oxide)</li>
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> No acid-etching or chemical surface modification</li>
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> Focus on cleanliness and biological safety</li>
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> Final surfaces free from chemical residues and contaminants</li>
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> Reduced inflammatory response - lower bacterial adhesion</li>
+              <li class="flex items-start gap-2"><span class="text-accent">•</span> Faster healing than machined implants</li>
+            </ul>
           </div>
         </div>
 

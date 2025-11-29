@@ -1,6 +1,6 @@
 import { products } from "../../data/products.js";
 import { createElement, animateSection } from "../utils.js";
-import { Breadcrumb, ProductCard, SmartDesignSection } from "../ui/index.js";
+import { Breadcrumb, ProductCard } from "../ui/index.js";
 
 export const ProductListPage = (categoryKey) => {
   const category = products[categoryKey];
@@ -17,12 +17,6 @@ export const ProductListPage = (categoryKey) => {
     "section",
     "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
-
-  // Build Smart Design section for implants
-  const smartDesignHtml =
-    categoryKey === "implants" && category.smartDesignFeatures
-      ? SmartDesignSection(category.smartDesignFeatures)
-      : "";
 
   // Build content HTML
   let contentHtml = "";
@@ -61,8 +55,12 @@ export const ProductListPage = (categoryKey) => {
           category.title
         }</h2>
         <p class="text-charcoal text-lg">${category.description || ""}</p>
+        ${
+          categoryKey === "implants"
+            ? `<a href="#/technology" class="inline-flex items-center gap-2 mt-4 text-primary hover:text-secondary transition-colors font-medium">Learn about our Smart Design Technology <span>→</span></a>`
+            : ""
+        }
       </div>
-      ${smartDesignHtml}
       ${contentHtml}
     </div>
   `;

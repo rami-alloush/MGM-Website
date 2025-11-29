@@ -349,9 +349,22 @@ html[data-theme="light"] .bg-gray-200 {
   color: #ffffff !important;
 }
 
-/* Primary/10 background for icons */
+/* Primary/10 background for icons - enhanced for dark mode visibility */
 .bg-primary\/10 {
-  background-color: rgba(215, 26, 33, 0.15) !important;
+  background-color: rgba(215, 26, 33, 0.2) !important;
+}
+
+html[data-theme="light"] .bg-primary\/10 {
+  background-color: rgba(215, 26, 33, 0.1) !important;
+}
+
+/* Primary text color - ensure visibility in dark mode */
+.text-primary {
+  color: #e63946 !important;
+}
+
+html[data-theme="light"] .text-primary {
+  color: #d71a21 !important;
 }
 
 /* White/20 and white/50 backgrounds */
@@ -504,6 +517,100 @@ html[data-theme="light"] .border-silver\/20 {
 *::after {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
+}
+
+/* ===========================================
+   IMAGE SLIDER STYLES
+   =========================================== */
+
+/* ===========================================
+   TECHNOLOGY PAGE - Dark Mode Gradient Fixes
+   =========================================== */
+
+/* Gradient backgrounds - Dark mode */
+.bg-gradient-to-br.from-clinical-gray.to-white {
+  background: linear-gradient(to bottom right, #252525, #1a1a1a) !important;
+}
+
+.bg-gradient-to-br.from-secondary\/5.to-primary\/5 {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.08),
+    rgba(215, 26, 33, 0.08)
+  ) !important;
+}
+
+/* Primary/5 background for clinical situations */
+.bg-primary\/5 {
+  background-color: rgba(215, 26, 33, 0.12) !important;
+}
+
+/* Primary/20 border */
+.border-primary\/20 {
+  border-color: rgba(215, 26, 33, 0.3) !important;
+}
+
+/* White/10 backdrop for M-Pure section */
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* White/80 text */
+.text-white\/80 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* White/90 text */
+.text-white\/90 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Light mode - restore gradients */
+html[data-theme="light"] .bg-gradient-to-br.from-clinical-gray.to-white {
+  background: linear-gradient(to bottom right, #f4f6f8, #ffffff) !important;
+}
+
+html[data-theme="light"] .bg-gradient-to-br.from-secondary\/5.to-primary\/5 {
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.03),
+    rgba(215, 26, 33, 0.05)
+  ) !important;
+}
+
+html[data-theme="light"] .bg-primary\/5 {
+  background-color: rgba(215, 26, 33, 0.05) !important;
+}
+
+html[data-theme="light"] .border-primary\/20 {
+  border-color: rgba(215, 26, 33, 0.2) !important;
+}
+
+/* Clinical tags/badges in dark mode */
+.bg-primary\/10.text-primary {
+  background-color: rgba(215, 26, 33, 0.2) !important;
+  color: #ff6b6b !important;
+}
+
+html[data-theme="light"] .bg-primary\/10.text-primary {
+  background-color: rgba(215, 26, 33, 0.1) !important;
+  color: #d71a21 !important;
+}
+
+/* Rounded pill badges */
+.rounded-full.border-primary\/20 {
+  background-color: #252525 !important;
+  border-color: rgba(215, 26, 33, 0.4) !important;
+}
+
+html[data-theme="light"] .rounded-full.border-primary\/20 {
+  background-color: #ffffff !important;
+  border-color: rgba(215, 26, 33, 0.2) !important;
+}
+
+/* Accent color for bullet points */
+.text-accent {
+  color: #ffcd00 !important;
 }
 
 /* ===========================================
