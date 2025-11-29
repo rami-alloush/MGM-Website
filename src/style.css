@@ -505,3 +505,93 @@ html[data-theme="light"] .border-silver\/20 {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
 }
+
+/* ===========================================
+   IMAGE SLIDER STYLES
+   =========================================== */
+
+/* Slider navigation buttons - use primary color for visibility in both modes */
+.slider-prev,
+.slider-next {
+  background-color: var(--color-primary) !important;
+  box-shadow: 0 4px 20px rgba(215, 26, 33, 0.4);
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+  background-color: var(--color-primary-hover) !important;
+  box-shadow: 0 6px 25px rgba(215, 26, 33, 0.5);
+}
+
+.slider-prev svg,
+.slider-next svg {
+  color: #ffffff !important;
+}
+
+/* Slider dots */
+.slider-dot {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-dot:hover:not(.bg-primary) {
+  background-color: #9ca3af !important;
+  transform: scale(1.1);
+}
+
+/* Slider slide transitions */
+.slider-slide {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+/* Content animation classes */
+.slide-title,
+.slide-subtitle,
+.slide-cta {
+  will-change: transform, opacity;
+}
+
+.slide-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-subtitle {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-cta {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Ken Burns image animation */
+.slider-image {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Progress bar glow effect */
+.slider-progress {
+  box-shadow: 0 0 10px rgba(215, 26, 33, 0.5);
+}
+
+/* Slider wrapper shadow */
+.slider-wrapper {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="light"] .slider-wrapper {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus styles for accessibility */
+.slider-slide:focus {
+  outline: none;
+}
+
+.slider-slide:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}

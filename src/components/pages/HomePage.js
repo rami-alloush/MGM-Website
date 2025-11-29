@@ -1,5 +1,5 @@
 import { createElement, animateSection } from "../utils.js";
-import { USPItem, StatItem, FeatureCard } from "../ui/index.js";
+import { USPItem, StatItem, FeatureCard, ImageSlider } from "../ui/index.js";
 
 export const HomePage = () => {
   const container = createElement("div", "w-full overflow-x-hidden");
@@ -72,6 +72,17 @@ export const HomePage = () => {
       <div class="grid md:grid-cols-3 gap-12 text-center">
         ${uspItems.map((item) => USPItem(item)).join("")}
       </div>
+    </div>
+  `;
+
+  // 2.5 IMAGE SLIDER SECTION
+  const sliderSection = createElement(
+    "section",
+    "py-16 bg-clinical-gray overflow-hidden"
+  );
+  sliderSection.innerHTML = `
+    <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+      <div id="homepage-slider"></div>
     </div>
   `;
 
@@ -221,10 +232,20 @@ export const HomePage = () => {
   // Append all sections
   container.appendChild(heroSection);
   container.appendChild(trustSection);
+  container.appendChild(sliderSection);
   container.appendChild(aboutSection);
   container.appendChild(statsSection);
   container.appendChild(techSection);
   container.appendChild(productSection);
+
+  // Initialize the slider after DOM is ready
+  setTimeout(() => {
+    const sliderContainer = container.querySelector("#homepage-slider");
+    if (sliderContainer) {
+      const slider = ImageSlider();
+      sliderContainer.appendChild(slider);
+    }
+  }, 0);
 
   animateSection(container);
   return container;

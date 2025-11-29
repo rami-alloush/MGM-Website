@@ -1,5 +1,6 @@
 // UI Components barrel export
 export { Breadcrumb } from "./Breadcrumb.js";
+export { ImageSlider } from "./ImageSlider.js";
 
 export {
   ProductCard,
