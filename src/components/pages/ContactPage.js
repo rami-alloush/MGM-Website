@@ -7,36 +7,6 @@ export const ContactPage = () => {
     "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
   );
 
-  const newsItems = [
-    {
-      imageSrc: "https://placehold.co/600x400/e2e8f0/64748b?text=Clinical+Case",
-      imageAlt: "Clinical Case",
-      badge: "Clinical Case Study",
-      badgeColor: "bg-primary text-white",
-      title: "Immediate Loading with MGM Plus",
-      description:
-        "A comprehensive look at a full-arch rehabilitation using the MGM Plus system.",
-    },
-    {
-      imageSrc: "https://placehold.co/600x400/e2e8f0/64748b?text=Event",
-      imageAlt: "Event",
-      badge: "Event",
-      badgeColor: "bg-accent text-secondary",
-      title: "IDS Cologne 2025",
-      description:
-        "Join us at the world's leading dental trade fair. Hall 10.2, Booth A-050.",
-    },
-    {
-      imageSrc: "https://placehold.co/600x400/e2e8f0/64748b?text=Blog",
-      imageAlt: "Blog",
-      badge: "Blog",
-      badgeColor: "bg-secondary text-white",
-      title: "The Science of M-Pure Surface",
-      description:
-        "Understanding the biological benefits of our acid-free surface treatment.",
-    },
-  ];
-
   section.innerHTML = `
       <div class="max-w-6xl mx-auto space-y-20">
         <!-- Intro -->
@@ -91,7 +61,7 @@ export const ContactPage = () => {
                 <h3 class="font-heading text-2xl font-bold text-white mb-4">Become a Partner</h3>
                 <p class="text-gray-300 mb-6">Interested in distributing MGM Implant products? Join our global network.</p>
                 <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
-                  Partner With Us
+                  Partners Portal
                 </a>
               </div>
             </div>
@@ -115,17 +85,6 @@ export const ContactPage = () => {
               Send Message
             </button>
           </form>
-        </div>
-
-        <!-- News & Media Section -->
-        <div class="space-y-8">
-            <div class="text-center">
-                <h3 class="font-heading text-4xl font-bold text-secondary mb-4">News & Media</h3>
-                <p class="text-charcoal">Latest updates, clinical cases, and events.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                ${newsItems.map((item) => NewsCard(item)).join("")}
-            </div>
         </div>
       </div>
     `;
