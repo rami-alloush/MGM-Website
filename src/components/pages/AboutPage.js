@@ -10,25 +10,29 @@ export const AboutPage = () => {
   const corePrograms = [
     {
       icon: "💡",
-      title: "Innovate",
+      image: "/assets/images/iINNOVATIVE.webp",
+      title: "iInnovate",
       description:
         "Providing customers with the latest technologies via the R&D department and scientific team.",
     },
     {
       icon: "📚",
-      title: "Learn",
+      image: "/assets/images/iLEARN.webp",
+      title: "iLearn",
       description:
         "Providing latest techniques and training support for better product usage.",
     },
     {
       icon: "🌐",
-      title: "Explore",
+      image: "/assets/images/iEXPLORE.webp",
+      title: "iExplore",
       description:
         "Connecting with customers through exhibitions, scientific events, and congresses to understand their needs.",
     },
     {
       icon: "🤝",
-      title: "Practice",
+      image: "/assets/images/iPRACTICE.webp",
+      title: "iPractice",
       description:
         "Allowing customers to share case challenges and clinical studies.",
     },
