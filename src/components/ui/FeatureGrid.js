@@ -156,7 +156,7 @@ export const CoreProgramCard = ({ icon, image, title, description }) => {
     ? `<div class="h-56 mb-6 overflow-hidden rounded-xl bg-white p-8 flex items-center justify-center border border-silver/20 shadow-sm">
          <img src="${image}" alt="${title}" class="w-full h-full object-contain transition-all duration-500 group-hover:grayscale" />
        </div>`
-    : `<div class="text-4xl mb-4">${icon}</div>`;
+    : `<div class="w-16 h-16 mb-4 text-primary">${icon}</div>`;
 
   return `
     <div class="bg-clinical-gray border border-silver p-6 rounded-xl hover:border-primary transition-all h-full group hover:shadow-lg">

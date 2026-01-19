@@ -95,7 +95,7 @@ export const CategoryCard = ({ key, title, description, icon, imageSrc }) => {
   return `
     <a href="#/products/${key}" class="group bg-white border border-silver rounded-2xl overflow-hidden hover:border-primary hover:shadow-xl transition-all flex flex-col md:flex-row">
       <div class="w-full md:w-64 h-64 md:h-auto bg-clinical-gray overflow-hidden flex-shrink-0 relative">
-        <img src="${imageSrc}" alt="${title}" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-6xl text-primary\\'>${icon}</div>'" />
+        <img src="${imageSrc}" alt="${title}" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-primary\\'><div class=\\'w-24 h-24\\'>${icon}</div></div>'" />
         <button class="absolute bottom-3 right-3 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${imageSrc}', '${title}')">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
         </button>
@@ -127,7 +127,7 @@ export const FeatureCard = ({ href, icon, title, description }) => {
   return `
     <a href="${href}" class="group relative overflow-hidden rounded-2xl bg-clinical-gray hover:bg-white border border-silver hover:border-primary hover:shadow-2xl transition-all duration-300 p-10">
       <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-        <span class="text-9xl">${icon}</span>
+        <div class="w-32 h-32">${icon}</div>
       </div>
       <div class="relative z-10 space-y-6">
         <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl text-primary border border-silver">
@@ -156,6 +156,7 @@ export const FeatureCard = ({ href, icon, title, description }) => {
 export const InfoCard = ({ icon, title, description, className = "" }) => {
   return `
     <div class="bg-white border border-silver rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg ${className}">
+      <div class="w-10 h-10 text-primary mb-3">${icon}</div>
       <h4 class="font-bold text-secondary mb-2">${title}</h4>
       <p class="text-charcoal text-sm">${description}</p>
     </div>

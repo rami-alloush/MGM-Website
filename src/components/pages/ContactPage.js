@@ -1,5 +1,5 @@
 import { createElement, animateSection } from "../utils.js";
-import { NewsCard } from "../ui/index.js";
+import { NewsCard, Icons } from "../ui/index.js";
 
 export const ContactPage = () => {
   const section = createElement(
@@ -22,7 +22,7 @@ export const ContactPage = () => {
               <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Contact Information</h3>
               <div class="space-y-6 text-charcoal">
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">📍</span>
+                  <div class="w-8 h-8 text-primary shrink-0">${Icons.MapPin}</div>
                   <div>
                     <p class="font-semibold text-secondary">Address</p>
                     <p>Werner-Heisenberg-Straße 14</p>
@@ -30,14 +30,14 @@ export const ContactPage = () => {
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">📧</span>
+                  <div class="w-8 h-8 text-primary shrink-0">${Icons.Envelope}</div>
                   <div>
                     <p class="font-semibold text-secondary">Email</p>
                     <p>info@mgmimplant.com</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">📞</span>
+                  <div class="w-8 h-8 text-primary shrink-0">${Icons.Phone}</div>
                   <div>
                     <p class="font-semibold text-secondary">Phone</p>
                     <p>+49 2103 9049978</p>
@@ -45,7 +45,7 @@ export const ContactPage = () => {
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <span class="text-primary text-2xl">🏢</span>
+                  <div class="w-8 h-8 text-primary shrink-0">${Icons.Building}</div>
                   <div>
                     <p class="font-semibold text-secondary">Company</p>
                     <p>AAD Dental GmbH</p>

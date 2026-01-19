@@ -1,5 +1,11 @@
 import { createElement, animateSection } from "../utils.js";
-import { USPItem, StatItem, FeatureCard, ImageSlider } from "../ui/index.js";
+import {
+  USPItem,
+  StatItem,
+  FeatureCard,
+  ImageSlider,
+  Icons,
+} from "../ui/index.js";
 
 export const HomePage = () => {
   const container = createElement("div", "w-full overflow-x-hidden");
@@ -42,19 +48,19 @@ export const HomePage = () => {
 
   const uspItems = [
     {
-      icon: "🛡️",
+      icon: Icons.ShieldCheck,
       title: "Uncompromised Quality",
       description:
         "Made in Germany with premium-grade titanium and rigorous 100% quality control.",
     },
     {
-      icon: "🔬",
+      icon: Icons.Microscope,
       title: "Advanced Technology",
       description:
         "Featuring our proprietary M-Pure Surface for superior osseointegration and healing.",
     },
     {
-      icon: "🤝",
+      icon: Icons.Handshake,
       title: "Lifetime Guarantee",
       description:
         "We stand by our products with a 100% lifetime guarantee for your peace of mind.",
@@ -193,21 +199,21 @@ export const HomePage = () => {
   const productCategories = [
     {
       href: "#/products/implants",
-      icon: "🦷",
+      icon: Icons.Tooth,
       title: "Implants",
       description:
         "Bone-level and tissue-level implants designed for primary stability and aesthetic results.",
     },
     {
       href: "#/products/prosthetics",
-      icon: "⚙️",
+      icon: Icons.Cog,
       title: "Prosthetics",
       description:
         "A wide range of abutments and prosthetic components for cement and screw-retained restorations.",
     },
     {
       href: "#/products/surgical",
-      icon: "🔧",
+      icon: Icons.Wrench,
       title: "Surgical Kits",
       description:
         "Ergonomic and intuitive surgical kits designed to simplify your workflow and enhance precision.",

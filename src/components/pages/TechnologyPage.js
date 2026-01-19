@@ -1,5 +1,5 @@
 import { createElement, animateSection } from "../utils.js";
-import { TechFeatureCard, InfoCard } from "../ui/index.js";
+import { TechFeatureCard, InfoCard, Icons } from "../ui/index.js";
 
 export const TechnologyPage = () => {
   const section = createElement(
@@ -10,7 +10,7 @@ export const TechnologyPage = () => {
   // Expanded Smart Design Features with comprehensive details
   const smartDesignFeatures = [
     {
-      icon: "🔷",
+      icon: Icons.Cube,
       title: "Smart Hyperid Body Design",
       description:
         "MGM's unique hybrid design combines the benefits of both tapered and cylindrical implant forms for optimal performance in all clinical situations.",
@@ -21,7 +21,7 @@ export const TechnologyPage = () => {
       ],
     },
     {
-      icon: "⭕",
+      icon: Icons.Circle,
       title: "Smart Cervix",
       description:
         "Thread-free cervical area designed for optimal soft tissue integration, hygiene, and crestal bone preservation.",
@@ -32,7 +32,7 @@ export const TechnologyPage = () => {
       ],
     },
     {
-      icon: "🔩",
+      icon: Icons.Bolt,
       title: "Smart Paper Thread Design",
       description:
         "Unique bone-friendly thread design that cuts inside the bone without distraction, promoting faster healing and improved bone density.",
@@ -43,7 +43,7 @@ export const TechnologyPage = () => {
       ],
     },
     {
-      icon: "🔺",
+      icon: Icons.ChevronDown,
       title: "Smart Apex Design",
       description:
         "Pointed apex with rounded boundaries providing surgical safety and protection of vital anatomical structures.",
@@ -54,7 +54,7 @@ export const TechnologyPage = () => {
       ],
     },
     {
-      icon: "🔗",
+      icon: Icons.Link,
       title: "Smart Connection - 11° Morse Taper",
       description:
         "Highly precise internal conical connection providing superior mechanical stability and biological outcomes.",
@@ -65,7 +65,7 @@ export const TechnologyPage = () => {
       ],
     },
     {
-      icon: "✨",
+      icon: Icons.Sparkles,
       title: "M-Pure Surface Treatment",
       description:
         "Proprietary moderately rough surface modification for enhanced osseointegration while maintaining high biocompatibility.",
@@ -173,26 +173,47 @@ export const TechnologyPage = () => {
     {
       title: "Uncompromised Quality",
       description: "Top-grade raw materials tested for purity.",
+      icon: Icons.ShieldCheck,
     },
-    { title: "Advanced Technology", description: "Precision manufacturing." },
+    {
+      title: "Advanced Technology",
+      description: "Precision manufacturing.",
+      icon: Icons.Microscope,
+    },
     {
       title: "Rigorous Testing",
       description: "Every batch tested for zero defects.",
+      icon: Icons.BadgeCheck,
     },
     {
       title: "International Standards",
       description: "Certified ISO, CE, FDA.",
+      icon: Icons.Globe,
     },
-    { title: "Lifetime Guarantee", description: "100% Lifetime Guarantee." },
+    {
+      title: "Lifetime Guarantee",
+      description: "100% Lifetime Guarantee.",
+      icon: Icons.Handshake,
+    },
     {
       title: "Biocompatibility First",
       description: "100% safe for the human body.",
+      icon: Icons.Beaker,
     },
-    { title: "Innovation Driven", description: "Continuous R&D." },
-    { title: "Global Reach", description: "Trusted in multiple countries." },
+    {
+      title: "Innovation Driven",
+      description: "Continuous R&D.",
+      icon: Icons.LightBulb,
+    },
+    {
+      title: "Global Reach",
+      description: "Trusted in multiple countries.",
+      icon: Icons.Globe,
+    },
     {
       title: "Competitive Advantage",
       description: "World-class quality at competitive prices.",
+      icon: Icons.Target,
     },
   ];
 
@@ -220,7 +241,9 @@ export const TechnologyPage = () => {
         <!-- Smart Hyperid Body Design - Expanded -->
         <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔷</div>
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.Cube
+            }</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Smart Hyperid Body Design - In Depth</h3>
           </div>
           <p class="text-charcoal text-lg leading-relaxed mb-8">
@@ -281,7 +304,9 @@ export const TechnologyPage = () => {
         <!-- Smart Cervix - Expanded -->
         <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">⭕</div>
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.Circle
+            }</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Smart Cervix - In Depth</h3>
           </div>
           <p class="text-charcoal text-lg leading-relaxed mb-6">
@@ -302,7 +327,9 @@ export const TechnologyPage = () => {
         <!-- Smart Paper Thread - Expanded -->
         <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔩</div>
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.Bolt
+            }</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Smart Paper Thread Design - In Depth</h3>
           </div>
           <p class="text-charcoal text-lg leading-relaxed mb-8">
@@ -337,7 +364,9 @@ export const TechnologyPage = () => {
         <!-- Smart Apex - Expanded -->
         <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔺</div>
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.ChevronDown
+            }</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Smart Apex Design - In Depth</h3>
           </div>
           <p class="text-charcoal text-lg leading-relaxed mb-8">
@@ -383,7 +412,9 @@ export const TechnologyPage = () => {
         <!-- Smart Connection - Expanded -->
         <div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-10 border border-silver">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">🔗</div>
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.Link
+            }</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Smart Connection - 11° Morse Taper - In Depth</h3>
           </div>
           <p class="text-charcoal text-lg leading-relaxed mb-8">
@@ -404,7 +435,9 @@ export const TechnologyPage = () => {
         <!-- M-Pure Surface Detail - Expanded -->
         <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-10 text-white">
           <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-3xl">✨</div>
+            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-3xl">${
+              Icons.Sparkles
+            }</div>
             <h3 class="font-heading text-3xl font-bold">M-Pure Surface Technology - In Depth</h3>
           </div>
           <p class="text-white/90 text-lg leading-relaxed mb-8">
@@ -508,7 +541,7 @@ export const TechnologyPage = () => {
                 </ul>
             </div>
             <div class="bg-white border border-silver rounded-2xl p-8 flex items-center justify-center aspect-square shadow-lg">
-                <div class="text-9xl text-primary">🛡️</div>
+                <div class="w-48 h-48 text-primary">${Icons.ShieldCheck}</div>
             </div>
         </div>
 

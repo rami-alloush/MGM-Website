@@ -1,5 +1,5 @@
 import { createElement, animateSection } from "../utils.js";
-import { CoreProgramCard, DarkSection } from "../ui/index.js";
+import { CoreProgramCard, DarkSection, Icons } from "../ui/index.js";
 
 export const AboutPage = () => {
   const section = createElement(
@@ -9,28 +9,28 @@ export const AboutPage = () => {
 
   const corePrograms = [
     {
-      icon: "💡",
+      icon: Icons.LightBulb,
       image: "/assets/images/iINNOVATIVE.webp",
       title: "iInnovate",
       description:
         "Providing customers with the latest technologies via the R&D department and scientific team.",
     },
     {
-      icon: "📚",
+      icon: Icons.BookOpen,
       image: "/assets/images/iLEARN.webp",
       title: "iLearn",
       description:
         "Providing latest techniques and training support for better product usage.",
     },
     {
-      icon: "🌐",
+      icon: Icons.Globe,
       image: "/assets/images/iEXPLORE.webp",
       title: "iExplore",
       description:
         "Connecting with customers through exhibitions, scientific events, and congresses to understand their needs.",
     },
     {
-      icon: "🤝",
+      icon: Icons.Handshake,
       image: "/assets/images/iPRACTICE.webp",
       title: "iPractice",
       description:
@@ -162,7 +162,7 @@ export const AboutPage = () => {
         <!-- Vision & Mission -->
         <div class="grid md:grid-cols-2 gap-12">
           <div class="bg-white backdrop-blur-md border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
-            <div class="text-primary text-5xl mb-4">🎯</div>
+            <div class="w-16 h-16 text-primary mb-4">${Icons.Target}</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Vision & Mission</h3>
             <ul class="space-y-4 text-charcoal">
                 <li class="flex gap-3">
@@ -181,7 +181,7 @@ export const AboutPage = () => {
           </div>
 
           <div class="bg-white backdrop-blur-md border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
-            <div class="text-primary text-5xl mb-4">💼</div>
+            <div class="w-16 h-16 text-primary mb-4">${Icons.Briefcase}</div>
             <h3 class="font-heading text-3xl font-bold text-secondary">Our Portfolio</h3>
             <p class="text-charcoal leading-relaxed">
                 The portfolio offers solutions from single tooth to fully edentulous indications, including:
@@ -231,22 +231,26 @@ export const AboutPage = () => {
               </p>
               <div class="grid grid-cols-2 gap-4">
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="text-2xl mb-2">🏅</div>
+                  <div class="w-10 h-10 text-secondary mb-2">${
+                    Icons.BadgeCheck
+                  }</div>
                   <h4 class="font-heading font-bold text-secondary">ISO 13485</h4>
                   <p class="text-sm text-charcoal/70">Medical Device QMS</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="text-2xl mb-2">🇪🇺</div>
+                  <div class="w-10 h-10 text-secondary mb-2">${Icons.Flag}</div>
                   <h4 class="font-heading font-bold text-secondary">CE Marked</h4>
                   <p class="text-sm text-charcoal/70">European Conformity</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="text-2xl mb-2">🇺🇸</div>
+                  <div class="w-10 h-10 text-secondary mb-2">${
+                    Icons.Globe
+                  }</div>
                   <h4 class="font-heading font-bold text-secondary">FDA Registered</h4>
                   <p class="text-sm text-charcoal/70">US Market Approved</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="text-2xl mb-2">🇩🇪</div>
+                  <div class="w-10 h-10 text-secondary mb-2">${Icons.Flag}</div>
                   <h4 class="font-heading font-bold text-secondary">Made in Germany</h4>
                   <p class="text-sm text-charcoal/70">German Engineering</p>
                 </div>
@@ -269,17 +273,23 @@ export const AboutPage = () => {
             <h3 class="font-heading text-3xl font-bold text-white mb-8 text-center">Why Choose MGM?</h3>
             <div class="grid md:grid-cols-3 gap-8">
               <div class="text-center space-y-3">
-                <div class="text-4xl mb-3">🔬</div>
+                <div class="w-16 h-16 mx-auto text-accent mb-3">${
+                  Icons.Microscope
+                }</div>
                 <h4 class="font-heading text-xl font-bold text-accent">Advanced Technology</h4>
                 <p class="text-silver">Precision manufacturing using advanced machines like TORNOS.</p>
               </div>
               <div class="text-center space-y-3">
-                <div class="text-4xl mb-3">🌍</div>
+                <div class="w-16 h-16 mx-auto text-accent mb-3">${
+                  Icons.Globe
+                }</div>
                 <h4 class="font-heading text-xl font-bold text-accent">Global Reach</h4>
                 <p class="text-silver">Trusted in multiple countries with a strong sales network.</p>
               </div>
               <div class="text-center space-y-3">
-                <div class="text-4xl mb-3">🛡️</div>
+                <div class="w-16 h-16 mx-auto text-accent mb-3">${
+                  Icons.ShieldCheck
+                }</div>
                 <h4 class="font-heading text-xl font-bold text-accent">Lifetime Guarantee</h4>
                 <p class="text-silver">100% Lifetime Guarantee on our implants.</p>
               </div>

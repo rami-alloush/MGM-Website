@@ -47,3 +47,5 @@ export {
   ProductImage,
   ProductActions,
 } from "./ProductDetails.js";
+
+export { Icons } from "./Icons.js";
