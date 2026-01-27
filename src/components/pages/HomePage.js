@@ -13,7 +13,7 @@ export const HomePage = () => {
   // 1. HERO SECTION
   const heroSection = createElement(
     "section",
-    "relative h-[85vh] flex items-center px-6 md:px-12 lg:px-40 py-24"
+    "relative h-[85vh] flex items-center px-6 md:px-12 lg:px-40 py-24",
   );
   heroSection.innerHTML = `
     <div class="max-w-screen-2xl mx-auto w-full relative z-10">
@@ -43,7 +43,7 @@ export const HomePage = () => {
   // 2. INTRO & USPs
   const trustSection = createElement(
     "section",
-    "py-20 bg-white border-b border-silver"
+    "py-20 bg-white border-b border-silver",
   );
 
   const uspItems = [
@@ -52,18 +52,21 @@ export const HomePage = () => {
       title: "Uncompromised Quality",
       description:
         "Made in Germany with premium-grade titanium and rigorous 100% quality control.",
+      href: "#/about",
     },
     {
       icon: Icons.Microscope,
       title: "Advanced Technology",
       description:
         "Featuring our proprietary M-Pure Surface for superior osseointegration and healing.",
+      href: "#/technology",
     },
     {
       icon: Icons.Handshake,
       title: "Lifetime Guarantee",
       description:
         "We stand by our products with a 100% lifetime guarantee for your peace of mind.",
+      href: "#/about",
     },
   ];
 
@@ -84,7 +87,7 @@ export const HomePage = () => {
   // 2.5 IMAGE SLIDER SECTION
   const sliderSection = createElement(
     "section",
-    "py-16 bg-clinical-gray overflow-hidden"
+    "py-16 bg-clinical-gray overflow-hidden",
   );
   sliderSection.innerHTML = `
     <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
@@ -133,7 +136,7 @@ export const HomePage = () => {
   // 4. STATS BLOCK
   const statsSection = createElement(
     "section",
-    "py-24 bg-secondary text-white relative overflow-hidden"
+    "py-24 bg-secondary text-white relative overflow-hidden",
   );
 
   const stats = [

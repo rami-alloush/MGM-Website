@@ -20,12 +20,12 @@ export const SmartDesignCard = (feature) => {
     <div class="bg-white border border-silver rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all group">
       <div class="h-40 bg-clinical-gray overflow-hidden relative">
         <img src="${imageSrc}" alt="${
-    feature.name
-  }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
+          feature.name
+        }" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
         <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="window.openLightbox('${imageSrc}', '${feature.name.replace(
-    /'/g,
-    "\\'"
-  )}')">
+          /'/g,
+          "\\'",
+        )}')">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
         </button>
       </div>
@@ -46,7 +46,7 @@ export const SmartDesignCard = (feature) => {
                 (f) =>
                   `<li class="flex items-start gap-1"><span class="text-primary">✓</span> ${
                     f.split(" - ")[0]
-                  }</li>`
+                  }</li>`,
               )
               .join("")}
           </ul>
@@ -63,7 +63,7 @@ export const SmartDesignCard = (feature) => {
                 (s) =>
                   `<li class="flex items-start gap-1"><span class="text-primary">✓</span> ${
                     s.split(" - ")[0]
-                  }</li>`
+                  }</li>`,
               )
               .join("")}
           </ul>
@@ -100,18 +100,24 @@ export const SmartDesignSection = (features) => {
  * @param {string} options.icon - Emoji icon
  * @param {string} options.title - Item title
  * @param {string} options.description - Item description
+ * @param {string} [options.href] - Optional link URL
  * @returns {string} HTML string
  */
-export const USPItem = ({ icon, title, description }) => {
-  return `
-    <div class="space-y-4 p-6 rounded-2xl hover:bg-clinical-gray transition-colors">
+export const USPItem = ({ icon, title, description, href }) => {
+  const content = `
+    <div class="space-y-4 p-6 rounded-2xl hover:bg-clinical-gray transition-colors ${href ? "cursor-pointer" : ""}">
       <div class="w-16 h-16 mx-auto bg-clinical-gray rounded-full flex items-center justify-center text-3xl text-accent">
         ${icon}
       </div>
-      <h3 class="font-bold text-xl text-secondary">${title}</h3>
+      <h3 class="font-bold text-xl text-secondary ${href ? "group-hover:text-primary" : ""}">${title}</h3>
       <p class="text-charcoal">${description}</p>
     </div>
   `;
+
+  if (href) {
+    return `<a href="${href}" class="block group">${content}</a>`;
+  }
+  return content;
 };
 
 /**
@@ -135,8 +141,8 @@ export const StatItem = ({
     <div class="space-y-2 stat-item opacity-0 translate-y-4 transition-all duration-700" style="transition-delay: ${delay}ms">
       <div class="text-7xl font-bold text-accent font-heading">
         <span class="counter" data-target="${target}" data-suffix="${suffix}" ${
-    decimal ? 'data-decimal="true"' : ""
-  }>0</span>
+          decimal ? 'data-decimal="true"' : ""
+        }>0</span>
       </div>
       <div class="text-xl text-silver uppercase tracking-widest">${label}</div>
     </div>
