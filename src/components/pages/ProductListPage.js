@@ -7,7 +7,7 @@ export const ProductListPage = (categoryKey) => {
   if (!category) {
     const errorDiv = createElement(
       "div",
-      "min-h-screen flex items-center justify-center text-secondary text-2xl"
+      "min-h-screen flex items-center justify-center text-secondary text-2xl",
     );
     errorDiv.textContent = "Category not found";
     return errorDiv;
@@ -15,7 +15,7 @@ export const ProductListPage = (categoryKey) => {
 
   const section = createElement(
     "section",
-    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md",
   );
 
   // Build content HTML
@@ -48,20 +48,33 @@ export const ProductListPage = (categoryKey) => {
   ];
 
   section.innerHTML = `
-    <div class="max-w-7xl mx-auto space-y-12">
-      <div>
+    <div class="max-w-7xl mx-auto space-y-20">
+      <div class="space-y-8">
         ${Breadcrumb(breadcrumbItems)}
-        <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4">${
+        <h2 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-secondary tracking-tight">${
           category.title
         }</h2>
-        <p class="text-charcoal text-lg">${category.description || ""}</p>
-        ${
-          categoryKey === "implants"
-            ? `<a href="#/technology" class="inline-flex items-center gap-2 mt-4 text-primary hover:text-secondary transition-colors font-medium">Learn about our Smart Design Technology <span>→</span></a>`
-            : ""
-        }
+        <div class="text-charcoal text-lg md:text-xl leading-relaxed max-w-4xl space-y-6 border-l-4 border-primary/20 pl-6 md:pl-8">
+           ${
+             category.description
+               ? category.description
+                   .split("\n\n")
+                   .map((p) => `<p>${p}</p>`)
+                   .join("")
+               : ""
+           }
+        </div>
       </div>
-      ${contentHtml}
+
+
+
+      <div class="space-y-12 border-t border-silver/50 pt-16">
+         <div class="text-center max-w-3xl mx-auto space-y-4">
+            <h3 class="font-heading text-3xl font-bold text-secondary">Product Systems</h3>
+            <p class="text-gray-600">Choose the right solution for your clinical needs</p>
+         </div>
+         ${contentHtml}
+      </div>
     </div>
   `;
 

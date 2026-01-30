@@ -1,12 +1,16 @@
 export const products = {
   implants: {
     title: "Implants",
-    description:
-      "Our implant systems feature the M-Pure Surface treatment, Smart Connection (11° Morse Taper), and a unique hybrid body design for optimal stability and osseointegration.",
+    description: `The core concept behind MGM Implants is to make implant dentistry simple, intuitive, and predictable for every clinician. Our implants are designed to be easy to use, allowing dentists to achieve excellent clinical results without unnecessary complexity or excessive effort.
+
+This is why we developed a smart implant design, combined with an advanced, intelligently engineered surface treatment. By integrating the latest technologies in implant design, materials, and surface science, we ensure consistent performance, faster healing, and reliable outcomes.
+
+Because true innovation means delivering maximum results with minimum effort — while always maintaining the highest standards of quality for our customers.`,
     smartDesignFeatures: [
       {
         id: "smart-hyperid",
         name: "Smart Hyperid Body Design",
+        image: "/assets/images/mgm-implant/SMART HYPRID DESIGN.webp",
         description:
           "MGM implant design has a unique smart design that gives our dentists the benefits for the tapered and cylindrical implants design.",
         variants: [
@@ -51,6 +55,7 @@ export const products = {
       {
         id: "smart-cervix",
         name: "Smart Cervix",
+        image: "/assets/images/mgm-implant/SMART CERCEVIX.webp",
         description:
           "MGM implants Smart Cervix plays a critical role in soft tissue integration, hygiene, and crestal bone preservation. A thread-free cervical area.",
         features: [
@@ -64,6 +69,7 @@ export const products = {
       {
         id: "smart-paper-thread",
         name: "Smart Paper Thread Design",
+        image: "/assets/images/mgm-implant/SMART PAPER THREAD DESIGN.webp",
         description:
           "MGM implants have smart unique paper thread designs machined in a smart manner. A smart unique Bone Friendly thread design that cuts inside the bone without distraction which helps for faster healing processes.",
         benefitsForBone: [
@@ -108,6 +114,7 @@ export const products = {
       {
         id: "smart-connection",
         name: "Smart Connection - 11° Morse Taper",
+        image: "/assets/images/mgm-implant/SMART CONNECTION.webp",
         description:
           "The Morse taper connection with 11° angle in MGM Implants is a highly precise internal conical connection used in dental implants with clinical advantages in both mechanical stability and biological outcomes.",
         features: [
