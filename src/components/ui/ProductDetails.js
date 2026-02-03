@@ -2,6 +2,7 @@ import {
   getProductImage,
   DEFAULT_PRODUCT_IMAGE,
   get3DImages,
+  productSecondaryImages,
 } from "../../data/productImages.js";
 import { IconList } from "./List.js";
 
@@ -39,26 +40,26 @@ export const VariantsSection = (variants) => {
             ${
               v.cuffHeights
                 ? `<p class="text-sm text-charcoal mb-1"><strong>Cuff Heights:</strong> ${v.cuffHeights.join(
-                    ", "
+                    ", ",
                   )}mm</p>`
                 : ""
             }
             ${
               v.compatibleWith
                 ? `<p class="text-sm text-charcoal"><strong>Compatible:</strong> ${v.compatibleWith.join(
-                    ", "
+                    ", ",
                   )}</p>`
                 : ""
             }
             ${
               v.specifications
                 ? `<p class="text-sm text-charcoal"><strong>Specs:</strong> ${v.specifications.join(
-                    ", "
+                    ", ",
                   )}</p>`
                 : ""
             }
           </div>
-        `
+        `,
           )
           .join("")}
       </div>
@@ -101,7 +102,7 @@ export const TypesSection = (types) => {
                 : ""
             }
           </div>
-        `
+        `,
           )
           .join("")}
       </div>
@@ -149,7 +150,7 @@ export const PeripheralsSection = (peripherals, accessories) => {
                 (p.partNumbers ? p.partNumbers.join(", ") : "N/A")
               }</p>
             </div>
-          `
+          `,
             )
             .join("")}
         </div>
@@ -172,7 +173,7 @@ export const PeripheralsSection = (peripherals, accessories) => {
                 (a.partNumbers ? a.partNumbers.join(", ") : "N/A")
               }</p>
             </div>
-          `
+          `,
             )
             .join("")}
         </div>
@@ -211,7 +212,7 @@ export const ContentsSection = (contents) => {
                 : ""
             }
           </div>
-        `
+        `,
           )
           .join("")}
       </div>
@@ -237,13 +238,13 @@ export const Parts3DGallery = (productId, productName) => {
           .map(
             (imgPath, i) => `
           <div class="bg-clinical-gray rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-105 transition-all group" onclick="window.openLightbox('${imgPath}', '${productName} - Variant ${
-              i + 1
-            }')">
+            i + 1
+          }')">
             <img src="${imgPath}" alt="${productName} variant ${
               i + 1
             }" class="w-full h-full object-contain" loading="lazy" />
           </div>
-        `
+        `,
           )
           .join("")}
       </div>
@@ -348,16 +349,67 @@ export const ClinicalInfoSection = (product) => {
  * @returns {string} HTML string
  */
 export const ProductImage = (productId, productName) => {
-  const imageSrc = getProductImage(productId);
+  const primary = getProductImage(productId);
+  const secondaryRaw = productSecondaryImages[productId];
+
+  let images = [primary];
+  if (secondaryRaw) {
+    const secondary = Array.isArray(secondaryRaw)
+      ? secondaryRaw
+      : [secondaryRaw];
+    images = [...images, ...secondary];
+  }
+
   const escapedName = productName.replace(/'/g, "\\'");
 
-  return `
-    <div class="bg-white border border-silver rounded-2xl p-4 flex items-center justify-center aspect-square shadow-lg overflow-hidden relative group cursor-pointer" onclick="window.openLightbox('${imageSrc}', '${escapedName}')">
-      <img src="${imageSrc}" alt="${productName}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
-      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
-        <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+  if (images.length <= 1) {
+    return `
+      <div class="bg-white border border-silver rounded-2xl p-4 flex items-center justify-center aspect-square shadow-lg overflow-hidden relative group cursor-pointer" onclick="window.openLightbox('${primary}', '${escapedName}')">
+        <img src="${primary}" alt="${productName}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+          <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+          </div>
         </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="space-y-4">
+      <div class="bg-white border border-silver rounded-2xl p-4 flex items-center justify-center aspect-square shadow-lg overflow-hidden relative group cursor-pointer" 
+           id="main-image-container-${productId}">
+        <img id="main-image-${productId}" src="${images[0]}" alt="${productName}" 
+             class="w-full h-full object-contain transition-all duration-500" 
+             onclick="window.openLightbox(this.src, '${escapedName}')"
+             onerror="this.onerror=null; this.src='${DEFAULT_PRODUCT_IMAGE}'" />
+        
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center pointer-events-none">
+           <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+           </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2">
+        ${images
+          .map(
+            (img, idx) => `
+          <div class="aspect-square bg-white border border-silver rounded-lg p-2 cursor-pointer hover:border-primary transition-colors ${idx === 0 ? "border-primary ring-2 ring-primary/20" : ""}"
+               onclick="
+                 document.getElementById('main-image-${productId}').src = '${img}';
+                 this.parentElement.querySelectorAll('div').forEach(el => {
+                   el.classList.remove('border-primary', 'ring-2', 'ring-primary/20');
+                   el.classList.add('border-silver');
+                 });
+                 this.classList.remove('border-silver');
+                 this.classList.add('border-primary', 'ring-2', 'ring-primary/20');
+               ">
+            <img src="${img}" alt="${productName} view ${idx + 1}" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+        `,
+          )
+          .join("")}
       </div>
     </div>
   `;
