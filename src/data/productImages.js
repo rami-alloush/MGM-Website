@@ -24,36 +24,42 @@ export const productImages = {
   "mgm-s": "/assets/images/mgm-s/mgm-s-1.webp",
 
   // Prosthetics category
-  prosthetics: "/assets/images/products/8-Prosthetics.webp",
+  prosthetics: "/assets/images/prosthetics-covers/PROSTHETIC PARTS.webp",
 
   // Stock Abutments
-  "straight-abutment": "/assets/images/products/12-Straight Abut2.webp",
-  "angled-abutment": "/assets/images/products/13-Angled Abut.webp",
-  "healing-abutment": "/assets/images/products/17-Healing Abut.webp",
+  "straight-abutment":
+    "/assets/images/prosthetics-covers/STANDRAD STRAIGHT abutment.webp",
+  "angled-abutment": "/assets/images/prosthetics-covers/NARROW ANGLED MUA.webp",
+  "healing-abutment":
+    "/assets/images/prosthetics-covers/STANDARD GINGIVAL FORMER.webp",
 
   // Temporary Abutments
-  "temp-abutment": "/assets/images/products/15-Temp.webp",
+  "temp-abutment": "/assets/images/prosthetics-covers/TEMPORARY ABUTMENTS.webp",
 
   // Multi-Unit Abutments
-  "straight-mua": "/assets/images/products/19-mua.webp",
-  "angled-mua": "/assets/images/products/20-Mua 2-1.webp",
-  "mua-cylinders": "/assets/images/products/46-MU Cylinders.webp",
+  "straight-mua":
+    "/assets/images/prosthetics-covers/STANDARD STRAIGHT MUA.webp",
+  "angled-mua": "/assets/images/prosthetics-covers/STANDARD ANGLED MUA .webp",
+  "mua-cylinders": "/assets/images/prosthetics-covers/mua lab analouge.webp",
 
   // Overdenture Systems
-  "locator-abutment": "/assets/images/products/23-locator.webp",
-  "ball-socket-abutment": "/assets/images/products/26-Ball-socket.webp",
+  "locator-abutment":
+    "/assets/images/prosthetics-covers/M-L ABUTMENTS-BLUE.webp",
+  "ball-socket-abutment":
+    "/assets/images/prosthetics-covers/STANDARD BALL ABUTMENT.webp",
 
   // Digital Components
-  "ti-base": "/assets/images/products/29-Ti base.webp",
-  "regular-tbase": "/assets/images/products/31-Regular tbase.webp",
-  "pri-milled": "/assets/images/products/33-PRI-Milled.webp",
+  "ti-base": "/assets/images/prosthetics-covers/TI BASE ABUTMENTS.webp",
+  "regular-tbase": "/assets/images/prosthetics-covers/T BASE .webp",
+  "pri-milled": "/assets/images/prosthetics-covers/PREMILLED ABUTMENT.webp",
 
   // Lab Workflow category
-  lab: "/assets/images/products/35-lab workflow.webp",
+  lab: "/assets/images/prosthetics-covers/TRADITIONAL WORK FLOW.webp",
 
   // Traditional Impression
-  "transfer-coping": "/assets/images/products/37-Transfer coping.webp",
-  "lab-analog": "/assets/images/products/40-Analog.webp",
+  "transfer-coping":
+    "/assets/images/prosthetics-covers/impression copping solutions.webp",
+  "lab-analog": "/assets/images/prosthetics-covers/LAB ANALOUGE.webp",
   "mua-transfer-coping": "/assets/images/products/48-Mua transfer.webp",
 
   // Digital Workflow
@@ -80,26 +86,67 @@ export const productImages = {
 
 // Secondary images for products with multiple views
 export const productSecondaryImages = {
-  "angled-abutment": "/assets/images/products/14-Angled abut2.webp",
-  "temp-abutment": "/assets/images/products/16-Temporary Abut1.webp",
-  "healing-abutment": "/assets/images/products/18-Healing Abut 2.webp",
-  "angled-mua": "/assets/images/products/21-Mua 2-2.webp",
+  "straight-abutment": [
+    "/assets/images/prosthetics-covers/NARROW STRAIGHT ABUTMENT.webp",
+    "/assets/images/products/12-Straight Abut2.webp",
+  ],
+  "angled-abutment": [
+    "/assets/images/products/13-Angled Abut.webp",
+    "/assets/images/products/14-Angled abut2.webp",
+  ],
+  "healing-abutment": [
+    "/assets/images/prosthetics-covers/NARROW GINGIVAL FORMER.webp",
+    "/assets/images/products/17-Healing Abut.webp",
+    "/assets/images/products/18-Healing Abut 2.webp",
+  ],
+  "temp-abutment": [
+    "/assets/images/products/15-Temp.webp",
+    "/assets/images/products/16-Temporary Abut1.webp",
+  ],
+  "straight-mua": [
+    "/assets/images/prosthetics-covers/NARROW STRAIGHT MUA.webp",
+    "/assets/images/products/19-mua.webp",
+  ],
+  "angled-mua": [
+    "/assets/images/prosthetics-covers/NARROW ANGLED MUA.webp",
+    "/assets/images/products/20-Mua 2-1.webp",
+    "/assets/images/products/21-Mua 2-2.webp",
+  ],
+  "mua-cylinders": ["/assets/images/products/46-MU Cylinders.webp"],
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS Solid Core.webp",
   "mgm-compressive": ["/assets/images/mgm-compressive/comp-2.webp"],
   "locator-abutment": [
+    "/assets/images/prosthetics-covers/M-L ABUTMENTS-YELLOW.webp",
+    "/assets/images/products/23-locator.webp",
     "/assets/images/products/24-locator 2.webp",
     "/assets/images/products/25-locator 3.webp",
   ],
-  "ball-socket-abutment": "/assets/images/products/27-Ball-socket 2.webp",
-  "ti-base": "/assets/images/products/30-Ti-base 2.webp",
-  "regular-tbase": "/assets/images/products/32-Regular tbase2.webp",
-  "pri-milled": "/assets/images/products/34-PRI-Milled 2.webp",
+  "ball-socket-abutment": [
+    "/assets/images/prosthetics-covers/NARROW BALL ABUTMENT.webp",
+    "/assets/images/products/26-Ball-socket.webp",
+    "/assets/images/products/27-Ball-socket 2.webp",
+  ],
+  "ti-base": [
+    "/assets/images/products/29-Ti base.webp",
+    "/assets/images/products/30-Ti-base 2.webp",
+  ],
+  "regular-tbase": [
+    "/assets/images/products/31-Regular tbase.webp",
+    "/assets/images/products/32-Regular tbase2.webp",
+  ],
+  "pri-milled": [
+    "/assets/images/products/33-PRI-Milled.webp",
+    "/assets/images/products/34-PRI-Milled 2.webp",
+  ],
   "lab-analog": [
+    "/assets/images/prosthetics-covers/mua lab analouge.webp",
+    "/assets/images/products/40-Analog.webp",
     "/assets/images/products/41-analog 2.webp",
     "/assets/images/products/45-analog3.webp",
   ],
   "scan-body": "/assets/images/products/44-Scan body 2.webp",
   "transfer-coping": [
+    "/assets/images/products/37-Transfer coping.webp",
     "/assets/images/products/38-2Opened tray.webp",
     "/assets/images/products/39-Closed Type.webp",
   ],
@@ -331,8 +378,8 @@ export const product3DImages = {
 // Category cover images
 export const categoryImages = {
   implants: "/assets/images/products/1-Hyperid Design.webp",
-  prosthetics: "/assets/images/products/8-Prosthetics.webp",
-  lab: "/assets/images/products/35-lab workflow.webp",
+  prosthetics: "/assets/images/prosthetics-covers/PROSTHETIC PARTS.webp",
+  lab: "/assets/images/prosthetics-covers/TRADITIONAL WORK FLOW.webp",
   surgical: "/assets/images/products/22-special solutions.webp",
   advanced: "/assets/images/products/22-special solutions.webp",
   devices: "/assets/images/products/28-Digital workflow.webp",
