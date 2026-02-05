@@ -1,4 +1,5 @@
 import "./style.css";
+import pkg from "../package.json";
 import { Router } from "./router.js";
 import {
   HomePage,
@@ -299,6 +300,12 @@ window.closeQuoteModal = () => {
 
 // Mobile Menu Logic
 document.addEventListener("DOMContentLoaded", () => {
+  // Set App Version
+  const appVersion = document.getElementById("app-version");
+  if (appVersion) {
+    appVersion.textContent = pkg.version;
+  }
+
   const mobileMenuBtn = document.getElementById("mobile-menu-btn");
   const closeMenuBtn = document.getElementById("close-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");

@@ -1,12 +1,13 @@
 {
   "name": "velvet-orion",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.5.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "bump": "node scripts/bump-version.js"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
