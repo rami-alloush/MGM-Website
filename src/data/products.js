@@ -1516,9 +1516,48 @@ Because true innovation means delivering maximum results with minimum effort —
   },
   biomaterials: {
     title: "Biomaterials",
-    items: [
-      { id: "bone-graft", name: "Bone Graft Materials", image: "placeholder" },
-      { id: "membrane", name: "Barrier Membranes", image: "placeholder" },
-    ],
+    items: [],
+    comingSoonContent: {
+      heroTitle: "Advancing Biomaterials in Dentistry",
+      heroSubtitle: "Innovation. Precision. Clinical Excellence.",
+      heroDescription:
+        "We are preparing to launch a new generation of dental biomaterials engineered to elevate clinical performance and long-term patient outcomes.\n\nOur upcoming portfolio will feature scientifically validated materials designed for modern restorative, regenerative, and surgical dentistry — combining biocompatibility, durability, and handling efficiency to meet the demands of today’s dental professionals.",
+      whatToExpect: [
+        {
+          title: "Advanced Biocompatibility",
+          description:
+            "Formulated to support optimal tissue integration and healing response.",
+        },
+        {
+          title: "High Mechanical Performance",
+          description:
+            "Engineered for strength, stability, and long-term reliability under functional load.",
+        },
+        {
+          title: "Predictable Clinical Handling",
+          description:
+            "Designed for precision placement, efficient workflow, and consistent results.",
+        },
+        {
+          title: "Evidence-Based Development",
+          description:
+            "Backed by rigorous testing and aligned with current research in dental material science.",
+        },
+      ],
+      modernPractice: {
+        title: "Built for Modern Dental Practice",
+        description:
+          "Whether you specialize in restorative dentistry, implantology, periodontics, or oral surgery, our biomaterials are being developed to integrate seamlessly into your clinical protocols while maintaining the highest standards of safety and performance.",
+      },
+      launchingSoon: {
+        title: "Launching Soon",
+        description:
+          "We are finalizing validation and regulatory processes to ensure compliance and quality.\nStay tuned for product specifications, clinical data, and availability updates.",
+        cta: {
+          highlight: "Be the first to know.",
+          text: "Sign up to receive early access information and launch announcements.",
+        },
+      },
+    },
   },
 };
