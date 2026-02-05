@@ -48,4 +48,6 @@ export {
   ProductActions,
 } from "./ProductDetails.js";
 
+export { Implant3DViewer } from "./Implant3DViewer.js";
+
 export { Icons } from "./Icons.js";

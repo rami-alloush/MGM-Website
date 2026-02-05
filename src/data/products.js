@@ -168,6 +168,7 @@ Because true innovation means delivering maximum results with minimum effort —
           "Full arch or splinted cases",
         ],
         image: "placeholder",
+        pdfUrl: "/assets/pdfs/MGM Implant Catalog.pdf",
       },
       {
         id: "mgm-plus",

@@ -14,6 +14,7 @@ import {
   ProductActions,
   NumberedList,
   ProtocolSteps,
+  Implant3DViewer,
 } from "../ui/index.js";
 
 /**
@@ -198,6 +199,24 @@ export const ProductDetailPage = (productId) => {
     { label: product.name },
   ];
 
+  // MGM 3D Viewer Placeholder
+  const mgmViewerHtml =
+    product.id === "mgm"
+      ? `
+    <div class="mt-16 mb-16 space-y-8">
+        <div class="text-center space-y-4">
+            <h3 class="font-heading text-3xl md:text-4xl font-bold text-secondary">Interactive 3D Model</h3>
+            <p class="text-charcoal text-lg">Explore the MGM Implant in 360° detail</p>
+        </div>
+        <div id="mgm-3d-viewer-container" class="max-w-5xl mx-auto h-[600px] shadow-2xl rounded-3xl overflow-hidden border border-silver/50 bg-gradient-to-b from-clinical-gray/20 to-white relative">
+            <div class="absolute inset-0 flex items-center justify-center text-charcoal/40 font-heading pointer-events-none">
+                Loading 3D Model...
+            </div>
+        </div>
+    </div>
+  `
+      : "";
+
   section.innerHTML = `
     <div class="max-w-7xl mx-auto space-y-12">
       ${Breadcrumb(breadcrumbItems)}
@@ -238,6 +257,8 @@ export const ProductDetailPage = (productId) => {
 
       ${VariantsSection(product.variants)}
 
+      ${mgmViewerHtml}
+
       ${coreTechnologiesHtml}
 
       ${Parts3DGallery(product.id, product.name)}
@@ -255,6 +276,21 @@ export const ProductDetailPage = (productId) => {
       ${PeripheralsSection(product.peripherals, product.accessories)}
     </div>
   `;
+
+  // Initialize 3D Viewer for MGM
+  if (product.id === "mgm") {
+    setTimeout(() => {
+      const container = section.querySelector("#mgm-3d-viewer-container");
+      if (container) {
+        container.innerHTML = ""; // Clear loading text
+        const viewer = Implant3DViewer("mgm-implant-canvas");
+        // Set 100% width/height on the viewer container
+        viewer.style.width = "100%";
+        viewer.style.height = "100%";
+        container.appendChild(viewer);
+      }
+    }, 100);
+  }
 
   animateSection(section);
   return section;
