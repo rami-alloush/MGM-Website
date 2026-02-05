@@ -1,84 +1,23 @@
 import { createElement, animateSection } from "../utils.js";
-import { TechFeatureCard, InfoCard, Icons } from "../ui/index.js";
+import { InfoCard, Icons } from "../ui/index.js";
 
 export const TechnologyPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md",
   );
 
-  // Expanded Smart Design Features with comprehensive details
-  const smartDesignFeatures = [
-    {
-      icon: Icons.Cube,
-      title: "Smart Hyperid Body Design",
-      description:
-        "MGM's unique hybrid design combines the benefits of both tapered and cylindrical implant forms for optimal performance in all clinical situations.",
-      bullets: [
-        "Better Primary Stability - Especially in soft bone or immediate placement",
-        "Even Stress Distribution - Ideal for dense (Type I/II) bone",
-        "More Bone-to-Implant Contact - Promotes long-term stability",
-      ],
-    },
-    {
-      icon: Icons.Circle,
-      title: "Smart Cervix",
-      description:
-        "Thread-free cervical area designed for optimal soft tissue integration, hygiene, and crestal bone preservation.",
-      bullets: [
-        "Improved Soft Tissue Adaptation - Creates tight bacterial barrier",
-        "Reduced Bacterial Accumulation - Easier to clean and maintain",
-        "Minimizes Crestal Bone Loss - Reduces mechanical irritation",
-      ],
-    },
-    {
-      icon: Icons.Bolt,
-      title: "Smart Paper Thread Design",
-      description:
-        "Unique bone-friendly thread design that cuts inside the bone without distraction, promoting faster healing and improved bone density.",
-      bullets: [
-        "Bone Density Improvement - Through compression and osseodensification",
-        "Even Stress Distribution - Minimizes bone loss and resorption",
-        "Self-Condensation in Soft Bone - Increases density and stability",
-      ],
-    },
-    {
-      icon: Icons.ChevronDown,
-      title: "Smart Apex Design",
-      description:
-        "Pointed apex with rounded boundaries providing surgical safety and protection of vital anatomical structures.",
-      bullets: [
-        "Atraumatic to Vital Structures - Protects nerves and sinus membrane",
-        "Enhanced Safety in Immediate Placement - Minimizes perforation risk",
-        "Easier Directional Control - Smoother, more controlled insertion",
-      ],
-    },
-    {
-      icon: Icons.Link,
-      title: "Smart Connection - 11° Morse Taper",
-      description:
-        "Highly precise internal conical connection providing superior mechanical stability and biological outcomes.",
-      bullets: [
-        "Cold Welding Effect - Prevents screw loosening through friction fit",
-        "Superior Bacterial Seal - Tight seal reduces infiltration",
-        "Balanced Force Distribution - Reduces stress at crestal bone level",
-      ],
-    },
-    {
-      icon: Icons.Sparkles,
-      title: "M-Pure Surface Treatment",
-      description:
-        "Proprietary moderately rough surface modification for enhanced osseointegration while maintaining high biocompatibility.",
-      bullets: [
-        "High Purity / Clean Surface - Free of embedded particles",
-        "Reduced Inflammatory Response - Lower bacterial adhesion",
-        "Faster Healing Than Machined - More bone apposition",
-      ],
-      highlighted: true,
-    },
+  // Feature Images
+  const featureImages = [
+    "/assets/images/tech-features/implant-body-1.webp",
+    "/assets/images/tech-features/implant-body-2.webp",
+    "/assets/images/tech-features/implant-body-3.webp",
+    "/assets/images/tech-features/implant-body-4.webp",
+    "/assets/images/tech-features/implant-body-5.webp",
+    "/assets/images/tech-features/implant-body-6.webp",
   ];
 
-  // Detailed feature data for expanded sections
+  // Data for Features
   const smartHyperidDetails = {
     tapered: {
       title: "Tapered Form Benefits",
@@ -217,6 +156,176 @@ export const TechnologyPage = () => {
     },
   ];
 
+  // Helper to get content for each feature
+  const getFeatureContent = (index) => {
+    switch (index) {
+      case 0: // Smart Hyperid Body Design
+        return `
+          <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-8 border border-silver">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">${Icons.Cube}</div>
+                <h3 class="font-heading text-2xl font-bold text-secondary">Smart Hyperid Body Design</h3>
+             </div>
+             <p class="text-charcoal text-lg leading-relaxed mb-8">
+               MGM's unique smart design gives dentists the benefits of both tapered and cylindrical implant designs in one system. This hybrid approach ensures optimal performance across all clinical situations.
+             </p>
+             <div class="space-y-8">
+               <div class="bg-white rounded-xl p-6 border border-silver">
+                 <h4 class="font-bold text-secondary text-lg mb-4">${smartHyperidDetails.tapered.title}</h4>
+                 <ul class="space-y-2 text-charcoal text-sm mb-4">
+                   ${smartHyperidDetails.tapered.features.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+                 <div class="mt-4 pt-4 border-t border-silver">
+                   <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
+                   <div class="flex flex-wrap gap-2">
+                     ${smartHyperidDetails.tapered.clinicalUses.map((u) => `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`).join("")}
+                   </div>
+                 </div>
+               </div>
+               <div class="bg-white rounded-xl p-6 border border-silver">
+                 <h4 class="font-bold text-secondary text-lg mb-4">${smartHyperidDetails.cylindrical.title}</h4>
+                 <ul class="space-y-2 text-charcoal text-sm mb-4">
+                   ${smartHyperidDetails.cylindrical.features.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+                 <div class="mt-4 pt-4 border-t border-silver">
+                   <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
+                   <div class="flex flex-wrap gap-2">
+                     ${smartHyperidDetails.cylindrical.clinicalUses.map((u) => `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`).join("")}
+                   </div>
+                 </div>
+               </div>
+             </div>
+          </div>
+        `;
+      case 1: // Smart Cervix
+        return `
+          <div class="bg-white rounded-2xl p-8 border border-silver shadow-sm">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">${Icons.Circle}</div>
+                <h3 class="font-heading text-2xl font-bold text-secondary">Smart Cervix</h3>
+             </div>
+             <p class="text-charcoal text-lg leading-relaxed mb-6">
+               The Smart Cervix plays a critical role in soft tissue integration, hygiene, and crestal bone preservation. A thread-free cervical area provides multiple clinical advantages.
+             </p>
+             <div class="space-y-4">
+               ${smartCervixDetails
+                 .map((detail) => {
+                   const [title, ...desc] = detail.split(" - ");
+                   return `<div class="bg-clinical-gray p-4 rounded-xl"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(" - ")}</span></div>`;
+                 })
+                 .join("")}
+             </div>
+          </div>
+        `;
+      case 2: // Smart Paper Thread
+        return `
+          <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-8 border border-silver">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">${Icons.Bolt}</div>
+                <h3 class="font-heading text-2xl font-bold text-secondary">Smart Paper Thread Design</h3>
+             </div>
+             <p class="text-charcoal text-lg leading-relaxed mb-8">
+               MGM implants have a unique paper thread design machined in a smart manner. This bone-friendly thread cuts inside the bone without distraction, promoting faster healing processes.
+             </p>
+             <div class="space-y-6">
+               <div class="bg-white rounded-xl p-6 border border-silver">
+                 <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
+                 <ul class="space-y-2 text-charcoal text-sm">
+                   ${smartThreadDetails.bonebenefits.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+               </div>
+               <div class="bg-white rounded-xl p-6 border border-silver">
+                 <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
+                 <ul class="space-y-2 text-charcoal text-sm">
+                   ${smartThreadDetails.doctorbenefits.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+               </div>
+             </div>
+          </div>
+        `;
+      case 3: // Smart Apex
+        return `
+          <div class="bg-white rounded-2xl p-8 border border-silver shadow-sm">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">${Icons.ChevronDown}</div>
+                <h3 class="font-heading text-2xl font-bold text-secondary">Smart Apex Design</h3>
+             </div>
+             <p class="text-charcoal text-lg leading-relaxed mb-8">
+               MGM implants feature a smart apical design with pointed apex and rounded boundaries that provides significant benefits for both bone preservation and surgical safety.
+             </p>
+             <div class="space-y-6 mb-8">
+               <div class="bg-clinical-gray rounded-xl p-6">
+                 <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
+                 <ul class="space-y-2 text-charcoal text-sm">
+                   ${smartApexDetails.bonebenefits.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+               </div>
+               <div class="bg-clinical-gray rounded-xl p-6">
+                 <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
+                 <ul class="space-y-2 text-charcoal text-sm">
+                   ${smartApexDetails.doctorbenefits.map((f) => `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`).join("")}
+                 </ul>
+               </div>
+             </div>
+             <div class="bg-primary/5 rounded-xl p-6">
+               <p class="text-sm font-semibold text-secondary mb-3">Ideal Clinical Situations:</p>
+               <div class="flex flex-wrap gap-2">
+                 ${smartApexDetails.clinicalSituations.map((s) => `<span class="bg-white text-primary px-3 py-1 rounded-full text-sm border border-primary/20">${s}</span>`).join("")}
+               </div>
+             </div>
+          </div>
+        `;
+      case 4: // Smart Connection
+        return `
+          <div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-8 border border-silver">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">${Icons.Link}</div>
+                <h3 class="font-heading text-2xl font-bold text-secondary">Smart Connection - 11° Morse Taper</h3>
+             </div>
+             <p class="text-charcoal text-lg leading-relaxed mb-8">
+               The Morse taper connection with 11° angle is a highly precise internal conical connection providing clinical advantages in both mechanical stability and biological outcomes.
+             </p>
+             <div class="space-y-4">
+               ${smartConnectionDetails
+                 .map((detail) => {
+                   const [title, ...desc] = detail.split(" - ");
+                   return `<div class="bg-white p-4 rounded-xl border border-silver hover:border-primary transition-colors"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(" - ")}</span></div>`;
+                 })
+                 .join("")}
+             </div>
+          </div>
+        `;
+      case 5: // M-Pure Surface
+        return `
+          <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white">
+             <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-2xl">${Icons.Sparkles}</div>
+                <h3 class="font-heading text-2xl font-bold">M-Pure Surface Technology</h3>
+             </div>
+             <p class="text-white/90 text-lg leading-relaxed mb-8">
+               The MGM M-Pure surface treatment is a proprietary surface modification involved sandblasting with biocompatible materials, with no acid-etching. This creates a clean, biologically safe surface with moderate roughness.
+             </p>
+             <div class="grid gap-4 mb-8">
+               <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Moderate Roughness</strong><span class="text-white/80 text-sm">Strong primary stability and bone-implant contact (Ra 1.42-1.74 µm)</span></div>
+               <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">High Purity</strong><span class="text-white/80 text-sm">Surface free of embedded particles, improves biocompatibility</span></div>
+               <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Biocompatible</strong><span class="text-white/80 text-sm">Only titanium or titanium oxide used</span></div>
+             </div>
+             <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+               <h4 class="font-bold text-white mb-4">Surface Treatment Process</h4>
+               <ul class="grid gap-3 text-white/90 text-sm">
+                 <li class="flex items-start gap-2"><span class="text-accent">•</span> Sandblasting with biocompatible materials</li>
+                 <li class="flex items-start gap-2"><span class="text-accent">•</span> No acid-etching or chemical modification</li>
+                 <li class="flex items-start gap-2"><span class="text-accent">•</span> Final surfaces free from contaminants</li>
+                 <li class="flex items-start gap-2"><span class="text-accent">•</span> Faster healing than machined implants</li>
+               </ul>
+             </div>
+          </div>
+        `;
+      default:
+        return "";
+    }
+  };
+
   section.innerHTML = `
       <div class="max-w-7xl mx-auto space-y-20">
         <!-- Intro -->
@@ -227,242 +336,48 @@ export const TechnologyPage = () => {
           </p>
         </div>
 
-        <!-- Smart Design Features Overview -->
-        <div class="space-y-8">
-          <h3 class="font-heading text-3xl font-bold text-secondary text-center">The 6 Smart Design Features</h3>
-          
-          <div class="grid md:grid-cols-2 gap-6">
-            ${smartDesignFeatures
-              .map((feature) => TechFeatureCard(feature))
-              .join("")}
-          </div>
-        </div>
+        <!-- Sticky Sidebar & Features Section -->
+        <div class="relative flex flex-col lg:flex-row gap-8 items-start">
+           <!-- Sticky Image Sidebar -->
+           <div class="hidden lg:block lg:w-1/2 sticky top-32 h-[calc(80vh)]">
+               <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-silver bg-white">
+                   ${featureImages
+                     .map(
+                       (src, idx) => `
+                     <img 
+                       src="${src}" 
+                       id="tech-img-${idx}"
+                       class="absolute inset-0 w-full h-full object-contain p-8 bg-white transition-opacity duration-700 ease-in-out ${idx === 0 ? "opacity-100" : "opacity-0"}" 
+                       alt="Feature ${idx + 1}"
+                     />
+                   `,
+                     )
+                     .join("")}
+               </div>
+           </div>
 
-        <!-- Smart Hyperid Body Design - Expanded -->
-        <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.Cube
-            }</div>
-            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Hyperid Body Design - In Depth</h3>
-          </div>
-          <p class="text-charcoal text-lg leading-relaxed mb-8">
-            MGM's unique smart design gives dentists the benefits of both tapered and cylindrical implant designs in one system. This hybrid approach ensures optimal performance across all clinical situations.
-          </p>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-xl p-6 border border-silver">
-              <h4 class="font-bold text-secondary text-xl mb-4">${
-                smartHyperidDetails.tapered.title
-              }</h4>
-              <ul class="space-y-2 text-charcoal text-sm mb-4">
-                ${smartHyperidDetails.tapered.features
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-              <div class="mt-4 pt-4 border-t border-silver">
-                <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
-                <div class="flex flex-wrap gap-2">
-                  ${smartHyperidDetails.tapered.clinicalUses
-                    .map(
-                      (u) =>
-                        `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`
-                    )
-                    .join("")}
-                </div>
-              </div>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-silver">
-              <h4 class="font-bold text-secondary text-xl mb-4">${
-                smartHyperidDetails.cylindrical.title
-              }</h4>
-              <ul class="space-y-2 text-charcoal text-sm mb-4">
-                ${smartHyperidDetails.cylindrical.features
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-              <div class="mt-4 pt-4 border-t border-silver">
-                <p class="text-xs font-semibold text-secondary mb-2">Clinical Uses:</p>
-                <div class="flex flex-wrap gap-2">
-                  ${smartHyperidDetails.cylindrical.clinicalUses
-                    .map(
-                      (u) =>
-                        `<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">${u}</span>`
-                    )
-                    .join("")}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Smart Cervix - Expanded -->
-        <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.Circle
-            }</div>
-            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Cervix - In Depth</h3>
-          </div>
-          <p class="text-charcoal text-lg leading-relaxed mb-6">
-            The Smart Cervix plays a critical role in soft tissue integration, hygiene, and crestal bone preservation. A thread-free cervical area provides multiple clinical advantages.
-          </p>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            ${smartCervixDetails
-              .map((detail) => {
-                const [title, ...desc] = detail.split(" - ");
-                return `<div class="bg-clinical-gray p-4 rounded-xl"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(
-                  " - "
-                )}</span></div>`;
-              })
-              .join("")}
-          </div>
-        </div>
-
-        <!-- Smart Paper Thread - Expanded -->
-        <div class="bg-gradient-to-br from-clinical-gray to-white rounded-2xl p-10 border border-silver">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.Bolt
-            }</div>
-            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Paper Thread Design - In Depth</h3>
-          </div>
-          <p class="text-charcoal text-lg leading-relaxed mb-8">
-            MGM implants have a unique paper thread design machined in a smart manner. This bone-friendly thread cuts inside the bone without distraction, promoting faster healing processes.
-          </p>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-xl p-6 border border-silver">
-              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
-              <ul class="space-y-2 text-charcoal text-sm">
-                ${smartThreadDetails.bonebenefits
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-silver">
-              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
-              <ul class="space-y-2 text-charcoal text-sm">
-                ${smartThreadDetails.doctorbenefits
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Smart Apex - Expanded -->
-        <div class="bg-white rounded-2xl p-10 border border-silver shadow-sm">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.ChevronDown
-            }</div>
-            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Apex Design - In Depth</h3>
-          </div>
-          <p class="text-charcoal text-lg leading-relaxed mb-8">
-            MGM implants feature a smart apical design with pointed apex and rounded boundaries that provides significant benefits for both bone preservation and surgical safety.
-          </p>
-          <div class="grid md:grid-cols-2 gap-8 mb-8">
-            <div class="bg-clinical-gray rounded-xl p-6">
-              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">🦴 Benefits for Bone</h4>
-              <ul class="space-y-2 text-charcoal text-sm">
-                ${smartApexDetails.bonebenefits
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-            </div>
-            <div class="bg-clinical-gray rounded-xl p-6">
-              <h4 class="font-bold text-secondary text-xl mb-4 flex items-center gap-2">👨‍⚕️ Benefits for Doctors</h4>
-              <ul class="space-y-2 text-charcoal text-sm">
-                ${smartApexDetails.doctorbenefits
-                  .map(
-                    (f) =>
-                      `<li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> ${f}</li>`
-                  )
-                  .join("")}
-              </ul>
-            </div>
-          </div>
-          <div class="bg-primary/5 rounded-xl p-6">
-            <p class="text-sm font-semibold text-secondary mb-3">Ideal Clinical Situations:</p>
-            <div class="flex flex-wrap gap-2">
-              ${smartApexDetails.clinicalSituations
-                .map(
-                  (s) =>
-                    `<span class="bg-white text-primary px-3 py-1 rounded-full text-sm border border-primary/20">${s}</span>`
-                )
-                .join("")}
-            </div>
-          </div>
-        </div>
-
-        <!-- Smart Connection - Expanded -->
-        <div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-10 border border-silver">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.Link
-            }</div>
-            <h3 class="font-heading text-3xl font-bold text-secondary">Smart Connection - 11° Morse Taper - In Depth</h3>
-          </div>
-          <p class="text-charcoal text-lg leading-relaxed mb-8">
-            The Morse taper connection with 11° angle is a highly precise internal conical connection providing clinical advantages in both mechanical stability and biological outcomes.
-          </p>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            ${smartConnectionDetails
-              .map((detail) => {
-                const [title, ...desc] = detail.split(" - ");
-                return `<div class="bg-white p-4 rounded-xl border border-silver hover:border-primary transition-colors"><strong class="text-secondary block mb-1">${title}</strong><span class="text-charcoal text-sm">${desc.join(
-                  " - "
-                )}</span></div>`;
-              })
-              .join("")}
-          </div>
-        </div>
-
-        <!-- M-Pure Surface Detail - Expanded -->
-        <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-10 text-white">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-3xl">${
-              Icons.Sparkles
-            }</div>
-            <h3 class="font-heading text-3xl font-bold">M-Pure Surface Technology - In Depth</h3>
-          </div>
-          <p class="text-white/90 text-lg leading-relaxed mb-8">
-            The MGM M-Pure surface treatment is a proprietary surface modification that involves sandblasting with biocompatible materials (titanium or oxide), with no acid-etching or chemical modification. This creates a clean, biologically safe surface with moderate roughness for optimal bone contact.
-          </p>
-          <div class="grid md:grid-cols-3 gap-4 mb-8">
-            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Moderate Roughness</strong><span class="text-white/80 text-sm">Strong primary stability and bone-implant contact (Ra 1.42-1.74 µm)</span></div>
-            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">High Purity</strong><span class="text-white/80 text-sm">Surface free of embedded particles, improves biocompatibility</span></div>
-            <div class="bg-white/10 backdrop-blur p-4 rounded-xl"><strong class="text-white block mb-1">Biocompatible</strong><span class="text-white/80 text-sm">Only titanium or titanium oxide used, no aluminum or acid residues</span></div>
-          </div>
-          <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-            <h4 class="font-bold text-white mb-4">Surface Treatment Process</h4>
-            <ul class="grid md:grid-cols-2 gap-3 text-white/90 text-sm">
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> Sandblasting with biocompatible materials (titanium or oxide)</li>
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> No acid-etching or chemical surface modification</li>
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> Focus on cleanliness and biological safety</li>
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> Final surfaces free from chemical residues and contaminants</li>
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> Reduced inflammatory response - lower bacterial adhesion</li>
-              <li class="flex items-start gap-2"><span class="text-accent">•</span> Faster healing than machined implants</li>
-            </ul>
-          </div>
+           <!-- Scrollable Content -->
+           <div class="w-full lg:w-1/2 space-y-24 py-10" id="features-container">
+               ${featureImages
+                 .map(
+                   (_, idx) => `
+                  <div class="feature-section scroll-mt-32" data-index="${idx}">
+                    ${
+                      // Also render image for mobile view
+                      `<div class="lg:hidden mb-6 rounded-xl overflow-hidden shadow-lg border border-silver bg-white aspect-[4/3]">
+                         <img src="${featureImages[idx]}" class="w-full h-full object-contain p-4" alt="Feature ${idx + 1}" />
+                       </div>`
+                    }
+                    ${getFeatureContent(idx)}
+                  </div>
+               `,
+                 )
+                 .join("")}
+           </div>
         </div>
 
         <!-- Manufacturing Section -->
-        <div class="bg-white border border-silver rounded-2xl p-10 shadow-lg">
+        <div class="bg-white border border-silver rounded-2xl p-10 shadow-lg mt-20">
             <h3 class="font-heading text-3xl font-bold text-secondary mb-6">Manufacturing & Raw Materials</h3>
             <p class="text-charcoal text-lg leading-relaxed">
                 "Great manufacturing starts with great quality." Using advanced machines like TORNOS ensures unmatched precision, consistency, and reliability. MGM uses premium-grade titanium to ensure biocompatibility, corrosion resistance, and seamless bone integration. Only materials meeting international standards move to production.
@@ -554,6 +469,43 @@ export const TechnologyPage = () => {
         </div>
       </div>
     `;
+
+  // Scroll Interaction Logic
+  requestAnimationFrame(() => {
+    const featureSections = section.querySelectorAll(".feature-section");
+    const featureImagesEls = section.querySelectorAll("[id^='tech-img-']");
+
+    if (featureSections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute("data-index"));
+
+            featureImagesEls.forEach((img, imgIdx) => {
+              if (imgIdx === index) {
+                img.classList.remove("opacity-0");
+                img.classList.add("opacity-100");
+                img.style.zIndex = "10";
+              } else {
+                img.classList.remove("opacity-100");
+                img.classList.add("opacity-0");
+                img.style.zIndex = "0";
+              }
+            });
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -20% 0px", // Trigger when element is in middle 60% of viewport
+        threshold: 0.4,
+      },
+    );
+
+    featureSections.forEach((section) => observer.observe(section));
+  });
 
   animateSection(section);
   return section;
