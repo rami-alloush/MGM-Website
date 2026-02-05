@@ -20,6 +20,7 @@ export const productImages = {
   // Implants category
   implants: "/assets/images/products/1-Hyperid Design.webp",
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS.webp",
+  "mgm-compressive": "/assets/images/mgm-compressive/comp-1.webp",
 
   // Prosthetics category
   prosthetics: "/assets/images/products/8-Prosthetics.webp",
@@ -83,6 +84,7 @@ export const productSecondaryImages = {
   "healing-abutment": "/assets/images/products/18-Healing Abut 2.webp",
   "angled-mua": "/assets/images/products/21-Mua 2-2.webp",
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS Solid Core.webp",
+  "mgm-compressive": ["/assets/images/mgm-compressive/comp-2.webp"],
   "locator-abutment": [
     "/assets/images/products/24-locator 2.webp",
     "/assets/images/products/25-locator 3.webp",
