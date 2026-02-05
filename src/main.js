@@ -10,6 +10,7 @@ import {
   ProductDetailPage,
   SurgicalKitsPage,
   ResourcesPage,
+  GuaranteePolicyPage,
 } from "./components/index.js";
 
 // Initialize the 3D Scene after page is interactive (non-blocking)
@@ -34,6 +35,7 @@ const routes = {
   "/product/:id": ProductDetailPage,
   "/surgical-kits": SurgicalKitsPage,
   "/resources": ResourcesPage,
+  "/guarantee-policy": GuaranteePolicyPage,
 };
 
 // Initialize Router
@@ -93,7 +95,7 @@ function initCounterAnimation() {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(statsContainer);
@@ -102,7 +104,7 @@ function initCounterAnimation() {
 // Initialize counter animation after router renders content
 window.addEventListener("load", () => setTimeout(initCounterAnimation, 100));
 window.addEventListener("hashchange", () =>
-  setTimeout(initCounterAnimation, 100)
+  setTimeout(initCounterAnimation, 100),
 );
 
 // Lightbox functionality
@@ -258,7 +260,7 @@ window.openQuoteModal = (productName, productId) => {
         `Phone: ${data.phone || "Not provided"}\n` +
         `Company/Clinic: ${data.company || "Not provided"}\n\n` +
         `Quantity: ${data.quantity || "Not specified"}\n\n` +
-        `Additional Notes:\n${data.notes || "None"}`
+        `Additional Notes:\n${data.notes || "None"}`,
     );
 
     // Open mailto link

@@ -87,16 +87,22 @@ export class Router {
         description:
           "Professional surgical kits for dental implant procedures: guided surgery, sinus lifting, GBR, and prosthetic instrument sets.",
       },
+      "/guarantee-policy": {
+        title:
+          "Guarantee & Policy - MGM Implant | Dental Implant Failure Policy",
+        description:
+          "MGM Implant Dental Implant Failure Policy. Transparent coverage for manufacturing defects. Lifetime guarantee on implant quality.",
+      },
     };
 
     // Dynamic product page meta
     if (path.startsWith("/product/") && arg) {
       return {
         title: `${this.formatProductName(
-          arg
+          arg,
         )} - MGM Implant | Dental Implant Components`,
         description: `Detailed information about ${this.formatProductName(
-          arg
+          arg,
         )} from MGM Implant. Premium German quality dental implant components.`,
       };
     }
@@ -132,7 +138,7 @@ export class Router {
     // Update Twitter
     const twTitle = document.querySelector('meta[property="twitter:title"]');
     const twDesc = document.querySelector(
-      'meta[property="twitter:description"]'
+      'meta[property="twitter:description"]',
     );
     const twUrl = document.querySelector('meta[property="twitter:url"]');
     if (twTitle) twTitle.setAttribute("content", meta.title);

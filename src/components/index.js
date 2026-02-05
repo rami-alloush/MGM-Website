@@ -18,6 +18,7 @@ export {
   ProductDetailPage,
   SurgicalKitsPage,
   ResourcesPage,
+  GuaranteePolicyPage,
 } from "./pages/index.js";
 
 // Header stub (for compatibility)

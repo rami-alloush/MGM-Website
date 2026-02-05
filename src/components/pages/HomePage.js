@@ -66,7 +66,7 @@ export const HomePage = () => {
       title: "Lifetime Guarantee",
       description:
         "We stand by our products with a 100% lifetime guarantee for your peace of mind.",
-      href: "#/about",
+      href: "#/guarantee-policy",
     },
   ];
 
