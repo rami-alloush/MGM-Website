@@ -219,12 +219,17 @@ Because true innovation means delivering maximum results with minimum effort —
         id: "mgm-s",
         name: "MGM-S ™",
         description:
-          "Short implant for limited vertical bone height, avoiding complex augmentation procedures.",
+          "MGM S™ is a conical-shaped implant with a helical aggressive thread. It is used under one- or two-steps procedure in all bone types. It prevents bone injuries and enlarges the area of direct contact of the implant surface with the bone that speeds up the process of osseointegration. Due to a formation of a new bone around the triangular part and enhanced antirotation effect, the best conditions for early rehabilitation are provided when the implant is used.",
         features: [
-          "Avoids complex bone augmentation procedures",
-          "Optimized thread profile for maximum stability in short lengths",
-          "Smart design features in compact form",
-          "M-Pure Surface for reliable osseointegration",
+          "Single Conical Platform: Narrow platform 2.1 mm",
+          "Implant Body: Reverse cone",
+          "Packaging: Special buffer solution allows to preserve the impact properties of the implant surface",
+          "Micro Thread: Micro rings for better contact with a cortical plate",
+          "Inverted Cone: In upper part to reduce compression in cortical layer",
+          "Active Thread: Allows achieving reliable initial stability in soft bone",
+          "Apical Part: Curving in apical part prevents the damage of Schneider’s membrane",
+          "Antirotational Sulcus: Prevents unscrewing",
+          "SLA-AHS Surface: Active and hydrophilic surface. This surface treatment enables the possibility of applying early or immediate load on the implant. Reliable connection with bone. Faster bone and better formation on the surface of the implant.",
         ],
         clinicalUses: [
           "Limited vertical bone height",
