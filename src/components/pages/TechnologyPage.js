@@ -339,25 +339,14 @@ export const TechnologyPage = () => {
         <!-- Sticky Sidebar & Features Section -->
         <div class="relative flex flex-col lg:flex-row gap-8 items-start">
            <!-- Sticky Image Sidebar -->
-           <div class="hidden lg:block lg:w-1/2 sticky top-32 h-[calc(80vh)]">
-               <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-silver bg-white">
-                   ${featureImages
-                     .map(
-                       (src, idx) => `
-                     <img 
-                       src="${src}" 
-                       id="tech-img-${idx}"
-                       class="absolute inset-0 w-full h-full object-contain p-8 bg-white transition-opacity duration-700 ease-in-out ${idx === 0 ? "opacity-100" : "opacity-0"}" 
-                       alt="Feature ${idx + 1}"
-                     />
-                   `,
-                     )
-                     .join("")}
+           <div class="hidden lg:block lg:w-1/3 sticky top-32 h-[calc(80vh)] flex items-center justify-center">
+               <div id="implant-viewer-container" class="relative w-[80%] h-full rounded-2xl overflow-hidden shadow-2xl border border-silver bg-white/50 backdrop-blur-sm">
+                  <!-- 3D Viewer will be injected here -->
                </div>
            </div>
 
            <!-- Scrollable Content -->
-           <div class="w-full lg:w-1/2 space-y-24 py-10" id="features-container">
+           <div class="w-full lg:w-2/3 space-y-24 py-10" id="features-container">
                ${featureImages
                  .map(
                    (_, idx) => `
@@ -472,8 +461,17 @@ export const TechnologyPage = () => {
 
   // Scroll Interaction Logic
   requestAnimationFrame(() => {
+    // Initialize 3D Viewer
+    const viewerContainer = section.querySelector("#implant-viewer-container");
+    let viewer;
+    if (viewerContainer) {
+      import("../ui/ThreeImplantViewer.js").then(({ ImplantViewer }) => {
+        viewer = new ImplantViewer(viewerContainer);
+      });
+    }
+
     const featureSections = section.querySelectorAll(".feature-section");
-    const featureImagesEls = section.querySelectorAll("[id^='tech-img-']");
+    // const featureImagesEls = section.querySelectorAll("[id^='tech-img-']"); // No longer needed
 
     if (featureSections.length === 0) return;
 
@@ -483,17 +481,11 @@ export const TechnologyPage = () => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.getAttribute("data-index"));
 
-            featureImagesEls.forEach((img, imgIdx) => {
-              if (imgIdx === index) {
-                img.classList.remove("opacity-0");
-                img.classList.add("opacity-100");
-                img.style.zIndex = "10";
-              } else {
-                img.classList.remove("opacity-100");
-                img.classList.add("opacity-0");
-                img.style.zIndex = "0";
-              }
-            });
+            if (viewer) {
+              viewer.setSection(index);
+            }
+
+            // featureImagesEls.forEach(...) // Removed image toggling logic
           }
         });
       },
