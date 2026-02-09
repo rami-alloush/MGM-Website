@@ -365,12 +365,274 @@ export const TechnologyPage = () => {
            </div>
         </div>
 
-        <!-- Manufacturing Section -->
-        <div class="bg-white border border-silver rounded-2xl p-10 shadow-lg mt-20">
-            <h3 class="font-heading text-3xl font-bold text-secondary mb-6">Manufacturing & Raw Materials</h3>
-            <p class="text-charcoal text-lg leading-relaxed">
-                "Great manufacturing starts with great quality." Using advanced machines like TORNOS ensures unmatched precision, consistency, and reliability. MGM uses premium-grade titanium to ensure biocompatibility, corrosion resistance, and seamless bone integration. Only materials meeting international standards move to production.
+        <!-- Manufacturing Process -->
+        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-silver/30 mt-20">
+          <h3 class="font-heading text-3xl md:text-4xl font-bold text-secondary text-center mb-12">Our Manufacturing Process</h3>
+          
+          <!-- 1. Material Selection -->
+          <div class="mb-16">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                <span class="text-primary font-heading text-2xl font-bold">1</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-heading text-2xl font-bold text-secondary mb-4">Material Selection</h4>
+                <p class="text-lg text-charcoal/80 mb-4 font-medium">Premium American Titanium – Tested for Excellence</p>
+              </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-6">
+              <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Material_Selection_titanium.webp', 'Premium American Titanium Material')">
+                <img 
+                  src="/assets/images/Material_Selection_titanium.webp" 
+                  alt="Premium American Titanium Material" 
+                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Material_Selection_inspection_certificate.webp', 'Material Inspection Certificate and Testing')">
+                <img 
+                  src="/assets/images/Material_Selection_inspection_certificate.webp" 
+                  alt="Material Inspection Certificate and Testing" 
+                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            
+            <p class="text-charcoal leading-relaxed mb-4">
+              MGM Implants uses only high-grade American titanium for all its dental implants.
+              Every single batch undergoes individual, rigorous testing to ensure it meets all required standards for:
             </p>
+            <ul class="grid md:grid-cols-2 gap-3 mb-4">
+              <li class="flex items-center gap-2">
+                <span class="text-primary">✔️</span>
+                <span class="text-charcoal font-medium">Biocompatibility</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-primary">✔️</span>
+                <span class="text-charcoal font-medium">Mechanical strength</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-primary">✔️</span>
+                <span class="text-charcoal font-medium">Corrosion resistance</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-primary">✔️</span>
+                <span class="text-charcoal font-medium">Long-term stability</span>
+              </li>
+            </ul>
+            <p class="text-charcoal leading-relaxed">
+              No batch is released until it has successfully passed every single test, guaranteeing consistent quality and predictable clinical performance for every implant.
+            </p>
+          </div>
+
+          <!-- 2. CNC Machining -->
+          <div class="mb-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="flex items-start gap-6 mb-4">
+                  <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <span class="text-primary font-heading text-2xl font-bold">2</span>
+                  </div>
+                  <h4 class="font-heading text-2xl font-bold text-secondary">CNC Machining</h4>
+                </div>
+                <p class="text-lg text-charcoal/80 mb-4 font-medium">Swiss Precision, German Excellence</p>
+                <p class="text-charcoal leading-relaxed mb-4">
+                  MGM Implants are manufactured using Swiss TORNOS machining technology, renowned worldwide for its unmatched precision.
+                </p>
+                <p class="text-charcoal leading-relaxed mb-4">
+                  This extreme level of accuracy is essential to meet the exceptionally high standards of German manufacturing, where every detail must be executed to the highest global level.
+                </p>
+                <p class="text-charcoal leading-relaxed font-medium">
+                  By combining Swiss micron-level precision with German engineering excellence, MGM Implants achieve a manufacturing quality that represents the very top tier of dental implant production worldwide.
+                </p>
+              </div>
+              <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/CNC_Machining.webp', 'TORNOS Swiss CNC Precision Machining')">
+                <img 
+                  src="/assets/images/CNC_Machining.webp" 
+                  alt="TORNOS Swiss CNC Precision Machining" 
+                  class="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Surface Treatment -->
+          <div class="mb-16">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                <span class="text-primary font-heading text-2xl font-bold">3</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-heading text-2xl font-bold text-secondary mb-6">Surface Treatment</h4>
+                
+                <!-- M-Pure Surface Treatment -->
+                <div class="mb-8">
+                  <p class="text-lg text-charcoal/80 mb-4 font-medium">M-Pure Surface Treatment</p>
+                  
+                  <div class="grid md:grid-cols-2 gap-8 mb-6">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/M-Pure_surface.webp', 'M-Pure Surface Treatment Technology')">
+                      <img 
+                        src="/assets/images/M-Pure_surface.webp" 
+                        alt="M-Pure Surface Treatment Technology" 
+                        class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/surface-treatment-hydro.webp', 'Hydrophilic Surface Treatment Process')">
+                      <img 
+                        src="/assets/images/surface-treatment-hydro.webp" 
+                        alt="Hydrophilic Surface Treatment Process" 
+                        class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                  
+                  <p class="text-charcoal leading-relaxed mb-3">
+                    At MGM Implants, surface purity is not an option — it is a core philosophy.
+                  </p>
+                  <p class="text-charcoal leading-relaxed mb-4">
+                    Our German-engineered M-Pure Surface Treatment ensures an ultra-clean implant surface, completely free from contaminants, residues, and acid remnants. Every implant undergoes meticulous surface processing and validation to achieve maximum biocompatibility, optimal bone response, and long-term clinical stability.
+                  </p>
+                  <p class="text-charcoal leading-relaxed font-medium italic mb-4">
+                    Because true osseointegration begins with absolute purity.
+                  </p>
+                  <ul class="grid md:grid-cols-2 gap-3 mb-6">
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Promotes faster osseointegration</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Improves primary and secondary stability</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Clean surface treatment without aggressive acid residues</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Designed for predictable healing and long-term success</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Clinically validated performance</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Surface Roughness -->
+                <div class="border-t border-silver/30 pt-8">
+                  <p class="text-lg text-charcoal/80 mb-4 font-medium">Precision-Engineered Surface Roughness</p>
+                  
+                  <div class="grid md:grid-cols-2 gap-8 items-center mb-6">
+                    <div>
+                      <p class="text-charcoal leading-relaxed mb-4">
+                        At MGM Implants, surface roughness is not adjusted — it is engineered to perfection.
+                      </p>
+                      <p class="text-charcoal leading-relaxed mb-4">
+                        Our implant surface features precisely optimized micro-roughness, scientifically designed to maximize bone–implant contact and create the ideal biological environment for osseointegration.
+                      </p>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/surface_roughness.png', 'Precision-Engineered Surface Roughness Microscopy')">
+                      <img 
+                        src="/assets/images/surface_roughness.png" 
+                        alt="Precision-Engineered Surface Roughness Microscopy" 
+                        class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                  
+                  <p class="text-charcoal leading-relaxed mb-4">
+                    Thanks to its exceptional hydrophilicity, the MGM surface actively attracts blood proteins and osteogenic cells from the first moments after placement. This immediate biological response accelerates clot formation, initiates rapid healing, and supports early and stable bone integration — starting from day one inside the bone.
+                  </p>
+                  <div class="bg-linear-to-r from-primary/5 to-secondary/5 p-6 rounded-xl mb-4">
+                    <p class="text-charcoal font-medium italic text-center">
+                      This is not just a surface.<br/>
+                      It is a healing-activated interface — engineered in Germany for long-term success.
+                    </p>
+                  </div>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Enhances bone-to-implant contact (BIC)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary mt-1">✓</span>
+                      <span class="text-charcoal">Micro- and nano-structured implant bone surface</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Quality Assurance -->
+          <div class="border-t-2 border-silver/30 pt-12">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                <span class="text-primary font-heading text-2xl font-bold">4</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-heading text-2xl font-bold text-secondary mb-4">Quality Assurance</h4>
+                <p class="text-lg text-charcoal/80 mb-4 font-medium">Engineered for Complete Clinical Confidence</p>
+                <p class="text-charcoal leading-relaxed mb-6">
+                  At MGM Implants, every design and testing step is driven by four essential pillars of implant success. 100% inspection and sterile packaging under ISO 13485 standards ensure every implant meets our exacting requirements.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Quality_Control_Testing.webp', 'Quality Control Testing Process')">
+                <img 
+                  src="/assets/images/Quality_Control_Testing.webp" 
+                  alt="Quality Control Testing Process" 
+                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Quality_Control_Test_Fatigue.webp', 'Fatigue Testing and Quality Control')">
+                <img 
+                  src="/assets/images/Quality_Control_Test_Fatigue.webp" 
+                  alt="Fatigue Testing and Quality Control" 
+                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div class="bg-linear-to-br from-primary/5 to-white p-6 rounded-xl border border-primary/20">
+                <h5 class="font-heading text-xl font-bold text-secondary mb-3">Biocompatibility</h5>
+                <p class="text-charcoal leading-relaxed">
+                  Ensures seamless integration with human tissue, allowing the implant to interact naturally with bone and soft tissue without adverse reactions.
+                </p>
+              </div>
+              
+              <div class="bg-linear-to-br from-secondary/5 to-white p-6 rounded-xl border border-secondary/20">
+                <h5 class="font-heading text-xl font-bold text-secondary mb-3">Mechanical Strength</h5>
+                <p class="text-charcoal leading-relaxed">
+                  Guarantees the implant's ability to withstand functional loads and masticatory forces over time without deformation or failure.
+                </p>
+              </div>
+              
+              <div class="bg-linear-to-br from-accent/5 to-white p-6 rounded-xl border border-accent/20">
+                <h5 class="font-heading text-xl font-bold text-secondary mb-3">Corrosion Resistance</h5>
+                <p class="text-charcoal leading-relaxed">
+                  Protects the implant surface from the aggressive oral environment, preserving material integrity and preventing ion release.
+                </p>
+              </div>
+              
+              <div class="bg-linear-to-br from-primary/5 to-white p-6 rounded-xl border border-primary/20">
+                <h5 class="font-heading text-xl font-bold text-secondary mb-3">Long-term Stability</h5>
+                <p class="text-charcoal leading-relaxed">
+                  The result of combining all these factors—delivering predictable performance, sustained osseointegration, and lasting clinical success.
+                </p>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <p class="text-charcoal font-medium text-lg">
+                Together, these principles define the quality standard of MGM Implants — <span class="text-primary font-bold">engineered in Germany for reliability that lasts.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Testing Table -->
@@ -414,40 +676,7 @@ export const TechnologyPage = () => {
             </div>
         </div>
 
-        <!-- Quality Control -->
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h3 class="font-heading text-3xl font-bold text-secondary">100% Quality Control</h3>
-                <p class="text-charcoal text-lg">
-                    Every product is checked by digital software, laser, and optical inspection systems, not just a percentage of the lot.
-                </p>
-                <ul class="space-y-3 text-charcoal">
-                    <li class="flex items-start gap-3">
-                        <span class="text-primary mt-1">✓</span>
-                        <div><strong>Fracture Test:</strong> Evaluates stress, load, and tensile distributions.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-primary mt-1">✓</span>
-                        <div><strong>Tolerance Test:</strong> Determines angulation and resistance limits.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-primary mt-1">✓</span>
-                        <div><strong>Surface Test:</strong> Residue analysis and micro-roughness control.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-primary mt-1">✓</span>
-                        <div><strong>Cleanliness/Sterility:</strong> Ensures implants are free from biological/chemical contaminants.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-primary mt-1">✓</span>
-                        <div><strong>Sealing Test:</strong> Automated shelf-life testing to ensure no bacterial growth.</div>
-                    </li>
-                </ul>
-            </div>
-            <div class="bg-white border border-silver rounded-2xl p-8 flex items-center justify-center aspect-square shadow-lg">
-                <div class="w-48 h-48 text-primary">${Icons.ShieldCheck}</div>
-            </div>
-        </div>
+
 
         <!-- Why Choose MGM -->
         <div class="space-y-12">
