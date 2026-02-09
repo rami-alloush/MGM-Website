@@ -642,33 +642,51 @@ export const TechnologyPage = () => {
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b border-silver text-primary text-lg bg-clinical-gray">
-                            <th class="p-4">Test Type</th>
-                            <th class="p-4">Purpose</th>
+                            <th class="p-4 w-1/2">Test Type</th>
+                            <th class="p-4 w-1/2">Purpose</th>
                         </tr>
                     </thead>
-                    <tbody class="text-charcoal">
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Material Composition</td>
+                    <tbody class="text-charcoal bg-white">
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 2000ms;">${Icons.Check}</div>
+                                <span>Material Composition</span>
+                            </td>
                             <td class="p-4">Ensure correct alloy/material</td>
                         </tr>
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Mechanical Testing</td>
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 12000ms;">${Icons.Check}</div>
+                                <span>Mechanical Testing</span>
+                            </td>
                             <td class="p-4">Assess strength and fatigue</td>
                         </tr>
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Dimensional Accuracy</td>
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 22000ms;">${Icons.Check}</div>
+                                <span>Dimensional Accuracy</span>
+                            </td>
                             <td class="p-4">Precision fit and tolerance</td>
                         </tr>
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Surface Characterization</td>
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 32000ms;">${Icons.Check}</div>
+                                <span>Surface Characterization</span>
+                            </td>
                             <td class="p-4">Promote osseointegration</td>
                         </tr>
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Cleanliness & Sterility</td>
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 42000ms;">${Icons.Check}</div>
+                                <span>Cleanliness & Sterility</span>
+                            </td>
                             <td class="p-4">Infection control and biological safety</td>
                         </tr>
-                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors">
-                            <td class="p-4 font-semibold text-secondary">Packaging Integrity</td>
+                        <tr class="border-b border-silver hover:bg-clinical-gray transition-colors group">
+                            <td class="p-4 font-semibold text-secondary flex items-center gap-3">
+                                <div class="w-6 h-6 text-primary test-checkmark transition-all ease-out" style="opacity: 0; transform: scale(0); transition-duration: 30000ms; transition-delay: 52000ms;">${Icons.Check}</div>
+                                <span>Packaging Integrity</span>
+                            </td>
                             <td class="p-4">Maintain sterility during transport</td>
                         </tr>
                     </tbody>
@@ -726,6 +744,34 @@ export const TechnologyPage = () => {
     );
 
     featureSections.forEach((section) => observer.observe(section));
+
+    // Testing Table Checkmarks Observer
+    const checkmarks = section.querySelectorAll(".test-checkmark");
+    if (checkmarks.length > 0) {
+      // Set initial styles immediately to force layout
+      checkmarks.forEach((mark) => {
+        mark.style.opacity = "0";
+        mark.style.transform = "scale(0)";
+      });
+
+      const checkmarkObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const mark = entry.target;
+              // Use slight delay to ensure user sees the animation
+              setTimeout(() => {
+                mark.style.opacity = "1";
+                mark.style.transform = "scale(1)";
+              }, 100);
+              checkmarkObserver.unobserve(mark);
+            }
+          });
+        },
+        { threshold: 0.2 }, // Lower threshold to trigger earlier
+      );
+      checkmarks.forEach((mark) => checkmarkObserver.observe(mark));
+    }
   });
 
   animateSection(section);
