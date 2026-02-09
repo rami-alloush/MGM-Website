@@ -87,7 +87,7 @@ html[data-theme="light"] #mobile-menu {
 
 /* Theme toggle button */
 .theme-toggle {
-  @apply flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all;
+  @apply flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer;
   @apply bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white;
 }
 
@@ -515,7 +515,9 @@ html[data-theme="light"] .border-silver\/20 {
 *,
 *::before,
 *::after {
-  transition: background-color 0.3s ease, color 0.3s ease,
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
     border-color 0.3s ease;
 }
 

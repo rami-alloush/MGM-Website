@@ -544,7 +544,7 @@ export const TechnologyPage = () => {
                   <p class="text-charcoal leading-relaxed mb-4">
                     Thanks to its exceptional hydrophilicity, the MGM surface actively attracts blood proteins and osteogenic cells from the first moments after placement. This immediate biological response accelerates clot formation, initiates rapid healing, and supports early and stable bone integration — starting from day one inside the bone.
                   </p>
-                  <div class="bg-linear-to-r from-primary/5 to-secondary/5 p-6 rounded-xl mb-4">
+                  <div class="bg-gradient-to-r from-primary/5 to-secondary/5 p-6 rounded-xl mb-4">
                     <p class="text-charcoal font-medium italic text-center">
                       This is not just a surface.<br/>
                       It is a healing-activated interface — engineered in Germany for long-term success.
@@ -567,7 +567,7 @@ export const TechnologyPage = () => {
 
           <!-- 4. Quality Assurance -->
           <div class="border-t-2 border-silver/30 pt-12">
-            <div class="flex items-start gap-6 mb-6">
+            <div class="flex items-start gap-6">
               <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                 <span class="text-primary font-heading text-2xl font-bold">4</span>
               </div>
@@ -580,46 +580,46 @@ export const TechnologyPage = () => {
               </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="grid md:grid-cols-2 p-6 mx-6 gap-12">
               <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Quality_Control_Testing.webp', 'Quality Control Testing Process')">
                 <img 
                   src="/assets/images/Quality_Control_Testing.webp" 
                   alt="Quality Control Testing Process" 
-                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div class="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick="window.openLightbox('/assets/images/Quality_Control_Test_Fatigue.webp', 'Fatigue Testing and Quality Control')">
                 <img 
                   src="/assets/images/Quality_Control_Test_Fatigue.webp" 
                   alt="Fatigue Testing and Quality Control" 
-                  class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 mb-8">
-              <div class="bg-linear-to-br from-primary/5 to-white p-6 rounded-xl border border-primary/20">
+              <div class="bg-gradient-to-br from-primary/5 p-6 rounded-xl border border-primary/20">
                 <h5 class="font-heading text-xl font-bold text-secondary mb-3">Biocompatibility</h5>
                 <p class="text-charcoal leading-relaxed">
                   Ensures seamless integration with human tissue, allowing the implant to interact naturally with bone and soft tissue without adverse reactions.
                 </p>
               </div>
               
-              <div class="bg-linear-to-br from-secondary/5 to-white p-6 rounded-xl border border-secondary/20">
+              <div class="bg-gradient-to-br from-secondary/5 p-6 rounded-xl border border-secondary/20">
                 <h5 class="font-heading text-xl font-bold text-secondary mb-3">Mechanical Strength</h5>
                 <p class="text-charcoal leading-relaxed">
                   Guarantees the implant's ability to withstand functional loads and masticatory forces over time without deformation or failure.
                 </p>
               </div>
               
-              <div class="bg-linear-to-br from-accent/5 to-white p-6 rounded-xl border border-accent/20">
+              <div class="bg-gradient-to-br from-accent/5 p-6 rounded-xl border border-accent/20">
                 <h5 class="font-heading text-xl font-bold text-secondary mb-3">Corrosion Resistance</h5>
                 <p class="text-charcoal leading-relaxed">
                   Protects the implant surface from the aggressive oral environment, preserving material integrity and preventing ion release.
                 </p>
               </div>
               
-              <div class="bg-linear-to-br from-primary/5 to-white p-6 rounded-xl border border-primary/20">
+              <div class="bg-gradient-to-br from-primary/5 p-6 rounded-xl border border-primary/20">
                 <h5 class="font-heading text-xl font-bold text-secondary mb-3">Long-term Stability</h5>
                 <p class="text-charcoal leading-relaxed">
                   The result of combining all these factors—delivering predictable performance, sustained osseointegration, and lasting clinical success.
