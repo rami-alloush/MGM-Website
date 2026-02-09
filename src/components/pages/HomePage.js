@@ -48,21 +48,21 @@ export const HomePage = () => {
 
   const uspItems = [
     {
-      icon: Icons.ShieldCheck,
+      icon: Icons.Star,
       title: "Uncompromised Quality",
       description:
         "Made in Germany with premium-grade titanium and rigorous 100% quality control.",
       href: "#/about",
     },
     {
-      icon: Icons.Microscope,
+      icon: Icons.Beaker,
       title: "Advanced Technology",
       description:
         "Featuring our proprietary M-Pure Surface for superior osseointegration and healing.",
       href: "#/technology",
     },
     {
-      icon: Icons.Handshake,
+      icon: Icons.ShieldCheck,
       title: "Lifetime Guarantee",
       description:
         "We stand by our products with a 100% lifetime guarantee for your peace of mind.",
