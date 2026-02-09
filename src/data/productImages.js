@@ -89,6 +89,7 @@ export const productImages = {
 
 // Secondary images for products with multiple views
 export const productSecondaryImages = {
+  "mgm-s": "/assets/images/mgm-s/mgm-s-2.png",
   "straight-abutment": [
     "/assets/images/prosthetics-covers/NARROW STRAIGHT ABUTMENT.webp",
     "/assets/images/products/12-Straight Abut2.webp",

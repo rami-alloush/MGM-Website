@@ -233,7 +233,7 @@ export const Parts3DGallery = (productId, productName) => {
   return `
     <div class="bg-white border border-silver rounded-2xl p-8 shadow-lg">
       <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Component Variants</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         ${parts3D
           .map(
             (imgPath, i) => `
