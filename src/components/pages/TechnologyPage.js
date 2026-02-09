@@ -466,7 +466,7 @@ export const TechnologyPage = () => {
                 <h4 class="font-heading text-2xl font-bold text-secondary mb-6">Surface Treatment</h4>
                 
                 <!-- M-Pure Surface Treatment -->
-                <div class="mb-8">
+                <div class="mb-8" id="surface-purity">
                   <p class="text-lg text-charcoal/80 mb-4 font-medium">M-Pure Surface Treatment</p>
                   
                   <div class="grid md:grid-cols-2 gap-8 mb-6">
@@ -490,7 +490,7 @@ export const TechnologyPage = () => {
                     At MGM Implants, surface purity is not an option — it is a core philosophy.
                   </p>
                   <p class="text-charcoal leading-relaxed mb-4">
-                    Our German-engineered M-Pure Surface Treatment ensures an ultra-clean implant surface, completely free from contaminants, residues, and acid remnants. Every implant undergoes meticulous surface processing and validation to achieve maximum biocompatibility, optimal bone response, and long-term clinical stability.
+                    Our German-engineered M-Pure Surface Treatment ensures an ultra-clean implant surface, completely free from manufacturing residues and contaminants. Every implant undergoes meticulous surface processing and validation to achieve maximum biocompatibility, optimal bone response, and long-term clinical stability.
                   </p>
                   <p class="text-charcoal leading-relaxed font-medium italic mb-4">
                     Because true osseointegration begins with absolute purity.
@@ -520,7 +520,7 @@ export const TechnologyPage = () => {
                 </div>
 
                 <!-- Surface Roughness -->
-                <div class="border-t border-silver/30 pt-8">
+                <div class="border-t border-silver/30 pt-8" id="surface-hydrophilic">
                   <p class="text-lg text-charcoal/80 mb-4 font-medium">Precision-Engineered Surface Roughness</p>
                   
                   <div class="grid md:grid-cols-2 gap-8 items-center mb-6">

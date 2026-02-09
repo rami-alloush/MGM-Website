@@ -173,14 +173,14 @@ export const HomePage = () => {
                 healing time and ensuring long-term stability.
             </p>
             <div class="grid grid-cols-2 gap-6 mt-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-silver">
+                <a href="#/technology#surface-hydrophilic" class="bg-white p-6 rounded-xl shadow-sm border border-silver block hover:border-primary transition-all">
                     <h4 class="font-bold text-secondary text-lg mb-2">Hydrophilic</h4>
                     <p class="text-charcoal">Enhanced blood contact for rapid initial healing.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-silver">
+                </a>
+                <a href="#/technology#surface-purity" class="bg-white p-6 rounded-xl shadow-sm border border-silver block hover:border-primary transition-all">
                     <h4 class="font-bold text-secondary text-lg mb-2">Ultra-Clean</h4>
                     <p class="text-charcoal">Free from manufacturing residues and contaminants.</p>
-                </div>
+                </a>
             </div>
             <a href="#/technology" class="inline-block mt-4 text-primary font-semibold text-lg hover:text-primary-hover transition-colors border-b-2 border-primary pb-1">
                 Discover the Science

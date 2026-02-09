@@ -152,10 +152,21 @@ export class Router {
 
   handleRoute() {
     const hash = window.location.hash.slice(1) || "/";
-    const [path, ...params] = hash.split("?"); // Simple param handling if needed later
+    let [path, ...params] = hash.split("?"); // Simple param handling if needed later
+
+    // Check for anchor scroll in path (e.g. /technology#surface)
+    // Note: In typical hash routers, the anchor comes AFTER the route path if using href="#/path#anchor"
+    // The browser sees '#/path#anchor' as the hash fragment.
+    let anchor = null;
+    const anchorIndex = path.indexOf("#");
+    if (anchorIndex !== -1) {
+      anchor = path.slice(anchorIndex + 1);
+      path = path.slice(0, anchorIndex);
+    }
 
     // Find matching route
     let route = this.routes[path];
+    let arg = null;
 
     // Handle dynamic routes (very simple implementation for now)
     if (!route) {
@@ -164,31 +175,28 @@ export class Router {
         const category = path.split("/")[2];
         if (category) {
           route = this.routes["/products/:category"];
-          // We'll pass the category as an argument to the component
-          this.render(route, category);
-          return;
+          arg = category;
         }
       }
       // Check for /product-detail/:id
-      if (path.startsWith("/product/")) {
+      else if (path.startsWith("/product/")) {
         const id = path.split("/")[2];
         if (id) {
           route = this.routes["/product/:id"];
-          this.render(route, id);
-          return;
+          arg = id;
         }
       }
     }
 
     if (route) {
-      this.render(route);
+      this.render(route, arg, anchor);
     } else {
       // 404 or default to home
-      this.render(this.routes["/"]);
+      this.render(this.routes["/"], null, anchor);
     }
   }
 
-  render(componentFn, arg) {
+  render(componentFn, arg, anchor) {
     const path = window.location.hash.slice(1) || "/";
 
     this.renderNode.innerHTML = "";
@@ -209,8 +217,23 @@ export class Router {
       footer.classList.add("visible");
     }
 
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll handling
+    if (anchor) {
+      // Wait for DOM updates and potential async loading (images, etc)
+      // A small timeout allows the browser to render the new content before scrolling
+      setTimeout(() => {
+        const targetElement = document.getElementById(anchor);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          // Fallback if element not found immediately (e.g., inside a component that renders later)
+          window.scrollTo(0, 0);
+        }
+      }, 100);
+    } else {
+      // Default scroll to top for new pages
+      window.scrollTo(0, 0);
+    }
   }
 
   updateActiveNav() {
