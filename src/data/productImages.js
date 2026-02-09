@@ -385,13 +385,13 @@ export const product3DImages = {
 
 // Category cover images
 export const categoryImages = {
-  implants: "/assets/images/products/1-Hyperid Design.webp",
-  prosthetics: "/assets/images/prosthetics-covers/PROSTHETIC PARTS.webp",
-  lab: "/assets/images/prosthetics-covers/TRADITIONAL WORK FLOW.webp",
-  surgical: "/assets/images/products/22-special solutions.webp",
-  advanced: "/assets/images/products/22-special solutions.webp",
-  devices: "/assets/images/products/28-Digital workflow.webp",
-  biomaterials: "/assets/images/products/22-special solutions.webp",
+  implants: "/assets/images/products/36-Implants.webp",
+  prosthetics: "/assets/images/products/8-Prosthetics.webp",
+  lab: "/assets/images/products/47-Lab-Workflow.webp",
+  surgical: "/assets/images/products/15-Kits.webp",
+  advanced: "/assets/images/products/22-advanced-solutions.webp",
+  devices: "/assets/images/products/42-Devices.webp",
+  biomaterials: "/assets/images/products/28-Biomaterials.webp",
 };
 
 // Helper function to get product image with fallback

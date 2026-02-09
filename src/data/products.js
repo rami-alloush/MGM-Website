@@ -1,11 +1,7 @@
 export const products = {
   implants: {
     title: "Implants",
-    description: `The core concept behind MGM Implants is to make implant dentistry simple, intuitive, and predictable for every clinician. Our implants are designed to be easy to use, allowing dentists to achieve excellent clinical results without unnecessary complexity or excessive effort.
-
-This is why we developed a smart implant design, combined with an advanced, intelligently engineered surface treatment. By integrating the latest technologies in implant design, materials, and surface science, we ensure consistent performance, faster healing, and reliable outcomes.
-
-Because true innovation means delivering maximum results with minimum effort — while always maintaining the highest standards of quality for our customers.`,
+    description: `The core concept behind MGM Implants is to make implant dentistry simple, intuitive, and predictable for every clinician. Our implants are designed to be easy to use, allowing dentists to achieve excellent clinical results without unnecessary complexity or excessive effort.`,
     smartDesignFeatures: [
       {
         id: "smart-hyperid",
@@ -150,7 +146,7 @@ Because true innovation means delivering maximum results with minimum effort —
         id: "mgm",
         name: "MGM ™",
         description:
-          "Standard implant solution with Smart Hybrid Body Design combining the benefits of tapered and cylindrical forms.",
+          "Our standard flagship implant featuring a Smart Hybrid Body Design that combines the stability of tapered roots with the surface area of cylindrical forms. Equipped with an 11° Morse Taper connection and M-Pure surface, it ensures superior mechanical stability, bacterial sealing, and optimal osseointegration for versatile clinical success.",
         features: [
           "11° Morse Taper Connection for superior mechanical stability and bacterial seal",
           "M-Pure Surface: Sandblasted, acid-free surface with Ra 1.42-1.74 µm",
@@ -174,7 +170,7 @@ Because true innovation means delivering maximum results with minimum effort —
         id: "mgm-plus",
         name: "MGM Plus ™",
         description:
-          "Innovative 3D-printed dental implant featuring a trabecular surface that mimics natural bone structure for superior osseointegration. Designed with aggressive threads for enhanced stability in immediate loading protocols.",
+          "An innovative 3D-printed titanium implant with a trabecular surface mimicking natural bone for superior biological integration. Its aggressive thread design and porous structure ensure high primary stability, making it ideal for immediate loading and soft bone cases while reducing the risk of peri-implantitis.",
         features: [
           "3D-Printed Titanium Surface: Laser-fused Ti6Al4V-ELI (Grade 5) with interconnected pores (2-200 microns)",
           "Mimetic Structure: Resembles cancellous bone to stimulate cell adhesion and bone growth",
@@ -197,7 +193,7 @@ Because true innovation means delivering maximum results with minimum effort —
         id: "mgm-compressive",
         name: "MGM Compressive ™",
         description:
-          "MGM Compressive provides 360° adaptability and top-of-the-line performance. It features a bendable stump (up to 40°) for parallelizing prosthetic insertion and a rectified cervical surface for safe bending. Its exclusive logarithm design with an incisive, sharp spiral guarantees excellent solidity in medullary structures, making it suitable not only for bicorticalism but for simple application in any condition. The mild, progressive compression allows the bone to breathe, respecting microcirculation.",
+          "A one-piece implant offering 360° adaptability with a bendable stump for correcting angulation up to 40°. Its exclusive sharp spiral design ensures excellent stability in all bone types, even in narrow spaces. The progressive compression respects microcirculation, making it perfect for immediate loading and complex bicortical anchorage.",
         features: [
           "Rectified Cervical Surface: Guarantees safe bending and adaptability",
           "Bendable Stump: Up to 40° correction to parallelize prosthetic insertion",
@@ -220,7 +216,7 @@ Because true innovation means delivering maximum results with minimum effort —
         id: "mgm-s",
         name: "MGM-S ™",
         description:
-          "MGM S™ is a conical-shaped implant with a helical aggressive thread. It is used under one- or two-steps procedure in all bone types. It prevents bone injuries and enlarges the area of direct contact of the implant surface with the bone that speeds up the process of osseointegration. Due to a formation of a new bone around the triangular part and enhanced antirotation effect, the best conditions for early rehabilitation are provided when the implant is used.",
+          "A conical-shaped implant with aggressive helical threads designed for high stability in all bone types. Its unique geometry maximizes bone-to-implant contact, accelerating osseointegration and allowing for early rehabilitation. The anti-rotational design and safe apical curvature make it safe and effective for both one- and two-stage procedures.",
         features: [
           "Single Conical Platform: Narrow platform 2.1 mm",
           "Implant Body: Reverse cone",
@@ -244,7 +240,7 @@ Because true innovation means delivering maximum results with minimum effort —
   prosthetics: {
     title: "Prosthetics",
     description:
-      "Comprehensive prosthetic solutions including Stock, Multi-Unit, and Digital components for every clinical scenario.",
+      "We offer a comprehensive range of prosthetic components designed to meet every clinical and restorative challenge. From standard stock abutments to advanced digital and multi-unit solutions, our products ensure precise fit, superior esthetics, and long-term durability for patient satisfaction.",
     subcategories: [
       {
         title: "Stock Abutments",
@@ -798,7 +794,7 @@ Because true innovation means delivering maximum results with minimum effort —
   lab: {
     title: "Lab Workflow",
     description:
-      "Precision components for both traditional and digital lab workflows, ensuring accurate impression taking and restoration fabrication.",
+      "MGM Lab components bridge the gap between clinic and laboratory with precision and reliability. Whether using traditional impression methods or modern digital workflows, our analogs and transfers ensure exacting accuracy for the fabrication of any final restoration.",
     subcategories: [
       {
         title: "Traditional Impression",
@@ -1008,7 +1004,8 @@ Because true innovation means delivering maximum results with minimum effort —
   },
   surgical: {
     title: "Surgical Kits",
-    description: "Ergonomic kits designed for precision and ease of use.",
+    description:
+      "Our Surgical Kits are meticulously engineered to streamline implant placement procedures for clinicians of all experience levels. Featuring ergonomic instrumentation and intuitive layouts, they provide the precision and control needed for safe, predictable, and efficient surgical outcomes.",
     items: [
       {
         id: "surgical-kit",
@@ -1361,6 +1358,8 @@ Because true innovation means delivering maximum results with minimum effort —
   },
   advanced: {
     title: "Advanced Solutions",
+    description:
+      "Explore our specialized solutions for complex cases, including guided bone regeneration and advanced sinus lift protocols. These master kits and tools are specifically designed to help clinicians manage challenging anatomical situations with confidence, safety, and predictability.",
     items: [
       {
         id: "gbr-master",
@@ -1443,6 +1442,8 @@ Because true innovation means delivering maximum results with minimum effort —
   },
   devices: {
     title: "Devices",
+    description:
+      "Enhance your clinical capabilities with our advanced dental devices, including surgical motors and surface activation technology. These tools are selected to improve surgical precision, optimize implant surface biology, and streamline your workflow for superior patient care.",
     items: [
       { id: "motor", name: "MGM Surgical Motor", image: "placeholder" },
       { id: "checker", name: "ISQ Checker Device", image: "placeholder" },
@@ -1505,6 +1506,8 @@ Because true innovation means delivering maximum results with minimum effort —
   },
   biomaterials: {
     title: "Biomaterials",
+    description:
+      "Our biomaterials range features high-quality bone regeneration solutions, including synthetic and xenograft options. Designed to support reliable bone formation and volume stability, these materials provide the essential foundation for successful implant treatments and long-term tissue health.",
     items: [
       {
         id: "mgm-barrier",
