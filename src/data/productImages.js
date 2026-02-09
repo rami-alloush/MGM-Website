@@ -82,6 +82,10 @@ export const productImages = {
   advanced: "/assets/images/products/22-special solutions.webp",
   "sinus-master": "/assets/images/products/22-special solutions.webp",
   "bone-splitting": "/assets/images/products/22-special solutions.webp",
+
+  // Biomaterials
+  "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER.webp",
+  "mgm-granules": "/assets/images/biomaterials/MGM GRANULES.webp",
 };
 
 // Secondary images for products with multiple views
@@ -150,6 +154,8 @@ export const productSecondaryImages = {
     "/assets/images/products/38-2Opened tray.webp",
     "/assets/images/products/39-Closed Type.webp",
   ],
+  "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER 2.webp",
+  "mgm-granules": "/assets/images/biomaterials/MGM GRANULES 2.webp",
 };
 
 // 3D rendered part images - organized by product

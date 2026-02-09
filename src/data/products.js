@@ -1012,11 +1012,10 @@ Because true innovation means delivering maximum results with minimum effort —
     items: [
       {
         id: "surgical-kit",
-        name: "MGM Standard Surgical Kit (Self-Stopper)",
+        name: "MGM Surgical Kit",
         description:
           "A comprehensive self-stopper drill kit where each drill has an integrated stopper (collar) that automatically limits penetration to a defined depth. No external sleeves required. No manual adjustments during surgery. Each drill corresponds to a specific depth and diameter.",
         features: [
-          "No external sleeves - less complexity, easier sterilization",
           "Integrated Stoppers - prevents over-drilling into sinus, nerve, or other anatomical structures",
           "Consistent Depth Control - every drill is pre-calibrated to standard implant lengths",
           "Training-friendly - excellent for new implant surgeons",
@@ -1354,18 +1353,8 @@ Because true innovation means delivering maximum results with minimum effort —
         pdfUrl: "/assets/pdfs/kits/Master Sinus Kit Catalog.pdf",
       },
       {
-        id: "screw-remover",
-        name: "Screw Remover Helping Kit",
-        image: "placeholder",
-      },
-      {
-        id: "fixture-remover",
-        name: "Fixture Remover Helping Kit",
-        image: "placeholder",
-      },
-      {
-        id: "prosthetic-kit",
-        name: "Prosthetic Kit (Drivers, Keys)",
+        id: "screw-fixture-remover",
+        name: "Screw & Fixture Remover Helping Kit",
         image: "placeholder",
       },
     ],
@@ -1512,53 +1501,45 @@ Because true innovation means delivering maximum results with minimum effort —
         ],
         image: "placeholder",
       },
-      { id: "uv-ozone", name: "UV and Ozone Activator", image: "placeholder" },
     ],
   },
   biomaterials: {
     title: "Biomaterials",
-    items: [],
-    comingSoonContent: {
-      heroTitle: "Advancing Biomaterials in Dentistry",
-      heroSubtitle: "Innovation. Precision. Clinical Excellence.",
-      heroDescription:
-        "We are preparing to launch a new generation of dental biomaterials engineered to elevate clinical performance and long-term patient outcomes.\n\nOur upcoming portfolio will feature scientifically validated materials designed for modern restorative, regenerative, and surgical dentistry — combining biocompatibility, durability, and handling efficiency to meet the demands of today’s dental professionals.",
-      whatToExpect: [
-        {
-          title: "Advanced Biocompatibility",
-          description:
-            "Formulated to support optimal tissue integration and healing response.",
-        },
-        {
-          title: "High Mechanical Performance",
-          description:
-            "Engineered for strength, stability, and long-term reliability under functional load.",
-        },
-        {
-          title: "Predictable Clinical Handling",
-          description:
-            "Designed for precision placement, efficient workflow, and consistent results.",
-        },
-        {
-          title: "Evidence-Based Development",
-          description:
-            "Backed by rigorous testing and aligned with current research in dental material science.",
-        },
-      ],
-      modernPractice: {
-        title: "Built for Modern Dental Practice",
+    items: [
+      {
+        id: "mgm-barrier",
+        name: "MGM BARRIER",
         description:
-          "Whether you specialize in restorative dentistry, implantology, periodontics, or oral surgery, our biomaterials are being developed to integrate seamlessly into your clinical protocols while maintaining the highest standards of safety and performance.",
+          "The thin membrane acquires flexible and plastic properties after wetting, which provides excellent modeling at the implantation site. It is used for GTR therapy, plasty of anterior sinus wall defects in sinus lifting and for vertical bone augmentation in complex clinical cases.",
+        features: [
+          "Size: 25х20x0.2 mm (CM-20)",
+          "Flexible and plastic properties after wetting",
+          "Excellent modeling at implantation site",
+          "Ideal for GTR therapy and sinus lifting",
+        ],
+        clinicalUses: [
+          "GTR therapy",
+          "Plasty of anterior sinus wall defects",
+          "Vertical bone augmentation",
+        ],
       },
-      launchingSoon: {
-        title: "Launching Soon",
+      {
+        id: "mgm-granules",
+        name: "MGM GRANULES",
         description:
-          "We are finalizing validation and regulatory processes to ensure compliance and quality.\nStay tuned for product specifications, clinical data, and availability updates.",
-        cta: {
-          highlight: "Be the first to know.",
-          text: "Sign up to receive early access information and launch announcements.",
-        },
+          "XENOGRAFT Collagen granules with osteoinductive properties. Preserves natural collagen and native growth factors for physiological bone regeneration. The cortical phase ensures long-term volume retention.",
+        features: [
+          "Size: 0.25 - 1.0 mm | 0.5 cc (XCol-1-05)",
+          "Spongy and cortical bone tissue base",
+          "Preserves natural collagen and native growth factors",
+          "Osteoinductive properties",
+          "Long-term volume retention",
+        ],
+        clinicalUses: [
+          "Filling in bone defects",
+          "Physiological bone regeneration",
+        ],
       },
-    },
+    ],
   },
 };
