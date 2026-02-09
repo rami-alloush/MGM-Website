@@ -202,21 +202,21 @@ export const HomePage = () => {
   const productCategories = [
     {
       href: "#/products/implants",
-      icon: Icons.Tooth,
+      icon: Icons.DentalImplant,
       title: "Implants",
       description:
         "Bone-level and tissue-level implants designed for primary stability and aesthetic results.",
     },
     {
       href: "#/products/prosthetics",
-      icon: Icons.Cog,
+      icon: Icons.Prosthetic,
       title: "Prosthetics",
       description:
         "A wide range of abutments and prosthetic components for cement and screw-retained restorations.",
     },
     {
       href: "#/products/surgical",
-      icon: Icons.Wrench,
+      icon: Icons.SurgicalKit,
       title: "Surgical Kits",
       description:
         "Ergonomic and intuitive surgical kits designed to simplify your workflow and enhance precision.",

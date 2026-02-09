@@ -136,7 +136,7 @@ export const FeatureCard = ({ href, icon, title, description }) => {
         <h3 class="text-3xl font-bold text-secondary group-hover:text-primary transition-colors">${title}</h3>
         <p class="text-charcoal text-lg">${description}</p>
         <div class="flex items-center text-primary font-semibold mt-4">
-          <span>View Catalog</span>
+          <span>View Products</span>
           <span class="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
         </div>
       </div>
