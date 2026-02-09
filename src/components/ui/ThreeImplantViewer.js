@@ -13,6 +13,7 @@ export class ImplantViewer {
     this.mixer = null;
     this.targetPosition = new THREE.Vector3(0, 0, 0); // Where the camera looks
     this.targetCameraPosition = new THREE.Vector3(0, 0, 50); // Where the camera is
+    this.targetLightPosition = new THREE.Vector3(10, 20, 20); // Where the light is
     this.currentViewIndex = 0;
 
     // Animation/Lerp factors
@@ -60,8 +61,9 @@ export class ImplantViewer {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     this.scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
     dirLight.position.set(10, 15, 10);
+    this.dirLight = dirLight;
     this.scene.add(dirLight);
 
     const spotLight = new THREE.SpotLight(0xffffff, 2.0);
@@ -70,6 +72,7 @@ export class ImplantViewer {
     spotLight.penumbra = 0.3;
     this.spotLight = spotLight;
     this.scene.add(spotLight);
+    this.scene.add(spotLight.target);
 
     // Particles
     this.addParticles();
@@ -207,43 +210,49 @@ export class ImplantViewer {
     return [
       // 0: Full view (Overview) - Tapered/Cylindrical Body
       {
-        camPos: new THREE.Vector3(25, 10, 35),
+        camPos: new THREE.Vector3(32, 14, 45),
         target: new THREE.Vector3(0, 0, 0),
+        lightPos: new THREE.Vector3(10, 20, 20),
         lightColor: 0xffffff,
       },
 
       // 1: Smart Cervix (Top/Neck) - Zoom in top
       {
-        camPos: new THREE.Vector3(15, 20, 15),
-        target: new THREE.Vector3(0, 8, 0),
-        lightColor: 0x4f46e5, // Indigo/Blueish for "Smart" look
+        camPos: new THREE.Vector3(20, 20, 15),
+        target: new THREE.Vector3(0, 15, 0),
+        lightPos: new THREE.Vector3(10, 25, 10),
+        // lightColor: 0x4f46e5, // Indigo/Blueish for "Smart" look
       },
 
       // 2: Smart Thread (Side/Threads) - Close up side
       {
         camPos: new THREE.Vector3(25, 0, 25),
         target: new THREE.Vector3(0, -2, 0),
-        lightColor: 0x10b981, // Emerald/Green for Growth/Biological
+        lightPos: new THREE.Vector3(30, 5, 30),
+        // lightColor: 0x10b981, // Emerald/Green for Growth/Biological
       },
 
       // 3: Smart Apex (Bottom) - Look from below
       {
         camPos: new THREE.Vector3(10, -25, 20),
         target: new THREE.Vector3(0, -10, 0),
-        lightColor: 0xf59e0b, // Amber/Orange for Warning/Critical zone (Nerve)
+        lightPos: new THREE.Vector3(5, -20, 25),
+        // lightColor: 0xf59e0b, // Amber/Orange for Warning/Critical zone (Nerve)
       },
 
       // 4: Smart Connection (Top-down) - Look into the hole
       {
         camPos: new THREE.Vector3(0, 35, 10),
         target: new THREE.Vector3(0, 8, 0),
-        lightColor: 0x3b82f6, // Blue for Connection
+        lightPos: new THREE.Vector3(0, 40, 5),
+        // lightColor: 0x3b82f6, // Blue for Connection
       },
 
       // 5: Surface (Extreme Close up)
       {
         camPos: new THREE.Vector3(12, 5, 12),
         target: new THREE.Vector3(0, 2, 0),
+        lightPos: new THREE.Vector3(15, 5, 15),
         lightColor: 0xffffff, // White for Purity
       },
     ];
@@ -263,6 +272,9 @@ export class ImplantViewer {
     // Clone to avoid reference issues, although we can just copy values
     this.targetCameraPosition.copy(view.camPos);
     this.targetPosition.copy(view.target);
+    if (view.lightPos && this.targetLightPosition) {
+      this.targetLightPosition.copy(view.lightPos);
+    }
 
     // Animate SpotLight Color
     if (this.spotLight && view.lightColor !== undefined) {
@@ -305,6 +317,11 @@ export class ImplantViewer {
     // Smoothly interpolate camera position
     this.camera.position.lerp(this.targetCameraPosition, this.lerpFactor);
 
+    // Smoothly interpolate light position
+    if (this.spotLight && this.targetLightPosition) {
+      this.spotLight.position.lerp(this.targetLightPosition, this.lerpFactor);
+    }
+
     // Smoothly interpolate lookAt target
     // We can't directly lerp "lookAt", but we can lerp a target vector and call lookAt every frame
     // We can store currentLookAt and lerp it to targetPosition
@@ -313,9 +330,16 @@ export class ImplantViewer {
     this.currentLookAt.lerp(this.targetPosition, this.lerpFactor);
     this.camera.lookAt(this.currentLookAt);
 
-    // Smoothly interpolate spotlight color
-    if (this.spotLight && this.targetLightColor) {
-      this.spotLight.color.lerp(this.targetLightColor, 0.05);
+    // Spotlight target follows camera target
+    if (this.spotLight && this.currentLookAt) {
+      this.spotLight.target.position.copy(this.currentLookAt);
+    }
+
+    // Smoothly interpolate lights color
+    if (this.targetLightColor) {
+      if (this.spotLight)
+        this.spotLight.color.lerp(this.targetLightColor, 0.05);
+      if (this.dirLight) this.dirLight.color.lerp(this.targetLightColor, 0.05);
     }
 
     this.renderer.render(this.scene, this.camera);
