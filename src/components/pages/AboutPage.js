@@ -127,8 +127,8 @@ export const AboutPage = () => {
                   <!-- Content Side -->
                   <div class="relative p-8 md:p-12 lg:p-14 flex flex-col justify-center text-white space-y-8 order-2 lg:order-1">
                      <div class="flex items-center gap-5">
-                        <div class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-accent border border-white/10 shadow-inner">
-                          ${Icons.Microscope}
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3 flex items-center justify-center border border-white/10 shadow-inner">
+                          <img src="/assets/images/MEET-Academcy-logo.png" alt="MEET Academy Logo" class="h-16 w-auto object-contain filter invert brightness-0 saturate-100 invert-100" />
                         </div>
                         <div>
                             <h4 class="font-heading text-3xl md:text-4xl font-bold text-white mb-1">MEET Academy</h4>
@@ -145,10 +145,11 @@ export const AboutPage = () => {
                         </p>
                      </div>
                      
-                     <div class="flex items-center gap-2 text-accent font-medium uppercase tracking-widest text-sm pt-4">
-                        <span>Excellence in Research</span>
-                        <div class="h-px w-12 bg-accent"></div>
-                     </div>
+                     <a href="https://education.mgmimplant.com/" rel="noopener noreferrer" class="flex items-center gap-2 text-accent font-medium uppercase tracking-widest text-sm pt-4 hover:text-white transition-colors group/link">
+                        <div class="w-5 h-5">${Icons.BookOpen}</div>
+                        <span>News and Education</span>
+                        <div class="h-px w-12 bg-accent group-hover/link:bg-white transition-colors"></div>
+                     </a>
                   </div>
                </div>
             </div>
@@ -160,6 +161,7 @@ export const AboutPage = () => {
                        <div class="w-48 h-48">${Icons.Globe}</div>
                    </div>
                    <h4 class="font-heading text-2xl font-bold mb-4 flex items-center gap-3">
+                      <div class="w-8 h-8 text-accent">${Icons.Globe}</div>
                       Global Presence
                    </h4>
                    <p class="text-silver leading-relaxed relative z-10">
@@ -169,7 +171,8 @@ export const AboutPage = () => {
 
                 <div class="bg-white border border-silver/30 p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                    <h4 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center gap-3">
-                      <span class="text-primary">✦</span> Experience & Trust
+                      <div class="w-8 h-8 text-primary">${Icons.Star}</div>
+                      Experience & Trust
                    </h4>
                    <p class="text-charcoal/80 leading-relaxed">
                       This unique combination of OEM expertise, German manufacturing excellence, continuous education, and real-world clinical feedback positions MGM Implants as a brand built on experience, trust, and long-term success.
@@ -200,7 +203,7 @@ export const AboutPage = () => {
             
             <div class="relative group overflow-hidden rounded-2xl shadow-xl">
               <img 
-                src="/assets/images/fabrica.webp" 
+                src="/assets/images/implant-washing.webp" 
                 alt="MGM Implant Production Facility" 
                 class="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
