@@ -19,6 +19,7 @@ export const productImages = {
 
   // Implants category
   implants: "/assets/images/products/1-Hyperid Design.webp",
+  mgm: "/assets/images/mgm-implant/mgm-implant.webp",
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS.webp",
   "mgm-compressive": "/assets/images/mgm-compressive/comp-1.webp",
   "mgm-s": "/assets/images/mgm-s/mgm-s-1.webp",
