@@ -6,7 +6,7 @@ export const ImageSlider = (slides = []) => {
   // Default demo slides if none provided
   const defaultSlides = [
     {
-      image: "/assets/images/fabrica.webp",
+      image: "/assets/images/MGM-FACTORY.webp",
       title: "German Engineering Excellence",
       subtitle: "Discover our state-of-the-art manufacturing facility",
       link: "#/about",
@@ -78,7 +78,7 @@ export const ImageSlider = (slides = []) => {
               </div>
             </div>
           </a>
-        `
+        `,
           )
           .join("")}
       </div>
@@ -111,7 +111,7 @@ export const ImageSlider = (slides = []) => {
         }" data-index="${idx}">
           <span class="absolute inset-0 rounded-full bg-primary scale-0 transition-transform duration-300"></span>
         </button>
-      `
+      `,
         )
         .join("")}
     </div>
@@ -293,7 +293,7 @@ function initSlider(container, totalSlides) {
     (e) => {
       touchStartX = e.changedTouches[0].screenX;
     },
-    { passive: true }
+    { passive: true },
   );
 
   container.addEventListener(
@@ -302,7 +302,7 @@ function initSlider(container, totalSlides) {
       touchEndX = e.changedTouches[0].screenX;
       handleSwipe();
     },
-    { passive: true }
+    { passive: true },
   );
 
   const handleSwipe = () => {

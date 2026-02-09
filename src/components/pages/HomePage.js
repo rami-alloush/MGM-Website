@@ -102,7 +102,7 @@ export const HomePage = () => {
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="relative">
             <div class="absolute -inset-4 bg-clinical-gray rounded-3xl transform -rotate-2"></div>
-            <img src="/assets/images/fabrica.webp" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
+            <img src="/assets/images/MGM-Excellence.webp" alt="MGM Manufacturing" class="relative rounded-2xl shadow-2xl w-full object-cover h-[600px]">
         </div>
         <div class="space-y-8">
             <h2 class="font-heading text-3xl md:text-5xl font-bold text-secondary">Engineering Excellence Since 2008</h2>
