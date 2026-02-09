@@ -29,7 +29,7 @@ export const productImages = {
   // Stock Abutments
   "straight-abutment":
     "/assets/images/prosthetics-covers/STANDRAD STRAIGHT abutment.webp",
-  "angled-abutment": "/assets/images/prosthetics-covers/NARROW ANGLED MUA.webp",
+  // "angled-abutment": "/assets/images/prosthetics-covers/NARROW ANGLED MUA.webp",
   "healing-abutment":
     "/assets/images/prosthetics-covers/STANDARD GINGIVAL FORMER.webp",
 
@@ -43,8 +43,7 @@ export const productImages = {
   "mua-cylinders": "/assets/images/prosthetics-covers/mua lab analouge.webp",
 
   // Overdenture Systems
-  "locator-abutment":
-    "/assets/images/prosthetics-covers/M-L ABUTMENTS-BLUE.webp",
+  "locator-abutment": "/assets/images/prosthetics-covers/M-L ABUTMENTS.webp",
   "ball-socket-abutment":
     "/assets/images/prosthetics-covers/STANDARD BALL ABUTMENT.webp",
 
@@ -120,7 +119,7 @@ export const productSecondaryImages = {
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS Solid Core.webp",
   "mgm-compressive": ["/assets/images/mgm-compressive/comp-2.webp"],
   "locator-abutment": [
-    "/assets/images/prosthetics-covers/M-L ABUTMENTS-YELLOW.webp",
+    "/assets/images/prosthetics-covers/M-L ABUTMENTS.webp",
     "/assets/images/products/23-locator.webp",
     "/assets/images/products/24-locator 2.webp",
     "/assets/images/products/25-locator 3.webp",

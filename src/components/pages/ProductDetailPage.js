@@ -250,7 +250,12 @@ export const ProductDetailPage = (productId) => {
 
           ${MaterialsSection(product.materials)}
           
-          ${ProductActions(product.name, product.id, product.pdfUrl)}
+          ${ProductActions(
+            product.name,
+            product.id,
+            product.pdfUrl,
+            categoryKey !== "prosthetics",
+          )}
         </div>
       </div>
 
