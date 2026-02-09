@@ -170,10 +170,6 @@ export const ProductListPage = (categoryKey) => {
 
 
       <div class="space-y-12 border-t border-silver/50 pt-16">
-         <div class="text-center max-w-3xl mx-auto space-y-4">
-            <h3 class="font-heading text-3xl font-bold text-secondary">Product Systems</h3>
-            <p class="text-gray-600">Choose the right solution for your clinical needs</p>
-         </div>
          ${contentHtml}
       </div>
     </div>

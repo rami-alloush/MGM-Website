@@ -92,6 +92,7 @@ export const productSecondaryImages = {
   "straight-abutment": [
     "/assets/images/prosthetics-covers/NARROW STRAIGHT ABUTMENT.webp",
     "/assets/images/products/12-Straight Abut2.webp",
+    "/assets/images/products/20-Straight Abut.webp",
   ],
   "angled-abutment": [
     "/assets/images/products/13-Angled Abut.webp",
