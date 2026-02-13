@@ -7,15 +7,8 @@ export const TechnologyPage = () => {
     "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md",
   );
 
-  // Feature Images
-  const featureImages = [
-    "/assets/images/tech-features/implant-body-1.webp",
-    "/assets/images/tech-features/implant-body-2.webp",
-    "/assets/images/tech-features/implant-body-3.webp",
-    "/assets/images/tech-features/implant-body-4.webp",
-    "/assets/images/tech-features/implant-body-5.webp",
-    "/assets/images/tech-features/implant-body-6.webp",
-  ];
+  // Number of features to display
+  const featureCount = 6;
 
   // Data for Features
   const smartHyperidDetails = {
@@ -339,24 +332,19 @@ export const TechnologyPage = () => {
         <!-- Sticky Sidebar & Features Section -->
         <div class="relative flex flex-col lg:flex-row gap-8 items-start">
            <!-- Sticky Image Sidebar -->
-           <div class="hidden lg:block lg:w-1/3 sticky top-32 h-[calc(80vh)] flex items-center justify-center">
-               <div id="implant-viewer-container" class="relative w-[80%] h-full rounded-2xl overflow-hidden shadow-2xl border border-silver bg-white/50 backdrop-blur-sm">
+           <div class="w-full lg:w-1/3 sticky top-20 lg:top-32 h-[50vh] lg:h-[calc(80vh)] flex items-center justify-center z-10 mb-8 lg:mb-0">
+               <div id="implant-viewer-container" class="relative w-full lg:w-[80%] h-full rounded-2xl overflow-hidden shadow-2xl border border-silver bg-white/50 backdrop-blur-sm">
                   <!-- 3D Viewer will be injected here -->
                </div>
            </div>
 
            <!-- Scrollable Content -->
            <div class="w-full lg:w-2/3 space-y-24 py-10" id="features-container">
-               ${featureImages
+               ${Array(featureCount)
+                 .fill(0)
                  .map(
                    (_, idx) => `
                   <div class="feature-section scroll-mt-32" data-index="${idx}">
-                    ${
-                      // Also render image for mobile view
-                      `<div class="lg:hidden mb-6 rounded-xl overflow-hidden shadow-lg border border-silver bg-white aspect-[4/3]">
-                         <img src="${featureImages[idx]}" class="w-full h-full object-contain p-4" alt="Feature ${idx + 1}" />
-                       </div>`
-                    }
                     ${getFeatureContent(idx)}
                   </div>
                `,
