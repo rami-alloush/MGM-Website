@@ -68,7 +68,7 @@ export const productImages = {
 
   // Surgical Kits
   surgical: "/assets/images/products/22-special solutions.webp",
-  "surgical-kit": "/assets/images/products/small kit.webp",
+  "surgical-kit": "/assets/images/products/big surgical kit.webp",
   "guided-kit": "/assets/images/products/guided-kit.webp",
   "sinus-kit": "/assets/images/products/22-special solutions.webp",
   "bone-collector": "/assets/images/products/22-special solutions.webp",
@@ -158,7 +158,7 @@ export const productSecondaryImages = {
   ],
   "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER 2.webp",
   "mgm-granules": "/assets/images/biomaterials/MGM GRANULES 2.webp",
-  "surgical-kit": "/assets/images/products/big surgical kit.webp",
+  "surgical-kit": "/assets/images/products/small kit.webp",
 };
 
 // 3D rendered part images - organized by product
