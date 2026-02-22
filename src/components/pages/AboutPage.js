@@ -296,26 +296,22 @@ export const AboutPage = () => {
               </p>
               <div class="grid grid-cols-2 gap-4">
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="w-10 h-10 text-secondary mb-2">${
-                    Icons.BadgeCheck
-                  }</div>
+                  <div class="w-24 h-10 text-secondary mb-2">${Icons.ISO}</div>
                   <h4 class="font-heading font-bold text-secondary">ISO 13485</h4>
                   <p class="text-sm text-charcoal/70">Medical Device QMS</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="w-10 h-10 text-secondary mb-2">${Icons.Flag}</div>
+                  <div class="w-16 h-10 text-secondary mb-2">${Icons.CE}</div>
                   <h4 class="font-heading font-bold text-secondary">CE Marked</h4>
                   <p class="text-sm text-charcoal/70">European Conformity</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="w-10 h-10 text-secondary mb-2">${
-                    Icons.Globe
-                  }</div>
+                  <div class="w-20 h-10 text-secondary mb-2">${Icons.FDA}</div>
                   <h4 class="font-heading font-bold text-secondary">FDA Registered</h4>
                   <p class="text-sm text-charcoal/70">US Market Approved</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="w-10 h-10 text-secondary mb-2">${Icons.Flag}</div>
+                  <div class="w-16 h-10 mb-2">${Icons.GermanyFlag}</div>
                   <h4 class="font-heading font-bold text-secondary">Made in Germany</h4>
                   <p class="text-sm text-charcoal/70">German Engineering</p>
                 </div>
