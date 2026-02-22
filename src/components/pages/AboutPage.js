@@ -14,6 +14,7 @@ export const AboutPage = () => {
       title: "iInnovate",
       description:
         "Providing customers with the latest technologies via the R&D department and scientific team.",
+      link: "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDgxMjY2ODQzNDYzNzUx",
     },
     {
       icon: Icons.BookOpen,
@@ -21,6 +22,7 @@ export const AboutPage = () => {
       title: "iLearn",
       description:
         "Providing latest techniques and training support for better product usage.",
+      link: "https://www.instagram.com/s/aGlnaGxpZ2h0OjE3ODYzNzAyOTcxNTgzNDQ3",
     },
     {
       icon: Icons.Globe,
@@ -28,6 +30,7 @@ export const AboutPage = () => {
       title: "iExplore",
       description:
         "Connecting with customers through exhibitions, scientific events, and congresses to understand their needs.",
+      link: "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAzMTE3ODk0ODQ1NDM3",
     },
     {
       icon: Icons.Handshake,
@@ -35,6 +38,7 @@ export const AboutPage = () => {
       title: "iPractice",
       description:
         "Allowing customers to share case challenges and clinical studies.",
+      link: "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDIzNjkxNzk3NjIyNTQ5",
     },
   ];
 

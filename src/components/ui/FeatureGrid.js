@@ -157,20 +157,25 @@ export const StatItem = ({
  * @param {string} options.description - Program description
  * @returns {string} HTML string
  */
-export const CoreProgramCard = ({ icon, image, title, description }) => {
+export const CoreProgramCard = ({ icon, image, title, description, link }) => {
   const visual = image
     ? `<div class="h-56 mb-6 overflow-hidden rounded-xl bg-white p-8 flex items-center justify-center border border-silver/20 shadow-sm">
          <img src="${image}" alt="${title}" class="w-full h-full object-contain transition-all duration-500 group-hover:grayscale" />
        </div>`
     : `<div class="w-16 h-16 mb-4 text-primary">${icon}</div>`;
 
-  return `
+  const content = `
     <div class="bg-clinical-gray border border-silver p-6 rounded-xl hover:border-primary transition-all h-full group hover:shadow-lg">
       ${visual}
       <h4 class="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">${title}</h4>
       <p class="text-charcoal text-sm">${description}</p>
     </div>
   `;
+
+  if (link) {
+    return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="block h-full cursor-pointer">${content}</a>`;
+  }
+  return content;
 };
 
 /**
