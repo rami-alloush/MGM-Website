@@ -14,6 +14,7 @@ export class ImplantViewer {
     this.targetPosition = new THREE.Vector3(0, 0, 0); // Where the camera looks
     this.targetCameraPosition = new THREE.Vector3(0, 0, 50); // Where the camera is
     this.targetLightPosition = new THREE.Vector3(10, 20, 20); // Where the light is
+    this.targetModelRotationX = 0; // Target X rotation for the model
     this.currentViewIndex = 0;
 
     // Animation/Lerp factors
@@ -210,41 +211,42 @@ export class ImplantViewer {
     return [
       // 0: Full view (Overview) - Tapered/Cylindrical Body
       {
-        camPos: new THREE.Vector3(32, 14, 45),
+        camPos: new THREE.Vector3(20, 15, 45),
         target: new THREE.Vector3(0, 0, 0),
-        lightPos: new THREE.Vector3(10, 20, 20),
-        lightColor: 0xffffff,
+        // lightPos: new THREE.Vector3(10, 20, 20),
+        // lightColor: 0xffffff,
       },
 
       // 1: Smart Cervix (Top/Neck) - Zoom in top
       {
         camPos: new THREE.Vector3(20, 20, 15),
         target: new THREE.Vector3(0, 15, 0),
-        lightPos: new THREE.Vector3(10, 25, 10),
+        // lightPos: new THREE.Vector3(10, 25, 10),
         // lightColor: 0x4f46e5, // Indigo/Blueish for "Smart" look
       },
 
       // 2: Smart Thread (Side/Threads) - Close up side
       {
-        camPos: new THREE.Vector3(25, 0, 25),
-        target: new THREE.Vector3(0, -2, 0),
-        lightPos: new THREE.Vector3(30, 5, 30),
+        camPos: new THREE.Vector3(25, -10, 25),
+        target: new THREE.Vector3(0, -12, 0),
+        // lightPos: new THREE.Vector3(30, 5, 30),
         // lightColor: 0x10b981, // Emerald/Green for Growth/Biological
       },
 
       // 3: Smart Apex (Bottom) - Look from below
       {
-        camPos: new THREE.Vector3(10, -25, 20),
-        target: new THREE.Vector3(0, -10, 0),
-        lightPos: new THREE.Vector3(5, -20, 25),
+        camPos: new THREE.Vector3(0, 15, 45),
+        target: new THREE.Vector3(0, 0, 0),
+        modelRotationX: -Math.PI / 2, // Flip the model 180 degrees
+        // lightPos: new THREE.Vector3(5, -20, 25),
         // lightColor: 0xf59e0b, // Amber/Orange for Warning/Critical zone (Nerve)
       },
 
       // 4: Smart Connection (Top-down) - Look into the hole
       {
-        camPos: new THREE.Vector3(0, 35, 10),
-        target: new THREE.Vector3(0, 8, 0),
-        lightPos: new THREE.Vector3(0, 40, 5),
+        camPos: new THREE.Vector3(0, 45, 10),
+        target: new THREE.Vector3(0, 18, 0),
+        // lightPos: new THREE.Vector3(0, 40, 5),
         // lightColor: 0x3b82f6, // Blue for Connection
       },
 
@@ -252,8 +254,8 @@ export class ImplantViewer {
       {
         camPos: new THREE.Vector3(12, 5, 12),
         target: new THREE.Vector3(0, 2, 0),
-        lightPos: new THREE.Vector3(15, 5, 15),
-        lightColor: 0xffffff, // White for Purity
+        // lightPos: new THREE.Vector3(15, 5, 15),
+        // lightColor: 0xffffff, // White for Purity
       },
     ];
   }
@@ -272,6 +274,8 @@ export class ImplantViewer {
     // Clone to avoid reference issues, although we can just copy values
     this.targetCameraPosition.copy(view.camPos);
     this.targetPosition.copy(view.target);
+    this.targetModelRotationX = view.modelRotationX || 0;
+
     if (view.lightPos && this.targetLightPosition) {
       this.targetLightPosition.copy(view.lightPos);
     }
@@ -305,6 +309,12 @@ export class ImplantViewer {
     if (this.model) {
       // Gentle rotation for life
       this.model.rotation.y += 0.002;
+
+      // Smoothly interpolate model rotation X
+      if (this.targetModelRotationX !== undefined) {
+        this.model.rotation.x +=
+          (this.targetModelRotationX - this.model.rotation.x) * this.lerpFactor;
+      }
     }
 
     // Animate Particles

@@ -726,8 +726,8 @@ export const TechnologyPage = () => {
       },
       {
         root: null,
-        rootMargin: "-20% 0px -20% 0px", // Trigger when element is in middle 60% of viewport
-        threshold: 0.4,
+        rootMargin: "-40% 0px -40% 0px", // Trigger when element is in middle 20% of viewport
+        threshold: 0,
       },
     );
 
