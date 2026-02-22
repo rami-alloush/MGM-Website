@@ -30,7 +30,7 @@ export const productImages = {
   // Stock Abutments
   "straight-abutment":
     "/assets/images/prosthetics-covers/STANDRAD STRAIGHT abutment.webp",
-  // "angled-abutment": "/assets/images/prosthetics-covers/NARROW ANGLED MUA.webp",
+  "angled-abutment": "/assets/images/prosthetics-covers/Angled Abutment.webp",
   "healing-abutment":
     "/assets/images/prosthetics-covers/STANDARD GINGIVAL FORMER.webp",
 
@@ -41,7 +41,8 @@ export const productImages = {
   "straight-mua":
     "/assets/images/prosthetics-covers/STANDARD STRAIGHT MUA.webp",
   "angled-mua": "/assets/images/prosthetics-covers/STANDARD ANGLED MUA .webp",
-  "mua-cylinders": "/assets/images/prosthetics-covers/mua lab analouge.webp",
+  "mua-cylinders":
+    "/assets/images/prosthetics-covers/MULTI UNIT TEMP CYLINDER.webp",
 
   // Overdenture Systems
   "locator-abutment": "/assets/images/prosthetics-covers/M-L ABUTMENTS.webp",
@@ -63,7 +64,7 @@ export const productImages = {
   "mua-transfer-coping": "/assets/images/products/48-Mua transfer.webp",
 
   // Digital Workflow
-  "scan-body": "/assets/images/products/43-Scan Body.webp",
+  "scan-body": "/assets/images/prosthetics-covers/Scan Body.webp",
   "digital-library": "/assets/images/products/42-Digital lab pars.webp",
 
   // Surgical Kits
@@ -150,7 +151,10 @@ export const productSecondaryImages = {
     "/assets/images/products/41-analog 2.webp",
     "/assets/images/products/45-analog3.webp",
   ],
-  "scan-body": "/assets/images/products/44-Scan body 2.webp",
+  "scan-body": [
+    "/assets/images/products/44-Scan body 2.webp",
+    "/assets/images/prosthetics-covers/MULTI UNIT SCANBODY ABUTMENT.webp",
+  ],
   "transfer-coping": [
     "/assets/images/products/37-Transfer coping.webp",
     "/assets/images/products/38-2Opened tray.webp",
