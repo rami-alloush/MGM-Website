@@ -156,18 +156,20 @@ export const AboutPage = () => {
 
             <!-- Global Presence & Conclusion Grid -->
             <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-                <div class="bg-secondary text-white p-8 md:p-10 rounded-2xl relative overflow-hidden group">
-                   <div class="absolute -right-4 -bottom-4 opacity-10 transform group-hover:scale-110 transition-transform duration-700">
-                       <div class="w-48 h-48">${Icons.Globe}</div>
-                   </div>
-                   <h4 class="font-heading text-2xl font-bold mb-4 flex items-center gap-3">
-                      <div class="w-8 h-8 text-accent">${Icons.Globe}</div>
-                      Global Presence
-                   </h4>
-                   <p class="text-silver leading-relaxed relative z-10">
-                      MGM Implants and AAD Dental GmbH maintain a strong and continuous presence at the world’s most influential dental congresses, exhibitions, and scientific events, reinforcing their position as active contributors to the global implantology community.
-                   </p>
-                </div>
+                <a href="https://portal.mgmimplant.com/" target="_blank" rel="noopener noreferrer">
+                  <div class="bg-secondary text-white p-8 md:p-10 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 opacity-10 transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="w-48 h-48">${Icons.Globe}</div>
+                    </div>
+                    <h4 class="font-heading text-2xl font-bold mb-4 flex items-center gap-3">
+                        <div class="w-8 h-8 text-accent">${Icons.Globe}</div>
+                        Global Presence
+                    </h4>
+                    <p class="text-silver leading-relaxed relative z-10">
+                        MGM Implants and AAD Dental GmbH maintain a strong and continuous presence at the world’s most influential dental congresses, exhibitions, and scientific events, reinforcing their position as active contributors to the global implantology community.
+                    </p>
+                  </div>
+                </a>
 
                 <div class="bg-white border border-silver/30 p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                    <h4 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center gap-3">
