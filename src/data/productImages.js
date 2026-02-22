@@ -23,6 +23,7 @@ export const productImages = {
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS.webp",
   "mgm-compressive": "/assets/images/mgm-compressive/comp-1.webp",
   "mgm-s": "/assets/images/mgm-s/mgm-s-1.webp",
+  "mgm-core": "/assets/logo.png",
 
   // Prosthetics category
   prosthetics: "/assets/images/prosthetics-covers/PROSTHETIC PARTS.webp",

@@ -169,6 +169,7 @@ export const products = {
       {
         id: "mgm-plus",
         name: "MGM Plus ™",
+        isNew: true,
         description:
           "An innovative 3D-printed titanium implant with a trabecular surface mimicking natural bone for superior biological integration. Its aggressive thread design and porous structure ensure high primary stability, making it ideal for immediate loading and soft bone cases while reducing the risk of peri-implantitis.",
         features: [
@@ -215,6 +216,7 @@ export const products = {
       {
         id: "mgm-s",
         name: "MGM-S ™",
+        isNew: true,
         description:
           "A conical-shaped implant with aggressive helical threads designed for high stability in all bone types. Its unique geometry maximizes bone-to-implant contact, accelerating osseointegration and allowing for early rehabilitation. The anti-rotational design and safe apical curvature make it safe and effective for both one- and two-stage procedures.",
         features: [
@@ -233,6 +235,16 @@ export const products = {
           "Proximity to anatomical structures",
           "Alternative to sinus lift or nerve repositioning",
         ],
+        image: "placeholder",
+      },
+      {
+        id: "mgm-core",
+        name: "MGM Core ™",
+        isComingSoon: true,
+        description:
+          "A new revolutionary product coming soon to the MGM Implants lineup.",
+        features: ["Coming soon"],
+        clinicalUses: ["Coming soon"],
         image: "placeholder",
       },
     ],

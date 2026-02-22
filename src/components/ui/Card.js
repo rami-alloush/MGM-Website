@@ -21,7 +21,17 @@ export const ProductCard = (item) => {
   return `
     <a href="#/product/${
       item.id
-    }" class="group bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
+    }" class="group relative bg-white border border-silver rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all transform hover:-translate-y-1">
+      ${
+        item.isNew
+          ? `<div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md shadow-primary/30 uppercase tracking-widest animate-pulse">NEW</div>`
+          : ""
+      }
+      ${
+        item.isComingSoon
+          ? `<div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md shadow-secondary/30 uppercase tracking-widest">COMING SOON</div>`
+          : ""
+      }
       <div class="aspect-square bg-clinical-gray rounded-lg mb-4 overflow-hidden relative">
         <img src="${imageSrc}" alt="${
           item.name
