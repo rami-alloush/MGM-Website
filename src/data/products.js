@@ -1223,6 +1223,13 @@ export const products = {
         image: "big surgical kit.png",
         pdfUrl: "/assets/pdfs/kits/Guided Kit Catalog.pdf",
       },
+    ],
+  },
+  advanced: {
+    title: "Advanced Solutions",
+    description:
+      "Explore our specialized solutions for complex cases, including guided bone regeneration and advanced sinus lift protocols. These master kits and tools are specifically designed to help clinicians manage challenging anatomical situations with confidence, safety, and predictability.",
+    items: [
       {
         id: "bone-collector",
         name: "MGM SMART Bone Collector and Guide Kit (3-in-1)",
@@ -1366,13 +1373,6 @@ export const products = {
         name: "Screw & Fixture Remover Helping Kit",
         image: "placeholder",
       },
-    ],
-  },
-  advanced: {
-    title: "Advanced Solutions",
-    description:
-      "Explore our specialized solutions for complex cases, including guided bone regeneration and advanced sinus lift protocols. These master kits and tools are specifically designed to help clinicians manage challenging anatomical situations with confidence, safety, and predictability.",
-    items: [
       {
         id: "gbr-master",
         name: "MGM GBR Master Kit",

@@ -72,18 +72,18 @@ export const productImages = {
   surgical: "/assets/images/products/22-special solutions.webp",
   "surgical-kit": "/assets/images/products/big surgical kit.webp",
   "guided-kit": "/assets/images/products/guided-kit.webp",
+
+  // Advanced Solutions
+  advanced: "/assets/images/products/22-special solutions.webp",
   "sinus-kit": "/assets/images/products/22-special solutions.webp",
-  "bone-collector": "/assets/images/products/22-special solutions.webp",
+  "bone-collector": "/assets/images/devices/BONE COLLETOR KIT-Main.webp",
   "screw-remover": "/assets/images/products/47--special lab parts.webp",
   "fixture-remover": "/assets/images/products/47--special lab parts.webp",
   "gbr-master": "/assets/images/products/22-special solutions.webp",
   "ridge-augmenting": "/assets/images/products/22-special solutions.webp",
   "prosthetic-kit": "/assets/images/products/22-special solutions.webp",
-
-  // Advanced Solutions
-  advanced: "/assets/images/products/22-special solutions.webp",
   "sinus-master": "/assets/images/products/22-special solutions.webp",
-  "bone-splitting": "/assets/images/products/22-special solutions.webp",
+  "bone-splitting": "/assets/images/devices/BONE EXPANDER KIT-Main.webp",
 
   // Biomaterials
   "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER.webp",
@@ -164,6 +164,11 @@ export const productSecondaryImages = {
   "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER 2.webp",
   "mgm-granules": "/assets/images/biomaterials/MGM GRANULES 2.webp",
   "surgical-kit": "/assets/images/products/small kit.webp",
+  "bone-collector": ["/assets/images/devices/BONE COLLECTOR KIT-1.webp"],
+  "bone-splitting": [
+    "/assets/images/devices/BONE EXPANDER KIT-1.webp",
+    "/assets/images/devices/BONE EXPANDER KIT-2.webp",
+  ],
 };
 
 // 3D rendered part images - organized by product
