@@ -87,6 +87,10 @@ export const productImages = {
   // Biomaterials
   "mgm-barrier": "/assets/images/biomaterials/MGM BARRIER.webp",
   "mgm-granules": "/assets/images/biomaterials/MGM GRANULES.webp",
+
+  // Devices
+  motor: "/assets/images/devices/motor.webp",
+  checker: "/assets/images/devices/ISQ.webp",
 };
 
 // Secondary images for products with multiple views
@@ -169,6 +173,7 @@ export const productSecondaryImages = {
     "/assets/images/devices/BONE EXPANDER KIT-1.webp",
     "/assets/images/devices/BONE EXPANDER KIT-2.webp",
   ],
+  motor: ["/assets/images/devices/motor-pedal.webp"],
 };
 
 // 3D rendered part images - organized by product
