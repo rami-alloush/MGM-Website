@@ -3,7 +3,7 @@ import { createElement, animateSection } from "../utils.js";
 export const ResourcesPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-8 bg-white/90 backdrop-blur-md",
   );
 
   const resources = [
@@ -11,19 +11,33 @@ export const ResourcesPage = () => {
       icon: "📄",
       title: "Surgical & Prosthetic Protocols",
       description: "Detailed step-by-step guides and video tutorials.",
-      linkText: "Download PDF →",
+      linkText: "Explore Resources →",
+      link: "https://education.mgmimplant.com/surgical-prosthetic-protocols/",
     },
     {
       icon: "💻",
       title: "Digital Workflow Guides",
       description: "Integration with exocad, 3Shape, and other CAD software.",
       linkText: "View Guides →",
+      link: "https://education.mgmimplant.com/digital-workflow-guides/",
+      logos: [
+        "/assets/images/Logos/3shape-intraoral-scanner-logo.png",
+        "/assets/images/Logos/Planmeca_logo_blue.webp",
+        "/assets/images/Logos/atomica.ai.webp",
+        "/assets/images/Logos/blenderfordental.webp",
+        "/assets/images/Logos/blueskybio.avif",
+        "/assets/images/Logos/exocad.webp",
+        "/assets/images/Logos/exoplan.jpg",
+        "/assets/images/Logos/implastation.jpg",
+        "/assets/images/Logos/nemo.png",
+        "/assets/images/Logos/realguide.png",
+      ],
     },
     {
       icon: "🔬",
       title: "Scientific Documentation",
       description: "Clinical studies, white papers, and research articles.",
-      linkText: "Read Research →",
+      linkText: "Coming Soon →",
     },
   ];
 
@@ -39,20 +53,38 @@ export const ResourcesPage = () => {
 
       <!-- Resources -->
       <div class="max-w-3xl mx-auto space-y-8">
-        <h3 class="font-heading text-3xl font-bold text-secondary border-b border-silver pb-4">Resources</h3>
+        <h3 class="font-heading text-3xl font-bold text-secondary border-b border-silver pb-4">Resources & Downloads</h3>
         <div class="grid gap-6">
           ${resources
             .map(
               (item) => `
             <div class="bg-white border border-silver rounded-xl p-6 flex items-start gap-4 hover:border-primary transition-all">
               <div class="text-3xl">${item.icon}</div>
-              <div>
+              <div class="flex-1 min-w-0">
                 <h4 class="font-bold text-secondary text-lg">${item.title}</h4>
                 <p class="text-charcoal text-sm mb-2">${item.description}</p>
-                <a href="#" class="text-primary text-sm font-semibold hover:underline pointer-events-none opacity-50 cursor-not-allowed">${item.linkText}</a>
+                ${
+                  item.link
+                    ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-primary text-sm font-semibold hover:underline">${item.linkText}</a>`
+                    : `<span class="text-primary text-sm font-semibold opacity-50 cursor-not-allowed select-none">${item.linkText}</span>`
+                }
+                ${
+                  item.logos
+                    ? `
+                  <div class="mt-6 flex flex-wrap gap-4 items-center grayscale hover:grayscale-0 transition-all duration-300">
+                    ${item.logos
+                      .map(
+                        (logo) =>
+                          `<img src="${logo}" alt="" class="h-6 md:h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />`,
+                      )
+                      .join("")}
+                  </div>
+                `
+                    : ""
+                }
               </div>
             </div>
-          `
+          `,
             )
             .join("")}
         </div>
