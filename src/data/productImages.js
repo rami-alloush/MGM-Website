@@ -160,7 +160,6 @@ export const productSecondaryImages = {
     "/assets/images/prosthetics-covers/MULTI UNIT SCANBODY ABUTMENT.webp",
   ],
   "transfer-coping": [
-    "/assets/images/products/37-Transfer coping.webp",
     "/assets/images/products/38-2Opened tray.webp",
     "/assets/images/products/39-Closed Type.webp",
   ],

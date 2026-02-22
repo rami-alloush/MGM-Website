@@ -25,7 +25,7 @@ export const Implant3DViewer = (containerId = "implant-3d-viewer") => {
       0.1,
       1000,
     );
-    camera.position.set(0, 5, 25);
+    camera.position.set(0, 5, 45);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -140,7 +140,8 @@ export const Implant3DViewer = (containerId = "implant-3d-viewer") => {
             }
 
             const meshName = child.name.toLowerCase();
-            const isInnerPart = meshName.includes("thread");
+            const isInnerPart =
+              meshName.includes("thread") || meshName.includes("inner");
 
             child.material = isInnerPart
               ? metallicInnerMaterial
@@ -164,14 +165,14 @@ export const Implant3DViewer = (containerId = "implant-3d-viewer") => {
       (error) => console.error("An error happened loading the model:", error),
     );
 
-    // Lights
+    // Lights (Consistent with ThreeImplantViewer)
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
 
-    const frontLight = new THREE.DirectionalLight(0xffffff, 1.5);
-    frontLight.position.set(10, 10, 20);
-    frontLight.castShadow = true;
-    scene.add(frontLight);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    dirLight.position.set(10, 15, 10);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
 
     const backLight = new THREE.DirectionalLight(0xffffff, 1.0);
     backLight.position.set(-10, 10, -10);
