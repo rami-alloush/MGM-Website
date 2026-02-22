@@ -4,7 +4,7 @@ import { NewsCard, Icons } from "../ui/index.js";
 export const ContactPage = () => {
   const section = createElement(
     "section",
-    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md"
+    "min-h-screen py-16 px-6 md:px-20 bg-white/90 backdrop-blur-md",
   );
 
   section.innerHTML = `
@@ -67,7 +67,7 @@ export const ContactPage = () => {
             </div>
           </div>
 
-          <form id="contact-form" class="bg-white border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
+          <form id="contact-form" action="https://formspree.io/f/mzdakpda" method="POST" class="bg-white border border-silver rounded-2xl p-8 space-y-6 shadow-lg">
             <h3 class="font-heading text-2xl font-bold text-secondary mb-6">Send us a Message</h3>
             <div class="space-y-2">
               <label class="text-secondary font-semibold">Name *</label>
@@ -95,34 +95,44 @@ export const ContactPage = () => {
   setTimeout(() => {
     const form = section.querySelector("#contact-form");
     if (form) {
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
 
-        // Build mailto link
-        const subject = encodeURIComponent("Website Contact: General Inquiry");
-        const body = encodeURIComponent(
-          `Contact Form Submission\n\n` +
-            `Name: ${data.name}\n` +
-            `Email: ${data.email}\n\n` +
-            `Message:\n${data.message}`
-        );
-
-        window.location.href = `mailto:info@mgmimplant.com?subject=${subject}&body=${body}`;
-
-        // Show success feedback
         const button = form.querySelector('button[type="submit"]');
         const originalText = button.textContent;
-        button.textContent = "Email Client Opened!";
-        button.classList.add("bg-green-600");
-        button.classList.remove("bg-primary");
+        button.textContent = "Sending...";
+        button.disabled = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            button.textContent = "Message Sent!";
+            button.classList.add("bg-green-600");
+            button.classList.remove("bg-primary");
+            form.reset();
+          } else {
+            button.textContent = "Oops! There was a problem.";
+            button.classList.add("bg-red-600");
+            button.classList.remove("bg-primary");
+          }
+        } catch (error) {
+          button.textContent = "Error sending message.";
+          button.classList.add("bg-red-600");
+          button.classList.remove("bg-primary");
+        }
 
         setTimeout(() => {
           button.textContent = originalText;
-          button.classList.remove("bg-green-600");
+          button.disabled = false;
+          button.classList.remove("bg-green-600", "bg-red-600");
           button.classList.add("bg-primary");
-          form.reset();
         }, 3000);
       });
     }

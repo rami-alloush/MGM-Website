@@ -62,7 +62,7 @@ export const productImages = {
   "transfer-coping":
     "/assets/images/prosthetics-covers/impression copping solutions.webp",
   "lab-analog": "/assets/images/prosthetics-covers/LAB ANALOUGE.webp",
-  "mua-transfer-coping": "/assets/images/products/48-Mua transfer.webp",
+  // "mua-transfer-coping": "/assets/images/products/48-Mua transfer.webp",
 
   // Digital Workflow
   "scan-body": "/assets/images/prosthetics-covers/Scan Body.webp",
