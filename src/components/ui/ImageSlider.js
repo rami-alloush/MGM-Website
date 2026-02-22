@@ -8,20 +8,44 @@ export const ImageSlider = (slides = []) => {
     {
       image: "/assets/images/MGM-FACTORY.webp",
       title: "German Engineering Excellence",
-      subtitle: "Discover our state-of-the-art manufacturing facility",
+      subtitle:
+        "Discover our state-of-the-art manufacturing facility and precision engineering.",
       link: "#/about",
     },
     {
       image: "/assets/images/surface-treatment.webp",
       title: "M-Pure Surface Technology",
-      subtitle: "Revolutionary surface treatment for faster healing",
+      subtitle:
+        "Advanced proprietary surface treatment for faster healing and superior osseointegration.",
       link: "#/technology",
     },
     {
       image: "/assets/images/manufacturing.webp",
       title: "Premium Implant Solutions",
-      subtitle: "Explore our comprehensive product portfolio",
+      subtitle:
+        "Explore our comprehensive product portfolio designed for all clinical indications.",
       link: "#/products",
+    },
+    {
+      image: "/assets/images/Quality_Control_Testing.webp",
+      title: "100% Lifetime Guarantee",
+      subtitle:
+        "Rigorous quality control processes and our commitment to uncompromising reliability.",
+      link: "#/guarantee-policy",
+    },
+    {
+      image: "/assets/images/Research.webp",
+      title: "Education & Academy",
+      subtitle:
+        "Empowering professionals with advanced training, research, and technical resources.",
+      link: "#/education",
+    },
+    {
+      image: "/assets/images/about-bg.jpg",
+      title: "Global Presence & Support",
+      subtitle:
+        "Connecting with dental professionals worldwide to deliver exceptional assistance.",
+      link: "#/contact",
     },
   ];
 

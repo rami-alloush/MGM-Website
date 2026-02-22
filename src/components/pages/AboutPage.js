@@ -117,7 +117,7 @@ export const AboutPage = () => {
                   <!-- Image Side -->
                   <div class="relative h-64 lg:h-full overflow-hidden order-1 lg:order-2">
                      <img 
-                        src="/assets/images/Research.webp" 
+                        src="/assets/images/MEET Academy.webp" 
                         alt="MEET Academy Research and Development" 
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                      />
