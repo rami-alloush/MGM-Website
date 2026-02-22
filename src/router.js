@@ -82,6 +82,11 @@ export class Router {
         description:
           "Access MGM Implant educational resources: surgical protocols, digital workflow guides, webinars, and hands-on training courses.",
       },
+      "/resources": {
+        title: "Resources & Downloads - MGM Implant | Catalogs & Guidelines",
+        description:
+          "Download MGM Implant catalogs, surgical guidelines, prosthetic manuals, and certification documents for dental professionals.",
+      },
       "/surgical-kits": {
         title: "Surgical Kits - MGM Implant | Complete Instrumentation",
         description:
@@ -113,7 +118,11 @@ export class Router {
   formatProductName(id) {
     return id
       .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => {
+        if (word.toLowerCase() === "mgm") return "MGM";
+        if (word.toLowerCase() === "mua") return "MUA";
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
       .join(" ");
   }
 
