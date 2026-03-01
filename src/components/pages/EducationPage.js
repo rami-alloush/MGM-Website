@@ -23,7 +23,7 @@ export const ResourcesPage = () => {
       logos: [
         "/assets/images/Logos/3shape-intraoral-scanner-logo.png",
         "/assets/images/Logos/Planmeca_logo_blue.webp",
-        "/assets/images/Logos/atomica.ai.webp",
+        "/assets/images/Logos/atomica.ai.png",
         "/assets/images/Logos/blenderfordental.webp",
         "/assets/images/Logos/blueskybio.avif",
         "/assets/images/Logos/exocad.webp",
@@ -71,11 +71,13 @@ export const ResourcesPage = () => {
                 ${
                   item.logos
                     ? `
-                  <div class="mt-6 flex flex-wrap gap-4 items-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     ${item.logos
                       .map(
                         (logo) =>
-                          `<img src="${logo}" alt="" class="h-6 md:h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />`,
+                          `<a href="http://education.mgmimplant.com/assets/MGMv5.0.zip" download class="group flex items-center justify-center p-4 border border-silver rounded-lg hover:border-primary hover:shadow-md transition-all duration-300 bg-white cursor-pointer overflow-hidden" title="Download MGM v5.0 files">
+                             <img src="${logo}" alt="Digital Workflow Logo" class="w-full h-10 object-contain transition-transform duration-300 group-hover:scale-110" />
+                           </a>`,
                       )
                       .join("")}
                   </div>
