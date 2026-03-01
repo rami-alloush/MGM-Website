@@ -4,7 +4,11 @@ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-export const Implant3DViewer = (containerId = "implant-3d-viewer") => {
+export const Implant3DViewer = (
+  containerId = "implant-3d-viewer",
+  options = {},
+) => {
+  const { cinematic = false } = options;
   const container = document.createElement("div");
   container.id = containerId;
   container.className =
@@ -185,6 +189,22 @@ export const Implant3DViewer = (containerId = "implant-3d-viewer") => {
     // Animation Loop
     const animate = () => {
       requestAnimationFrame(animate);
+
+      if (cinematic) {
+        const time = Date.now() * 0.0005;
+        // Cinematic camera movement
+        camera.position.y = 5 + Math.sin(time) * 15;
+        camera.position.x = Math.cos(time * 0.7) * 20;
+        camera.position.z = 35 + Math.sin(time * 0.5) * 15;
+        camera.lookAt(0, 0, 0);
+
+        // Dynamic lighting
+        dirLight.position.x = Math.sin(time * 1.5) * 20;
+        dirLight.position.z = Math.cos(time * 1.5) * 20;
+
+        controls.autoRotateSpeed = 4.0;
+      }
+
       controls.update();
       renderer.render(scene, camera);
     };

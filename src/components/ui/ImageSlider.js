@@ -1,4 +1,5 @@
 import { createElement } from "../utils.js";
+import { Implant3DViewer } from "./Implant3DViewer.js";
 
 export const ImageSlider = (slides = []) => {
   const container = createElement("div", "relative w-full");
@@ -6,11 +7,11 @@ export const ImageSlider = (slides = []) => {
   // Default demo slides if none provided
   const defaultSlides = [
     {
-      image: "/assets/images/MGM-FACTORY.webp",
-      title: "German Engineering Excellence",
+      is3D: true,
+      title: "MGM Smart Implant Showcase",
       subtitle:
-        "Discover our state-of-the-art manufacturing facility and precision engineering.",
-      link: "#/about",
+        "Experience the perfect fusion of biological excellence and precision engineering in stunning 3D.",
+      link: "#/product/mgm",
     },
     {
       image: "/assets/images/surface-treatment.webp",
@@ -65,16 +66,27 @@ export const ImageSlider = (slides = []) => {
                  : "opacity-0 z-0 scale-105"
              }" 
              data-slide="${idx}">
-            <!-- Image with Ken Burns effect -->
-            <div class="absolute inset-0 overflow-hidden">
-              <img 
-                src="${slide.image}" 
-                alt="${slide.title}" 
-                class="slider-image w-full h-full object-cover transition-transform duration-[8000ms] ease-out ${
+            <!-- Image with Ken Burns effect or 3D Video -->
+            <div class="absolute inset-0 overflow-hidden bg-black">
+              ${
+                slide.is3D
+                  ? `
+                <div class="slider-3d-container w-full h-full pointer-events-none z-0 transform transition-transform duration-[10000ms] ${
                   idx === 0 ? "scale-110" : "scale-100"
-                }"
-                loading="${idx === 0 ? "eager" : "lazy"}"
-              />
+                }"></div>
+                <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
+              `
+                  : `
+                <img 
+                  src="${slide.image}" 
+                  alt="${slide.title}" 
+                  class="slider-image w-full h-full object-cover transition-transform duration-[8000ms] ease-out ${
+                    idx === 0 ? "scale-110" : "scale-100"
+                  }"
+                  loading="${idx === 0 ? "eager" : "lazy"}"
+                />
+              `
+              }
             </div>
             <!-- Gradient Overlay with animation -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-500"></div>
@@ -142,7 +154,36 @@ export const ImageSlider = (slides = []) => {
   `;
 
   // Initialize slider functionality after DOM is ready
-  setTimeout(() => initSlider(container, slideData.length), 0);
+  setTimeout(() => {
+    initSlider(container, slideData.length);
+
+    // Mount 3D viewers for is3D slides
+    slideData.forEach((slide, idx) => {
+      if (slide.is3D) {
+        const slideEl = container.querySelector(`[data-slide="${idx}"]`);
+        const target = slideEl.querySelector(".slider-3d-container");
+        if (target) {
+          const viewer = Implant3DViewer(`slider-3d-viewer-${idx}`, {
+            cinematic: true,
+          });
+          viewer.style.width = "100%";
+          viewer.style.height = "100%";
+          // Hide background to blend with the slide
+          viewer.className = viewer.className.replace(
+            "bg-clinical-gray/30",
+            "bg-transparent",
+          );
+          target.appendChild(viewer);
+
+          // Add a subtle video-like vignette overlay
+          const overlay = document.createElement("div");
+          overlay.className =
+            "absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]";
+          target.appendChild(overlay);
+        }
+      }
+    });
+  }, 0);
 
   return container;
 };
@@ -169,7 +210,9 @@ function initSlider(container, totalSlides) {
 
     // Animate slides with fade and scale
     slides.forEach((slide, i) => {
-      const img = slide.querySelector(".slider-image");
+      const img =
+        slide.querySelector(".slider-image") ||
+        slide.querySelector(".slider-3d-container");
 
       if (i === currentSlide) {
         // Incoming slide
@@ -177,8 +220,10 @@ function initSlider(container, totalSlides) {
         slide.classList.add("opacity-100", "z-10", "scale-100");
 
         // Ken Burns effect - start zoomed and slowly zoom out, or vice versa
-        img.classList.remove("scale-100");
-        img.classList.add("scale-110");
+        if (img) {
+          img.classList.remove("scale-100");
+          img.classList.add("scale-110");
+        }
 
         // Animate content in
         animateContentIn(slide);
@@ -188,8 +233,10 @@ function initSlider(container, totalSlides) {
         slide.classList.add("opacity-0", "z-0", "scale-105");
 
         // Reset Ken Burns
-        img.classList.remove("scale-110");
-        img.classList.add("scale-100");
+        if (img) {
+          img.classList.remove("scale-110");
+          img.classList.add("scale-100");
+        }
 
         // Reset content
         animateContentOut(slide);
@@ -197,8 +244,10 @@ function initSlider(container, totalSlides) {
         // Other slides
         slide.classList.remove("opacity-100", "z-10", "scale-100");
         slide.classList.add("opacity-0", "z-0", "scale-105");
-        img.classList.remove("scale-110");
-        img.classList.add("scale-100");
+        if (img) {
+          img.classList.remove("scale-110");
+          img.classList.add("scale-100");
+        }
       }
     });
 
