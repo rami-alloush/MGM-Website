@@ -255,6 +255,9 @@ export const ProductDetailPage = (productId) => {
             product.id,
             product.pdfUrl,
             categoryKey !== "prosthetics",
+            product.hideQuote,
+            product.downloadUrl,
+            product.downloadText,
           )}
         </div>
       </div>

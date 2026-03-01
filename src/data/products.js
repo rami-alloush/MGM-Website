@@ -931,22 +931,22 @@ export const products = {
               },
             ],
           },
-          {
-            id: "mua-transfer-coping",
-            name: "MUA Transfer Coping",
-            description:
-              "Multi Unit Impression Coping for pick-up type impression-taking process using custom tray (Open tray).",
-            variants: [
-              {
-                name: "Multi Unit Impression Coping (Open Tray)",
-                partNumbers: ["MUICTN45", "MUICP45"],
-                specifications: ["Diameter D-Ø4.5"],
-                usage: "Use with Open-tray. Use with 1.2 Hexa Driver",
-              },
-            ],
-          },
         ],
       },
+      //   {
+      //     id: "mua-transfer-coping",
+      //     name: "MUA Transfer Coping",
+      //     description:
+      //       "Multi Unit Impression Coping for pick-up type impression-taking process using custom tray (Open tray).",
+      //     variants: [
+      //       {
+      //         name: "Multi Unit Impression Coping (Open Tray)",
+      //         partNumbers: ["MUICTN45", "MUICP45"],
+      //         specifications: ["Diameter D-Ø4.5"],
+      //         usage: "Use with Open-tray. Use with 1.2 Hexa Driver",
+      //       },
+      //     ],
+      //   },
       {
         title: "Digital Workflow",
         items: [
@@ -1009,6 +1009,9 @@ export const products = {
               "Accurate implant positioning data",
               "Regular updates for new components",
             ],
+            hideQuote: true,
+            downloadUrl: "/assets/MGM v5.0.zip",
+            downloadText: "Download Library",
           },
         ],
       },
