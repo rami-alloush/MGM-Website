@@ -307,11 +307,11 @@ export const AboutPage = () => {
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
                   <div class="w-20 h-10 text-secondary mb-2">${Icons.FDA}</div>
-                  <h4 class="font-heading font-bold text-secondary">FDA Registered</h4>
-                  <p class="text-sm text-charcoal/70">US Market Approved</p>
+                  <h4 class="font-heading font-bold text-secondary">FDA Registered (Pending)</h4>
+                  <p class="text-sm text-charcoal/70">Finalizing US FDA Approval</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-silver/20">
-                  <div class="w-16 h-10 mb-2">${Icons.GermanyFlag}</div>
+                  <img src="/assets/images/Made-in-Germany-Logo.png" alt="Made in Germany" class="h-10 mb-2 object-contain" />
                   <h4 class="font-heading font-bold text-secondary">Made in Germany</h4>
                   <p class="text-sm text-charcoal/70">German Engineering</p>
                 </div>
