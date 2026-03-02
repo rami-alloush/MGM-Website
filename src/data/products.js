@@ -1442,13 +1442,6 @@ export const products = {
         image: "placeholder",
       },
       {
-        id: "sinus-master",
-        name: "Sinus Master Kit",
-        description:
-          "Advanced kit for sinus elevation procedures. (See Surgical Kits for details)",
-        image: "placeholder",
-      },
-      {
         id: "bone-splitting",
         name: "Bone Splitting Kit",
         image: "placeholder",
@@ -1516,6 +1509,7 @@ export const products = {
           "Fast 30-60 Second Treatment Cycle",
         ],
         image: "placeholder",
+        pdfUrl: "/assets/pdfs/kits/MGM iActive Plasma Activator.pdf",
       },
     ],
   },

@@ -75,13 +75,10 @@ export const productImages = {
 
   // Advanced Solutions
   advanced: "/assets/images/products/22-special solutions.webp",
-  "sinus-kit": "/assets/images/products/22-special solutions.webp",
+  "sinus-kit": "/assets/images/devices/Master Sinus.webp",
   "bone-collector": "/assets/images/devices/BONE COLLETOR KIT-Main.webp",
   "screw-fixture-remover": "/assets/images/devices/Fixture Screw-Main.webp",
   "gbr-master": "/assets/images/devices/GBR MASTER KIT.webp",
-  "ridge-augmenting": "/assets/images/products/22-special solutions.webp",
-  "prosthetic-kit": "/assets/images/products/22-special solutions.webp",
-  "sinus-master": "/assets/images/products/22-special solutions.webp",
   "bone-splitting": "/assets/images/devices/BONE EXPANDER KIT-Main.webp",
 
   // Biomaterials
@@ -91,6 +88,7 @@ export const productImages = {
   // Devices
   motor: "/assets/images/devices/motor.webp",
   checker: "/assets/images/devices/ISQ.webp",
+  plasma: "/assets/images/devices/Plasma-Activator.webp",
 };
 
 // Secondary images for products with multiple views
