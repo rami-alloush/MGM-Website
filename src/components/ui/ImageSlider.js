@@ -14,6 +14,13 @@ export const ImageSlider = (slides = []) => {
       link: "#/product/mgm",
     },
     {
+      image: "/assets/images/mgm-products.jpg",
+      title: "MGM Complete Product Range",
+      subtitle:
+        "From implants to prosthetics and surgical kits — everything you need for outstanding clinical outcomes.",
+      link: "#/products",
+    },
+    {
       image: "/assets/images/surface-treatment.webp",
       title: "M-Pure Surface Technology",
       subtitle:
@@ -55,7 +62,7 @@ export const ImageSlider = (slides = []) => {
   container.innerHTML = `
     <div class="slider-wrapper relative overflow-hidden rounded-2xl">
       <!-- Slides Container - Stacked for fade effect -->
-      <div class="slider-container relative h-[400px] md:h-[500px]">
+      <div class="slider-container relative h-[450px] md:h-[650px]">
         ${slideData
           .map(
             (slide, idx) => `
