@@ -81,7 +81,7 @@ export const ContactPage = () => {
               <label class="text-secondary font-semibold">Message *</label>
               <textarea name="message" rows="4" required placeholder="How can we help you?" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all"></textarea>
             </div>
-            <button type="submit" class="w-full px-6 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+            <button type="submit" class="w-full px-6 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all" aria-label="Submit">
               Send Message
             </button>
           </form>

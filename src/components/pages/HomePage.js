@@ -174,11 +174,11 @@ export const HomePage = () => {
             </p>
             <div class="grid grid-cols-2 gap-6 mt-8">
                 <a href="#/technology#surface-hydrophilic" class="bg-white p-6 rounded-xl shadow-sm border border-silver block hover:border-primary transition-all">
-                    <h4 class="font-bold text-secondary text-lg mb-2">Hydrophilic</h4>
+                    <h3 class="font-bold text-secondary text-lg mb-2">Hydrophilic</h3>
                     <p class="text-charcoal">Enhanced blood contact for rapid initial healing.</p>
                 </a>
                 <a href="#/technology#surface-purity" class="bg-white p-6 rounded-xl shadow-sm border border-silver block hover:border-primary transition-all">
-                    <h4 class="font-bold text-secondary text-lg mb-2">Ultra-Clean</h4>
+                    <h3 class="font-bold text-secondary text-lg mb-2">Ultra-Clean</h3>
                     <p class="text-charcoal">Free from manufacturing residues and contaminants.</p>
                 </a>
             </div>

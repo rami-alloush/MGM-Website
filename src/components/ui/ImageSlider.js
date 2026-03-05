@@ -127,12 +127,12 @@ export const ImageSlider = (slides = []) => {
       </div>
 
       <!-- Navigation Arrows -->
-      <button class="slider-prev absolute left-0 md:-left-3 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary-hover rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 border-2 border-white/20 group">
+      <button class="slider-prev absolute left-0 md:-left-3 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary-hover rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 border-2 border-white/20 group" aria-label="Previous slide">
         <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
         </svg>
       </button>
-      <button class="slider-next absolute right-0 md:-right-3 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary-hover rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 border-2 border-white/20 group">
+      <button class="slider-next absolute right-0 md:-right-3 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary-hover rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 border-2 border-white/20 group" aria-label="Next slide">
         <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
         </svg>
@@ -151,7 +151,7 @@ export const ImageSlider = (slides = []) => {
           (_, idx) => `
         <button class="slider-dot relative w-3 h-3 rounded-full transition-all duration-500 ${
           idx === 0 ? "bg-primary w-10" : "bg-gray-400/50 hover:bg-gray-400"
-        }" data-index="${idx}">
+        }" data-index="${idx}" aria-label="Go to slide">
           <span class="absolute inset-0 rounded-full bg-primary scale-0 transition-transform duration-300"></span>
         </button>
       `,

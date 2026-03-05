@@ -116,7 +116,7 @@ window.openLightbox = (imageSrc, imageAlt) => {
   lightbox.className =
     "fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300";
   lightbox.innerHTML = `
-    <button class="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors" onclick="window.closeLightbox()">
+    <button class="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors" onclick="window.closeLightbox()" aria-label="Close">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
@@ -173,8 +173,8 @@ window.openQuoteModal = (productName, productId) => {
     <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
       <div class="p-6 border-b border-silver flex items-center justify-between">
         <h3 class="font-heading text-2xl font-bold text-secondary">Request Quote</h3>
-        <button onclick="window.closeQuoteModal()" class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button onclick="window.closeQuoteModal()" class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -210,7 +210,7 @@ window.openQuoteModal = (productName, productId) => {
           <label class="text-secondary font-semibold text-sm">Additional Notes</label>
           <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-clinical-gray border border-silver rounded-lg text-charcoal placeholder-gray-500 focus:outline-none focus:border-primary transition-all" placeholder="Any specific requirements..."></textarea>
         </div>
-        <button type="submit" class="w-full px-6 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all">
+        <button type="submit" class="w-full px-6 py-4 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all" aria-label="Submit">
           Submit Quote Request
         </button>
       </form>
@@ -278,7 +278,7 @@ window.openQuoteModal = (productName, productId) => {
         </div>
         <h3 class="font-heading text-2xl font-bold text-secondary">Email Client Opened!</h3>
         <p class="text-charcoal">Your quote request has been prepared. Please send the email from your mail application.</p>
-        <button onclick="window.closeQuoteModal()" class="px-8 py-3 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover transition-all">
+        <button onclick="window.closeQuoteModal()" class="px-8 py-3 bg-primary text-white font-heading font-semibold rounded-lg hover:bg-primary-hover transition-all" aria-label="Close">
           Close
         </button>
       </div>

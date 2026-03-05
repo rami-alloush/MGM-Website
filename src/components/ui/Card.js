@@ -39,7 +39,7 @@ export const ProductCard = (item) => {
         <button class="absolute bottom-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${imageSrc}', '${item.name.replace(
           /'/g,
           "\\'",
-        )}')">
+        )}')" aria-label="View image in fullscreen">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
         </button>
       </div>
@@ -106,7 +106,7 @@ export const CategoryCard = ({ key, title, description, icon, imageSrc }) => {
     <a href="#/products/${key}" class="group bg-white border border-silver rounded-2xl overflow-hidden hover:border-primary hover:shadow-xl transition-all flex flex-col h-full">
       <div class="w-full bg-clinical-gray overflow-hidden flex-shrink-0 relative">
         <img src="${imageSrc}" alt="${title}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform" onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-primary\\'><div class=\\'w-24 h-24\\'>${icon}</div></div>'" />
-        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${imageSrc}', '${title}')">
+        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-white" onclick="event.preventDefault(); event.stopPropagation(); window.openLightbox('${imageSrc}', '${title}')" aria-label="View image in fullscreen">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
         </button>
       </div>
