@@ -180,6 +180,71 @@
         opacity: 0;
         visibility: hidden;
       }
+
+      /* Google Translate Custom Styles */
+      .translate-widget {
+        margin-top: 2px;
+      }
+      .goog-te-gadget-simple span {
+        color: white !important;
+      }
+      html[data-theme="light"] .goog-te-gadget-simple span {
+        color: black !important;
+      }
+      .goog-te-gadget-simple {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        font-family: 'Inter', sans-serif !important;
+        transition: all 0.3s ease;
+        display: inline-flex !important;
+        align-items: center !important;
+        height: 38px !important;
+      }
+      .goog-te-gadget-simple:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .goog-te-gadget-simple a.goog-te-menu-value {
+        text-decoration: none !important;
+        display: flex !important;
+        align-items: center !important;
+        color: #ffffff !important;
+      }
+      .goog-te-gadget-simple a.goog-te-menu-value span {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+      }
+      /* Hide the separator line and default Google icons */
+      .goog-te-gadget-simple a.goog-te-menu-value span[style*="border-left"] {
+        display: none !important;
+      }
+      .goog-te-gadget-simple img {
+        display: none !important;
+      }
+      /* Add our own clean dropdown arrow */
+      .goog-te-gadget-simple a.goog-te-menu-value::after {
+        content: '';
+        display: inline-block;
+        margin-left: 8px;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 5px solid #ffffff;
+        opacity: 0.7;
+      }
+      /* Hide the top Google Translate frame */
+      body {
+        top: 0 !important;
+      }
+      .skiptranslate > iframe {
+        display: none !important;
+      }
+      #goog-gt-tt {
+        display: none !important;
+      }
     </style>
   </head>
   <body>
@@ -265,25 +330,28 @@
                class="text-gray-200 hover:text-primary font-medium text-lg transition-colors">Contact</a>
           </li>
         </ul>
-        <a href="https://portal.mgmimplant.com/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="hidden md:block px-8 py-3 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
-          Distributor Area
-        </a>
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn"
-                class="md:hidden text-gray-200 hover:text-primary p-2"
-                aria-label="Open Menu">
-          <svg class="w-8 h-8"
-               width="32"
-               height="32"
-               fill="none"
-               stroke="currentColor"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+        <div class="flex items-center gap-3 md:gap-6">
+          <div id="google_translate_element" class="translate-widget"></div>
+          <a href="https://portal.mgmimplant.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hidden md:block px-8 py-3 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
+            Distributor Area
+          </a>
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn"
+                  class="md:hidden text-gray-200 hover:text-primary p-2"
+                  aria-label="Open Menu">
+            <svg class="w-8 h-8"
+                 width="32"
+                 height="32"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
       </nav>
     </header>
     <!-- Mobile Menu Overlay (outside header for proper stacking) -->
@@ -590,6 +658,17 @@
         </svg>
       </button>
     </footer>
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,ar,de,es,fr,ja,ko,ru,tr,zh-CN',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

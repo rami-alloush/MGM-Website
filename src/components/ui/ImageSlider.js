@@ -14,6 +14,19 @@ export const ImageSlider = (slides = []) => {
       link: "#/product/mgm",
     },
     {
+      image: "/assets/images/slider/Snipper.webp",
+      title: "Snipper",
+      subtitle: "Precision engineering for optimal clinical outcomes.",
+      link: "#/products",
+    },
+    {
+      image: "/assets/images/slider/9th-meet-academy.webp",
+      title: "9th Meet Academy",
+      subtitle:
+        "Empowering professionals with advanced training and education.",
+      link: "#/education",
+    },
+    {
       image: "/assets/images/mgm-products.jpg",
       title: "MGM Complete Product Range",
       subtitle:
