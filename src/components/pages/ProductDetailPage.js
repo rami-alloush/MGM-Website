@@ -157,6 +157,58 @@ export const ProductDetailPage = (productId) => {
     }
   }
 
+  // MGM Vector feature sections
+  let vectorFeaturesHtml = "";
+  if (product && product.id === "mgm-vector" && product.vectorFeatureSections) {
+    vectorFeaturesHtml = `
+      <div class="space-y-16 border-t border-silver/50 pt-16">
+        <div class="text-center space-y-4">
+          <h3 class="font-heading text-3xl md:text-5xl font-bold text-secondary">Key Features &amp; Advantages</h3>
+          <p class="text-charcoal text-lg max-w-2xl mx-auto">Engineering excellence in every clinical scenario</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          ${product.vectorFeatureSections
+            .map(
+              (section) => `
+            <div class="group relative bg-white rounded-3xl border border-silver shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              <!-- Gradient accent bar -->
+              <div class="h-1.5 w-full bg-gradient-to-r ${section.color}"></div>
+              <div class="p-8 space-y-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${section.color} flex items-center justify-center text-2xl shadow-lg">
+                    ${section.icon}
+                  </div>
+                  <h4 class="font-heading text-xl font-bold text-secondary">${section.title}</h4>
+                </div>
+                <div class="space-y-3">
+                  ${section.features
+                    .map(
+                      (f) => `
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-clinical-gray hover:border hover:border-silver transition-all">
+                      <div class="w-6 h-6 rounded-full bg-gradient-to-br ${section.color} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-secondary text-sm">${f.name}</p>
+                        <p class="text-charcoal text-sm leading-relaxed mt-0.5">${f.description}</p>
+                      </div>
+                    </div>
+                  `,
+                    )
+                    .join("")}
+                </div>
+              </div>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
   if (!product) {
     const errorDiv = createElement(
       "div",
@@ -238,7 +290,9 @@ export const ProductDetailPage = (productId) => {
           </div>
           
           ${
-            product.features && product.features.length > 0
+            product.features &&
+            product.features.length > 0 &&
+            !product.vectorFeatureSections
               ? `
           <div class="bg-white border border-silver rounded-xl p-6 shadow-sm">
             <h3 class="font-heading text-2xl font-bold text-secondary mb-4">Features</h3>
@@ -268,6 +322,8 @@ export const ProductDetailPage = (productId) => {
       ${mgmViewerHtml}
 
       ${coreTechnologiesHtml}
+
+      ${vectorFeaturesHtml}
 
       ${Parts3DGallery(product.id, product.name)}
 

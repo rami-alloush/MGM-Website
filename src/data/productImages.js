@@ -23,7 +23,7 @@ export const productImages = {
   "mgm-plus": "/assets/images/mgm-plus/MGM PLUS.webp",
   "mgm-compressive": "/assets/images/mgm-compressive/comp-1.webp",
   "mgm-s": "/assets/images/mgm-s/mgm-s-1.webp",
-  "mgm-core": "/assets/logo.png",
+  "mgm-vector": "/assets/images/mgm-vector/MGM-Vector.webp",
 
   // Prosthetics category
   prosthetics: "/assets/images/prosthetics-covers/PROSTHETIC PARTS.webp",
@@ -94,6 +94,9 @@ export const productImages = {
 // Secondary images for products with multiple views
 export const productSecondaryImages = {
   "mgm-s": "/assets/images/mgm-s/mgm-s-2.png",
+  "mgm-plus": "/assets/images/mgm-plus/MGM PLUS Solid Core.webp",
+  "mgm-compressive": ["/assets/images/mgm-compressive/comp-2.webp"],
+  "mgm-vector": ["/assets/images/mgm-vector/MGM Vector.webp"],
   "straight-abutment": [
     "/assets/images/prosthetics-covers/NARROW STRAIGHT ABUTMENT.webp",
     "/assets/images/products/12-Straight Abut2.webp",
@@ -122,8 +125,6 @@ export const productSecondaryImages = {
     "/assets/images/products/21-Mua 2-2.webp",
   ],
   "mua-cylinders": ["/assets/images/products/46-MU Cylinders.webp"],
-  "mgm-plus": "/assets/images/mgm-plus/MGM PLUS Solid Core.webp",
-  "mgm-compressive": ["/assets/images/mgm-compressive/comp-2.webp"],
   "locator-abutment": [
     "/assets/images/prosthetics-covers/M-L ABUTMENTS.webp",
     "/assets/images/products/23-locator.webp",

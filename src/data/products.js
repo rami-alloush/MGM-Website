@@ -238,14 +238,131 @@ export const products = {
         image: "placeholder",
       },
       {
-        id: "mgm-core",
-        name: "MGM Core ™",
-        isComingSoon: true,
+        id: "mgm-vector",
+        name: "MGM Vector ™",
+        isNew: true,
         description:
-          "A new revolutionary product coming soon to the MGM Implants lineup.",
-        features: ["Coming soon"],
-        clinicalUses: ["Coming soon"],
-        image: "placeholder",
+          "The MGM™ Vector Implant System is engineered for excellence in every clinical scenario. Combining advanced SLA surface technology, an 11° Morse Taper internal connection, platform switching, and a unique C-Cuff design, the Vector delivers exceptional primary stability, accelerated osseointegration, and long-term tissue health. Fully optimized for digital dentistry workflows and backed by a comprehensive prosthetic ecosystem.",
+        image: "/assets/images/mgm-vector/MGM Vector.webp",
+        pdfUrl: "/assets/pdfs/MGM Vector Catalog.pdf",
+        // Grouped feature sections for rich detail page rendering
+        vectorFeatureSections: [
+          {
+            id: "stability",
+            title: "Stability & Thread Design",
+            icon: "🔩",
+            color: "from-blue-500 to-primary",
+            features: [
+              {
+                name: "Excellent Initial Stability",
+                description:
+                  "Designed with a tapered body and aggressive thread pattern to achieve strong primary stability, even in challenging bone conditions.",
+              },
+              {
+                name: "Self-Tapping Design",
+                description:
+                  "Cutting-edge thread geometry improves self-tapping ability, reducing drilling resistance and simplifying implant placement.",
+              },
+              {
+                name: "Double Thread Technology",
+                description:
+                  "Allows faster insertion with smooth placement and enhanced surgical control.",
+              },
+            ],
+          },
+          {
+            id: "surface",
+            title: "Surface Technology",
+            icon: "🔬",
+            color: "from-teal-500 to-emerald-500",
+            features: [
+              {
+                name: "Advanced SLA Surface Treatment",
+                description:
+                  "Uniform S.L.A surface enhances hydrophilicity and promotes faster osseointegration for improved healing and long-term success.",
+              },
+              {
+                name: "Enhanced Surface Cleanliness",
+                description:
+                  "Additional cleaning process removes residual acids and contaminants, improving surface stability and clinical safety.",
+              },
+            ],
+          },
+          {
+            id: "connection",
+            title: "Connection & Bone Preservation",
+            icon: "⚙️",
+            color: "from-violet-500 to-purple-600",
+            features: [
+              {
+                name: "11° Morse Taper Internal Connection",
+                description:
+                  "Minimizes micro-gap and micro-movement, enhancing mechanical stability and reducing bacterial leakage.",
+              },
+              {
+                name: "Platform Switching Concept",
+                description:
+                  "Helps preserve crestal bone and minimizes soft tissue recession around the implant.",
+              },
+              {
+                name: "Unique C-Cuff Design",
+                description:
+                  "Improves biologic width effect, increases soft tissue volume, and helps reduce marginal bone loss.",
+              },
+            ],
+          },
+          {
+            id: "digital",
+            title: "Digital & Prosthetic Ecosystem",
+            icon: "💻",
+            color: "from-amber-500 to-orange-500",
+            features: [
+              {
+                name: "Optimized for Digital Dentistry",
+                description:
+                  "Chamfer margin and prosthetic design improve digital impression accuracy and CAD/CAM workflow compatibility.",
+              },
+              {
+                name: "Comprehensive Prosthetic Solutions",
+                description:
+                  "Supports multiple abutment options including angled, UCLA, temporary, pick-up, and transfer systems.",
+              },
+              {
+                name: "Integrated Digital Ecosystem",
+                description:
+                  "Fully compatible with Lilivis digital workflow including intraoral scanners, CAD/CAM, milling, and 3D printing solutions.",
+              },
+              {
+                name: "Wide Range of Sizes",
+                description:
+                  "Multiple diameters and lengths available to cover various clinical indications, including immediate placement and posterior cases.",
+              },
+            ],
+          },
+        ],
+        features: [
+          "Excellent Initial Stability - Tapered body and aggressive thread pattern achieve strong primary stability, even in challenging bone conditions",
+          "Advanced SLA Surface Treatment - Uniform S.L.A surface enhances hydrophilicity and promotes faster osseointegration for improved healing and long-term success",
+          "Self-Tapping Design - Cutting-edge thread geometry improves self-tapping ability, reducing drilling resistance and simplifying implant placement",
+          "11° Morse Taper Internal Connection - Minimizes micro-gap and micro-movement, enhancing mechanical stability and reducing bacterial leakage",
+          "Platform Switching Concept - Helps preserve crestal bone and minimizes soft tissue recession around the implant",
+          "Unique C-Cuff Design - Improves biologic width effect, increases soft tissue volume, and helps reduce marginal bone loss",
+          "Double Thread Technology - Allows faster insertion with smooth placement and enhanced surgical control",
+          "Optimized for Digital Dentistry - Chamfer margin and prosthetic design improve digital impression accuracy and CAD/CAM workflow compatibility",
+          "Wide Range of Sizes - Multiple diameters and lengths available to cover various clinical indications, including immediate placement and posterior cases",
+          "Enhanced Surface Cleanliness - Additional cleaning process removes residual acids and contaminants, improving surface stability and clinical safety",
+          "Comprehensive Prosthetic Solutions - Supports multiple abutment options including angled, UCLA, temporary, pick-up, and transfer systems",
+          "Integrated Digital Ecosystem - Fully compatible with Lilivis digital workflow including intraoral scanners, CAD/CAM, milling, and 3D printing solutions",
+        ],
+        clinicalUses: [
+          "Immediate implant placement",
+          "Post-extraction sockets",
+          "Challenging bone conditions (Type III/IV)",
+          "Posterior cases requiring high primary stability",
+          "Aesthetic cases requiring soft tissue preservation",
+          "Digital dentistry and CAD/CAM workflows",
+          "Full-arch and multi-unit restorations",
+        ],
       },
     ],
   },
