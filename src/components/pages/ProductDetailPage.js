@@ -325,7 +325,7 @@ export const ProductDetailPage = (productId) => {
 
       ${vectorFeaturesHtml}
 
-      ${Parts3DGallery(product.id, product.name)}
+      ${"" /* Parts3DGallery(product.id, product.name) — hidden */}
 
       ${ContentsSection(product.contents)}
 
