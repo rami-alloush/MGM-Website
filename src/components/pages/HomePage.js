@@ -6,6 +6,7 @@ import {
   ImageSlider,
   Icons,
 } from "../ui/index.js";
+import { fetchSliderPosts } from "../../data/wordpress.js";
 
 export const HomePage = () => {
   const container = createElement("div", "w-full overflow-x-hidden");
@@ -247,13 +248,33 @@ export const HomePage = () => {
   container.appendChild(techSection);
   container.appendChild(productSection);
 
-  // Initialize the slider after DOM is ready
-  setTimeout(() => {
+  // Initialize the slider with WordPress data (falls back to defaults on failure)
+  setTimeout(async () => {
     const sliderContainer = container.querySelector("#homepage-slider");
-    if (sliderContainer) {
-      const slider = ImageSlider();
-      sliderContainer.appendChild(slider);
+    if (!sliderContainer) return;
+
+    // Show loading skeleton while fetching
+    sliderContainer.innerHTML = `
+      <div class="relative overflow-hidden rounded-2xl h-[450px] md:h-[650px] bg-clinical-gray animate-pulse">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        <div class="absolute bottom-10 left-10 space-y-4">
+          <div class="h-8 w-64 bg-silver/40 rounded-lg"></div>
+          <div class="h-5 w-96 bg-silver/30 rounded-lg"></div>
+        </div>
+      </div>
+    `;
+
+    let wpSlides = [];
+    try {
+      wpSlides = await fetchSliderPosts();
+    } catch (err) {
+      console.warn("Failed to fetch WordPress slider data, using defaults:", err);
     }
+
+    sliderContainer.innerHTML = "";
+    // Pass WP slides if available; ImageSlider falls back to its own defaults when empty
+    const slider = ImageSlider(wpSlides);
+    sliderContainer.appendChild(slider);
   }, 0);
 
   animateSection(container);
