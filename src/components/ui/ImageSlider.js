@@ -14,19 +14,6 @@ export const ImageSlider = (slides = []) => {
       link: "#/product/mgm",
     },
     {
-      image: "/assets/images/slider/Snipper.webp",
-      title: "Snipper",
-      subtitle: "Precision engineering for optimal clinical outcomes.",
-      link: "#/products",
-    },
-    {
-      image: "/assets/images/slider/9th-meet-academy.webp",
-      title: "9th Meet Academy",
-      subtitle:
-        "Empowering professionals with advanced training and education.",
-      link: "#/education",
-    },
-    {
       image: "/assets/images/mgm-products.jpg",
       title: "MGM Complete Product Range",
       subtitle:
@@ -61,16 +48,9 @@ export const ImageSlider = (slides = []) => {
         "Empowering professionals with advanced training, research, and technical resources.",
       link: "#/education",
     },
-    {
-      image: "/assets/images/about-bg.jpg",
-      title: "Global Presence & Support",
-      subtitle:
-        "Connecting with dental professionals worldwide to deliver exceptional assistance.",
-      link: "#/contact",
-    },
   ];
 
-  const slideData = slides.length > 0 ? slides : defaultSlides;
+  const slideData = [...defaultSlides, ...slides];
 
   container.innerHTML = `
     <div class="slider-wrapper relative overflow-hidden rounded-2xl">
@@ -100,8 +80,8 @@ export const ImageSlider = (slides = []) => {
                 <img 
                   src="${slide.image}" 
                   alt="${slide.title}" 
-                  class="slider-image w-full h-full object-cover transition-transform duration-[8000ms] ease-out ${
-                    idx === 0 ? "scale-110" : "scale-100"
+                  class="slider-image w-full h-full object-contain transition-transform duration-[8000ms] ease-out ${
+                    idx === 0 ? "scale-105" : "scale-100"
                   }"
                   loading="${idx === 0 ? "eager" : "lazy"}"
                 />
@@ -242,7 +222,7 @@ function initSlider(container, totalSlides) {
         // Ken Burns effect - start zoomed and slowly zoom out, or vice versa
         if (img) {
           img.classList.remove("scale-100");
-          img.classList.add("scale-110");
+          img.classList.add("scale-105");
         }
 
         // Animate content in
@@ -254,7 +234,7 @@ function initSlider(container, totalSlides) {
 
         // Reset Ken Burns
         if (img) {
-          img.classList.remove("scale-110");
+          img.classList.remove("scale-105");
           img.classList.add("scale-100");
         }
 

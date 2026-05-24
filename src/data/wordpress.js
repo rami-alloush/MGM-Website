@@ -33,11 +33,12 @@ export async function fetchSliderPosts({ perPage = 20 } = {}) {
 
   return posts
     .map((post) => {
-      // Extract featured image URL from embedded media
+      // Extract featured image URL — prefer full-size so the image isn't cropped
       const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0];
       const imageUrl =
-        featuredMedia?.media_details?.sizes?.large?.source_url ||
         featuredMedia?.source_url ||
+        featuredMedia?.media_details?.sizes?.full?.source_url ||
+        featuredMedia?.media_details?.sizes?.large?.source_url ||
         null;
 
       if (!imageUrl) return null; // Skip posts without a featured image
