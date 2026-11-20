@@ -704,3 +704,27 @@ html[data-theme="light"] .slider-wrapper {
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
 }
+
+.news-article :where(h2, h3, h4, h5, h6) {
+  color: var(--color-secondary);
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.news-article :where(a) {
+  color: var(--color-primary);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.news-article :where(ul, ol) {
+  padding-inline-start: 1.5em;
+}
+
+.news-article :where(ul) {
+  list-style-type: disc;
+}
+
+.news-article :where(ol) {
+  list-style-type: decimal;
+}

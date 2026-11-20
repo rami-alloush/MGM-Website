@@ -8,4 +8,5 @@ export { ProductListPage } from "./ProductListPage.js";
 export { ProductDetailPage } from "./ProductDetailPage.js";
 export { SurgicalKitsPage } from "./SurgicalKitsPage.js";
 export { ResourcesPage } from "./EducationPage.js";
+export { NewsPage, NewsArticlePage } from "./NewsPage.js";
 export { GuaranteePolicyPage } from "./GuaranteePolicyPage.js";

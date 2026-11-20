@@ -78,9 +78,9 @@ export class Router {
           "High-quality biomaterials for bone regeneration: bone grafts, collagen membranes, and PRF systems.",
       },
       "/education": {
-        title: "Education & Training - MGM Implant | Clinical Support",
+        title: "News & Education - MGM Implant",
         description:
-          "Access MGM Implant educational resources: surgical protocols, digital workflow guides, webinars, and hands-on training courses.",
+          "Read the latest news, events, and educational updates from MGM Implant.",
       },
       "/resources": {
         title: "Resources & Downloads - MGM Implant | Catalogs & Guidelines",
@@ -112,6 +112,7 @@ export class Router {
       };
     }
 
+    if (path.startsWith("/education/")) return pages["/education"];
     return pages[path] || pages["/"];
   }
 
@@ -194,6 +195,9 @@ export class Router {
           route = this.routes["/product/:id"];
           arg = id;
         }
+      } else if (/^\/education\/\d+$/.test(path)) {
+        route = this.routes["/education/:id"];
+        arg = path.split("/")[2];
       }
     }
 
@@ -248,6 +252,7 @@ export class Router {
   updateActiveNav() {
     const hash = window.location.hash || "#/";
     const path = hash.slice(1) || "/"; // Remove the # to get the path
+    const activeHref = path.startsWith("/education/") ? "#/education" : hash;
 
     // Update desktop nav
     document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -256,7 +261,7 @@ export class Router {
       const linkPath = href ? href.slice(1) : ""; // Remove # from href
 
       // Exact match
-      if (href === hash) {
+      if (href === activeHref) {
         link.classList.add("active");
       }
       // Handle Products dropdown - parent should be active when viewing any product page
@@ -269,10 +274,6 @@ export class Router {
           link.classList.add("active");
         }
       }
-      // Handle Education section
-      if (path.startsWith("/education") && linkPath === "/education") {
-        link.classList.add("active");
-      }
     });
 
     // Update mobile nav
@@ -280,7 +281,7 @@ export class Router {
       link.classList.remove("active");
       const href = link.getAttribute("href");
 
-      if (href === hash) {
+      if (href === activeHref) {
         link.classList.add("active");
       }
       // Products parent active state for mobile

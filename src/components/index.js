@@ -18,6 +18,8 @@ export {
   ProductDetailPage,
   SurgicalKitsPage,
   ResourcesPage,
+  NewsPage,
+  NewsArticlePage,
   GuaranteePolicyPage,
 } from "./pages/index.js";
 

@@ -149,7 +149,7 @@ export const AboutPage = () => {
                         </p>
                      </div>
                      
-                     <a href="https://education.mgmimplant.com/" rel="noopener noreferrer" class="flex items-center gap-2 text-accent font-medium uppercase tracking-widest text-sm pt-4 hover:text-white transition-colors group/link">
+                     <a href="#/education" class="flex items-center gap-2 text-accent font-medium uppercase tracking-widest text-sm pt-4 hover:text-white transition-colors group/link">
                         <div class="w-5 h-5">${Icons.BookOpen}</div>
                         <span>News and Education</span>
                         <div class="h-px w-12 bg-accent group-hover/link:bg-white transition-colors"></div>

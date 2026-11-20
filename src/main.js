@@ -11,6 +11,8 @@ import {
   ProductDetailPage,
   SurgicalKitsPage,
   ResourcesPage,
+  NewsPage,
+  NewsArticlePage,
   GuaranteePolicyPage,
 } from "./components/index.js";
 
@@ -36,6 +38,8 @@ const routes = {
   "/product/:id": ProductDetailPage,
   "/surgical-kits": SurgicalKitsPage,
   "/resources": ResourcesPage,
+  "/education": NewsPage,
+  "/education/:id": NewsArticlePage,
   "/guarantee-policy": GuaranteePolicyPage,
 };
 
