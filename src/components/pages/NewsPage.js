@@ -2,10 +2,10 @@ import DOMPurify from "dompurify";
 import { fetchNewsPost, fetchNewsPosts } from "../../data/wordpress.js";
 import { createElement } from "../utils.js";
 
-const pageClass = "min-h-screen bg-white/95 px-6 py-16 md:px-8";
+const pageClass = "news-page min-h-screen bg-white/90 px-6 py-16 md:px-8";
 const headingClass = "font-heading text-4xl font-bold text-secondary md:text-5xl";
 const buttonClass =
-  "rounded-lg border border-primary px-5 py-2 font-semibold text-primary hover:bg-primary hover:text-white disabled:opacity-50";
+  "news-button rounded-lg border border-current px-5 py-2 font-semibold disabled:opacity-50";
 const dateFormat = new Intl.DateTimeFormat("en", {
   dateStyle: "long",
   timeZone: "UTC",
@@ -36,14 +36,14 @@ function newsCard(post) {
   );
 
   if (post.image) {
-    const image = postImage(post, "aspect-video w-full bg-gray-50 object-contain");
+    const image = postImage(post, "aspect-video w-full bg-clinical-gray object-contain");
     image.loading = "lazy";
     article.append(image);
   }
 
   const body = createElement("div", "space-y-3 p-6");
   const heading = createElement("h2", "font-heading text-xl font-bold text-secondary");
-  const link = createElement("a", "hover:text-primary hover:underline", post.title);
+  const link = createElement("a", "news-card-link hover:underline", post.title);
   link.href = `#/education/${post.id}`;
   heading.append(link);
   body.append(postDate(post.date), heading);
@@ -107,7 +107,7 @@ export const NewsArticlePage = (id) => {
   const container = createElement("div", "mx-auto max-w-3xl space-y-6");
   const back = createElement(
     "a",
-    "inline-block font-semibold text-primary hover:underline",
+    "news-back-link inline-block font-semibold hover:underline",
     "← All news",
   );
   back.href = "#/education";
@@ -126,7 +126,9 @@ export const NewsArticlePage = (id) => {
 
       article.append(createElement("h1", headingClass, post.title), postDate(post.date));
       if (post.image) {
-        article.append(postImage(post, "max-h-[36rem] w-full rounded-xl object-contain"));
+        article.append(
+          postImage(post, "max-h-[36rem] w-full rounded-xl bg-clinical-gray object-contain"),
+        );
       }
 
       const content = createElement("div", "news-article space-y-4 text-lg text-charcoal");

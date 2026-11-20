@@ -705,14 +705,37 @@ html[data-theme="light"] .slider-wrapper {
   outline-offset: 4px;
 }
 
+.news-page {
+  --news-accent: #ff7078;
+}
+
+html[data-theme="light"] .news-page {
+  --news-accent: var(--color-primary-hover);
+}
+
+.news-card-link:is(:hover, :focus-visible),
+.news-back-link,
+.news-article :where(a),
+.news-button {
+  color: var(--news-accent);
+}
+
+.news-button:not(:disabled):is(:hover, :focus-visible) {
+  background-color: var(--color-primary-hover);
+  color: #fff;
+}
+
+.news-page :is(a, button):focus-visible {
+  outline: 2px solid var(--news-accent);
+  outline-offset: 3px;
+}
+
 .news-article :where(h2, h3, h4, h5, h6) {
-  color: var(--color-secondary);
   font-size: 1.25em;
   font-weight: 700;
 }
 
 .news-article :where(a) {
-  color: var(--color-primary);
   text-decoration: underline;
   overflow-wrap: anywhere;
 }
